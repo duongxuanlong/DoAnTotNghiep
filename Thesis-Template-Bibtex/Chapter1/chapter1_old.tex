@@ -1,0 +1,156 @@
+\chapter{Giới thiệu}
+%\addcontentsline{toc}{chapter}{Chương I : Ngôn Ngữ}
+\label{Chapter1}
+
+\hspace{10mm}Phân loại được áp dụng trong nhiều lĩnh vực, đề tài khác nhau nhưng ở đây em chọn đề tài phân loại văn bản.\\
+\hspace*{10mm}Phân loại văn bản là ứng dụng trong việc phân tích phân loại trong văn bản, thường được sử dụng trong tự động tổ chức tài liệu, trích xuất chủ đề và truy vấn thông tin nhanh hay sử dụng bộ lọc. Phân loại văn bản bao gồm sử dụng mô tả và trích xuất mô tả. Mô tả là những tập hợp từ dùng để mô tả nội dung giữa các nhóm được phân loại. Phân loại văn bản thường được xem như là tiến trình tập trung hóa. Ví dụ như phân loại văn bản trên web giúp cho người dùng dễ tìm kiếm. Ứng dụng trong phân loại văn bản thường được gom thành hai loại là : online và offline. Ứng dụng online thường bị ràng buộc bởi vấn đề hiệu quả khi so với ứng dụng offline.\\
+\hspace*{10mm}Sau đây, em giới thiệu sơ qua các phương pháp thường được sử dụng không chỉ dành cho phân loại văn bản mà còn dành cho bài toán phân loại(phần chi tiết sẽ được đề cập trong \hyperref[Chapter2]{\textcolor{blue}{Chương 2}} trang \textcolor{blue}{\pageref{Chapter2}})
+\begin{enumerate}
+%\vspace{-10mm}
+\item[] Phương pháp phân chia miền
+\item[] Phương pháp hệ thống phân cấp
+\item[] Phương pháp dựa vào mật độ
+\item[] Phương pháp dựa vào lưới tạo độ
+\item[] Phương pháp dựa vào mô hình
+\item[] Phương pháp dựa vào ràng buộc
+\end{enumerate}
+\hspace{10mm}Phương pháp sử dụng trong bài toán phân loại của em là phương pháp hệ thống phân cấp kết hợp với đồng phân loại.\\
+\hspace*{10mm}Phân loại là kỹ thuật phổ biến trong khai thác dữ liêu để phân chia dữ liệu thành những nhóm mà mỗi nhóm gồm các đối tượng gần tương đồng với nhau, còn những đối tượng không tương đồng thì thuộc nhóm khác. Khi mà dữ liệu được biểu diễn có số chiều cao, các thuật toán phân loại truyền thống sẽ không làm được việc phân chia tối ưu bởi vì hiệu ứng chuyển đổi chiều. Một vài cách tính khoảng cách ma trận đã được giới thiệu để giải quyết vấn đề có số chiều cao của dữ liệu(ví dụ như độ tương đồng cosine) và lựa chọn đặc trưng dùng để giảm đặc trưng. \\
+\hspace*{10mm}Tuy nhiên, có một cách tiếp cận hay hơn là đồng phân loại. Đây là cách tiếp cận mà đồng thời gom nhóm đối tượng và gom nhóm đặc trưng. Thuật toán đồng phân lọa hiệu quả vì khai thác cách đo lường giống nhau giữa những nhóm trong một chiều của vấn đề và từ đó để gom nhóm cho chiều khác. Nghĩa là gom nhóm các đối tượng được ước lượng bằng các nhóm trong đặc trưng và ngược lại. Bằng cách này thì các đối tượng được gom nhóm trong không gian được giảm bớt số chiều vì được gom nhóm bằng các nhóm đặc trưng chứ không sử dụng đặc trưng ban đầu để gom nhóm. \\
+\hspace*{10mm}Một trong những mục đích kinh điển của phân loại là cung cấp mô tả của dữ liệu bằng cách tiến trình tóm tắt. Trong nhiều ứng dụng, người dùng cuối thường học hiện tượng tự nhiên bằng mối quan hệ gần gũi liên quan tồn tại giữa các đối tượng được phân tích. Nhiều thuật toán phân cấp có lợi ích là có thể tạo ra đồ thị dạng cây dùng để lưu trữ lịch sử của quá trình hợp vào hoặc tách ra giữa các phân nhóm. Kết quả là tạo ra hệ thống cấp bậc các nhóm và vị trí các nhóm liên quan trong hệ thống đó.\\
+\hspace*{10mm}Điều này có ý nghĩa lớn vì có thể thông tin cho chúng ta biết được rằng độ tương đồng giữa các nhóm với nhau. Hệ thống phân cấp này thường dễ hiểu và đóng góp thành công cụ khái niệm hữu ích để biết được mối quan hệ trong và ngoài của các đối tượng, đồng thời cung cấp hình ảnh đại diện của kết quả phân nhóm và giải thích chúng. Xa hơn nữa, hệ thống phân cấp được sử dụng như công cụ để tổ chức miền khái niệm dùng để duyệt và tìm kiếm đối tượng, khám phá đặc trưng chung và khác nhau. \\
+\hspace*{10mm}Hệ thống phân cấp này là công cụ khái niệm đặc biệt thích hợp nếu một nhóm trong phân cấp được xây dựng trong một miền mà bên trong đó có thể hiểu được miền khác và đưa ra thông tin để tạo ra hệ thống phân cấp khác. Trong nghiên cứu này, thuật toán đồng phân cấp có dữ liệu là tần số và đồng thời tạo ra tổ chức hệ thống phân cấp của cả hai vấn đề: đối tượng và đặc trưng. Trong nhiều ứng dụng thì cả hai hệ thống phân cấp cực kì hữu ích và được sử dụng để khai thác văn bản. Kết quả của hệ thống phân cấp đối tượng cho ra thông tin cấu trúc của các văn bản. Mặt khác, những từ khóa sẽ được tổ chức thành nhóm có ý nghĩa tương đồng hoặc từ có nghĩa liên quan và cấu trúc này cho ta mạng ngữ nghĩa quan hệ giữa các từ khóa với nhau. \\
+
+\hspace*{10mm}Sau đây thì em sẽ trình bày ví dụ về thuật toán của mình:\\
+\begin{table}[ht]
+\caption{Bảng dữ liệu đầu vào}
+\label{tab::bdldv1}
+\begin{center}
+%\begin{tabular}{|c p{3cm|c p{3cm}|c p{3cm}|c p{3cm}|c p{3cm}|c p{3cm}|}
+\begin{tabular}{|c |c |c |c |c |c |c |}
+\cline{2-7}
+\multicolumn{1}{c|}{} & v1 & v2 & v3 & v4 & v5 & v6\\ \hline
+d1 & 1 & 0 & 1 & 0 & 1 & 1\\ \hline
+d2 & 1 & 2 & 1 & 2 & 0 & 1\\ \hline
+d3 & 1 & 0 & 0 & 1 & 1 & 0\\ \hline
+d4 & 1 & 0 & 1 & 0 & 0 & 1\\ \hline
+d5 & 1 & 2 & 1 & 2 & 2 & 1\\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+\clearpage
+\begin{table}[ht]
+\caption{Bảng kết quả đầu ra}
+\label{tab::bkqdr1}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\cline{2-6}
+\multicolumn{1}{c|}{}& d1 & d2 & d3 & d4 & d5\\ \hline
+l1 & 0 & 1 & 0 & 1 & 1\\ \hline
+l2 & 0 & 2 & 1 & 3 & 3\\ \hline
+l3 & 0 & 2 & 1 & 3 & 4\\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+%\clearpage
+%\begin{table}[ht]
+%\caption{Bảng mô tả cấu trúc cây từ \ref{tab::bkqdr1}}
+%\label{tab::bmtkq1}
+%\begin{center}
+%%\begin{tabular}{|c |c |c |}
+%\begin{tabular}{p{3cm} |p{3cm} |p{3cm} |}
+%\hline
+%l1 & l2 & l3\\ \hline
+%\hline%\cline{1-1}
+%d1 & & \\ \hline
+%
+%%\cline{3-1} \cline{3-2} \cline{3-3}
+%%\hline
+%\multirow{2}{*}{d3} & d2 & \\ 
+%\cline{2-3} & d4 & d5\\ \hline
+%%\cline{2-2}
+%%\cline{3-3}
+%%\hline
+%%d3 & d2 \\ \hline
+%%d4 & d5 \\ \hline
+%\end{tabular}
+%\end{center}
+%\end{table}
+
+%\Tree [.EM .DP [.D the ] [.NP [.N man ] ] ]
+\hspace{10mm}Kết quả đầu ra theo cấu trúc cây\\
+
+\begin{tikzpicture}[sibling distance=15em,
+	level distance=10em,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+    
+  \node[align=center, below](1) at (7,0) {d$1$};
+%  \node [left, above] {l$1$};
+
+  \node[align=center, below](3) at (10,0) {d$3$}
+    child { node (2) {d$2$} }
+    child { node (4) {d$4$}
+    	child{node (5){d$5$}}
+%      child { node {aligned at}
+%        child { node {relation sign} }
+%        child { node {several places} }
+%        child { node {center} } }
+%      child { node {first left,\\centered,\\last right} } 
+	};
+%	\draw[dashed] let \p1=(1), (0, \y1 + 5em) -- (15, \y1 + 5em) node[left, above] {l$1$};
+	\draw[dashed] let \p1=(1),\p2=(4),\p3=(4.north west),\p4=(4.north east) in 
+    (\x3-20em,{\y2 + 8em}) -- (\x4+1cm,{\y2 + 8em})
+    node[solid, align=left, above] at (\x3-8cm,{\y2 + 8.5em}) {l$1$};
+    
+    \draw[dashed] let \p1=(1),\p2=(5),\p3=(5.north west),\p4=(5.north east) in 
+    (\x3-20em,{\y2 + 8em}) -- (\x4+1cm,{\y2 + 8em})
+    node[solid, align=left, above] at (\x3-8cm,{\y2 + 8.5em}) {l$2$};
+    
+    \draw[dashed] let \p1=(1),\p2=(5),\p3=(5.north west),\p4=(5.north east) in 
+    (\x3-20em,{\y2 - 2em}) -- (\x4+1cm,{\y2 - 2em})
+    node[solid, align=left, above] at (\x3-8cm,{\y2 - 1em}) {l$3$};
+    
+%    \draw[dashed] let \p1=(2),\p2=(5),\p3=(2.north west),\p4=(2.north east) in 
+%    (\x3-1cm,{(\y1+\y2)/2}) -- (\x4+1cm,{(\y1+\y2)/2})
+%    node[right, above] {l$2$};
+    
+%    \draw[dashed] let 
+	
+%	\draw (0,6) -- (15, 6);
+\end{tikzpicture}
+
+%\begin{table}[ht]
+%\caption{Bảng ví dụ 1}
+%\label{tab:vd1}%
+%\begin{center}
+%\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+% \hline
+% \multicolumn{4}{|c|}{Country List} \\
+% \hline
+% Country Name     or Area Name& ISO ALPHA 2 Code &ISO ALPHA 3 Code&ISO numeric Code\\
+% \hline
+% Afghanistan   & AF    &AFG&   004\\
+% Aland Islands&   AX  & ALA   &248\\
+% Albania &AL & ALB&  008\\
+% Algeria    &DZ & DZA&  012\\
+% American Samoa&   AS  & ASM&016\\
+% Andorra& AD  & AND   &020\\
+% Angola& AO  & AGO&024\\
+% \hline
+%\end{tabular}
+%\end{center}
+%\end{table}
+%\hspace*{10mm}Tuy nhiên, chúng ta lại đối mặt với 
+%\hspace{10mm}Clustering dùng để gom nhóm một tập hợp các đối tượng mà chúng gần giống nhau vào thành một nhóm. Đây là nhiệm vụ chính trong khai thác dữ liêu và kỹ thuật chung trong phân tích thống kê dữ liệu, được sử dụng trong nhiều lĩnh vực như: machine learning, pattern recognition, image analysis, information retrieval và bioinformatics.
+
+%\section{Co-Clustering}
+%\hspace{10mm}Co-Clustering là kỹ thuật trong khai thác dữ liệu cho phép đồng thời gom nhóm dòng và cột của ma trận. 
+%\hspace*{10mm}Cho một tập gồm $m$ dòng và $n$ cột (ma trận $m x n$), co-clustering tạo ra 
+%\section{Hierarchical clustering}
+%Lề trên, lề dưới, lề trái, lề phải đều là 1.5 cm.
+%Các bảng biểu trình bày theo chiều ngang khổ giấy thì đầu bảng là lề trái của trang.
+%Tóm tắt luận án phải phản ảnh trung thực kết cấu, bố cục và nội dung của luận án, phải ghi đầy đủ toàn văn kết luận của luận án.
+%\section{Hierarchical Co-clustering}
+%Mẫu trình bày trang bìa của tóm tắt luận văn (phụ lục 1).

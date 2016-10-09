@@ -1,0 +1,62 @@
+\chapter{Gom nhóm văn bản}
+\label{Chapter1}
+\section{Giới thiệu về gom nhóm}
+\hspace{10mm}Vấn đề gom nhóm đã được nghiên cứu rộng rãi trong cơ sở dữ liệu và thống kê trong khai thác dữ liệu. Công việc của gom nhóm là tìm những nhóm gồm các đối tượng giống nhau trong dữ liệu. Độ tương đồng giữa các đối tượng được đo bằng cách sử dụng hàm tương đồng. Gom nhóm dữ liệu rất hữu dụng trong văn bản, khi được gom nhóm từ các đối tượng khác nhau như : văn bản, đoạn văn bản, câu hoặc là từ. Đặt biệt, gom nhóm rất hữu dụng trong tổ chức văn bản đề cải thiện truy xuất văn bản.\\
+\hspace*{10mm}Nghiên cứu của vấn đề gom nhóm đứng trước tính khả dụng khi ứng dụng vào văn bản. Các phương pháp truyền thống cho gom nhóm thường tập trung vào dữ liệu lớn, khi thuộc tính của dữ liệu là số. Vấn đề này cũng được nghiên cứu trong phân loại dữ liệu, khi mà thuộc tính có giá trị nặc danh. Vấn đề của gom nhóm là tìm được tính khả dụng trong các nhiệm vụ sau :
+\begin{enumerate}
+\item[•]Duyệt và tổ chức văn bản : tổ chức phân cấp của văn bản vào trong các hạng mục mạch lạc. Điều này có thể giúp ích cho việc duyệt hệ thốn của tập hợp văn bản. Ví dụ kinh kiển cho phương pháp này là Scatter/Gather. Phương pháp này cung cấp kỹ thuật duyệt hệ thống với sử dụng gom nhóm tổ chức của tập hợp văn bản.
+\item[•]Tóm tắt corpus : kỹ thuật gom nhóm cung cấp tóm tắt mạch lạc của tập hợp trong dạng nhóm tài tiệu hoặc nhóm từ. Thứ này được sử dụng đề cung cấp tóm tắt trong phần nội dung tổng kết của corpus căn bản. Lính vực này có nhiều phương pháp, đặc biệt là gom nhóm câu dùng để tóm tắt văn bản. Vấn đề của gom nhóm liên quan đến việc giảm số chiều và mô hình hóa chủ đề. 
+\item[•]Phân loại văn bản : Gom nhóm là phương pháp học không giám sát. Nó thể được đòn bẩy hóa để cải thiện chất lượng kết quả trong giám sát. Cụ thể, các nhóm từ và phương thức đồng huấn luyện có thể được sử dụng để cải thiện độ chính xác phân loại của ứng dụng giám sát với tác dụng của kỹ thuật gom nhóm.
+\end{enumerate}
+
+\section{Gom nhóm văn bản}
+\hspace{10mm}Một tài liệu văn bản có thể được biểu diễn dưới dạng nhị phân. Khi đó, chúng ta sử dụng sự hiện diện theo thứ tự của từ để tạo thành vector nhị phân. Các phương pháp chung của các thuật toán như : $K-means$, phân cấp được sẻ dụng cho bất kì loại dữ liệu nào, bao gồm cả dữ liệu văn bản. Trong nhiều trường hợp, chúng ta sử dụng nhiều thuật toán gom nhóm phân loại dữ liệu trong thể hiện nhị phân. Trọng số của từ là dựa vào tần số xuất hiện trong toàn bộ tập hợp. Thuật toán gom nhóm dữ liệu có thể kết nối tần số của từ để tạo ra nhóm liên quan.\\
+\hspace*{10mm}Tuy nhiên, các kỹ thuật ngây thơ thường không hiệu quả cho gom nhóm dữ liệu văn bản. Điều này là vì dữ liệu văn bản có một số thuộc tính độc nhất. Cho nên, các thuật toán đòi hỏi cần thiết kế đặc biệt cho nhiệm vụ này. Những đặc trưng riêng biệt của biểu diễn văn bản như sau : 
+\begin{enumerate}
+\item[•]Số chiều của biểu diễn văn bản là rất lớn, nhưng cơ bản là dữ liệu thì thưa thớt. Nói cách khác, vốn từ trong dữ liệu có thể là $10^5$ nhưng một tài liệu thì chỉ có khoảng vài trăm từ. Vấn đề này càng trở nên nghiêm trọng hơn khi các tài liệu được gom nhóm lại quá ngắn.
+\item[•]Trong khi vốn từ cho sẵn của các tài liệu có thể rất lớn, những từ kinh điển liên kết với từ khác. Điều này có nghĩa là số lượng của niệm(hoặc là thành phần cơ bản) trong dữ liệu nhỏ hơn không gian đặc trưng. Điều đó đòi hỏi thuật toán cần thiết kế cẩn thận đề quan tâm đến mối liên kết từ trong tiến trình go nhóm.
+\item[•]Số lượng từ (hoặc là khác không) trong nhiều tài liệu khác nhau là khác biệt lớn. Vì thế, điều quan trọng là phải chuẩn hóa các thể hiện của văn bản thích hợp trong suốt nhiệm vụ gom nhóm.
+\end{enumerate}
+\hspace{10mm}Sự thưa thớt và số chiều cao trong thể hiện của nhiều tài liệu văn bản là vấn đề cần được quan tâm. Vì vậy, thuật toán được đòi hỏi thiết kế đặc thù cho thể hiện của văn bản. Nghiên cứu về chủ đề tối ưu tính thể hiện của văn bản đưa ra nhiều kỹ thuật để cải thiện truy vấn văn bản. Hầu hết những kỹ thuật này cũng có thể cải thiện thể hiện cua văn bản cho vấn đề gom nhóm.\\
+\hspace*{10mm}Để tăng hiệu quả gom nhóm, tần số của từ cần được chuẩn hóa trong toàn dữ liệu. Nhìn chung, biểu diễn văn bản bằng TF-IDF là cách phổ biến. Trong TF-IDF, tần số của từ được chuẩn hóa bằng tần số văn bản đảo ngược(IDF). Sự chuẩn hóa tần số văn bản đảo ngược giảm trọng cho từ mà hay xuất hiện trong tập hợp. Điều này giảm tầm quan trọng của từ thường, tăng tác động của từ tách biệt.\\
+\hspace*{10mm}Ngoài ra, hàm chuyển đổi tuyến tính phụ được áp dụng cho tần số từ. Điều này giúp tránh việc ảnh hưởng của một từ quá phổ biến trong văn bản. Công việc chuẩn hóa văn bản chính bản thân nó đã là nhánh nghiên cứu rât lớn. Vì vậy, nhiều kỹ thuật khác nhau dành cho việc chuẩn hóa đã ra đời.\\
+
+\section{Các phương pháp gom nhóm}
+\hspace{8mm}\underline{Phương pháp phân chia miền}\\
+\hspace*{10mm}Phương pháp phân chia miền được thực hiện bằng cách tái phân bổ các đối tượng. Bắt đầu từ miền khởi tạo, phương pháp này dịch chuyển đối tượng từ phân nhóm này sang phân nhóm khác. Phương pháp này thường đòi hỏi số lượng phân nhóm phải được thiết lập bởi người dùng. Do số lượng phân nhóm được thiết lập bởi ban đầu nên kết quả thường không được tối ưu. Vì vậy, phương pháp này cần một quá trình liệt kê đầy đủ tất cả các phân vùng có thể. \\
+\hspace*{10mm}Nhưng việc liệt kê đầy đủ tất cả các phân vùng có thể không phải là điều khả thi. Thay vào đó, các thuật toán heuristics được sử dụng để có hiệu quả tương đương. Các thuật toán heuristics thường được áp dụng trong các hình thức tối ưu hóa vòng lặp. Nói cách khác, việc tái phân bổ các đối tượng theo vòng lặp để phân phối các các đối tượng trong $k$ phân nhóm.\\
+\hspace*{10mm}Giả sử chúng ta có một cơ sở dữ liệu có $n$ đối tượng.  Mục tiêu là phân chia $n$ đối tượng vào $k$ miền cho trước. Và mỗi một miền được chia thể hiện một phân nhóm và $k \leq n$. Điều đó có nghĩa là sẽ phân loại dữ liệu vào $k$ nhóm dể thỏa mãn các điều sau:\\
+\begin{enumerate}
+\vspace{-10mm}
+\item[•]Mỗi nhóm có ít nhất một đối tượng.
+\item[•]Mỗi đối tượng phải nằm trong một nhóm duy nhất.
+\end{enumerate}
+
+\clearpage
+
+\underline{Phương pháp dựa vào mật độ}\\
+\hspace*{10mm}Phương pháp này phân loại dựa vào mật độ của các điểm. Ý tưởng cơ bản là cứ tiếp tục phát triển phân nhóm cho đến mật độ của hàng xóm vượt ngưỡng. Nghĩa là mỗi điểm thuộc về một phân nhóm, bán kính của phân nhóm phải chứa ít nhất một số điểm. Các phân nhóm có mật độ dày đặc được chia cắt bởi các phân nhóm có mật độ thấp. Mật độ các điểm của phân nhóm tạo thành nên các hình thù ngẫu nghiên của phân nhóm đó.\\
+
+\underline{Phương pháp dựa vào lưới tọa độ}\\
+\hspace*{10mm}Đây là thuật toán sử dụng mạng lưới cấu trúc dữ liệu đa phân giải. Thông thường, bài toán phân loại trên dữ liệu lớn có độ tính toán phức tạp cao. Tuy nhiên, thuật toán này có ưu điểm lớn là giảm được độ phức tạp khi tính toán, đặc biệt là dữ liệu lớn. Hướng tiếp cận của thuật toán này cũng cũng khác so với các thuật toán phân loại thường gặp. Thuật toán này không tập trung vào điểm dữ liệu mà vào giá trị xung quanh điểm dữ liệu. \\
+
+\underline{Phương pháp dựa vào mô hình}\\
+\hspace*{10mm} Đây là phương pháp dựa vào giả thiết dữ liệu được tạo ra bởi sự pha trộn của các phân phối xác suất. Trong phương pháp này, một mô hình được giả thiết cho mỗi phân nhóm đề tìm sự thích hợp tốt nhất của dữ liệu cho mô hình đã cho. Hay nói cách khác, thuật toán cố gắng tối ưu độ tương thích giữa dữ liệu và mô hình toán học. Phương pháp này định vị phân nhóm bằng hàm mật độ phân loại. Đồng thời, nó phản ánh phân phối của không gian của những điểm dữ liệu.\\
+
+\underline{Phương pháp phân cấp}\\
+\hspace*{10mm}Gom nhóm phân cấp là phương pháp xây dựng nên cấu trúc phân cấp của các nhóm. Phương pháp gom nhóm này có hai cách tiếp cận là agglomerative và divisive. Kết quả sau khi gom nhóm thường là đồ thị hình cây thể hiện cấu trúc của các nhóm. Quá trình phân chia hay gộp lại cần có phương pháp đo lường(\hyperref[Chapter2]{\textcolor{blue}{Chương 2}}). Trong hầu hết các phương pháp, khoảng cách đo gữa các điểm trong không gian thường được sử dụng.\\
+\hspace*{10mm}Việc lựa chọn cách tính khoảng cách sẽ ảnh hưởng đến việc gom nhóm. Công thức khoảng cách có thể khiến cho một đối tượng gần với đối tượng này hoặc xa rời đối tượng khác. Ví dụ về tính khoảng cách cho 2 điểm $(1, 0)$ và $(0, 0)$ trong không gian hai chiều. Công thức định mức thường thì cho ra giá trị 1, khi sử dụng khoảng cách Manhattan thì cho ra giá trị 2. Còn công thức tính khoảng cách Euclidean thì cho ra giá trị là $\sqrt{2}$.\\
+\hspace*{10mm}Nếu dữ liệu là văn bản hay không phải là số thì khoảng cách Hamming hay khoảng cách Levenshtein hay sử dụng. Thống kê cho thấy khoảng cách đo lường hay sử dụng là khoảng cách Euclidean. Sau đây, tôi xin giới thiệu các công thức tính khoảng cách :
+\begin{enumerate}
+\item[•]Khoảng cách Euclidean : $\parallel a \,- \, b \parallel_2 \, = \, \sqrt{\underset{i}{\sum}(a_i \, - \, b_i)^2} $
+\item[•]Khoảng cách Euclidean vuông : $\parallel \, a \, - \, b \, \parallel^2_2 \, = \, \underset{i}{\sum} (a_i - b_i)^2$
+\item[•]Khoảng cách Manhatthan : $\parallel \, a \, - \, b \, \parallel_1 \, = \, \underset{i}{\sum} \mid a_i \, - \, b_i\mid$
+\item[•]Khoảng cách cực đại : $\parallel \, a \, - \, b\, \parallel_\infty \, = \, \underset{i}{max} \mid a_i \, - \, b_i \mid$
+\item[•]Khoảng cách Mahalanobis : $\sqrt{(a \, - \, b)^{\top} \, S^{-1} \, (a \, - \, b)}$ với $S$ là ma trận covariance
+\end{enumerate}
+
+\hspace*{10mm}
+
+\section{Mục tiêu đồ án}
+\hspace{10mm}Mục tiêu của đồ án là gom nhóm thành các nhóm con chính xác hơn. Để thực hiện được điều này, tôi sử dụng gom nhóm phân cấp kết hợp với đồng gom nhóm. Ở mỗi cấp thì thuật toán tái sử dụng lại kết quả của cấp trước để gom thành nhóm nhỏ. Văn bản được gom nhóm dựa vào từ còn từ được gom nhóm thì dựa vào văn bản. Điều này lặp lại cho đến cấp cuối cùng và sự kết hợp này mang đến sự hiệu quả.
+
