@@ -35,10 +35,22 @@ Chúng ta sử dụng contingency table để lưu trữ phân phối của giá
 
 \hspace*{10mm}Nguyên tắc cơ bản để $\tau$ xác định giảm tỷ lệ trong lỗi bằng hai luật. Luật thứ nhất là quyết định số lượng lỗi của dự đoán mà không sử dụng thông tin biến độc lập. Luật thứ nhất cho ra kết quả $E_1$, số lượng lỗi của dự đoán cho mỗi giá trị của biến phụ thuộc(dành cho hàng). Luật thứ hai cho thông tin về biến độc lập(dành cho cột) thường dùng để dự đoán tần só của mỗi giá trị của biến phụ thuộc. Luật thứ hai cho ra kết quả về lỗi dự đoán, $E_2$.\\
 
-\hspace*{10mm}Ví dụ, cho hai biến rời rạc $Job$ và $Salary$ trong đó $Salary$ là biến phụ thuộc, còn $Job$ là biến độc lập. Bảng
+\hspace*{10mm}Ví dụ, cho hai biến rời rạc $Job$ và $Salary$ trong đó $Salary$ là biến phụ thuộc, còn $Job$ là biến độc lập. Bảng \hyperref[bang_2_1]{\textcolor{blue}{Bảng 2.1}} cho dữ liệu như sau:
 \begin{table}[ht]
 \begin{center}
-\begin{tabular}{c c c c c c}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+& $Job=Clerk$ & $Job=Teacher$ & $Job=Manager$ & $Job=Journalist$ & $Total$ \\
+\hline
+\hline
+$Salary=Low$ & d$_{11}$ & d$_{12}$ & d$_{13}$ & d$_{14}$ & d$_{r1}$ \\
+\hline
+$Salary=Medium$ & d$_{21}$ & d$_{22}$ & d$_{23}$ & d$_{24}$ & d$_{r2}$ \\
+\hline
+$Salary=High$ & d$_{31}$ & d$_{12}$ & d$_{13}$ & d$_{14}$ & d$_{r1}$ \\
+\hline
+& c$_{1}$ & c$_{2}$ & c$_{3}$ & c$_{4}$ & c$_{5}$
+\hline
 
 \end{tabular}
 \end{center}
