@@ -36,6 +36,7 @@ Chúng ta sử dụng contingency table để lưu trữ phân phối của giá
 \hspace*{10mm}Nguyên tắc cơ bản để $\tau$ xác định giảm tỷ lệ trong lỗi bằng hai luật. Luật thứ nhất là quyết định số lượng lỗi của dự đoán mà không sử dụng thông tin biến độc lập. Luật thứ nhất cho ra kết quả $E_1$, số lượng lỗi của dự đoán cho mỗi giá trị của biến phụ thuộc(dành cho hàng). Luật thứ hai cho thông tin về biến độc lập(dành cho cột) thường dùng để dự đoán tần só của mỗi giá trị của biến phụ thuộc. Luật thứ hai cho ra kết quả về lỗi dự đoán, $E_2$.\\
 
 \hspace*{10mm}Ví dụ, cho hai biến rời rạc $Job$ và $Salary$ trong đó $Salary$ là biến phụ thuộc, còn $Job$ là biến độc lập. Bảng \hyperref[bang_2_1]{\textcolor{blue}{Bảng 2.1}} cho dữ liệu như sau:
+\noindent
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -49,12 +50,61 @@ $Salary=Medium$ & d$_{21}$ & d$_{22}$ & d$_{23}$ & d$_{24}$ & d$_{r2}$ \\
 \hline
 $Salary=High$ & d$_{31}$ & d$_{12}$ & d$_{13}$ & d$_{14}$ & d$_{r1}$ \\
 \hline
-& c$_{1}$ & c$_{2}$ & c$_{3}$ & c$_{4}$ & c$_{5}$
+& c$_{1}$ & c$_{2}$ & c$_{3}$ & c$_{4}$ & $T$\\
 \hline
+\end{tabular}
+\caption[Bảng dữ liệu giữa $Salary$ và $Job$ ]{Bảng dữ liệu thống kê giữa $Salary$ và $Job$}
+\label{bang_2_1}
+\end{center}
+\end{table}
 
+\hspace{10mm}Với: d$_{ri}$ là tổng số dữ liệu của dòng thứ i, c$_{j}$ là tổng số dữ liệu của cột thứ j và T là tổng số dữ liệu của bảng.
+
+Công thức tính $\tau$:
+\begin{equation}
+\tau = \frac{E_1 - E_2}{E_1}
+\end{equation}
+Công thức dành cho luật thứ nhất:
+\begin{equation}
+E_1 = \sum_i(\frac{n - R_i}{n} \times Ri)
+\end{equation}
+
+Công thức tính luật thứ hai:
+
+\begin{equation}
+\begin{matrix}
+E_{2j} = \sum_j(\frac{C_j - O_{ij}}{C_j} \times O_{ij}) \\
+E_2 = \sum_jE_{2j}
+\end{matrix}
+\end{equation}
+
+\hspace{10mm}Dựa vào công thức tính $\tau$, ta có thể thấy nó thỏa mãn tính chất để thể hiện mối liên quan giữa hai biến. Công thức tính $\tau$ thể hiện phép toán hoán vị giữa các trị dòng và cột. Ngoài ra, công thức còn cho ta thấy mối liên hệ về việc giảm lỗi trong dự đoán của biến phụ thuộc dựa vào biến không phụ thuộc. Công thức $\tau$ để đo tính hợp lệ cho giải pháp đồng phân nhóm từ hai phân nhóm, một cho giá trị của biến phụ thuộc, còn lại cho biến không phụ thuộc. Ta có thể cải thiện thêm $\tau$ bằng cách cải tiến contingency table từ \hyperref[bang_2_1]{\textcolor{blue}{Bảng 2.1}}
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+& $CC_1$ & $CC_2$ & \\
+\hline
+$RC_1$ & t$_{11}$ & t$_{12}$ & T$_{RC_1}$ \\
+\hline
+$RC_2$ & t$_{21}$ & t$_{22}$ & T$_{RC_2}$ \\
+\hline
+& T$_{CC_1}$ & T$_{CC_2}$ & T \\
+\hline
 \end{tabular}
 \end{center}
 \end{table}
+
+Với $RC_i$ biểu diễn phân nhóm thứ $i$ của dòng, còn $CC_j$ biểu diễn phân nhóm thứ $j$ trên cột. Trong ví dụ trên, ta giả thiết rằng $RC_1$ đã gọp lại những dòng từ bảng gốc của $Salary$ thành {Low, Medium}. Trong khi đó, $RC_2$ còn lại vẫn là $Salary=High$. Tương tự cho cột, $CC_1$ đã gộp những cột của $Job$ thành {Clerk, Teacher}, còn $CC_2$ chứa cột {Manager, Journalist}. $t_{ij}$ biểu diễn giá trị chứa trong ô giao nhau của dòng thứ $i$ và cột thứ $j$. 
+\begin{equation}
+t_{ij} = \sum_{Salary=x_value \in RC_i} (\sum_{Job=y_value \in CC_j} d_{xy})
+\end{equation}
+
+\hspace{10mm}Với $x$ có miền từ tất cả các giá trị của biến $Salary$ và $y$ là miến giá trị của tất cả biến $Job$. Trong cách thể hiện mới này, ta có thể cải thiện cách đánh giá theo từng bước một của thuật toán theo sự kết hợp của hai phân nhóm(dòng và cột). 
+
+\subsection{Thuật toán}
+
 
 %\section{Dendogram}
 %\hspace{10mm}Giới thiệu về dendogram.\\

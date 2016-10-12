@@ -34,25 +34,25 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.2}\IeC {\DJ }\IeC {\d \ocircumflex } t\IeC {\uhorn }\IeC {\ohorn }ng \IeC {\dj }\IeC {\`\ocircumflex }ng Goodman-Kruskal $\tau $}{14}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Ph\IeC {\uhorn }\IeC {\ohorn }ng ph\IeC {\'a}p \IeC {\dj }\IeC {\`\ecircumflex } xu\IeC {\'\acircumflex }t}{15}{chapter.3}
+\contentsline {chapter}{\numberline {3}Ph\IeC {\uhorn }\IeC {\ohorn }ng ph\IeC {\'a}p \IeC {\dj }\IeC {\`\ecircumflex } xu\IeC {\'\acircumflex }t}{17}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Goodman-Krusal $\tau $}{15}{section.3.1}
+\contentsline {section}{\numberline {3.1}Goodman-Krusal $\tau $}{17}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Goodman-krusal trong gom nh\IeC {\'o}m ph\IeC {\^a}n c\IeC {\'\acircumflex }p}{15}{section.3.2}
+\contentsline {section}{\numberline {3.2}Goodman-krusal trong gom nh\IeC {\'o}m ph\IeC {\^a}n c\IeC {\'\acircumflex }p}{17}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Th\IeC {\d \uhorn }c nghi\IeC {\d \ecircumflex }m v\IeC {\`a} k\IeC {\'\ecircumflex }t qu\IeC {\h a}}{16}{chapter.4}
+\contentsline {chapter}{\numberline {4}Th\IeC {\d \uhorn }c nghi\IeC {\d \ecircumflex }m v\IeC {\`a} k\IeC {\'\ecircumflex }t qu\IeC {\h a}}{18}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}D\IeC {\~\uhorn } li\IeC {\d \ecircumflex }u}{16}{section.4.1}
+\contentsline {section}{\numberline {4.1}D\IeC {\~\uhorn } li\IeC {\d \ecircumflex }u}{18}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Ph\IeC {\uhorn }\IeC {\ohorn }ng ph\IeC {\'a}p \IeC {\dj }\IeC {\'a}nh gi\IeC {\'a}}{17}{section.4.2}
+\contentsline {section}{\numberline {4.2}Ph\IeC {\uhorn }\IeC {\ohorn }ng ph\IeC {\'a}p \IeC {\dj }\IeC {\'a}nh gi\IeC {\'a}}{19}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Normalized Mutual Information - NMI}{18}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.1}Normalized Mutual Information - NMI}{20}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Adjusted Rand Index - ARI}{19}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.2}Adjusted Rand Index - ARI}{21}{subsection.4.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}K\IeC {\'\ecircumflex }t Qu\IeC {\h a}}{19}{section.4.3}
+\contentsline {section}{\numberline {4.3}K\IeC {\'\ecircumflex }t Qu\IeC {\h a}}{21}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}K\IeC {\'\ecircumflex }t lu\IeC {\d \acircumflex }n v\IeC {\`a} h\IeC {\uhorn }\IeC {\'\ohorn }ng ph\IeC {\'a}t tri\IeC {\h \ecircumflex }n}{20}{chapter.5}
+\contentsline {chapter}{\numberline {5}K\IeC {\'\ecircumflex }t lu\IeC {\d \acircumflex }n v\IeC {\`a} h\IeC {\uhorn }\IeC {\'\ohorn }ng ph\IeC {\'a}t tri\IeC {\h \ecircumflex }n}{22}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u tham kh\IeC {\h a}o}{21}{chapter*.7}
+\contentsline {chapter}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u tham kh\IeC {\h a}o}{23}{chapter*.7}
 \contentsfinish 
