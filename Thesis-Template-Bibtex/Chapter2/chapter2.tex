@@ -14,15 +14,29 @@
 \section{Đồng gom nhóm phân cấp}
 \subsection{Giới thiệu}
 \noindent
-\hspace{10mm}Như mọi người đã biết, gom nhóm là phương pháp để chúng ta gom những văn bản gần giống nhau thành một nhóm riêng biệt. Tuy nhiên, các phương pháp truyền thống gặp hạn chế để tìm được kết quả tối ưu khi mà chiều của dữ liệu tăng cao. Để giải quyết vấn đề này, nhiều phương pháp tính khoảng cách được đề xuất như là độ tương đồng cosine(sử dụng khi số chiều của dữ liệu cao) và lựa chọn đặc trưng(dùng để giảm số chiều của dữ liệu). Tuy nhiên, những cách này không thực sự giải quyết được triệt để vấn đề. Vì nếu cố gắng làm giảm số chiều của dữ liệu, ta gặp phải một vấn đề khác thường hay gọi là lời nguyền về số chiều của dữ liệu. Chính vì vậy, một phương pháp mới được đề xuất là đồng gom nhóm để giúp chúng ta giải quyết vấn đề trên.\\
+%Nhược điểm của gom nhóm truyền thống - trích dẫn ý người nói, không dùng em, dùng tôi, câu đầu luôn nói về chủ đề, những câu khác phải bổ sung ý nghĩa.
+Như mọi người đã biết, gom nhóm là phương pháp để chúng ta gom những văn bản gần giống nhau thành một nhóm riêng biệt. %Bỏ câu đầu tiên
+Tuy nhiên, %Bỏ luôn
+các phương pháp truyền thống gặp hạn chế để tìm được kết quả tối ưu khi mà chiều của dữ liệu tăng cao. 
+%Giải thích số chiều hạn chế cho vào đoạn khác
+Để giải quyết vấn đề này, nhiều phương pháp tính khoảng cách được đề xuất như là độ tương đồng cosine(sử dụng khi số chiều của dữ liệu cao) và lựa chọn đặc trưng(dùng để giảm số chiều của dữ liệu). 
+Tuy nhiên, những cách này không thực sự giải quyết được triệt để vấn đề. 
+Vì nếu cố gắng làm giảm số chiều của dữ liệu, ta gặp phải một vấn đề khác thường hay gọi là lời nguyền về số chiều của dữ liệu. %giải thích 
 
+%Đoạn về đồng gom nhóm
+Chính vì vậy, một phương pháp mới được đề xuất là đồng gom nhóm để giúp chúng ta giải quyết vấn đề trên.\\
 \hspace*{10mm}Đồng gom nhóm là phương pháp gom nhóm cả hai chiều của dữ liệu(bao gồm gom nhóm văn bản và gom nhóm đặc trưng). Đây là phương pháp mạnh mẽ vì khai thác được độ tương đồng của các phân nhóm trong chiều này của dữ liệu để gom nhóm trong chiều khác. Điều này có nghĩa các phân nhóm của văn bản được đánh giá bằng các phân nhóm của đặc trưng và ngược lại. Bằng cách này, các phân nhóm của văn bản có thể được tiến hành dựa trên các phân nhóm đặc trưng để giúp làm giảm số chiều của dữ liệu. Như vậy, đồng gom nhóm là phương pháp hữu hiệu để giúp ta gom nhóm văn bản đồng thời làm giảm số chiều của dữ liệu.\\
 
 \hspace*{10mm}Khi ta kết hợp đồng gom nhóm với gom nhóm phân cấp thì ta có được đồng gom nhóm phân cấp. Phương pháp này không những cho ta có được những điểm mạnh của đồng gom nhóm mà đồng thời còn có được điểm  mạnh của gom nhóm phân cấp. Qua đó, quá trình gom nhóm có thể cho ta thấy được dendrogram, nơi lưu trữ quá trình hợp nhất hoặc phân tách giữa các phân nhóm. Việc tạo thành cây phân cấp giúp cho chúng ta thấy được vị trí liên quan giữa các phân nhóm. Qua đó, ta có thể hiểu được độ tương đồng liên quan giữa các phân nhóm. Từ đó, chúng ta có thể có hình dung được bức tranh tổng thể cũng như là cấu trức của dữ liệu.\\
 
-\hspace*{10mm}Ngoài ra, đồng gom nhóm phân cấp còn tạo ra công cụ ý niệm hữu ích để giúp cho ta thấy được mối quan hệ giữa các phân nhóm trong văn bản. Phương pháp này cung cấp thể hiện hữu hình của kết quả phân nhóm đồng thời giải thích được quá trình phân nhóm. Xa hơn nữa, ta có thể sử dụng kết quả phân nhóm để duyệt và tìm kiếm văn bản đồng thời tìm kiếm đặc trưng chung hoặc riêng. Vì vậy, khi kết hợp hai phương pháp lại với nhau, ta sẽ gom nhóm phân cấp văn bản dựa vào gom nhóm phân cấp đặc trưng và ngược lại. Sự kết hợp này giúp cho chúng ta có nhiều kết quả và ý nghĩa hơn những cách thông thường.\\
+%Công dụng của việc kết hợp gom nhóm phân cấp và đồng gom nhóm
+Ngoài ra, đồng gom nhóm phân cấp còn tạo ra công cụ ý niệm hữu ích để giúp cho ta thấy được mối quan hệ giữa các phân nhóm trong văn bản. 
+Phương pháp này cung cấp thể hiện hữu hình của kết quả phân nhóm đồng thời giải thích được quá trình phân nhóm. 
+Xa hơn nữa, ta có thể sử dụng kết quả phân nhóm để duyệt và tìm kiếm văn bản đồng thời tìm kiếm đặc trưng chung hoặc riêng. 
+Vì vậy, khi kết hợp hai phương pháp lại với nhau, ta sẽ gom nhóm phân cấp văn bản dựa vào gom nhóm phân cấp đặc trưng và ngược lại. 
+Sự kết hợp này giúp cho chúng ta có nhiều kết quả và ý nghĩa hơn những cách thông thường.
 
-\hspace*{10mm}Việc tương tác qua lại giữa hai chiều dữ liệu là ý chính trong phương pháp gom nhóm phân cấp. Khi ta xây dựng gom nhóm phân cấp cho văn bản, phương pháp này cũng đồng thời đang nghiên cứu vấn đề của chiều còn lại(đặc trưng). Vì vậy, khi ta xây dựng gom nhóm phân cấp cho đặc trưng, ta mượn lại thông tin đã có từ quá trình gom nhóm phân cấp văn bản để xây dựng. Quá trình này lặp đi lặp lại cho đến khi kết thúc. Như vậy, nhờ có sự tương tác qua lại giữa hai quá trình gom nhóm phân cấp văn bản và gom nhóm phân cấp đặc trưng mà ta mới có được nhiều ích lợi trong quá trình gom nhóm.\\
+Việc tương tác qua lại giữa hai chiều dữ liệu là ý chính trong phương pháp gom nhóm phân cấp. Khi ta xây dựng gom nhóm phân cấp cho văn bản, phương pháp này cũng đồng thời đang nghiên cứu vấn đề của chiều còn lại(đặc trưng). Vì vậy, khi ta xây dựng gom nhóm phân cấp cho đặc trưng, ta mượn lại thông tin đã có từ quá trình gom nhóm phân cấp văn bản để xây dựng. Quá trình này lặp đi lặp lại cho đến khi kết thúc. Như vậy, nhờ có sự tương tác qua lại giữa hai quá trình gom nhóm phân cấp văn bản và gom nhóm phân cấp đặc trưng mà ta mới có được nhiều ích lợi trong quá trình gom nhóm.\\
 
 \hspace*{10mm}Với những ích lợi như vậy, đồng gom nhóm phân cấp cho ta thấy được đây là một phương pháp hiệu quả để gom nhóm văn bản. Phương pháp này không những giúp chúng ta giảm được số chiều của dữ liệu mà kết quả của nó có thể giúp ích cho việc tìm kiếm dữ liệu sau này. Vì vậy, em quyết định sử dụng đồng gom nhóm phân cấp để gom nhóm văn bản. Qua đó, em sử dụng thể hiện văn bản là tần số của đặc trưng, tức là số lần từ đó xuất hiện trong văn bản. Kết quả của phương pháp này sẽ là hai gom nhóm phân cấp, một cho văn bản và một cho đặc trưng. \\
 
