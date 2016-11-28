@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2015.10.8)  8 NOV 2016 19:45
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2015.11.1)  10 NOV 2016 08:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1219,13 +1219,13 @@ Package biblatex Warning: Data encoding is 'utf8'.
 \openout3 = `main-blx.bib'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' not found.
-No file main.bbl.
+Package biblatex Info: ... file 'main.bbl' found.
+(./main.bbl)
 Package biblatex Info: Reference section=0 on input line 112.
 Package biblatex Info: Reference segment=0 on input line 112.
 \AtBeginShipoutBox=\box41
 Package hyperref Info: Link coloring OFF on input line 112.
-(c:/texlive/2012/texmf-dist/tex/latex/hyperref/nameref.sty
+ (c:/texlive/2012/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
 (c:/texlive/2012/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1460,9 +1460,9 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22813 strings out of 493488
- 381903 string characters out of 3144748
- 548873 words of memory out of 3000000
+ 22815 strings out of 493488
+ 381921 string characters out of 3144748
+ 548883 words of memory out of 3000000
  25652 multiletter control sequences out of 15000+200000
  12991 words of font info for 25 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -1471,7 +1471,7 @@ Here is how much of TeX's memory you used:
 live/2012/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb><c:/texlive/2012/texmf-di
 st/fonts/type1/vntex/vnr/vnr12.pfb><c:/texlive/2012/texmf-dist/fonts/type1/vnte
 x/vnr/vnr17.pfb>
-Output written on main.pdf (17 pages, 76405 bytes).
+Output written on main.pdf (17 pages, 77040 bytes).
 PDF statistics:
  173 PDF objects out of 1000 (max. 8388607)
  148 compressed objects within 2 object streams
