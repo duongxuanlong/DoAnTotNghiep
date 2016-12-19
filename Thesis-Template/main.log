@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2015.11.1)  10 NOV 2016 08:41
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2015.11.1)  18 DEC 2016 11:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1190,24 +1190,24 @@ LaTeX Warning: Label `Appendix1' multiply defined.
 ) (./Appendix/appendix2.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -1221,10 +1221,10 @@ Package biblatex Warning: Data encoding is 'utf8'.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 112.
-Package biblatex Info: Reference segment=0 on input line 112.
+Package biblatex Info: Reference section=0 on input line 116.
+Package biblatex Info: Reference segment=0 on input line 116.
 \AtBeginShipoutBox=\box41
-Package hyperref Info: Link coloring OFF on input line 112.
+Package hyperref Info: Link coloring OFF on input line 116.
  (c:/texlive/2012/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
@@ -1233,9 +1233,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count305
 )
-LaTeX Info: Redefining \ref on input line 112.
-LaTeX Info: Redefining \pageref on input line 112.
-LaTeX Info: Redefining \nameref on input line 112.
+LaTeX Info: Redefining \ref on input line 116.
+LaTeX Info: Redefining \pageref on input line 116.
+LaTeX Info: Redefining \nameref on input line 116.
 
 (./main.out) (./main.out)
 \@outlinefile=\write5
@@ -1319,26 +1319,26 @@ ABD: EveryShipout initializing macros (./Title/title.tex [1
 
 
 No file Appendix/decuong.tex.
-(./main.toc)
+(./main.toc [2
+
+
+
+
+])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [2
-
-
-
-
-] (./main.lof)
+ [3] (./main.lof)
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
- [3
+ [4
 
 ] (./main.lot)
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- [4
+ [5
 
 ]
 \openout2 = `Appendix/tomtat.aux'.
@@ -1353,36 +1353,37 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.24 
-      [1
+l.23 G
+      om nhóm không những giúp cho người dùng lựa chọn dễ dà...
+[1
 
 
 
 
 
 ] [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 58.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 62.
  (c:/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 58.
- [3])
-[4]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 62.
+ [3] [4]) [5]
 \openout2 = `Chapter2/chapter2.aux'.
 
- (./Chapter2/chapter2.tex
+
+(./Chapter2/chapter2.tex
 Ch\IeC {\uhorn }\IeC {\ohorn }ng 2.
-) [5
+[6
 
 
 
-]
+] [7]) [8]
 \openout2 = `Chapter3/chapter3.aux'.
 
  (./Chapter3/chapter3.tex
 Ch\IeC {\uhorn }\IeC {\ohorn }ng 3.
-) [6
+) [9
 
 
 
@@ -1391,37 +1392,37 @@ Ch\IeC {\uhorn }\IeC {\ohorn }ng 3.
 
  (./Chapter4/chapter4.tex
 Ch\IeC {\uhorn }\IeC {\ohorn }ng 4.
-) [7
+[10
 
 
 
-]
+] [11] [12]) [13] [14]
 \openout2 = `Chapter5/chapter5.aux'.
 
  (./Chapter5/chapter5.tex
 Ch\IeC {\uhorn }\IeC {\ohorn }ng 5.
-) [8
+) [15
 
 
 
 ]
 \openout2 = `Appendix/publish.aux'.
 
- (./Appendix/publish.tex) [9
+ (./Appendix/publish.tex) [16
 
 
 
 ]
 
-Package biblatex Warning: Keyword 'Viet' not found on input line 160.
+Package biblatex Warning: Keyword 'Viet' not found on input line 164.
 
 
-LaTeX Warning: Empty bibliography on input line 160.
+LaTeX Warning: Empty bibliography on input line 164.
 
 
-LaTeX Warning: Empty bibliography on input line 165.
+LaTeX Warning: Empty bibliography on input line 169.
 
-[10
+[17
 
 
 ]
@@ -1429,7 +1430,7 @@ LaTeX Warning: Empty bibliography on input line 165.
 
  (./Appendix/appendix1.tex
 Ph\IeC {\d u} l\IeC {\d u}c A.
-) [11
+) [18
 
 
 ]
@@ -1437,21 +1438,21 @@ Ph\IeC {\d u} l\IeC {\d u}c A.
 
  (./Appendix/appendix2.tex
 Ph\IeC {\d u} l\IeC {\d u}c B.
-) [12
+) [19
 
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 174.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 174.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 178.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 178.
  (./main.aux (./Appendix/thanks.aux) (./Appendix/decuong.aux)
 (./Appendix/tomtat.aux) (./Chapter1/chapter1.aux) (./Chapter2/chapter2.aux)
 (./Chapter3/chapter3.aux) (./Chapter4/chapter4.aux) (./Chapter5/chapter5.aux)
 (./Appendix/publish.aux) (./Appendix/appendix1.aux) (./Appendix/appendix2.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 174.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 174.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 178.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 178.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3B9D10C50DE8F22AE6FF0C6A7C83D0D6;1991.
+(rerunfilecheck)             Checksum: 847517E28731C41CC3DEADBEADF0E99C;6312.
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1460,21 +1461,26 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22815 strings out of 493488
- 381921 string characters out of 3144748
- 548883 words of memory out of 3000000
- 25652 multiletter control sequences out of 15000+200000
- 12991 words of font info for 25 fonts, out of 3000000 for 9000
+ 22918 strings out of 493488
+ 383566 string characters out of 3144748
+ 549923 words of memory out of 3000000
+ 25711 multiletter control sequences out of 15000+200000
+ 20647 words of font info for 35 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,5n,55p,849b,620s stack positions out of 5000i,500n,10000p,200000b,50000s
-<c:/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/tex
-live/2012/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb><c:/texlive/2012/texmf-di
-st/fonts/type1/vntex/vnr/vnr12.pfb><c:/texlive/2012/texmf-dist/fonts/type1/vnte
-x/vnr/vnr17.pfb>
-Output written on main.pdf (17 pages, 77040 bytes).
+ 56i,6n,55p,849b,620s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/tex
+live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2012
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2012/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2012/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2012/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr12.pfb><c:/texlive/2012/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb><c:/texlive/2012/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb><c:
+/texlive/2012/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb><c:/texlive/2012/texmf
+-dist/fonts/type1/vntex/vnr/vnr17.pfb>
+Output written on main.pdf (25 pages, 149059 bytes).
 PDF statistics:
- 173 PDF objects out of 1000 (max. 8388607)
- 148 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 117 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 375 PDF objects out of 1000 (max. 8388607)
+ 334 compressed objects within 4 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 325 words of extra memory for PDF output out of 10000 (max. 10000000)
 

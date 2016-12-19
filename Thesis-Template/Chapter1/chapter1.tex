@@ -1,6 +1,8 @@
 \chapter{Giới thiệu}
 \label{Chapter1}
 
+\section{Giới thiệu về gom nhóm}
+
 %Gom nhóm là gì?
 Gom nhóm là công việc tìm nhũng nhóm đối tượng gần giống nhau trong dữ liệu. %\cite{1984-TeX-Knuth}
 Vấn đề gom nhóm được nghiên cứu rộng rãi trong cơ sở dữ liệu và thống kê trong khai thác dữ liệu.
@@ -35,6 +37,8 @@ Tương tự như gom nhóm, nhiệm vụ của gom nhóm văn bản cũng là t
 Tuy nhiên, do văn bản là tập hợp các chữ, từ, câu nên không thể gom nhóm dưới dạng dữ liệu thô vì gây ra quá nhiều khó khăn.
 Vì vậy, văn bản cần được biểu diễn lại dưới dạng dữ liệu khác để giúp cho việc gom nhóm các văn bản với nhau trở nên dễ dàng hơn.
 Nhưng mà cách thực hiện, cũng như là ý tưởng của gom nhóm văn bản cũng không có gì khác so với gom nhóm.
+
+\section{Gom nhóm văn bản}
 
 %Giới thiệu gom nhóm văn bản
 Để thực hiện gom nhóm văn bản, chúng ta không thể sử dụng văn bản dưới dạng dữ liệu thô.
@@ -86,14 +90,25 @@ Có thể thấy, việc số hóa văn bản đã đem lại những lợi ích
 
 %Những thách thức khi làm gom nhóm văn bản
 
+\section{Các phương pháp gom nhóm văn bản}
 %Các phương pháp gom nhóm văn bản hiện thời
 	%phương pháp phân chia miền
 	%phương pháp dựa vào mật độ
 	%phương pháp dựa vào lưới tọa độ
 	%phương pháp dựa vào mô hình
 
+\section{Các công thức tính khoảng cách}
 %Các công thức tính khoảng cách
+Trong gom nhóm văn bản, các công thức tính khoảng cách được sử dụng để đo lường giữa hai văn bản. Sau đây, một số công thức tính khoảng cách thường được sử dụng:
+\begin{enumerate}
+\item[•]Khoảng cách Euclidean : $\parallel a \,- \, b \parallel_2 \, = \, \sqrt{\underset{i}{\sum}(a_i \, - \, b_i)^2} $
+\item[•]Khoảng cách Euclidean vuông : $\parallel \, a \, - \, b \, \parallel^2_2 \, = \, \underset{i}{\sum} (a_i - b_i)^2$
+\item[•]Khoảng cách Manhatthan : $\parallel \, a \, - \, b \, \parallel_1 \, = \, \underset{i}{\sum} \mid a_i \, - \, b_i\mid$
+\item[•]Khoảng cách cực đại : $\parallel \, a \, - \, b\, \parallel_\infty \, = \, \underset{i}{max} \mid a_i \, - \, b_i \mid$
+\item[•]Khoảng cách Mahalanobis : $\sqrt{(a \, - \, b)^{\top} \, S^{-1} \, (a \, - \, b)}$ với $S$ là ma trận covariance
+\end{enumerate}
 
+\section{Lựa chọn công thức tính khoảng cách}
 %Lưa chọn công thức tính khoảng cách
 
 %%18

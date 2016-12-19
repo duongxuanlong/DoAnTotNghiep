@@ -1,26 +1,112 @@
 \chapter{Thực nghiệm và kết quả}
 \label{Chapter4}
+\section{Thực nghiệm}
+\subsection{Môi trường}
 %Môi trường thực nghiệm
 
+
+\subsection{Dữ liệu}
 %Giới thiệu dữ liệu sử dụng
+Dữ liệu sử dụng trong chương trình bao gồm dữ liệu tiếng Anh và dữ liệu tiếng Việt.
+Trong đó, bộ dữ liệu tiếng Việt được tổng hợp từ các trang tin tức nổi tiếng của Việt Nam như vnexpress, dân trí, tuổi trẻ, \ldots
+Còn bộ dữ liệu tiếng Anh là các bài báo được lấy từ trang tin tức Reuters được tổng hợp lại thành Reuters-21578.
+Ngoài ra, cả hai bộ dữ liệu đều là các bài báo đã được phân lớp sơ bộ.
+Như đã đề cập, bộ dữ liệu tiếng Việt gồm các trang : vnexpress, dân trí, tuổi trẻ, \ldots được lấy từ trang tin tức tổng hợp của Google.
 
 %giới thiệu dữ liệu tiếng Anh
+\subsubsection{Dữ liệu tiếng Anh}
+Reuters-21578 bao gồm 21,578 bài báo và các bài báo thuộc nhiều danh mục khác nhau.
+Bộ dữ liệu này được tổng hợp bởi David D. Lewis vào năm 1987.
+Sau đó thì bộ dữ liệu tiếp tục được phân lớp và chỉnh sửa lại bởi nhiều người khác nhau thuộc Reuters và Carnegie.
+Bộ dữ liệu này xuất bản và phân phối miễn phí cho mục đích nghiên cứu.
 
 %giới thiệu dữ liệu tiếng Việt
+\subsubsection{Dữ liệu tiếng Việt}
+Trong bộ dữ liệu Reuters-21578, nhiều bài chỉ có nội dung là một dòng, thậm chí có bài còn là rỗng.
+Vì vậy, trước khi sử dụng, ta sử dụng bộ lọc để loại bỏ những bài như vậy.
+Sau đó, ta chọn ra hai mẫu ngẫu nhiên trong bộ dữ liệu Reuters-21578.
+Mẫu thứ nhất được đặt tên là re1 và có 1,504 gồm nhiều bài thuộc các mục khác nhau.
+Tương tự, ta đặt tên cho mẫu thứ hai là re2 và có 1,657 bài cũng thuộc nhiều mục khác nhau.
+Việc chọn ra hai mẫu ngẫu nhiên giúp cho việc kiểm nghiệm kết quả của thuật toán được khách quan.
 
 %Các bước chuẩn bị cần thiết khi sử dụng dữ liệu
 
+\section{Các phương pháp đánh giá}
 %Các phương pháp đánh giá
-	%Giới thiệu các cách đánh giá
-	%Cách đánh giá NMI
-		%Giới thiệu
-		%Công thức
-		%Ví dụ
-	%Cách đánh giá ARI
-		%Giới thiệu
-		%Công thức
-		%Ví dụ
 
+	%Giới thiệu các cách đánh giá
+	\subsection{Giới thiệu phương pháp đánh giá}
+	Để đánh giá kết quả gom nhóm văn bản, ta có hai loại chỉ số để sử dụng: chỉ số ngoại vi và chỉ số nội tại.
+	Chỉ số nội tại dùng để đo độ tốt của cấu trúc gom nhóm không cần thông tin ngoài.
+	Chỉ số ngoại vi dùng dùng để đo độ tương đồng giữa hai phân nhóm.
+	Trong đó, phân nhóm thứ nhất là cấu trúc gom nhóm gốc đã được biết.
+	Còn phân nhóm thứ hai là kết quả từ quá trình gom nhóm.
+	Trong bài toán, ta sử dụng hai chỉ số đánh giá ngoại vi là : NMI(normalized mutual information) và ARI (adjusted rand index).
+	
+	Như đã đề cập ở phần trên, ta sẽ sử dụng hai chỉ số ngoại vi để đánh giá.
+	Ta có tập $\textbf{C} \, = {C_1 \ldots C_j}$ là tập phân nhóm của đối tượng được xây dựng ở một cấp độ nhất định.
+	Tập $\textbf{P} \, = {P_1 \ldots P_j}$ là tập hợp được chia bởi phân lớp ban đầu. $J$ và $I$ là tương đương với số phân nhóm của $(|\textbf{C}|)$ và số phân lớp của  $(|\textbf{P}|)$.
+	Ta biểu diễn $n$ là tổng số đối tượng trong thuật toán.
+
+	%Cách đánh giá NMI
+	\subsection{Cách đánh giá NMI}
+		%Giới thiệu
+		\subsubsection{Giới thiệu}
+		NMI có nguốn gốc từ MI(mutual information), được sử dụng nhiều trong lý thuyết xác suất và lý thuyết thông tin.
+		NMI là phương pháp đo độ phụ thuộc lẫn nhau giữa hai biến.
+		Trong đây, NMI được nâng cấp để đo phụ thuộc lẫn nhau giữa hai nhóm.
+		Từ đó, NMI cung cấp thông tin cân bằng liên quan đến số lượng phân nhóm.
+		Ngoài ra, NMI còn cho ra kết quả chia sẻ thông tin với lớp thực sự được gán và thông tin hỗn hợp trung bình giữa những cặp của phân nhóm và phân lớp.
+		
+		%Công thức
+		\subsubsection{Công thức}
+		\begin{center}
+		\begin{equation}
+			\textbf{NMI} \, = \frac{\sum^I_{i=1} \sum^J_{j=1} x_{ij} \log \frac{n x_{ij}}{x_i x_j}}{\sqrt{\sum^I_{i=1} x_i \log \frac{x_i}{n} \sum^J_{j=1} x_j \log \frac{x_j}{n}}}
+		\end{equation}
+		\end{center}
+		
+		Với $x_{ij}$ là số lượng phần tử của các đối tượng mà xuất hiện trong cả tập $C_j$ và $P_i$. $x_j$ là số lượng phần tử chỉ xuất hiện trong tập $C_j$. $x_i$ là số lượng phần tử chỉ xuất hiện trong tập $P_i$. Giá trị của chỉ số này nằm trong khoảng từ 0 đến 1.
+
+		%Ví dụ
+		\subsubsection{Ví dụ}
+		
+	%Cách đánh giá ARI
+	\subsection{Cách đánh giá ARI}
+		%Giới thiệu
+		\subsubsection{Giới thiệu}
+		ARI có nguồn gốc từ RI (rand index), được sử dụng thống kê và gom nhóm dữ liệu.
+		RI dùng để đo độ tương đồng giữa các nhóm dữ liệu.
+		Vấn đề của RI là giá trị mong muốn của hai phân nhóm ngẫu nhiên nằm trong khoảng từ $0$ và $1$.
+		Vì vậy, ARI ra đời là phiên bản chỉnh sửa có thể định nghĩa cho việc điều chỉnh cho cơ hội gom nhóm các thành phần.
+		Giá trị của ARI có thể nằm trong phạm vi từ -1 đến 1.
+
+		%Công thức
+		\subsubsection{Công thức}
+		\begin{center}
+		\begin{equation}
+			E[\alpha] \, = \frac{\pi(C) \cdot \pi(P)}{n(n - 1) / 2}
+		\end{equation}
+		\end{center}
+		
+		Với $\pi(C)$ và $\pi(P)$ biểu thị tương ứng với số lượng các cặp đối tượng của cùng phân nhóm trong $	\textbf{C}$ và cùng phân lớp trong $\textbf{P}$. Giá trị lớn nhất cho $\alpha$ có thể đạt được là:
+		\begin{center}
+		\begin{equation}
+			\max(\alpha) = \frac{1}{2} (\pi(C) + \pi(P))
+		\end{equation}
+		\end{center}
+		
+		Độ tương đồng giữa $\textbf{C}$ và $\textbf{P}$ có thể được ước lượng bởi adjusted rand index như sau:
+		\begin{center}
+		\begin{equation}
+			AR(\textbf{C}, \textbf{P}) = \frac{\alpha - E[\alpha]}{\max(\alpha) - E[\alpha]}
+		\end{equation}
+		\end{center}
+
+		%Ví dụ
+		\subsubsection{Ví dụ}
+
+\section{Kết quả}
 %Thực nghiệm kết quả
 
 %Giải thích chi tiết(5 đoạn)
