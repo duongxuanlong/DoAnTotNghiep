@@ -10,17 +10,22 @@ class NewsParsers:
     def __init__(self):
         self.mText_Data = []
         self.mFrequent_Doc = []
+        self.mFolder = "\\clusters"
+        self.mExtension = ".tok"
         
     def parse_data_from_tok(self):
-        path = os.getcwd() + "\\Data"
+        print "parse_data_from_tok"
+        # path = os.getcwd() + "\\Data"
+        path = os.getcwd() + self.mFolder
         if os.path.exists(path):
             for root, dirs, files in os.walk(path):
                 for se_file in files:
                     file_path = os.path.join(root, se_file)
-                    # print "File Path : {}".format(file_path)
+                    print "File Path : {}".format(file_path)
                     # print "FileNames : {}".format(se_file)
                     # print "Root : {}".format(root)
-                    if file_path.endswith(".tok"):
+                    # if file_path.endswith(".tok"):
+                    if file_path.endswith(self.mExtension):
                         news_data = NewsData.NewsData()
                         split_dirs = root.split("\\")
                         news_data.mFileName = split_dirs[-1] + "_" + se_file
@@ -84,7 +89,10 @@ class NewsParsers:
         print "Actual Rows : {}".format(str(row))
 
     def get_texts(self):
-        return self.mText_Data
+        data = []
+        for text in self.mText_Data:
+            data.append(text.mText_Doc)
+        return data
 
     def run(self):
         self.parse_data_from_tok()
