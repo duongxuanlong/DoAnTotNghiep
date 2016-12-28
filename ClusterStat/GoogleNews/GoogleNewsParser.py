@@ -3,6 +3,7 @@ __author__ = 'long.duongxuan'
 import os
 from gensim import corpora
 import NewsData
+import codecs
 # import nltk
 
 
@@ -21,7 +22,7 @@ class NewsParsers:
             for root, dirs, files in os.walk(path):
                 for se_file in files:
                     file_path = os.path.join(root, se_file)
-                    print "File Path : {}".format(file_path)
+                    # print "File Path : {}".format(file_path)
                     # print "FileNames : {}".format(se_file)
                     # print "Root : {}".format(root)
                     # if file_path.endswith(".tok"):
@@ -31,26 +32,15 @@ class NewsParsers:
                         news_data.mFileName = split_dirs[-1] + "_" + se_file
                         news_data.mFullPath = file_path
                         # print "File Name : {}".format(news_data.mFileName)
-                        f = open(file_path, "r")
+                        # print "full path : {}".format(news_data.mFullPath)
+                        # f = open(file_path, "r")
+                        f = codecs.open(file_path, "r", 'utf-8')
                         text = f.read()
-                        news_data.mText_Doc = text.split()
+                        # print text
+                        # news_data.mText_Doc = text.split()
+                        news_data.mText_Doc = text
                         self.mText_Data.append(news_data)
         print "Number of Text_Doc {}".format(str(len(self.mText_Data)))
-                        # print "Text {}".format(text)
-                # print "Root : {}".format(root)
-                # for child_dir in dirs:
-                #     child_dir_path = os.path.join(root, child_dir)
-                #     print "child_dir_path : {} ".format(child_dir_path)
-                #     for child_dir_root, se_dir, se_files in os.walk(child_dir_path):
-                #         for se_file in se_files:
-                #             if se_file.endswith("tok"):
-                #                 file_path = os.path.join(child_dir_root, se_file)
-                #                 f = open(file_path, "r")
-                #                 text = f.read()
-                #                 print "File Name : {}".format(f.name)
-                #                 print "Text : {}".format(text)
-                #                 self.mText_Doc.append(text)
-                #                 f.close()
 
     def parse_data_into_matrix(self):
         path = os.getcwd()
