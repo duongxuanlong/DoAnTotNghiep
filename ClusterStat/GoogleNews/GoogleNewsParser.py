@@ -98,12 +98,16 @@ def get_docs_labels(path):
         for txt in files:
             if txt.endswith(".tok"):
                 file_path = os.path.join(root, txt)
-                file_txt = open(file_path, "r")
+                # file_txt = open(file_path, "r")
+                file_txt = codecs.open(file_path, "r", "utf-8")
                 docs.append(file_txt.read())
                 labels.append(txt)
                 file_txt.close()
     pairs.append(docs)
     pairs.append(labels)
+
+    print "size of docs {}".format(len(pairs[0]))
+    print "size of labels {}".format(len(pairs[1]))
     return pairs
 
 

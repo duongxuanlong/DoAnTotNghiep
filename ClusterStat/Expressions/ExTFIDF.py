@@ -19,5 +19,6 @@ class TfIdf:
         # idf = vectorizer.idf_
         # dense = X.todense()
         print self.mVectorizor.idf_
-        print self.mResult.todense()
+        # dense = self.mResult.todense()
+        # print self.mResult.todense()
 
