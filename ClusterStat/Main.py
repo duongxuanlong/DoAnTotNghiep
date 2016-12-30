@@ -22,10 +22,10 @@ def main():
     # print parser.get_texts()
 
     # running doc2vec
-    # run_doc2vec()
+    run_doc2vec()
 
     # algorithm with d2v representation
-    algorithm_d2v()
+    # algorithm_d2v()
 
 
 def algorithm_d2v():
