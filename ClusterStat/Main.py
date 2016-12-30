@@ -5,6 +5,7 @@ from Expressions import ExTFIDF
 from Expressions import ExD2V
 import os
 from gensim.models.doc2vec import Doc2Vec
+import Algorithm
 
 import sys
 
@@ -21,7 +22,28 @@ def main():
     # print parser.get_texts()
 
     # running doc2vec
-    run_doc2vec()
+    # run_doc2vec()
+
+    # algorithm with d2v representation
+    algorithm_d2v()
+
+
+def algorithm_d2v():
+    Algorithm.algorithm_Kmean(load_d2c())
+    Algorithm.algorithm_HAC(load_d2c())
+
+
+def load_d2c():
+    pairs = []
+    module = Doc2Vec.load(os.getcwd() + "\\google.d2v")
+    labels = GoogleNewsParser.get_only_labels(os.getcwd() + "\\clusters")
+    docs = []
+    for i in range(len(labels)):
+        docs.append(module[labels[i]])
+    pairs.append(labels)
+    pairs.append(docs)
+
+    return pairs
 
 
 def run_doc2vec():
@@ -35,6 +57,7 @@ def run_doc2vec():
         model.train(documents)
         model.alpha -= 0.002
         model.min_alpha = model.alpha
+    model["0_content.txt.tok"]
     model.save(os.getcwd() + "\\google.d2v")
 
 if __name__ == '__main__':
