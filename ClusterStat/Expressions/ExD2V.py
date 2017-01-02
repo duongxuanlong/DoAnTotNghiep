@@ -12,6 +12,6 @@ class DocIterator:
 
     def __iter__(self):
         for idx, doc in enumerate(self.DocList):
-            print self.LabelList[idx]
-            yield gensim.models.doc2vec.LabeledSentence(doc.split(), [self.LabelList[idx]])
+            # yield gensim.models.doc2vec.LabeledSentence(words=doc.split(), labels=[self.LabelList[idx]])
+            yield gensim.models.doc2vec.TaggedDocument(doc.split(), [self.LabelList[idx]])
 

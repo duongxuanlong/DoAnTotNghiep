@@ -22,26 +22,31 @@ def main():
     # print parser.get_texts()
 
     # running doc2vec
-    run_doc2vec()
+    # run_doc2vec()
 
     # algorithm with d2v representation
-    # algorithm_d2v()
+    algorithm_d2v()
 
 
 def algorithm_d2v():
-    Algorithm.algorithm_Kmean(load_d2c())
-    Algorithm.algorithm_HAC(load_d2c())
+    load_d2v()
+    # Algorithm.algorithm_Kmean(load_d2v())
+    # Algorithm.algorithm_HAC(load_d2v())
 
 
-def load_d2c():
+def load_d2v():
+    print "load_d2v"
     pairs = []
     module = Doc2Vec.load(os.getcwd() + "\\google.d2v")
+    print "length " + str(len(module.docvecs))
     labels = GoogleNewsParser.get_only_labels(os.getcwd() + "\\clusters")
     docs = []
     for i in range(len(labels)):
-        docs.append(module[labels[i]])
+        docs.append(module.docvecs[labels[i]])
     pairs.append(labels)
     pairs.append(docs)
+    print module.docvecs[labels[0]]
+    print "End"
 
     return pairs
 
@@ -57,8 +62,9 @@ def run_doc2vec():
         model.train(documents)
         model.alpha -= 0.002
         model.min_alpha = model.alpha
-    model["0_content.txt.tok"]
+    print "length of model : " + str(len(model.docvecs))
     model.save(os.getcwd() + "\\google.d2v")
+
 
 if __name__ == '__main__':
     main()
