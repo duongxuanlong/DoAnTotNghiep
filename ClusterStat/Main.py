@@ -29,8 +29,8 @@ def main():
 
 
 def algorithm_d2v():
-    load_d2v()
-    # Algorithm.algorithm_Kmean(load_d2v())
+    # load_d2v()
+    Algorithm.algorithm_Kmean(load_d2v())
     # Algorithm.algorithm_HAC(load_d2v())
 
 
@@ -45,9 +45,6 @@ def load_d2v():
         docs.append(module.docvecs[labels[i]])
     pairs.append(labels)
     pairs.append(docs)
-    print module.docvecs[labels[0]]
-    print "End"
-
     return pairs
 
 
