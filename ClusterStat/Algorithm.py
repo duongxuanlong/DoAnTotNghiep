@@ -11,9 +11,11 @@ from GoogleNews import GoogleNewsParser
 def algorithm_Kmean(pairs):
     # Number of full clusters: 2305
     # Number of half clusters: 1236
+    # Number of quad clusters: 495 : 4 - 10
+    # Number of eight: 262 : 4 - 6
     print "algorithm Kmean"
      #Google
-    kmeans = KMeans(n_clusters=1236, init='k-means++', n_init=100)
+    kmeans = KMeans(n_clusters=262, init='k-means++', n_init=100)
     kmeans.fit(pairs[1])
     print "Kmeans"
 
@@ -29,7 +31,7 @@ def algorithm_Kmean(pairs):
 def algorithm_HAC(pairs):
     print "algorithm HAC"
     #Google
-    result = AgglomerativeClustering(n_clusters=1236, linkage='ward').fit(pairs[1])
+    result = AgglomerativeClustering(n_clusters=262, linkage='ward').fit(pairs[1])
 
     print "HAC"
 

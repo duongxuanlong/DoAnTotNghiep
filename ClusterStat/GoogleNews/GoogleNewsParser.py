@@ -137,7 +137,8 @@ def get_label(file_path):
 
 
 def get_target_labels():
-    path = os.getcwd() + "\\Data"
+    # path = os.getcwd() + "\\Data"
+    path = os.getcwd() + "\\clusters"
     labels = []
     dirs = os.listdir(path)
     # print dirs
