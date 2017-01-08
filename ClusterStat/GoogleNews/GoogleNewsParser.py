@@ -82,6 +82,7 @@ class NewsParsers:
         data = []
         for text in self.mText_Data:
             data.append(text.mText_Doc)
+        print "length of data: " + str(len(data))
         return data
 
     def run(self):
@@ -146,9 +147,14 @@ def get_target_labels():
     label = 0
     for single_dir in dirs:
         for root, sedirs, files in os.walk(path + "\\" + single_dir):
-            for txt in files:
-                if txt.endswith(".tok"):
-                    labels.append(label)
-        label += 1
+            for childdirs in sedirs:
+                newpath = path + "\\" + single_dir + "\\" + childdirs
+                # print newpath
+                for newroot, newdirs, newfiles in os.walk(newpath):
+                    for txt in newfiles:
+                        if txt.endswith(".tok"):
+                            labels.append(label)
+                label += 1
+    # print labels
     # print labels
     return labels

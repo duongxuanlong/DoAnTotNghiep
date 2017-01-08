@@ -10,6 +10,7 @@ class TfIdf:
     def __init__(self):
         self.mVectorizor = None
         self.mResult = None
+        self.mDense = None
 
     def fit_data(self, corpus):
         # vectorizer = TfidfVectorizer(min_df=1)
@@ -18,7 +19,9 @@ class TfIdf:
         self.mResult = self.mVectorizor.fit_transform(corpus)
         # idf = vectorizer.idf_
         # dense = X.todense()
-        print self.mVectorizor.idf_
+        self.mDense = self.mResult.todense()
+        print "Length of TFIDF: " + str(len(self.mDense))
+        # print self.mVectorizor.idf_
         # dense = self.mResult.todense()
         # print self.mResult.todense()
 

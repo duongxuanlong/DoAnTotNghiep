@@ -13,25 +13,32 @@ import sys
 def main():
     # print sys.stdout.encoding
     #Running tfidf
-    parser = GoogleNewsParser.NewsParsers()
-    parser.parse_data_from_tok()
+    # parser = GoogleNewsParser.NewsParsers()
+    # parser.parse_data_from_tok()
 
-    tfidf = ExTFIDF.TfIdf()
-    tfidf.fit_data(parser.get_texts())
+    # tfidf = ExTFIDF.TfIdf()
+    # tfidf.fit_data(parser.get_texts())
     # parser.get_texts()
     # print parser.get_texts()
+
+    # running TF-IDF
+    parser = GoogleNewsParser.NewsParsers()
+    parser.parse_data_from_tok()
+    tfidf = ExTFIDF.TfIdf()
+    tfidf.fit_data(parser.get_texts())
 
     # running doc2vec
     # run_doc2vec()
 
     # algorithm with d2v representation
     # algorithm_d2v()
+    # GoogleNewsParser.get_target_labels()
 
 
 def algorithm_d2v():
     # load_d2v()
-    Algorithm.algorithm_Kmean(load_d2v())
-    # Algorithm.algorithm_HAC(load_d2v())
+    # Algorithm.algorithm_Kmean(load_d2v())
+    Algorithm.algorithm_HAC(load_d2v())
 
 
 def load_d2v():
