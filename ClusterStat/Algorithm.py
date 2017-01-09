@@ -13,10 +13,14 @@ def algorithm_Kmean(pairs):
     # Number of half clusters: 1236
     # Number of quad clusters: 495 : 4 - 10
     # Number of eight: 262 : 4 - 6
+    # Number of one cluster: 147
     print "algorithm Kmean"
      #Google
-    kmeans = KMeans(n_clusters=262, init='k-means++', n_init=100)
-    kmeans.fit(pairs[1])
+    kmeans = KMeans(n_clusters=147, init='k-means++', n_init=100)
+    if (len(pairs) == 2):
+        kmeans.fit(pairs[1])
+    else:
+        kmeans.fit(pairs)
     print "Kmeans"
 
     print "Original label"
@@ -31,7 +35,12 @@ def algorithm_Kmean(pairs):
 def algorithm_HAC(pairs):
     print "algorithm HAC"
     #Google
-    result = AgglomerativeClustering(n_clusters=262, linkage='ward').fit(pairs[1])
+    hac = AgglomerativeClustering(n_clusters=147, linkage='ward')
+
+    if len(pairs) == 2:
+        hac.fit(pairs[1])
+    else:
+        hac.fit(pairs)
 
     print "HAC"
 

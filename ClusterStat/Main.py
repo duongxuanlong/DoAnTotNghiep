@@ -22,10 +22,7 @@ def main():
     # print parser.get_texts()
 
     # running TF-IDF
-    parser = GoogleNewsParser.NewsParsers()
-    parser.parse_data_from_tok()
-    tfidf = ExTFIDF.TfIdf()
-    tfidf.fit_data(parser.get_texts())
+    algorithm_tfidf()
 
     # running doc2vec
     # run_doc2vec()
@@ -33,6 +30,15 @@ def main():
     # algorithm with d2v representation
     # algorithm_d2v()
     # GoogleNewsParser.get_target_labels()
+
+def algorithm_tfidf():
+    parser = GoogleNewsParser.NewsParsers()
+    parser.parse_data_from_tok()
+    tfidf = ExTFIDF.TfIdf()
+    tfidf.fit_data(parser.get_texts())
+
+    Algorithm.algorithm_Kmean(tfidf.get_data_as_vector())
+    Algorithm.algorithm_HAC(tfidf.get_data_as_vector())
 
 
 def algorithm_d2v():
