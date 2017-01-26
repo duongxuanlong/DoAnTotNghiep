@@ -1,6 +1,7 @@
 __author__ = 'Long'
 
 from GoogleNews import GoogleNewsParser
+from GoogleNews import JsonParser
 from Expressions import ExTFIDF
 from Expressions import ExD2V
 import os
@@ -20,9 +21,10 @@ def main():
     # tfidf.fit_data(parser.get_texts())
     # parser.get_texts()
     # print parser.get_texts()
+    JsonParser.get_docs_labels(os.getcwd() + "\\" + "clusters")
 
     # running TF-IDF
-    algorithm_tfidf()
+    # algorithm_tfidf()
 
     # running doc2vec
     # run_doc2vec()
