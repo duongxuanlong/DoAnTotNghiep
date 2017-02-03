@@ -76,3 +76,18 @@ def get_target_labels():
     # print labels
     return labels
 
+def get_texts(path):
+    docs = []
+
+    list_dirs = os.listdir(path)
+    for curdir in list_dirs:
+        for root, dirs, files in os.walk(path + "\\" + curdir):
+            for txt in files:
+                if txt.endswith(".tok.json"):
+                    file_path = os.path.join(root, txt)
+                    file_txt = codecs.open(file_path, "r", "utf-8")
+                    result_json = json.load(file_txt)
+                    docs.append(result_json["Content"])
+                    file_txt.close()
+    return docs
+

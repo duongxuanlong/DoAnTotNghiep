@@ -24,21 +24,26 @@ def main():
     # JsonParser.get_docs_labels(os.getcwd() + "\\" + "clusters")
 
     # running TF-IDF
-    # algorithm_tfidf()
+    algorithm_tfidf()
 
     # running doc2vec
     # run_doc2vec()
-
     # algorithm with d2v representation
-    algorithm_d2v()
+    # algorithm_d2v()
     # GoogleNewsParser.get_target_labels()
 
 def algorithm_tfidf():
-    parser = GoogleNewsParser.NewsParsers()
-    parser.parse_data_from_tok()
-    tfidf = ExTFIDF.TfIdf()
-    tfidf.fit_data(parser.get_texts())
+    print "Running TFIDF"
+    # Google data
+    # parser = GoogleNewsParser.NewsParsers()
+    # parser.parse_data_from_tok()
 
+    # Json Google
+    tfidf = ExTFIDF.TfIdf()
+    # tfidf.fit_data(parser.get_texts())
+    tfidf.fit_data(JsonParser.get_texts(os.getcwd() + "\\" + "clusters"))
+
+    print "Running algorithm with TFIDF"
     Algorithm.algorithm_Kmean(tfidf.get_data_as_vector())
     Algorithm.algorithm_HAC(tfidf.get_data_as_vector())
 
