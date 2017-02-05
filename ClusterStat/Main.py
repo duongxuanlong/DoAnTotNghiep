@@ -6,6 +6,7 @@ from Expressions import ExTFIDF
 from Expressions import ExD2V
 import os
 from gensim.models.doc2vec import Doc2Vec
+from gensim import corpora
 import Algorithm
 
 import sys
@@ -23,14 +24,52 @@ def main():
     # print parser.get_texts()
     # JsonParser.get_docs_labels(os.getcwd() + "\\" + "clusters")
 
+    # running hicocluster
+    run_hicocluster_create_matrix()
+
     # running TF-IDF
-    algorithm_tfidf()
+    # algorithm_tfidf()
 
     # running doc2vec
     # run_doc2vec()
     # algorithm with d2v representation
     # algorithm_d2v()
     # GoogleNewsParser.get_target_labels()
+
+def run_hicocluster_create_matrix():
+    # Number of docs: 1950
+    # Number of items: 21826
+    texts = JsonParser.get_texts(os.getcwd() + "\\clusters")
+    newTexts = []
+    for text in texts:
+        newTexts.append(text.split())
+    # print newTexts[0]
+
+    dictionary = corpora.Dictionary(newTexts)
+    dictionary.save(os.getcwd() + "\\dictionary.dict")
+
+    corpus = [dictionary.doc2bow(text) for text in newTexts]
+    corpora.MmCorpus.serialize(os.getcwd() + "\\corpus.mm", corpus)
+    print "length of docs: " + str(dictionary.num_docs)
+    print "length of items: " + str(len(dictionary.token2id.items()))
+
+    features = len(dictionary.token2id.items())
+    row = 1
+    set_doc_terms = []
+    for doc in corpus:
+        doc_terms = [0] * features
+        if len(doc) > 0:
+            row += 1
+            for term in doc:
+                doc_terms[term[0]] = term[1]
+            set_doc_terms.append(doc_terms)
+    matrix = open(os.getcwd() + "\\matrix.txt", "w")
+    for line in set_doc_terms:
+        for i in range(len(line)):
+            matrix.write(str(line[i]) + " ")
+        matrix.write("\n")
+    matrix.close()
+
 
 def algorithm_tfidf():
     print "Running TFIDF"
