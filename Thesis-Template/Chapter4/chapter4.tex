@@ -36,29 +36,77 @@ STT & Tên công cụ & \makecell[c]{Mô tả} \\
 \hline
 2 & Java Tokenizer & Tác giả: Lê Hồng Phương - Đại học Khoa Học Tự nhiên - Đại học Quốc Gia Hà Nội. \newline Công dụng: Tách câu và tách từ cho tiếng Việt.\\
 \hline
-3 & sgmllib & Hỗ trợ: thư viện của Python. \newline Công dụng: dùng để trích xuất dữ liệu dưới định dạng SGML.\\
+3 & sgmllib & Hỗ trợ: thư viện của Python 2.7. \newline Công dụng: dùng để trích xuất dữ liệu dưới định dạng SGML.\\
 \hline
 
 \end{tabularx}
 \caption[Các công cụ hỗ trợ thực nghiệm]{Các công cụ hỗ trợ thực nghiệm}
-\label{bang_2_1}
+\label{bang_4_1}
 \end{center}
 \end{table}
 
 \section{Dữ liệu}
 %Giới thiệu dữ liệu sử dụng
 Dữ liệu sử dụng trong chương trình bao gồm dữ liệu tiếng Anh và dữ liệu tiếng Việt.
-Trong đó, bộ dữ liệu tiếng Việt được tổng hợp từ các trang tin tức nổi tiếng của Việt Nam như vnexpress, dân trí, tuổi trẻ, \ldots
+Trong đó, bộ dữ liệu tiếng Việt được tổng hợp từ các trang tin tức nổi tiếng của Việt Nam như vnexpress, dân trí, tuổi trẻ, \ldots 
 Các bài báo của các bộ dữ liệu được thu nhặt được thông qua trang tin tức tổng hợp của Google.
 Còn bộ dữ liệu tiếng Anh là các bài báo được lấy từ trang tin tức Reuters được tổng hợp lại thành Reuters-21578.
 Ngoài ra, cả hai bộ dữ liệu đều là các bài báo đã được gom nhóm sơ bộ.
 
 %giới thiệu dữ liệu tiếng Anh
 \subsection{Dữ liệu tiếng Anh}
-Reuters-21578 bao gồm 21,578 bài báo và các bài báo thuộc nhiều danh mục khác nhau.
+% Giới thiệu Reuters-21578
+Reuters-21578 bao gồm 21,578 bài báo thuộc nhiều lĩnh vực khác nhau.
 Bộ dữ liệu này được tổng hợp bởi David D. Lewis vào năm 1987.
-Sau đó thì bộ dữ liệu tiếp tục được phân lớp và chỉnh sửa lại bởi nhiều người khác nhau thuộc Reuters và Carnegie.
+Đây là nguồn tài nguyên cho mục đích nghiên cứu trong lĩnh vực truy vấn thông tin, máy học, và những nghiên cứu dựa vào corpus khác.
 Bộ dữ liệu này xuất bản và phân phối miễn phí cho mục đích nghiên cứu.
+Nếu người nào muốn sử dụng bộ dữ liệu này thì phải đề cập đến nguồn~\footnote{http://www.research.att.com/~lewis} cũng như là thông tin tên của bộ dữ liệu cho mọi người biết.
+
+% Mô tả Reuters-21578
+Reuters-21578 là tập dữ liệu bao gồm hai mươi hai tập tin dữ liệu.
+Mỗi tập tin dữ liệu là có định dạng là SGML(Standard Generalized Markup Language) và có khoảng 1000 bài báo.
+Ngoài ra, bộ dữ liệu còn có sáu tập tin mô tả phân loại dùng để chỉ mục cho dữ liệu.
+Tập dữ liệu còn có thêm vào những tập tin dựa vào đóng góp của những nhà nghiên cứu khác.
+Tất cả những tập tin đều là không có nén, được gom lại vào thành một thư mục được nén lại thành cái tên reuters21578.tar.gz
+
+%Giới thiệu sơ bộ về SGML
+SGML~\footnote{https://www.w3.org/TR/WD-html40-970708/intro/sgmltut.html} là chuẩn cho việc định nghĩa ngôn ngữ đánh dấu cho văn bản, HTML là một trong những ứng dụng của SGML.
+SGML bao gồm phần khai báo, định nghĩa loại văn bản, đặc tả và thể hiện văn bản đánh dấu.
+Phần khai báo SGML là chỉ ra các kí tự và các loại dấu phân cách sẽ sử dụng.
+Phần định nghĩa loại văn bản định nghĩa cú pháp của cấu trúc đánh dấu và có thể có thêm các phần định nghĩa khác như là số và tên kí tự.
+Phần đặc tả mô tả ngữ nghĩa được tạo bởi đánh dấu và phần đặc tả này ràng buộc sự giới hạn của cú pháp để không thể xuất hiện trong phần định nghĩa loại văn bản.
+Thể hiện văn bản chứa nội dung và đánh dấu, mỗi thể hiện chứa tham chiếu đến phần định nghĩa văn bản để thực thi nó.
+
+%  phần phân mục của Reuters-21578
+Như đã đề cập, các bài báo trong reuters-21578 đã được gom nhóm lại thành các tập phân loại khác nhau
+\begin{table}[ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+Tập phân loại & Số lượng phân phân nhóm & Số lượng phân nhóm mà tần số lớn hơn một & Số lượng phân nhóm mà tần số lớn hơn 20  \\
+\hline
+EXCHANGES & 39 & 32 & 7\\
+\hline
+ORGS & 56 & 32 & 9\\
+\hline
+PEOPLE & 267 & 114 & 15 \\
+\hline
+PLACES & 175 & 147 & 60\\
+\hline
+TOPICS & 135 & 120 & 57\\
+\hline
+\end{tabularx}
+\caption[Các tập phân loại]{Các tập phân loại}
+\label{bang_4_2}
+\end{center}
+\end{table}
+
+%Các tập phân loại
+Phần phân loại TOPICS bao gồm các chủ đề về kinh tế.
+Ví dụ phần này sẽ bao gồm các từ chính như "include", "gold", "inventories", và "money-supply".
+Tập phân loại này là tập đã được sử dụng hầu hết trong các nghiên cứu về dữ liệu của Reuters.
+
+
 
 %giới thiệu dữ liệu tiếng Việt
 \subsection{Dữ liệu tiếng Việt}
