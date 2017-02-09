@@ -3,28 +3,65 @@
 Chương này trình bày môi trường thực nghiệm của đồ án, các công cụ hỗ trợ thực nghiệm, các tập ngữ liệu được sử dụng, các công cụ dùng để đánh giá kết quả gom nhóm và kết quả của thực nghiệm.
 
 \section{Thực nghiệm}
-\subsection{Môi trường}
+\subsection{Môi trường thực nghiệm}
 %Môi trường thực nghiệm
-Quá trình thực nghiệm đồ án 
+Quá trình thực nghiệm đồ án được thực hiện với môi trường như sau:
+\begin{enumerate}
+\item[•]Ngôn ngữ lập trình Python phiên bản 2.7
+\item[•]Một số gói lệnh Python cài đặt thêm:
+\begin{enumerate}
+\item[-] gensim phiên bản 0.11.1: gói lệnh hỗ trợ trích xuất ngữ nghĩa của các chủ đề trong các văn bản.
+Gensim được thiết kế để có thể thực thi với dữ liệu thô.
+Các thuật toán trong gensim như Latent Semantics Analysis(LSA), Latent Dirichlet Allocation(LDA) và Random Projections dùng để khai thác cấu trúc ngữ nghĩa của văn bản bằng các mẫu thống kê.
+Sau khi chạy các thuật toán này, văn bản thô sẽ chuyển sang dạng thể hiện mới có nghĩa và có thể truy vấn độ tương đồng với các văn bản khác.
+Gensim là gói lệnh dùng để giải quyết các ý tưởng về corpus, vector và mô hình.
+\item[-] sklearn phiên bản 0.16.1: gói lệnh hỗ trợ máy học trong Python.
+Đây là công cụ đơn giản, hiệu quả cho khai thác và phân tích dữ liệu.
+Các thuật toán trong sklearn là công cụ hỗ trợ rất tốt cho các đề tài nghiên cứu.
+Sklearn là mã nguồn mở, có thể được sử dụng trong thương mại.
+Vì vậy, mọi người đều có thể sử dụng gói lệnh và chỉnh sửa thoải mái.
+\end{enumerate}
+\item[•]Ngôn ngữ lập trình C++.
+Công cụ chỉnh sửa để hỗ trợ cho ngôn ngữ lập trình C++ là Microsoft Visual Studio C++ 2008.
+\end{enumerate}
 
+\subsection{Công cụ hỗ trợ}
+\begin{table}[ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|c|X|}
+\hline
+STT & Tên công cụ & \makecell[c]{Mô tả} \\
+\hline
+1 & Google News & Công dụng: dùng để lọc ra những bài báo đã được gom nhóm. \\
+\hline
+2 & Java Tokenizer & Tác giả: Lê Hồng Phương - Đại học Khoa Học Tự nhiên - Đại học Quốc Gia Hà Nội. \newline Công dụng: Tách câu và tách từ cho tiếng Việt.\\
+\hline
+3 & sgmllib & Hỗ trợ: thư viện của Python. \newline Công dụng: dùng để trích xuất dữ liệu dưới định dạng SGML.\\
+\hline
 
-\subsection{Dữ liệu}
+\end{tabularx}
+\caption[Các công cụ hỗ trợ thực nghiệm]{Các công cụ hỗ trợ thực nghiệm}
+\label{bang_2_1}
+\end{center}
+\end{table}
+
+\section{Dữ liệu}
 %Giới thiệu dữ liệu sử dụng
 Dữ liệu sử dụng trong chương trình bao gồm dữ liệu tiếng Anh và dữ liệu tiếng Việt.
 Trong đó, bộ dữ liệu tiếng Việt được tổng hợp từ các trang tin tức nổi tiếng của Việt Nam như vnexpress, dân trí, tuổi trẻ, \ldots
+Các bài báo của các bộ dữ liệu được thu nhặt được thông qua trang tin tức tổng hợp của Google.
 Còn bộ dữ liệu tiếng Anh là các bài báo được lấy từ trang tin tức Reuters được tổng hợp lại thành Reuters-21578.
-Ngoài ra, cả hai bộ dữ liệu đều là các bài báo đã được phân lớp sơ bộ.
-Như đã đề cập, bộ dữ liệu tiếng Việt gồm các trang : vnexpress, dân trí, tuổi trẻ, \ldots được lấy từ trang tin tức tổng hợp của Google.
+Ngoài ra, cả hai bộ dữ liệu đều là các bài báo đã được gom nhóm sơ bộ.
 
 %giới thiệu dữ liệu tiếng Anh
-\subsubsection{Dữ liệu tiếng Anh}
+\subsection{Dữ liệu tiếng Anh}
 Reuters-21578 bao gồm 21,578 bài báo và các bài báo thuộc nhiều danh mục khác nhau.
 Bộ dữ liệu này được tổng hợp bởi David D. Lewis vào năm 1987.
 Sau đó thì bộ dữ liệu tiếp tục được phân lớp và chỉnh sửa lại bởi nhiều người khác nhau thuộc Reuters và Carnegie.
 Bộ dữ liệu này xuất bản và phân phối miễn phí cho mục đích nghiên cứu.
 
 %giới thiệu dữ liệu tiếng Việt
-\subsubsection{Dữ liệu tiếng Việt}
+\subsection{Dữ liệu tiếng Việt}
 Trong bộ dữ liệu Reuters-21578, nhiều bài chỉ có nội dung là một dòng, thậm chí có bài còn là rỗng.
 Vì vậy, trước khi sử dụng, ta sử dụng bộ lọc để loại bỏ những bài như vậy.
 Sau đó, ta chọn ra hai mẫu ngẫu nhiên trong bộ dữ liệu Reuters-21578.
