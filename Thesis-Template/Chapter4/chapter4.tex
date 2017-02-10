@@ -22,7 +22,12 @@ Sklearn là mã nguồn mở, có thể được sử dụng trong thương mạ
 Vì vậy, mọi người đều có thể sử dụng gói lệnh và chỉnh sửa thoải mái.
 \end{enumerate}
 \item[•]Ngôn ngữ lập trình C++.
-Công cụ chỉnh sửa để hỗ trợ cho ngôn ngữ lập trình C++ là Microsoft Visual Studio C++ 2008.
+\item[•]Máy tính chạy thực nghiệm
+\begin{enumerate}
+\item[-]CPU core i5 3.3GHz
+\item[-]RAM 8GB
+\item[-]Hệ điều hành windows
+\end{enumerate}
 \end{enumerate}
 
 \subsection{Công cụ hỗ trợ}
@@ -38,12 +43,15 @@ STT & Tên công cụ & \makecell[c]{Mô tả} \\
 \hline
 3 & sgmllib & Hỗ trợ: thư viện của Python 2.7. \newline Công dụng: dùng để trích xuất dữ liệu dưới định dạng SGML.\\
 \hline
+4 & C++ editor & Microsoft Visual Studio C++ 2008 \\
+\hline
 
 \end{tabularx}
 \caption[Các công cụ hỗ trợ thực nghiệm]{Các công cụ hỗ trợ thực nghiệm}
 \label{bang_4_1}
 \end{center}
 \end{table}
+%\floatbarrier
 
 \section{Dữ liệu}
 %Giới thiệu dữ liệu sử dụng
@@ -78,7 +86,7 @@ Phần đặc tả mô tả ngữ nghĩa được tạo bởi đánh dấu và p
 Thể hiện văn bản chứa nội dung và đánh dấu, mỗi thể hiện chứa tham chiếu đến phần định nghĩa văn bản để thực thi nó.
 
 %  phần phân mục của Reuters-21578
-Như đã đề cập, các bài báo trong reuters-21578 đã được gom nhóm lại thành các tập phân loại khác nhau
+Như đã đề cập, các bài báo trong reuters-21578 đã được gom nhóm lại thành các tập phân nhóm khác nhau
 \begin{table}[ht]
 \begin{center}
 \begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
@@ -105,19 +113,17 @@ TOPICS & 135 & 120 & 57\\
 Phần phân loại TOPICS bao gồm các chủ đề về kinh tế.
 Ví dụ phần này sẽ bao gồm các từ chính như "include", "gold", "inventories", và "money-supply".
 Tập phân loại này là tập đã được sử dụng hầu hết trong các nghiên cứu về dữ liệu của Reuters.
-
-Tập phân loại
-
-
+Các tập phân loại như EXCHANGES, ORGS, PEOPLE, và PLACES được xếp nhóm có tên như mô tả, ví dụ như "nasdaq"(EXCHANGES), "gatt"(ORGS), "perez-de-cuellar"(PEOPLE), và "australia"(PLACES).
 
 %giới thiệu dữ liệu tiếng Việt
 \subsection{Dữ liệu tiếng Việt}
-Trong bộ dữ liệu Reuters-21578, nhiều bài chỉ có nội dung là một dòng, thậm chí có bài còn là rỗng.
-Vì vậy, trước khi sử dụng, ta sử dụng bộ lọc để loại bỏ những bài như vậy.
-Sau đó, ta chọn ra hai mẫu ngẫu nhiên trong bộ dữ liệu Reuters-21578.
-Mẫu thứ nhất được đặt tên là re1 và có 1,504 gồm nhiều bài thuộc các mục khác nhau.
-Tương tự, ta đặt tên cho mẫu thứ hai là re2 và có 1,657 bài cũng thuộc nhiều mục khác nhau.
-Việc chọn ra hai mẫu ngẫu nhiên giúp cho việc kiểm nghiệm kết quả của thuật toán được khách quan.
+Bộ dữ liệu tiếng Việt do Ung Văn Giàu lấy thủ công từ Google News bao gồm 1945 bài có tổng cộng là 300 phân nhóm.
+Các bài báo này đều đến từ các trang báo như: vnexpress, dân trí, tuổi trẻ, \ldots.
+Bộ dữ liệu có 300 phân nhóm là do bạn Giàu gán nhãn những bài vào các phân nhóm.
+Mỗi phân nhóm có ít nhất là 5 bài, nhiều nhất là 10 bài.
+Do đây là bộ dữ liệu làm bằng thủ công nên để đảm bảo tính chính xác thì em phân nhóm lại một lần nữa. 
+Việc có hai bạn độc lập kiểm tra bộ dữ liệu nên đây là bộ dữ liệu đã được qua kiểm chứng và có thể sử dụng cho mục đích nghiên cứu.
+
 
 %Các bước chuẩn bị cần thiết khi sử dụng dữ liệu
 
