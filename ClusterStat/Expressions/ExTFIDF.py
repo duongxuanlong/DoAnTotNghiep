@@ -20,7 +20,7 @@ class TfIdf:
         # idf = vectorizer.idf_
         # dense = X.todense()
         # self.mDense = self.mResult.todense()
-        print str(len(self.mResult[0]))
+        # print str(len(self.mResult[0]))
         # print "Length of TFIDF: " + str(len(self.mDense))
         # print "length of data: " + str(len(self.mDense.data))
         # print "Row length: " + str(len(self.mDense[0]))

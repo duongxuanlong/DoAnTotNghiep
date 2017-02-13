@@ -9,6 +9,9 @@ from gensim.models.doc2vec import Doc2Vec
 from gensim import corpora
 import Algorithm
 
+import sklearn
+import gensim
+
 import sys
 
 
@@ -23,6 +26,10 @@ def main():
     # parser.get_texts()
     # print parser.get_texts()
     # JsonParser.get_docs_labels(os.getcwd() + "\\" + "clusters")
+
+    # Running version
+    print "sklearn version: " + sklearn.__version__
+    print "gensim version: " + gensim.__version__
 
     # running hicocluster
     run_hicocluster_create_matrix()
@@ -81,6 +88,8 @@ def algorithm_tfidf():
     tfidf = ExTFIDF.TfIdf()
     # tfidf.fit_data(parser.get_texts())
     tfidf.fit_data(JsonParser.get_texts(os.getcwd() + "\\" + "clusters"))
+
+    print "lennth of tfidf : " + str(len(tfidf.get_data_as_vector()))
 
     print "Running algorithm with TFIDF"
     Algorithm.algorithm_Kmean(tfidf.get_data_as_vector())

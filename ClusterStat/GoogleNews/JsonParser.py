@@ -73,8 +73,9 @@ def get_target_labels():
                         if txt.endswith(".tok.json"):
                             labels.append(label)
                 label += 1
-    # print labels
+    print "Length of labels : " + str(len(labels))
     return labels
+
 
 def get_texts(path):
     docs = []
@@ -89,5 +90,7 @@ def get_texts(path):
                     result_json = json.load(file_txt)
                     docs.append(result_json["Content"])
                     file_txt.close()
+
+    print "length of docs: " + str(len(docs))
     return docs
 

@@ -25,10 +25,11 @@ def algorithm_Kmean(pairs):
         kmeans.fit(pairs)
     print "Kmeans"
 
-    print "Original label"
+    # print "Original label"
     # print GoogleNewsParser.get_target_labels()
-    print "Kmeans label"
-    print kmeans.labels_
+    print "Target labels length : " + str(len(JsonParser.get_target_labels()))
+    print "Kmeans label lenght : " + str(len(kmeans.labels_))
+    # print kmeans.labels_
     # Google
     # print "ARI: " + str(metrics.adjusted_rand_score(GoogleNewsParser.get_target_labels(), kmeans.labels_))
     # print "NMI: " + str(metrics.adjusted_mutual_info_score(GoogleNewsParser.get_target_labels(), kmeans.labels_))
