@@ -140,15 +140,36 @@ Còn phân nhóm thứ hai là kết quả từ quá trình gom nhóm.
 Trong bài toán, ta sử dụng hai chỉ số đánh giá ngoại vi là : NMI(normalized mutual information) và ARI (adjusted rand index).
 	
 Như đã đề cập ở phần trên, ta sẽ sử dụng hai chỉ số ngoại vi để đánh giá.
+Sau đây, một vài thuật ngữ sẽ được giải thích trước khi ta bàn luận về hai chỉ số này.
 Ta có tập $\textbf{C} \, = {C_1 \ldots C_j}$ là tập phân nhóm của đối tượng được xây dựng ở một cấp độ nhất định.
-Tập $\textbf{P} \, = {P_1 \ldots P_j}$ là tập hợp được chia bởi phân lớp ban đầu. $J$ và $I$ là tương đương với số phân nhóm của $(|\textbf{C}|)$ và số phân lớp của  $(|\textbf{P}|)$.
+Tập $\textbf{P} \, = {P_1 \ldots P_j}$ là tập hợp được chia bởi phân lớp ban đầu.
+$J$ và $I$ là tương đương với số phân nhóm của $(|\textbf{C}|)$ và số phân lớp của  $(|\textbf{P}|)$.
 Ta biểu diễn $n$ là tổng số đối tượng trong thuật toán.
 
 %Cách đánh giá NMI
 \subsection{Cách đánh giá NMI}
 
 %Giới thiệu
-\subsubsection{Giới thiệu}
+%\subsubsection{Giới thiệu}
+NMI có nguồn gốc từ MI(mutual information), trong đó MI sử dụng hướng tiếp cận là so sánh phân nhóm có nguồn gốc trong lý thuyết thông tin và dựa vào ý tưởng của entropy.
+Gọi $S$ là entropy cho thông tin của văn bản $T$, ta có công thức sau:
+\begin{center}
+\begin{equation}
+S(T) \, = -\sum_{i \in \sum} p_i \log_2 (p_i)
+\end{equation}
+\end{center}
+
+Với $p_i$ là xác xuất của việc tìm kiếm $i$ trong $T$, hay chính xác hơn là ta có biến ngẫu nhiên rời rạc $Y$ lấy giá trị từ $\mid \sum \mid$ và $P(Y \, = \, i) \, = \, p_i$.
+Giá trị entropy được được tính bằng số bit và $S(T)$, trong đó thì $\mid T \mid$ là số lượng bit cần để biểu diễn cho $T$.
+
+Khi áp dụng gom nhóm, ý nghĩa của entropy được mô tả như sau: giả sử tất cả những thành phần của $X$ có xác xuất được chọn là giống nhau và chọn một thành phần ngẫu nhiên của $X$, xác xuất của thành phần này nằm trong phân nhóm $C_i \in C$ là $P(i) = \frac{\mid C_i \mid}{n}$.
+Khi đó, entropy kết hợp với phân nhóm $C$ cho ra công thức:
+\begin{center}
+\begin{equation}
+H (C) = - \sum^{k}_{i = 1} P(i) \log_2 P(i)
+\end{equation}
+\end{center}
+
 NMI có nguốn gốc từ MI(mutual information), được sử dụng nhiều trong lý thuyết xác suất và lý thuyết thông tin.
 NMI là phương pháp đo độ phụ thuộc lẫn nhau giữa hai biến.
 Trong đây, NMI được nâng cấp để đo phụ thuộc lẫn nhau giữa hai nhóm.
@@ -156,7 +177,7 @@ Từ đó, NMI cung cấp thông tin cân bằng liên quan đến số lượng
 Ngoài ra, NMI còn cho ra kết quả chia sẻ thông tin với lớp thực sự được gán và thông tin hỗn hợp trung bình giữa những cặp của phân nhóm và phân lớp.
 		
 %Công thức
-\subsubsection{Công thức}
+%\subsubsection{Công thức}
 \begin{center}
 \begin{equation}
 \textbf{NMI} \, = \frac{\sum^I_{i=1} \sum^J_{j=1} x_{ij} \log \frac{n x_{ij}}{x_i x_j}}{\sqrt{\sum^I_{i=1} x_i \log \frac{x_i}{n} \sum^J_{j=1} x_j \log \frac{x_j}{n}}}
@@ -168,7 +189,7 @@ $x_j$ là số lượng phần tử chỉ xuất hiện trong tập $C_j$. $x_i$
 Giá trị của chỉ số này nằm trong khoảng từ 0 đến 1.
 
 %Ví dụ
-\subsubsection{Ví dụ}
+%\subsubsection{Ví dụ}
 		
 %Cách đánh giá ARI
 \subsection{Cách đánh giá ARI}
