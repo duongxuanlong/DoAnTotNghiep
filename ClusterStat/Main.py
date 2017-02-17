@@ -12,10 +12,18 @@ import Algorithm
 import sklearn
 import gensim
 
+import numpy
+from sklearn import metrics
+
 import sys
 
 
 def main():
+    # calculate NMI example
+    results =  [1, 1, 1, 2, 2, 2, 3, 3, 3]
+    clusters = [1, 1, 2, 2, 2, 3, 3, 3, 1]
+    print metrics.adjusted_mutual_info_score(results, clusters)
+
     # print sys.stdout.encoding
     #Running tfidf
     # parser = GoogleNewsParser.NewsParsers()
@@ -28,11 +36,11 @@ def main():
     # JsonParser.get_docs_labels(os.getcwd() + "\\" + "clusters")
 
     # Running version
-    print "sklearn version: " + sklearn.__version__
-    print "gensim version: " + gensim.__version__
+    # print "sklearn version: " + sklearn.__version__
+    # print "gensim version: " + gensim.__version__
 
     # running hicocluster
-    run_hicocluster_create_matrix()
+    # run_hicocluster_create_matrix()
 
     # running TF-IDF
     # algorithm_tfidf()
@@ -42,6 +50,10 @@ def main():
     # algorithm with d2v representation
     # algorithm_d2v()
     # GoogleNewsParser.get_target_labels()
+
+    # running combination
+    # algorithm_combination()
+
 
 def run_hicocluster_create_matrix():
     # Number of docs: 1950
@@ -93,7 +105,7 @@ def algorithm_tfidf():
 
     print "Running algorithm with TFIDF"
     Algorithm.algorithm_Kmean(tfidf.get_data_as_vector())
-    Algorithm.algorithm_HAC(tfidf.get_data_as_vector())
+    # Algorithm.algorithm_HAC(tfidf.get_data_as_vector())
 
 
 def algorithm_d2v():
@@ -141,6 +153,40 @@ def run_doc2vec():
         model.min_alpha = model.alpha
     print "length of model : " + str(len(model.docvecs))
     model.save(os.getcwd() + "\\google.d2v")
+
+
+def algorithm_combination():
+    final = get_combination()
+    # Algorithm.algorithm_Kmean(final)
+    Algorithm.algorithm_HAC(final)
+
+
+def get_combination():
+    print "run_combination"
+    # Google data
+    # parser = GoogleNewsParser.NewsParsers()
+    # parser.parse_data_from_tok()
+
+    # Json Google
+    tfidf = ExTFIDF.TfIdf()
+    # tfidf.fit_data(parser.get_texts())
+    tfidf.fit_data(JsonParser.get_texts(os.getcwd() + "\\" + "clusters"))
+    tf_vectors = tfidf.get_data_as_vector()
+    print "Length of tfidf feature: " + str(len(tf_vectors[0]))
+    # print tf_vectors[0]
+
+    pairs = load_d2v()
+    single = pairs[1]
+    print "Length of doc2vec feature: " + str(len(single[0]))
+    # print single[0]
+
+    final = numpy.hstack((tf_vectors, single))
+    print "Length of final features: " + str(len(final[0]))
+    # final = []
+    # for i in range(length):
+    #     temp = tf_vectors[i] + single[i]
+    #     final.append(temp)
+    return final
 
 
 if __name__ == '__main__':

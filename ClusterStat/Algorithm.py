@@ -8,6 +8,8 @@ from sklearn import metrics
 from GoogleNews import GoogleNewsParser
 from GoogleNews import JsonParser
 
+from numpy import ndarray
+
 
 def algorithm_Kmean(pairs):
     # Number of full clusters: 2305
@@ -18,7 +20,9 @@ def algorithm_Kmean(pairs):
     # Number of json cluster: 300
     print "algorithm Kmean"
      #Google
-    kmeans = KMeans(n_clusters=300, init='k-means++', n_init=100)
+    # kmeans = KMeans(n_clusters=300, init='k-means++', n_init=100)
+    kmeans = KMeans(n_clusters=300, init='random', n_init=100)
+    # kmeans = KMeans(n_clusters=300, init=ndarray(shape=(300, )), n_init=100) # not yet
     if (len(pairs) == 2):
         kmeans.fit(pairs[1])
     else:
@@ -41,7 +45,19 @@ def algorithm_Kmean(pairs):
 def algorithm_HAC(pairs):
     print "algorithm HAC"
     #Google
-    hac = AgglomerativeClustering(n_clusters=300, linkage='ward')
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='ward', affinity='euclidean')
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='complete', affinity='euclidean')
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='complete', affinity='l1')
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='complete', affinity='l2')
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='complete', affinity='manhattan')
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='complete', affinity='cosine')
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='complete', affinity='precomputed') # not yet
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='average', affinity='euclidean')
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='average', affinity='l1')
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='average', affinity='l2')
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='average', affinity='manhattan')
+    hac = AgglomerativeClustering(n_clusters=300, linkage='average', affinity='cosine')
+    # hac = AgglomerativeClustering(n_clusters=300, linkage='average', affinity='precomputed') # not yet
 
     if len(pairs) == 2:
         hac.fit(pairs[1])

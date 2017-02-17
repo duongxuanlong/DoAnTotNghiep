@@ -27,6 +27,7 @@ def get_docs_labels(path):
                     # print "Length of json: " + str(len(result_json))
                     # docs.append(file_txt.read())
                     newlabel = get_label(file_path)
+                    print newlabel
                     # labels.append(txt)
                     labels.append(newlabel)
                     file_txt.close()
