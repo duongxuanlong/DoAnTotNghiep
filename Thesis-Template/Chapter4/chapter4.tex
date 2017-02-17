@@ -141,9 +141,9 @@ Trong bài toán, ta sử dụng hai chỉ số đánh giá ngoại vi là : NMI
 	
 Như đã đề cập ở phần trên, ta sẽ sử dụng hai chỉ số ngoại vi để đánh giá.
 Sau đây, một vài thuật ngữ sẽ được giải thích trước khi ta bàn luận về hai chỉ số này.
-Ta có tập $\textbf{C} \, = {C_1 \ldots C_j}$ là tập phân nhóm của đối tượng được xây dựng ở một cấp độ nhất định.
+Ta có tập $\textbf{C} \, = {C_1 \ldots C_i}$ là tập phân nhóm của đối tượng được xây dựng ở một cấp độ nhất định.
 Tập $\textbf{P} \, = {P_1 \ldots P_j}$ là tập hợp được chia bởi phân lớp ban đầu.
-$J$ và $I$ là tương đương với số phân nhóm của $(|\textbf{C}|)$ và số phân lớp của  $(|\textbf{P}|)$.
+$I$ và $J$ là tương đương với số phân nhóm của $(|\textbf{C}|)$ và số phân lớp của  $(|\textbf{P}|)$.
 Ta biểu diễn $n$ là tổng số đối tượng trong thuật toán.
 
 %Cách đánh giá NMI
@@ -155,24 +155,48 @@ NMI có nguồn gốc từ MI(mutual information), trong đó MI sử dụng hư
 Gọi $S$ là entropy cho thông tin của văn bản $T$, ta có công thức sau:
 \begin{center}
 \begin{equation}
-S(T) \, = -\sum_{i \in \sum} p_i \log_2 (p_i)
+S(T) \, = -\sum_{i \in \sum} \frac{x_i}{n} \log_2 \frac{x_i}{n}
 \end{equation}
 \end{center}
 
-Với $p_i$ là xác xuất của việc tìm kiếm $i$ trong $T$, hay chính xác hơn là ta có biến ngẫu nhiên rời rạc $Y$ lấy giá trị từ $\mid \sum \mid$ và $P(Y \, = \, i) \, = \, p_i$.
+Với $x_i$ là số lượng $i$ cần tìm kiếm trong $T$.
 Giá trị entropy được được tính bằng số bit và $S(T)$, trong đó thì $\mid T \mid$ là số lượng bit cần để biểu diễn cho $T$.
 
-Khi áp dụng gom nhóm, ý nghĩa của entropy được mô tả như sau: giả sử tất cả những thành phần của $X$ có xác xuất được chọn là giống nhau và chọn một thành phần ngẫu nhiên của $X$, xác xuất của thành phần này nằm trong phân nhóm $C_i \in C$ là $P(i) = \frac{\mid C_i \mid}{n}$.
+Khi áp dụng gom nhóm, ý nghĩa của entropy được mô tả như sau: giả sử tất cả những thành phần của $X$ có xác xuất được chọn là giống nhau và chọn một thành phần ngẫu nhiên của $X$, xác xuất của thành phần này nằm trong phân nhóm $C_i \in C$ là $\frac{\mid C_i \mid}{n}$.
 Khi đó, entropy kết hợp với phân nhóm $C$ cho ra công thức:
 \begin{center}
 \begin{equation}
-H (C) = - \sum^{k}_{i = 1} P(i) \log_2 P(i)
+H (C) = - \sum^{I}_{i = 1} \frac{x_i}{n} \log_2 \frac{x_i}{n}
 \end{equation}
 \end{center}
 
-NMI có nguốn gốc từ MI(mutual information), được sử dụng nhiều trong lý thuyết xác suất và lý thuyết thông tin.
-NMI là phương pháp đo độ phụ thuộc lẫn nhau giữa hai biến.
-Trong đây, NMI được nâng cấp để đo phụ thuộc lẫn nhau giữa hai nhóm.
+Độ entropy của một phân nhóm $C$ là thước đo cho sự bất định của phân nhóm đó trong thành phần được chọn ngẫu nhiên.
+Trong trường hợp phân nhóm được xem là đơn giản khi chỉ có một phân nhóm hoặc có $n$ phân nhóm.
+Ta có thể biết được phân nhóm của thành phần được chọn ngẫu nhiên.
+Vì vậy, độ entropy khi đó được xem bằng $0$.
+
+Ý tưởng về entropy có thể được mở rộng trong MI theo cách làm giảm độ bất định.
+Ta có thể mô tả trung bình có thể làm giảm độ bất định về phân nhóm của thành phần ngẫu nhiên được chọn.
+Điều này có thể xảy ra khi ta biết được phân nhóm trong gom nhóm khác với tập các thành phần giống nhau.
+Công thức để biểu diễn cho ý tưởng này:
+\begin{center}
+\begin{equation}
+I (C, P) = \sum_{i=1}^I \sum_{j=1}^J \frac{x_{ij}}{n} log_2 \frac{n x_{ij}}{x_i x_j}
+\end{equation}
+\end{center}
+
+Với $x_{ij}$ là số lượng thành phần mà nằm trong phân nhóm $C_i$ trong C lẫn phân nhóm $P_j$ trong $P$.
+Độ thông tin hỗn hợp của $I$ là thước đo trong không gian của tất cả gom nhóm.
+Tuy nhiên, giá trị này không bị chặn bởi một giá trị hằng nhất định nên gây khó khăn trong việc thực thi. Trong khi đó, độ hỗn hợp thông tin giữa hai gom nhóm bị chặn bởi 
+\begin{center}
+\begin{equation}
+I (C, P) \leq min{H(C), H(P)}
+\end{equation}
+\end{center}
+
+Đây là lý do cần thiết đẻ chuẩn hóa MI, vì vậy ta có NMI(normalized mutual information).
+NMI được sử dụng nhiều trong lý thuyết xác suất và lý thuyết thông tin.
+NMI được nâng cấp từ MI để đo phụ thuộc lẫn nhau giữa hai nhóm.
 Từ đó, NMI cung cấp thông tin cân bằng liên quan đến số lượng phân nhóm.
 Ngoài ra, NMI còn cho ra kết quả chia sẻ thông tin với lớp thực sự được gán và thông tin hỗn hợp trung bình giữa những cặp của phân nhóm và phân lớp.
 		
@@ -180,13 +204,53 @@ Ngoài ra, NMI còn cho ra kết quả chia sẻ thông tin với lớp thực s
 %\subsubsection{Công thức}
 \begin{center}
 \begin{equation}
-\textbf{NMI} \, = \frac{\sum^I_{i=1} \sum^J_{j=1} x_{ij} \log \frac{n x_{ij}}{x_i x_j}}{\sqrt{\sum^I_{i=1} x_i \log \frac{x_i}{n} \sum^J_{j=1} x_j \log \frac{x_j}{n}}}
+\textbf{NMI} = \frac{I(C,P)}{\sqrt{H(C)H(P)}}
+\end{equation}
+\begin{equation}
+\longleftrightarrow \textbf{NMI} \, = \frac{\sum^I_{i=1} \sum^J_{j=1} x_{ij} \log \frac{n x_{ij}}{x_i x_j}}{\sqrt{\sum^I_{i=1} x_i \log \frac{x_i}{n} \sum^J_{j=1} x_j \log \frac{x_j}{n}}}
 \end{equation}
 \end{center}
-		
-Với $x_{ij}$ là số lượng phần tử của các đối tượng mà xuất hiện trong cả tập $C_j$ và $P_i$.
-$x_j$ là số lượng phần tử chỉ xuất hiện trong tập $C_j$. $x_i$ là số lượng phần tử chỉ xuất hiện trong tập $P_i$.
-Giá trị của chỉ số này nằm trong khoảng từ 0 đến 1.
+
+Giá trị của chỉ số bị ràng buộc trong khoảng từ 0 đến 1.
+
+Sau đây là ví dụ về cách tính cho chỉ số NMI, cho 2 bảng sau:
+\begin{table}[ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+$P_1$ & $P_2$ & $P_3$ \\
+\hline
+1 & 2 & 3\\
+
+1 & 2 & 3\\
+
+1 & 2 & 3\\
+\hline
+\end{tabularx}
+\caption[Các tập phân nhóm ban đầu]{Các tập phân nhóm ban đầu}
+\label{bang_4_3}
+\end{center}
+\end{table}
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+$P_1$ & $P_2$ & $P_3$\\
+\hline
+1 & 2 & 3\\
+
+1 & 2 & 3\\
+
+2 & 3 & 1\\
+\hline
+\end{tabularx}
+\caption[Kết quả gom nhóm]{Kết quả gom nhóm}
+\label{bang_4_4}
+\end{center}
+\end{table}
+
+Dựa vào công thức (4.6), ta có thể tính NMI có kết quả là: $0.16502$
 
 %Ví dụ
 %\subsubsection{Ví dụ}
