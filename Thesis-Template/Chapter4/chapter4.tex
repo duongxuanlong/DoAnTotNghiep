@@ -206,7 +206,7 @@ Ngoài ra, NMI còn cho ra kết quả chia sẻ thông tin với lớp thực s
 \begin{equation}
 \textbf{NMI} = \frac{I(C,P)}{\sqrt{H(C)H(P)}}
 \end{equation}
-\begin{equation}
+\begin{equation} \label{eq:NMI}
 \longleftrightarrow \textbf{NMI} \, = \frac{\sum^I_{i=1} \sum^J_{j=1} x_{ij} \log \frac{n x_{ij}}{x_i x_j}}{\sqrt{\sum^I_{i=1} x_i \log \frac{x_i}{n} \sum^J_{j=1} x_j \log \frac{x_j}{n}}}
 \end{equation}
 \end{center}
@@ -250,7 +250,7 @@ $P_1$ & $P_2$ & $P_3$\\
 \end{center}
 \end{table}
 
-Dựa vào công thức (4.6), ta có thể tính NMI có kết quả là: $0.16502$
+Dựa vào công thức \ref{eq:NMI}, ta có thể tính NMI có kết quả là: $0.16502$
 
 %Ví dụ
 %\subsubsection{Ví dụ}
@@ -258,37 +258,93 @@ Dựa vào công thức (4.6), ta có thể tính NMI có kết quả là: $0.16
 %Cách đánh giá ARI
 \subsection{Cách đánh giá ARI}
 %Giới thiệu
-\subsubsection{Giới thiệu}
-ARI có nguồn gốc từ RI (rand index), được sử dụng thống kê và gom nhóm dữ liệu.
-RI dùng để đo độ tương đồng giữa các nhóm dữ liệu.
-Vấn đề của RI là giá trị mong muốn của hai phân nhóm ngẫu nhiên nằm trong khoảng từ $0$ và $1$.
-Vì vậy, ARI ra đời là phiên bản chỉnh sửa có thể định nghĩa cho việc điều chỉnh cho cơ hội gom nhóm các thành phần.
-Giá trị của ARI có thể nằm trong phạm vi từ -1 đến 1.
-
-%Công thức
-\subsubsection{Công thức}
+%\subsubsection{Giới thiệu}
+ARI (Adjusted Rand Index) được cải tiến từ chỉ số RI (rand index).
+Trong đó, RI là chỉ số được dùng để đo những vấn đề của phân lớp tiêu chuẩn khi mà kết quả của quá trình phân lớp được so sánh với kết quả thực tế.
+Cách tính hiệu quả thường được sử dụng cho vấn đề này là sử dụng tỷ lệ mà các thành phần được phân lớp chính xác với tất cả những thành phần khác.
+Đối với RI, sự so sánh giữa hai phân nhóm là phần mở rộng so với việc đếm từng phần tử trong phân nhóm.
+RI đã đếm số lượng phân nhóm của từng cặp với nhau.
 \begin{center}
 \begin{equation}
-E[\alpha] \, = \frac{\pi(C) \cdot \pi(P)}{n(n - 1) / 2}
-\end{equation}
-\end{center}
-		
-Với $\pi(C)$ và $\pi(P)$ biểu thị tương ứng với số lượng các cặp đối tượng của cùng phân nhóm trong $\textbf{C}$ và cùng phân lớp trong $\textbf{P}$. Giá trị lớn nhất cho $\alpha$ có thể đạt được là:
-\begin{center}
-\begin{equation}
-\max(\alpha) = \frac{1}{2} (\pi(C) + \pi(P))
-\end{equation}
-\end{center}
-		
-Độ tương đồng giữa $\textbf{C}$ và $\textbf{P}$ có thể được ước lượng bởi adjusted rand index như sau:
-\begin{center}
-\begin{equation}
-AR(\textbf{C}, \textbf{P}) = \frac{\alpha - E[\alpha]}{\max(\alpha) - E[\alpha]}
+R(C,P) \, = \frac{n_{11} + n_{00}}{n(n - 1) / 2}
 \end{equation}
 \end{center}
 
-%Ví dụ
-\subsubsection{Ví dụ}
+Với $n_{11}$ và $n_{00}$ biểu thị tương ứng với số lượng các cặp đối tượng của cùng phân nhóm trong $\textbf{C}$ và cùng phân lớp trong $\textbf{P}$.
+$R$ có giá trị từ 0(không có cặp nào được phân nhóm giống nhau trong các phân nhóm) và 1(giống nhau hoàn toàn).
+Giá trị của $R$ phụ thuộc vào số lượng của phân nhóm cũng như là số lượng của các phần tử.
+Morey và Agresi chỉ ra rằng RI phụ thuộc nhiều vào số lượng phân nhóm.
+
+Giá trị lý tưởng của RI là miền ngẫu nghiên mà không có chứa giá trị hằng (như $0$).
+Chính vì vậy, Hubert và Abarbie đề xuất sự điều chỉnh với việc đặt ra giả thiết phân phối siêu hình học tông quát với siêu lý thuyết rỗng(null hyperthesis).
+Hai tập được vẽ ngẫu nhiên với một số nhóm cố định và một số thành phần cố định trong mỗi nhóm(số lượng các nhóm cho mỗi tập có thể không giống nhau).
+Sau đó, ta sẽ điều chỉnh RI độ dị biệt và giá trị kì vọng dưới siêu lý thuyết rỗng.
+\begin{center}
+\begin{equation} \label{eq:ARI}
+R_{adj}(\textbf{C}, \textbf{P}) = \frac{\sum^k_{i=1} \sum^l_{j=1} \binom {m_{ij}}  {2} - t_3}{\frac{1}{2} (t_1 + t_2) - t_3}
+\end{equation}
+
+\begin{equation} \label{eq:ARIParts}
+t_1 = \sum^k_{i=1} \binom {|C_i|} {2} , t_2 = \sum_{j=1}^l \binom {|P_j|} {2}, t_3 = \frac{2 t_1 t_2}{n (n - 1)}
+\end{equation}
+\end{center}
+
+Chỉ số này có giá trị kì vọng là 0 cho 2 tập độc lập và 1 cho 2 tập giống nhau hoàn toàn.
+Ý nghĩa của việc điều chỉnh cho cách tính này là đưa ra được câu hỏi cho giả thiết làm cách nào để phân phối.
+Melina chỉ ra rằng một vài trường hợp có thể cho ra giá trị âm.
+
+Sau đây là ví dụ về cách tính chỉ số ARI, cho bảng tần số ngẫu nghiên sau:
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{l|c c c|l}
+\hline
+$P \setminus C$ & $v_1$ & $v_2$ & $v_3$ & $Sums$ \\
+\hline
+$u_1$ & 1 & 1 & 0 & 2 \\
+$u_2$ & 1 & 2 & 1 & 4 \\
+$u_3$ & 0 & 0 & 4 & 4 \\
+\hline
+$Sums$ & 2 & 3 & 5 & $n = 10$ \\
+\end{tabular}
+\caption[Bảng tần số ngẫu nhiên]{Bảng tần số ngẫu nhiên}
+\label{bang_4_5}
+\end{center}
+\end{table}
+
+Dựa vào công thức \ref{eq:ARI}, ta sẽ có được kết quả là $0.313$
+
+% được sử dụng thống kê và gom nhóm dữ liệu.
+%RI dùng để đo độ tương đồng giữa các nhóm dữ liệu.
+%Vấn đề của RI là giá trị mong muốn của hai phân nhóm ngẫu nhiên nằm trong khoảng từ $0$ và $1$.
+%Vì vậy, ARI ra đời là phiên bản chỉnh sửa có thể định nghĩa cho việc điều chỉnh cho cơ hội gom nhóm các thành phần.
+%Giá trị của ARI có thể nằm trong phạm vi từ -1 đến 1.
+%
+%%Công thức
+%\subsubsection{Công thức}
+%\begin{center}
+%\begin{equation}
+%E[\alpha] \, = \frac{\pi(C) \cdot \pi(P)}{n(n - 1) / 2}
+%\end{equation}
+%\end{center}
+%		
+%Với $\pi(C)$ và $\pi(P)$ biểu thị tương ứng với số lượng các cặp đối tượng của cùng phân nhóm trong $\textbf{C}$ và cùng phân lớp trong $\textbf{P}$. Giá trị lớn nhất cho $\alpha$ có thể đạt được là:
+%\begin{center}
+%\begin{equation}
+%\max(\alpha) = \frac{1}{2} (\pi(C) + \pi(P))
+%\end{equation}
+%\end{center}
+%		
+%Độ tương đồng giữa $\textbf{C}$ và $\textbf{P}$ có thể được ước lượng bởi adjusted rand index như sau:
+%
+%\begin{center}
+%\begin{equation}
+%R(\textbf{C}, \textbf{P}) = \frac{\alpha - E[\alpha]}{\max(\alpha) - E[\alpha]}
+%\end{equation}
+%\end{center}
+%
+%
+%%Ví dụ
+%\subsubsection{Ví dụ}
 
 \section{Kết quả}
 %Thực nghiệm kết quả
