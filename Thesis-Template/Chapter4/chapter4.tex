@@ -348,6 +348,59 @@ Dựa vào công thức \ref{eq:ARI}, ta sẽ có được kết quả là $0.31
 
 \section{Kết quả}
 %Thực nghiệm kết quả
+Sau đây, kết quả của phần thực nghiệm của thuật toán Kmeans và HAC được thể hiện dưới các bảng sau:
+
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{7}{|c|}{Kmeans}                                                                                               \\ \hline
+                                                         & \multicolumn{3}{c|}{ARI}       & \multicolumn{3}{c|}{NMI}       \\ \hline
+                                                         & Kmeans++ & Random   & NDArray  & Kmeans++ & Random   & NDArray  \\ \hline
+Doc2Vec                                                  & 0.619478 & 0.571298 & 0.629997 & 0.805754 & 0.717114 & 0.813217 \\ \hline
+TF-IDF                                                   & 0.114307 & 0.616645 & 0.117396 & 0.623300 & 0.770883 & 0.629544 \\ \hline
+\begin{tabular}[c]{@{}c@{}}TF-IDF\\ Doc2Vec\end{tabular} & 0.589775 & 0.515369 &          & 0.810966 & 0.724369 &          \\ \hline
+\end{tabular}%
+}
+\caption[Kết quả thực nghiệm Kmeans trên dữ liệu tiếng Việt]{Kết quả thực nghiệm Kmeans trên dữ liệu tiếng Việt}
+\label{bang_4_6}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{8}{|c|}{HAC - Agglomerative Clustering}                                                                                                      \\ \hline
+                                                                          &             & \multicolumn{3}{c|}{ARI}       & \multicolumn{3}{c|}{NMI}       \\ \hline
+                                                                          &             & Ward     & Complete & Average  & Ward     & Complete & Average  \\ \hline
+\multirow{6}{*}{Doc2Vec}                                                  & euclidean   & 0.812084 & 0.740581 & 0.417411 & 0.884622 & 0.836569 & 0.749765 \\ \cline{2-8} 
+                                                                          & I1          & x        & 0.726328 & 0.423743 & x        & 0.824321 & 0.748299 \\ \cline{2-8} 
+                                                                          & I2          & x        & 0.740581 & 0.417411 & x        & 0.836569 & 0.749765 \\ \cline{2-8} 
+                                                                          & manhattan   & x        & 0.726328 & 0.423743 & x        & 0.824321 & 0.748299 \\ \cline{2-8} 
+                                                                          & cosine      & x        & 0.740205 & 0.677730 & x        & 0.832606 & 0.805142 \\ \cline{2-8} 
+                                                                          & precomputed & x        &          &          & x        &          &          \\ \hline
+\multirow{6}{*}{TFIDF}                                                    & euclidean   & 0.821220 & 0.827234 & 0.722569 & 0.910135 & 0.897100 & 0.877232 \\ \cline{2-8} 
+                                                                          & I1          & x        & 0.301559 & 0.031112 & x        & 0.700981 & 0.406159 \\ \cline{2-8} 
+                                                                          & I2          & x        & 0.827234 & 0.722569 & x        & 0.897100 & 0.877232 \\ \cline{2-8} 
+                                                                          & manhattan   & x        & 0.301559 & 0.031112 & x        & 0.700981 & 0.406159 \\ \cline{2-8} 
+                                                                          & cosine      & x        & 0.787636 & 0.799860 & x        & 0.870279 & 0.878187 \\ \cline{2-8} 
+                                                                          & precomputed & x        &          &          & x        &          &          \\ \hline
+\multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}TF-IDF\\ Doc2Vec\end{tabular}} & euclidean   & 0.837777 & 0.770857 & 0.493638 & 0.903739 & 0.863373 & 0.789117 \\ \cline{2-8} 
+                                                                          & I1          & x        & 0.718870 & 0.283864 & x        & 0.844449 & 0.737149 \\ \cline{2-8} 
+                                                                          & I2          & x        & 0.770857 & 0.493638 & x        & 0.863373 & 0.789117 \\ \cline{2-8} 
+                                                                          & manhattan   & x        & 0.718870 & 0.283864 & x        & 0.844449 & 0.737149 \\ \cline{2-8} 
+                                                                          & cosine      & x        & 0.772855 & 0.722736 & x        & 0.855602 & 0.830984 \\ \cline{2-8} 
+                                                                          & precomputed & x        &          &          & x        &          &          \\ \hline
+\end{tabular}%
+}
+\caption[Kết quả thực nghiệm HAC trên dữ liệu tiếng Việt]{Kết quả thực nghiệm HAC trên dữ liệu tiếng Việt}
+\label{bang_4_7}
+\end{table}
 
 %Giải thích chi tiết(5 đoạn)
 \section{Thảo luận}
