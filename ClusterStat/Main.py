@@ -20,9 +20,9 @@ import sys
 
 def main():
     # calculate NMI example
-    results =  [1, 1, 1, 2, 2, 2, 3, 3, 3]
-    clusters = [1, 1, 2, 2, 2, 3, 3, 3, 1]
-    print metrics.adjusted_mutual_info_score(results, clusters)
+    # results =  [1, 1, 1, 2, 2, 2, 3, 3, 3]
+    # clusters = [1, 1, 2, 2, 2, 3, 3, 3, 1]
+    # print metrics.adjusted_mutual_info_score(results, clusters)
 
     # print sys.stdout.encoding
     #Running tfidf
@@ -46,7 +46,7 @@ def main():
     # algorithm_tfidf()
 
     # running doc2vec
-    # run_doc2vec()
+    run_doc2vec()
     # algorithm with d2v representation
     # algorithm_d2v()
     # GoogleNewsParser.get_target_labels()
@@ -145,7 +145,8 @@ def run_doc2vec():
     pairs = JsonParser.get_docs_labels(path=path)
 
     documents = ExD2V.DocIterator(pairs[0], pairs[1])
-    model = Doc2Vec(size=100, window=10, min_count=1, workers=4, alpha=0.025, min_alpha=0.025)
+    # model = Doc2Vec(size=100, window=10, min_count=1, workers=4, alpha=0.025, min_alpha=0.025)
+    model = Doc2Vec(size=200, window=10, min_count=1, workers=4, alpha=0.025, min_alpha=0.025)
     model.build_vocab(documents)
     for epoch in range(10):
         model.train(documents)
@@ -157,8 +158,8 @@ def run_doc2vec():
 
 def algorithm_combination():
     final = get_combination()
-    # Algorithm.algorithm_Kmean(final)
-    Algorithm.algorithm_HAC(final)
+    Algorithm.algorithm_Kmean(final)
+    # Algorithm.algorithm_HAC(final)
 
 
 def get_combination():
