@@ -12,21 +12,21 @@ Quá trình thực nghiệm đồ án được thực hiện với môi trườn
 \begin{enumerate}
 \item[-] gensim phiên bản 0.11.1: gói lệnh hỗ trợ trích xuất ngữ nghĩa của các chủ đề trong các văn bản.
 Gensim được thiết kế để có thể thực thi với dữ liệu thô.
-Các thuật toán trong gensim như Latent Semantics Analysis(LSA), Latent Dirichlet Allocation(LDA) và Random Projections dùng để khai thác cấu trúc ngữ nghĩa của văn bản bằng các mẫu thống kê.
+Các thuật toán trong gensim như Latent Semantics Analysis (LSA), Latent Dirichlet Allocation (LDA) và Random Projections dùng để khai thác cấu trúc ngữ nghĩa của văn bản bằng các mẫu thống kê.
 Sau khi chạy các thuật toán này, văn bản thô sẽ chuyển sang dạng thể hiện mới có nghĩa và có thể truy vấn độ tương đồng với các văn bản khác.
 Gensim là gói lệnh dùng để giải quyết các ý tưởng về corpus, vector và mô hình.
-\item[-] sklearn phiên bản 0.16.1: gói lệnh hỗ trợ máy học trong Python.
+\item[-] sklearn phiên bản 0.16.1: gói lệnh hỗ trợ máy học trong Python.0
 Đây là công cụ đơn giản, hiệu quả cho khai thác và phân tích dữ liệu.
-Các thuật toán trong sklearn là công cụ hỗ trợ rất tốt cho các đề tài nghiên cứu.
-Sklearn là mã nguồn mở, có thể được sử dụng trong thương mại.
+Các thuật toán trong scikit-learn là công cụ hỗ trợ rất tốt cho các đề tài nghiên cứu.
+Scikit-learn là mã nguồn mở, có thể được sử dụng trong thương mại.
 Vì vậy, mọi người đều có thể sử dụng gói lệnh và chỉnh sửa thoải mái.
 \end{enumerate}
 \item[•]Ngôn ngữ lập trình C++.
-\item[•]Máy tính chạy thực nghiệm
+\item[•]Máy tính chạy thực nghiệm.
 \begin{enumerate}
-\item[-]CPU core i5 3.3GHz
-\item[-]RAM 8GB
-\item[-]Hệ điều hành windows
+\item[-]CPU core i5 3.3GHz.
+\item[-]RAM 8GB.
+\item[-]Hệ điều hành windows.
 \end{enumerate}
 \end{enumerate}
 
@@ -43,7 +43,7 @@ STT & Tên công cụ & \makecell[c]{Mô tả} \\
 \hline
 3 & sgmllib & Hỗ trợ: thư viện của Python 2.7. \newline Công dụng: dùng để trích xuất dữ liệu dưới định dạng SGML.\\
 \hline
-4 & C++ editor & Microsoft Visual Studio C++ 2008 \\
+4 & C++ editor & Microsoft Visual Studio C++ 2008. \\
 \hline
 
 \end{tabularx}
@@ -56,7 +56,7 @@ STT & Tên công cụ & \makecell[c]{Mô tả} \\
 \section{Dữ liệu}
 %Giới thiệu dữ liệu sử dụng
 Dữ liệu sử dụng trong chương trình bao gồm dữ liệu tiếng Anh và dữ liệu tiếng Việt.
-Trong đó, bộ dữ liệu tiếng Việt được tổng hợp từ các trang tin tức nổi tiếng của Việt Nam như vnexpress, dân trí, tuổi trẻ, \ldots 
+Trong đó, bộ dữ liệu tiếng Việt được tổng hợp từ các trang tin tức nổi tiếng của Việt Nam như Vnexpress, Dân Trí, Tuổi Trẻ,\ldots 
 Các bài báo của các bộ dữ liệu được thu nhặt được thông qua trang tin tức tổng hợp của Google.
 Còn bộ dữ liệu tiếng Anh là các bài báo được lấy từ trang tin tức Reuters được tổng hợp lại thành Reuters-21578.
 Ngoài ra, cả hai bộ dữ liệu đều là các bài báo đã được gom nhóm sơ bộ.
@@ -66,13 +66,13 @@ Ngoài ra, cả hai bộ dữ liệu đều là các bài báo đã được gom
 % Giới thiệu Reuters-21578
 Reuters-21578 bao gồm 21,578 bài báo thuộc nhiều lĩnh vực khác nhau.
 Bộ dữ liệu này được tổng hợp bởi David D. Lewis vào năm 1987.
-Đây là nguồn tài nguyên cho mục đích nghiên cứu trong lĩnh vực truy vấn thông tin, máy học, và những nghiên cứu dựa vào corpus khác.
+Đây là nguồn tài nguyên cho mục đích nghiên cứu trong lĩnh vực truy vấn thông tin, máy học, và những nghiên cứu dựa vào ngữ liệu khác.
 Bộ dữ liệu này xuất bản và phân phối miễn phí cho mục đích nghiên cứu.
 Nếu người nào muốn sử dụng bộ dữ liệu này thì phải đề cập đến nguồn~\footnote{http://www.research.att.com/~lewis} cũng như là thông tin tên của bộ dữ liệu cho mọi người biết.
 
 % Mô tả Reuters-21578
 Reuters-21578 là tập dữ liệu bao gồm hai mươi hai tập tin dữ liệu.
-Mỗi tập tin dữ liệu là có định dạng là SGML(Standard Generalized Markup Language) và có khoảng 1000 bài báo.
+Mỗi tập tin dữ liệu là có định dạng là Standard Generalized Markup Language (SGML) và có khoảng 1,000 bài báo.
 Ngoài ra, bộ dữ liệu còn có sáu tập tin mô tả phân loại dùng để chỉ mục cho dữ liệu.
 Tập dữ liệu còn có thêm vào những tập tin dựa vào đóng góp của những nhà nghiên cứu khác.
 Tất cả những tập tin đều là không có nén, được gom lại vào thành một thư mục được nén lại thành cái tên reuters21578.tar.gz
@@ -87,7 +87,7 @@ Thể hiện văn bản chứa nội dung và đánh dấu, mỗi thể hiện c
 
 %  phần phân mục của Reuters-21578
 Như đã đề cập, các bài báo trong reuters-21578 đã được gom nhóm lại thành các tập phân nhóm khác nhau
-\begin{table}[ht]
+\begin{table}[ht]0
 \begin{center}
 \begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
 \hline
@@ -111,14 +111,14 @@ TOPICS & 135 & 120 & 57\\
 
 %Các tập phân loại
 Phần phân loại TOPICS bao gồm các chủ đề về kinh tế.
-Ví dụ phần này sẽ bao gồm các từ chính như "include", "gold", "inventories", và "money-supply".
+Ví dụ phần này sẽ bao gồm các từ chính như ``include'', ``gold'', ``inventories'', và ``money-supply''.
 Tập phân loại này là tập đã được sử dụng hầu hết trong các nghiên cứu về dữ liệu của Reuters.
-Các tập phân loại như EXCHANGES, ORGS, PEOPLE, và PLACES được xếp nhóm có tên như mô tả, ví dụ như "nasdaq"(EXCHANGES), "gatt"(ORGS), "perez-de-cuellar"(PEOPLE), và "australia"(PLACES).
+Các tập phân loại như EXCHANGES, ORGS, PEOPLE, và PLACES được xếp nhóm có tên như mô tả, ví dụ như ``nasdaq'' (EXCHANGES), ``gatt'' (ORGS), ``perez-de-cuellar'' (PEOPLE), và ``australia'' (PLACES).
 
 %giới thiệu dữ liệu tiếng Việt
 \subsection{Dữ liệu tiếng Việt}
 Bộ dữ liệu tiếng Việt do Ung Văn Giàu lấy thủ công từ Google News bao gồm 1945 bài có tổng cộng là 300 phân nhóm.
-Các bài báo này đều đến từ các trang báo như: vnexpress, dân trí, tuổi trẻ, \ldots
+Các bài báo này đều đến từ các trang báo như: Vnexpress,Dân Trí, Tuổi Trẻ,\ldots
 Bộ dữ liệu có 300 phân nhóm là do bạn Giàu gán nhãn những bài vào các phân nhóm.
 Mỗi phân nhóm có ít nhất là 5 bài, nhiều nhất là 10 bài.
 Do đây là bộ dữ liệu làm bằng thủ công nên để đảm bảo tính chính xác thì em phân nhóm lại một lần nữa. 
@@ -137,7 +137,7 @@ Chỉ số nội tại dùng để đo độ tốt của cấu trúc gom nhóm k
 Chỉ số ngoại vi dùng dùng để đo độ tương đồng giữa hai phân nhóm.
 Trong đó, phân nhóm thứ nhất là cấu trúc gom nhóm gốc đã được biết.
 Còn phân nhóm thứ hai là kết quả từ quá trình gom nhóm.
-Trong bài toán, ta sử dụng hai chỉ số đánh giá ngoại vi là : NMI(normalized mutual information) và ARI (adjusted rand index).
+Trong bài toán, ta sử dụng hai chỉ số đánh giá ngoại vi là : Normalized Mutual Information (NMI) và Adjusted Rand Index (ARI).
 	
 Như đã đề cập ở phần trên, ta sẽ sử dụng hai chỉ số ngoại vi để đánh giá.
 Sau đây, một vài thuật ngữ sẽ được giải thích trước khi ta bàn luận về hai chỉ số này.
@@ -151,7 +151,7 @@ Ta biểu diễn $n$ là tổng số đối tượng trong thuật toán.
 
 %Giới thiệu
 %\subsubsection{Giới thiệu}
-NMI có nguồn gốc từ MI(mutual information), trong đó MI sử dụng hướng tiếp cận là so sánh phân nhóm có nguồn gốc trong lý thuyết thông tin và dựa vào ý tưởng của entropy.
+NMI có nguồn gốc từ Mutual Information (MI), trong đó MI sử dụng hướng tiếp cận là so sánh phân nhóm có nguồn gốc trong lý thuyết thông tin và dựa vào ý tưởng của entropy.
 Gọi $S$ là entropy cho thông tin của văn bản $T$, ta có công thức sau:
 \begin{center}
 \begin{equation}
@@ -194,7 +194,7 @@ I (C, P) \leq min{H(C), H(P)}
 \end{equation}
 \end{center}
 
-Đây là lý do cần thiết đẻ chuẩn hóa MI, vì vậy ta có NMI(normalized mutual information).
+Đây là lý do cần thiết đẻ chuẩn hóa MI, vì vậy ta có NMI.
 NMI được sử dụng nhiều trong lý thuyết xác suất và lý thuyết thông tin.
 NMI được nâng cấp từ MI để đo phụ thuộc lẫn nhau giữa hai nhóm.
 Từ đó, NMI cung cấp thông tin cân bằng liên quan đến số lượng phân nhóm.
@@ -259,7 +259,7 @@ Dựa vào công thức \ref{eq:NMI}, ta có thể tính NMI có kết quả là
 \subsection{Cách đánh giá ARI}
 %Giới thiệu
 %\subsubsection{Giới thiệu}
-ARI (Adjusted Rand Index) được cải tiến từ chỉ số RI (rand index).
+ARI được cải tiến từ chỉ số RI.
 Trong đó, RI là chỉ số được dùng để đo những vấn đề của phân lớp tiêu chuẩn khi mà kết quả của quá trình phân lớp được so sánh với kết quả thực tế.
 Cách tính hiệu quả thường được sử dụng cho vấn đề này là sử dụng tỷ lệ mà các thành phần được phân lớp chính xác với tất cả những thành phần khác.
 Đối với RI, sự so sánh giữa hai phân nhóm là phần mở rộng so với việc đếm từng phần tử trong phân nhóm.
@@ -276,7 +276,7 @@ Giá trị của $R$ phụ thuộc vào số lượng của phân nhóm cũng nh
 Morey và Agresi chỉ ra rằng RI phụ thuộc nhiều vào số lượng phân nhóm.
 
 Giá trị lý tưởng của RI là miền ngẫu nghiên mà không có chứa giá trị hằng (như $0$).
-Chính vì vậy, Hubert và Abarbie đề xuất sự điều chỉnh với việc đặt ra giả thiết phân phối siêu hình học tông quát với siêu lý thuyết rỗng(null hyperthesis).
+Chính vì vậy, Hubert và Abarbie đề xuất sự điều chỉnh với việc đặt ra giả thiết phân phối siêu hình học tông quát với siêu lý thuyết rỗng (null hyperthesis).
 Hai tập được vẽ ngẫu nhiên với một số nhóm cố định và một số thành phần cố định trong mỗi nhóm(số lượng các nhóm cho mỗi tập có thể không giống nhau).
 Sau đó, ta sẽ điều chỉnh RI độ dị biệt và giá trị kì vọng dưới siêu lý thuyết rỗng.
 \begin{center}
