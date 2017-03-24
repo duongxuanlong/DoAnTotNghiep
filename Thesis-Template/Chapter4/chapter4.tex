@@ -23,13 +23,13 @@ Vì vậy, scikit-learn là bộ thư viện hữu ích được sử dụng nhi
 \item[-] sgmlib là gói thư viện được hỗ trợ và tích hợp sẵn trong Python 2.7 và được sử dụng để trích xuất dữ liệu dưới định dạng SGML.
 \end{enumerate}
 \item[•]Ngôn ngữ lập trình C++.
-\item[•]Công cụ Google news để chọn lọc những bài báo đã được gom nhóm.
+%\item[•]Công cụ Google news để chọn lọc những bài báo đã được gom nhóm. 
 \item[•]Công cụ Java tokenizer của tác giả Lê Hồng Phương - Đại Học Khoa Học Tự Nhiên - Đại Học Quốc gia Hà Nội - dùng để tách câu và tách từ cho tiếng Việt.
 \item[•]Máy tính chạy thực nghiệm:
 \begin{enumerate}
 \item[-]CPU core i5 3.3GHz.
 \item[-]RAM 8GB.
-\item[-]Hệ điều hành windows.
+\item[-]Hệ điều hành Windows.
 \end{enumerate}
 \end{enumerate}
 
@@ -67,14 +67,14 @@ Cả hai bộ dữ liệu đều bao gồm các bài báo đã được gom nhó
 %giới thiệu dữ liệu tiếng Anh
 \subsection{Dữ liệu tiếng Anh}
 % Giới thiệu Reuters-21578
-Reuters-21578 bao gồm 21,578 bài báo từ trang tin tức Reuters.com~\footnote{http://www.reuters.com/} bao gồm nhiều lĩnh vực khác nhau.
+Reuters-21578 bao gồm 21,578 bài báo từ trang tin tức Reuters.com\footnote{http://www.reuters.com/} bao gồm nhiều lĩnh vực khác nhau.
 Bộ dữ liệu này được tổng hợp bởi David D. Lewis vào năm 1987.
 Đây là nguồn tài nguyên cho mục đích nghiên cứu trong lĩnh vực truy vấn thông tin, máy học và những nghiên cứu dựa vào ngữ liệu khác.
 Bộ dữ liệu này xuất bản và phân phối miễn phí cho mục đích nghiên cứu.
-Nếu ai muốn sử dụng bộ dữ liệu này thì phải đề cập đến nguồn~\footnote{http://www.research.att.com/~lewis} cũng như là trích dẫn thông tin của bộ dữ liệu trong đề tài nghiên cứu.
+Nếu ai muốn sử dụng bộ dữ liệu này thì phải đề cập đến nguồn\footnote{http://www.research.att.com/\textasciitilde{}lewis} cũng như là trích dẫn thông tin của bộ dữ liệu trong đề tài nghiên cứu.
 
 % Mô tả Reuters-21578
-Reuters-21578 là tập dữ liệu bao gồm hai mươi hai tập tin dữ liệu.
+Reuters-21578 là tập dữ liệu bao gồm 22 tập tin dữ liệu.
 Mỗi tập tin dữ liệu là có định dạng là Standard Generalized Markup Language (SGML) và có khoảng 1,000 bài báo.
 Tuy nhiên, tập tin thứ 12 thì chỉ có 578 bài báo.
 Ngoài ra, bộ dữ liệu còn có sáu tập tin mô tả phân loại dùng để chỉ mục cho dữ liệu.
@@ -82,7 +82,7 @@ Tập dữ liệu còn được bổ sung thêm dựa vào đóng góp của nh�
 Tất cả các tập tin đều được để dưới dạng thô không nén và được đóng gói lại thành reuters21578.tar.gz.
 
 %Giới thiệu sơ bộ về SGML
-SGML~\footnote{https://www.w3.org/TR/WD-html40-970708/intro/sgmltut.html} là chuẩn cho việc định nghĩa ngôn ngữ đánh dấu cho văn bản, HTML là một trong những ứng dụng thành công của SGML.
+SGML\footnote{https://www.w3.org/TR/WD-html40-970708/intro/sgmltut.html} là chuẩn cho việc định nghĩa ngôn ngữ đánh dấu cho văn bản, HTML là một trong những ứng dụng thành công của SGML.
 SGML bao gồm phần khai báo, định nghĩa loại văn bản, đặc tả và thể hiện văn bản đánh dấu.
 Phần khai báo SGML là chỉ ra các kí tự và các loại dấu phân cách sẽ sử dụng.
 Phần định nghĩa loại văn bản định nghĩa cú pháp của cấu trúc đánh dấu và có thể có thêm các phần định nghĩa khác như là số và tên kí tự.
@@ -115,13 +115,13 @@ TOPICS & 135 & 120 & 57\\
 
 %Các tập phân loại
 Phần phân nhóm TOPICS bao gồm các chủ đề về kinh tế.
-Đây là phần sẽ bao gồm các bài báo mà có các từ sau thường xuyên xuất hiện như: ``include'', ``gold'', ``inventories'', và ``money-supply''.
+Đây là phần sẽ bao gồm các bài báo mà có các từ sau thường xuyên xuất hiện như: ``include'', ``gold'', ``inventories'' và ``money-supply''.
 Tập phân nhóm này là tập thường xuyên được sử dụng trong hầu hết các đề tài nghiên cứu về dữ liệu của Reuters.
 Các tập phân nhóm như EXCHANGES, ORGS, PEOPLE, và PLACES gồm các bài báo được xếp vào nhóm có đúng như tên gọi, như ``nasdaq'' được xếp vào phân nhóm (EXCHANGES), ``gatt'' được xếp vào (ORGS), ``perez-de-cuellar'' được xếp vào (PEOPLE), và ``australia'' được xếp vào (PLACES).
 
 %giới thiệu dữ liệu tiếng Việt
 \subsection{Dữ liệu tiếng Việt}
-Bộ dữ liệu tiếng Việt được lấy từ trang tin tức tổng hợp Google news bao gồm 1945 bài được phân chia thành 300 phân nhóm.
+Bộ dữ liệu tiếng Việt được lấy từ trang tin tức tổng hợp Google news bao gồm 1,945 bài được phân chia thành 300 phân nhóm.
 Các bài báo này đều đến từ các trang báo nổi tiếng của Việt Nam như: Vnexpress, Dân Trí, Tuổi Trẻ,\ldots
 Bộ dữ liệu có 300 phân nhóm này được gán nhãn thủ công.
 Trong đó, mỗi phân nhóm có ít nhất là 5 bài, nhiều nhất là 10 bài.
@@ -138,16 +138,16 @@ Sau khi điều chỉnh những sai sót thì bộ dữ liệu này có thể đ
 \subsection{Giới thiệu phương pháp đánh giá}
 Để đánh giá kết quả gom nhóm văn bản, ta có hai loại chỉ số để sử dụng: chỉ số ngoại vi và chỉ số nội tại.
 Chỉ số nội tại dùng để đo độ tốt của cấu trúc gom nhóm không cần thông tin ngoài.
-Chỉ số ngoại vi dùng dùng để đo độ tương đồng giữa hai phân nhóm.
-Trong đó, phân nhóm thứ nhất là cấu trúc gom nhóm gốc đã được biết.
-Còn phân nhóm thứ hai là kết quả từ quá trình gom nhóm.
-Trong bài toán, ta sử dụng hai chỉ số đánh giá ngoại vi là : Normalized Mutual Information (NMI) và Adjusted Rand Index (ARI).
+Chỉ số ngoại vi dùng dùng để đo độ tương đồng giữa hai tập phân nhóm khác nhau.
+Trong đó, tập phân nhóm thứ nhất là cấu trúc gom nhóm ban đầu đã được biết.
+Còn tập phân nhóm thứ hai là kết quả từ quá trình gom nhóm.
+Trong bài toán, ta sử dụng hai chỉ số đánh giá ngoại vi là : Normalized Mutual Information và Adjusted Rand Index.
 	
 Như đã đề cập ở phần trên, ta sẽ sử dụng hai chỉ số ngoại vi để đánh giá.
 Sau đây, một vài thuật ngữ sẽ được giải thích trước khi ta bàn luận về hai chỉ số này.
 Ta có tập $\textbf{C} \, = {C_1 \ldots C_i}$ là tập phân nhóm của đối tượng được xây dựng ở một cấp độ nhất định.
-Tập $\textbf{P} \, = {P_1 \ldots P_j}$ là tập hợp được chia bởi phân lớp ban đầu.
-$I$ và $J$ là tương đương với số phân nhóm của $(|\textbf{C}|)$ và số phân lớp của  $(|\textbf{P}|)$.
+Tập $\textbf{P} \, = {P_1 \ldots P_j}$ là tập hợp được chia bởi phân nhóm ban đầu.
+$I$ và $J$ là tương đương với số phân nhóm của $(|\textbf{C}|)$ và $(|\textbf{P}|)$.
 Ta biểu diễn $n$ là tổng số đối tượng trong thuật toán.
 
 %Cách đánh giá NMI
@@ -155,7 +155,7 @@ Ta biểu diễn $n$ là tổng số đối tượng trong thuật toán.
 
 %Giới thiệu
 %\subsubsection{Giới thiệu}
-NMI có nguồn gốc từ Mutual Information (MI), trong đó MI sử dụng hướng tiếp cận là so sánh phân nhóm có nguồn gốc trong lý thuyết thông tin và dựa vào ý tưởng của entropy.
+Normalized Mutual Information (NMI) có nguồn gốc từ Mutual Information (MI), trong đó MI sử dụng hướng tiếp cận là so sánh phân nhóm có nguồn gốc trong lý thuyết thông tin và dựa vào ý tưởng của entropy.
 Gọi $S$ là entropy cho thông tin của văn bản $T$, ta có công thức sau:
 \begin{center}
 \begin{equation}
@@ -180,7 +180,7 @@ Ta có thể biết được phân nhóm của thành phần được chọn ng�
 Vì vậy, độ entropy khi đó được xem bằng $0$.
 
 Ý tưởng về entropy có thể được mở rộng trong MI theo cách làm giảm độ bất định.
-Ta có thể mô tả trung bình có thể làm giảm độ bất định về phân nhóm của thành phần ngẫu nhiên được chọn.
+Ta có thể mô tả độ trung bình có thể để làm giảm độ bất định về phân nhóm của thành phần ngẫu nhiên được chọn.
 Điều này có thể xảy ra khi ta biết được phân nhóm trong gom nhóm khác với tập các thành phần giống nhau.
 Công thức để biểu diễn cho ý tưởng này:
 \begin{center}
@@ -202,7 +202,7 @@ I (C, P) \leq min{H(C), H(P)}
 NMI được sử dụng nhiều trong lý thuyết xác suất và lý thuyết thông tin.
 NMI được nâng cấp từ MI để đo phụ thuộc lẫn nhau giữa hai nhóm.
 Từ đó, NMI cung cấp thông tin cân bằng liên quan đến số lượng phân nhóm.
-Ngoài ra, NMI còn cho ra kết quả chia sẻ thông tin với lớp thực sự được gán và thông tin hỗn hợp trung bình giữa những cặp của phân nhóm và phân lớp.
+Ngoài ra, NMI còn cho ra kết quả chia sẻ thông tin với lớp thực sự được gán và thông tin hỗn hợp trung bình giữa những cặp của phân nhóm mong đợi và phân nhóm kết quả.
 		
 %Công thức
 %\subsubsection{Công thức}
@@ -263,9 +263,9 @@ Dựa vào công thức \ref{eq:NMI}, ta có thể tính NMI có kết quả là
 \subsection{Cách đánh giá ARI}
 %Giới thiệu
 %\subsubsection{Giới thiệu}
-ARI được cải tiến từ chỉ số RI.
-Trong đó, RI là chỉ số được dùng để đo những vấn đề của phân lớp tiêu chuẩn khi mà kết quả của quá trình phân lớp được so sánh với kết quả thực tế.
-Cách tính hiệu quả thường được sử dụng cho vấn đề này là sử dụng tỷ lệ mà các thành phần được phân lớp chính xác với tất cả những thành phần khác.
+Adjusted Rand Index (ARI) được cải tiến từ chỉ số Rand Index (RI).
+Trong đó, RI là chỉ số được dùng để đo những vấn đề của phân nhóm tiêu chuẩn khi mà kết quả của phân nhóm trong quá trình gom nhóm được so sánh với kết quả phân nhóm thực tế.
+Cách tính hiệu quả thường được sử dụng cho chỉ số này là sử dụng tỷ lệ của các thành phần được gom nhóm chính xác với tất cả những thành phần khác.
 Đối với RI, sự so sánh giữa hai phân nhóm là phần mở rộng so với việc đếm từng phần tử trong phân nhóm.
 RI đã đếm số lượng phân nhóm của từng cặp với nhau.
 \begin{center}
@@ -274,15 +274,15 @@ R(C,P) \, = \frac{n_{11} + n_{00}}{n(n - 1) / 2}
 \end{equation}
 \end{center}
 
-Với $n_{11}$ và $n_{00}$ biểu thị tương ứng với số lượng các cặp đối tượng của cùng phân nhóm trong $\textbf{C}$ và cùng phân lớp trong $\textbf{P}$.
-$R$ có giá trị từ 0(không có cặp nào được phân nhóm giống nhau trong các phân nhóm) và 1(giống nhau hoàn toàn).
+Với $n_{11}$ và $n_{00}$ biểu thị tương ứng với số lượng các cặp đối tượng của cùng phân nhóm trong $\textbf{C}$ và trong $\textbf{P}$.
+$R$ có giá trị từ 0 (không có cặp nào được phân nhóm giống nhau trong các phân nhóm) và 1 (giống nhau hoàn toàn).
 Giá trị của $R$ phụ thuộc vào số lượng của phân nhóm cũng như là số lượng của các phần tử.
-Morey và Agresi chỉ ra rằng RI phụ thuộc nhiều vào số lượng phân nhóm.
+Morey và Agresi chỉ ra rằng RI phụ thuộc nhiều vào số lượng phân nhóm~\cite{Morey-Agresti}.
 
 Giá trị lý tưởng của RI là miền ngẫu nghiên mà không có chứa giá trị hằng (như $0$).
-Chính vì vậy, Hubert và Abarbie đề xuất sự điều chỉnh với việc đặt ra giả thiết phân phối siêu hình học tông quát với siêu lý thuyết rỗng (null hyperthesis).
-Hai tập được vẽ ngẫu nhiên với một số nhóm cố định và một số thành phần cố định trong mỗi nhóm(số lượng các nhóm cho mỗi tập có thể không giống nhau).
-Sau đó, ta sẽ điều chỉnh RI độ dị biệt và giá trị kì vọng dưới siêu lý thuyết rỗng.
+Chính vì vậy, Hubert và Abarbie đề xuất sự điều chỉnh với việc đặt ra giả thiết phân phối siêu hình học tổng quát với siêu lý thuyết rỗng (null hyperthesis).
+Hai tập được vẽ ngẫu nhiên với một số nhóm cố định và một số thành phần cố định trong mỗi nhóm (số lượng các nhóm cho mỗi tập có thể không giống nhau).
+Sau đó, ta sẽ điều chỉnh cho RI về độ dị biệt và giá trị kì vọng dưới siêu lý thuyết rỗng.
 \begin{center}
 \begin{equation} \label{eq:ARI}
 R_{adj}(\textbf{C}, \textbf{P}) = \frac{\sum^k_{i=1} \sum^l_{j=1} \binom {m_{ij}}  {2} - t_3}{\frac{1}{2} (t_1 + t_2) - t_3}
@@ -293,9 +293,9 @@ t_1 = \sum^k_{i=1} \binom {|C_i|} {2} , t_2 = \sum_{j=1}^l \binom {|P_j|} {2}, t
 \end{equation}
 \end{center}
 
-Chỉ số này có giá trị kì vọng là 0 cho 2 tập độc lập và 1 cho 2 tập giống nhau hoàn toàn.
+Chỉ số này có giá trị kì vọng là 0 cho 2 tập phân nhóm độc lập hoàn toàn và có giá trị là 1 cho 2 tập phân nhóm giống nhau hoàn toàn.
 Ý nghĩa của việc điều chỉnh cho cách tính này là đưa ra được câu hỏi cho giả thiết làm cách nào để phân phối.
-Melina chỉ ra rằng một vài trường hợp có thể cho ra giá trị âm.
+Melina chỉ ra rằng một vài trường hợp có thể cho ra giá trị âm~\cite{Melina-ARI}.
 
 Sau đây là ví dụ về cách tính chỉ số ARI, cho bảng tần số ngẫu nghiên sau:
 \begin{table}[ht]
@@ -315,7 +315,7 @@ $Sums$ & 2 & 3 & 5 & $n = 10$ \\
 \end{center}
 \end{table}
 
-Dựa vào công thức \ref{eq:ARI}, ta sẽ có được kết quả là $0.313$
+Dựa vào công thức \ref{eq:ARI}, ta sẽ có được kết quả là $0.313$.
 
 % được sử dụng thống kê và gom nhóm dữ liệu.
 %RI dùng để đo độ tương đồng giữa các nhóm dữ liệu.
@@ -362,9 +362,9 @@ Sau đây, kết quả của phần thực nghiệm của thuật toán Kmeans v
 \multicolumn{7}{|c|}{Kmeans}                                                                                               \\ \hline
                                                          & \multicolumn{3}{c|}{ARI}       & \multicolumn{3}{c|}{NMI}       \\ \hline
                                                          & Kmeans++ & Random   & NDArray  & Kmeans++ & Random   & NDArray  \\ \hline
-Doc2Vec                                                  & 0.619478 & 0.571298 & 0.629997 & 0.805754 & 0.717114 & 0.813217 \\ \hline
-TF-IDF                                                   & 0.114307 & 0.616645 & 0.117396 & 0.623300 & 0.770883 & 0.629544 \\ \hline
-\begin{tabular}[c]{@{}c@{}}TF-IDF\\ Doc2Vec\end{tabular} & 0.589775 & 0.515369 &          & 0.810966 & 0.724369 &          \\ \hline
+Doc2Vec                                                  & 0.619 & 0.571 & 0.629 & 0.805 & 0.717 & 0.813 \\ \hline
+TF-IDF                                                   & 0.114 & 0.616 & 0.117 & 0.623 & 0.770 & 0.629 \\ \hline
+\begin{tabular}[c]{@{}c@{}}TF-IDF\\ Doc2Vec\end{tabular} & 0.589 & 0.515 &       & 0.810 & 0.724 &          \\ \hline
 \end{tabular}%
 }
 \caption[Kết quả thực nghiệm Kmeans trên dữ liệu tiếng Việt]{Kết quả thực nghiệm Kmeans trên dữ liệu tiếng Việt}
@@ -382,24 +382,24 @@ TF-IDF                                                   & 0.114307 & 0.616645 &
 \multicolumn{8}{|c|}{HAC - Agglomerative Clustering}                                                                                                      \\ \hline
                                                                           &             & \multicolumn{3}{c|}{ARI}       & \multicolumn{3}{c|}{NMI}       \\ \hline
                                                                           &             & Ward     & Complete & Average  & Ward     & Complete & Average  \\ \hline
-\multirow{6}{*}{Doc2Vec}                                                  & euclidean   & 0.812084 & 0.740581 & 0.417411 & 0.884622 & 0.836569 & 0.749765 \\ \cline{2-8} 
-                                                                          & I1          & x        & 0.726328 & 0.423743 & x        & 0.824321 & 0.748299 \\ \cline{2-8} 
-                                                                          & I2          & x        & 0.740581 & 0.417411 & x        & 0.836569 & 0.749765 \\ \cline{2-8} 
-                                                                          & manhattan   & x        & 0.726328 & 0.423743 & x        & 0.824321 & 0.748299 \\ \cline{2-8} 
-                                                                          & cosine      & x        & 0.740205 & 0.677730 & x        & 0.832606 & 0.805142 \\ \cline{2-8} 
-                                                                          & precomputed & x        &          &          & x        &          &          \\ \hline
-\multirow{6}{*}{TFIDF}                                                    & euclidean   & 0.821220 & 0.827234 & 0.722569 & 0.910135 & 0.897100 & 0.877232 \\ \cline{2-8} 
-                                                                          & I1          & x        & 0.301559 & 0.031112 & x        & 0.700981 & 0.406159 \\ \cline{2-8} 
-                                                                          & I2          & x        & 0.827234 & 0.722569 & x        & 0.897100 & 0.877232 \\ \cline{2-8} 
-                                                                          & manhattan   & x        & 0.301559 & 0.031112 & x        & 0.700981 & 0.406159 \\ \cline{2-8} 
-                                                                          & cosine      & x        & 0.787636 & 0.799860 & x        & 0.870279 & 0.878187 \\ \cline{2-8} 
-                                                                          & precomputed & x        &          &          & x        &          &          \\ \hline
-\multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}TF-IDF\\ Doc2Vec\end{tabular}} & euclidean   & 0.837777 & 0.770857 & 0.493638 & 0.903739 & 0.863373 & 0.789117 \\ \cline{2-8} 
-                                                                          & I1          & x        & 0.718870 & 0.283864 & x        & 0.844449 & 0.737149 \\ \cline{2-8} 
-                                                                          & I2          & x        & 0.770857 & 0.493638 & x        & 0.863373 & 0.789117 \\ \cline{2-8} 
-                                                                          & manhattan   & x        & 0.718870 & 0.283864 & x        & 0.844449 & 0.737149 \\ \cline{2-8} 
-                                                                          & cosine      & x        & 0.772855 & 0.722736 & x        & 0.855602 & 0.830984 \\ \cline{2-8} 
-                                                                          & precomputed & x        &          &          & x        &          &          \\ \hline
+\multirow{6}{*}{Doc2Vec}                                                  & euclidean   & 0.812 & 0.740 & 0.417 & 0.884 & 0.836 & 0.749 \\ \cline{2-8} 
+                                                                          & I1          & x     & 0.726 & 0.423 & x     & 0.824 & 0.748 \\ \cline{2-8} 
+                                                                          & I2          & x     & 0.740 & 0.417 & x     & 0.836 & 0.749 \\ \cline{2-8} 
+                                                                          & manhattan   & x     & 0.726 & 0.423 & x     & 0.824 & 0.748 \\ \cline{2-8} 
+                                                                          & cosine      & x     & 0.740 & 0.677 & x     & 0.832 & 0.805 \\ \cline{2-8} 
+                                                                          & precomputed & x     &       &       & x     &          &          \\ \hline
+\multirow{6}{*}{TF-IDF}                                                    & euclidean   & 0.821 & 0.827 & 0.722 & 0.910 & 0.897 & 0.877 \\ \cline{2-8} 
+                                                                          & I1          & x     & 0.301 & 0.031 & x     & 0.700 & 0.406 \\ \cline{2-8} 
+                                                                          & I2          & x     & 0.827 & 0.722 & x     & 0.897 & 0.877 \\ \cline{2-8} 
+                                                                          & manhattan   & x     & 0.301 & 0.031 & x     & 0.701 & 0.406 \\ \cline{2-8} 
+                                                                          & cosine      & x     & 0.787 & 0.799 & x     & 0.870 & 0.878 \\ \cline{2-8} 
+                                                                          & precomputed & x     &       &       & x     &       &          \\ \hline
+\multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}TF-IDF\\ Doc2Vec\end{tabular}} & euclidean   & 0.837 & 0.770 & 0.493 & 0.903 & 0.863 & 0.789 \\ \cline{2-8} 
+                                                                          & I1          & x     & 0.718 & 0.283 & x     & 0.844 & 0.737 \\ \cline{2-8} 
+                                                                          & I2          & x     & 0.770 & 0.493 & x     & 0.863 & 0.789 \\ \cline{2-8} 
+                                                                          & manhattan   & x     & 0.718 & 0.283 & x     & 0.844 & 0.737 \\ \cline{2-8} 
+                                                                          & cosine      & x     & 0.772 & 0.722 & x     & 0.855 & 0.831 \\ \cline{2-8} 
+                                                                          & precomputed & x     &       &       & x     &       &          \\ \hline
 \end{tabular}%
 }
 \caption[Kết quả thực nghiệm HAC trên dữ liệu tiếng Việt]{Kết quả thực nghiệm HAC trên dữ liệu tiếng Việt}
