@@ -90,7 +90,7 @@ Phần đặc tả mô tả ngữ nghĩa được tạo bởi đánh dấu và p
 Thể hiện văn bản chứa nội dung và đánh dấu, mỗi thể hiện chứa tham chiếu đến phần định nghĩa văn bản để thực thi nó.
 
 %  phần phân mục của Reuters-21578
-Như đã đề cập, các bài báo trong Reuters-21578 đã được gom nhóm lại thành các tập phân nhóm khác nhau
+Như đã đề cập, các bài báo trong Reuters-21578 đã được gom nhóm lại thành các tập phân nhóm khác nhau:
 \begin{table}[ht]
 \begin{center}
 \begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
@@ -121,12 +121,77 @@ Các tập phân nhóm như EXCHANGES, ORGS, PEOPLE, và PLACES gồm các bài 
 
 %giới thiệu dữ liệu tiếng Việt
 \subsection{Dữ liệu tiếng Việt}
+%Giới thiệu sơ bộ
 Bộ dữ liệu tiếng Việt được lấy từ trang tin tức tổng hợp Google news bao gồm 1,945 bài được phân chia thành 300 phân nhóm.
 Các bài báo này đều đến từ các trang báo nổi tiếng của Việt Nam như: Vnexpress, Dân Trí, Tuổi Trẻ,\ldots
 Bộ dữ liệu có 300 phân nhóm này được gán nhãn thủ công.
 Trong đó, mỗi phân nhóm có ít nhất là 5 bài, nhiều nhất là 10 bài.
 Do đây là bộ dữ liệu làm bằng thủ công nên để đảm bảo tính chính xác thì tôi đã phân nhóm lại một lần nữa để kiểm tra tính đúng đắn. 
 Sau khi điều chỉnh những sai sót thì bộ dữ liệu này có thể được sử dụng như một bộ dữ liệu chuẩn cho gom nhóm văn bản.
+
+%Giới thiệu công cụ để rút trích văn bản Google
+Bộ dữ liệu này khởi đầu do Ung Văn Giàu xây dựng công cụ để rút trích các bài báo từ trang tin tức tổng hợp Google news.
+Trong đó, công cụ để rút trích văn bản được viết bằng ngôn ngữ lập trình PHP.
+Do việc truy vấn đến trang web Google news bị giới hạn nên số lượng bài báo lấy về không nhiều, chỉ khoảng 1,945.
+Các bài báo sau khi được truy vấn về sẽ được lưu dưới dạng .txt hoặc .raw.
+Trong quá trình lưu trữ, các bài báo cũng sẽ được gom nhóm thành các nhóm như trên trang Google news.
+
+%Mô tả file txt
+Bài báo khi được lưu xuống dưới định dạng .txt là bài báo gốc và sẽ được chia thành các trường để giúp cho việc thao thác sau này được dễ dàng.
+Khi được lưu xuống dưới định dạng .txt, tập tin có các trường sau: ``Title'', ``Source'', ``Link'', ``Published Date'', ``Author'', ``Tags'', ``Summary'' và ``Content''.
+Ý nghĩa của các trường là như sau:
+\begin{enumerate}
+\item[•]``Title'': tiêu đề bài báo.
+\item[•]``Source'': tên trang báo (nếu có). Ví dụ: người đưa tin.
+\item[•]``Link'': đường dẫn đến trang web.
+\item[•]``Published Date'': ngày, giờ phát hành của bài báo.
+\item[•]``Author'': tác giả bài báo.
+\item[•]``Tags'': từ khóa của bài báo.
+\item[•]``Summary'': tóm tắt của biên tập viên (nếu có).
+\item[•]``Content'': nội dung bài báo (có thể gồm nhiều dòng).
+\end{enumerate}
+
+%Mô tả file raw
+Trong khi đó, bài báo được lưu dưới định dạng .raw chứa các trường để phục vụ cho việc token và ner, các trường này được sắp xếp theo thứ tự như sau:
+\begin{enumerate}
+\item[•]``Title'': không xuất hiện chữ ``Title'' trong tập tin.
+\item[•]``Tags'': không xuất hiện chữ ``Tags'' trong tập tin.
+\item[•]``Summary'': chữ ``Summary'' sẽ chiếm 1 dòng trong tập tin.
+\item[•]``Content'': chữ ``Content'' sẽ chiếm 1 dòng trong tập tin.
+\end{enumerate}
+
+%các định dạng khác
+Sau khi có được tập dữ liệu thô được gom nhóm theo Google news, Giàu đã sử dụng công cụ Java Tokenzier của tác giả Lê Hồng Phương để tách câu và tách từ và tạo thành tập tin có định dạng là tok.
+Tập tin có định dạng là tok có cấu trúc tương tự như tập tin có định dạng raw.
+Để cho tiện sử dụng bộ dữ liệu, Giàu đã tích hợp phần dữ liệu sau khi tách câu và tách từ thành tập tin json có định dạng là .tok.json với các trường như sau: ``Title'', ``Tags'',  ``ShortIntro'' (tên gọi khác của ``Summary'') và ``Content''.
+Ngoải ra, trong phần dữ liệu còn có tập tin có định dạng là .ner chứa kết quả sau khi NER (dùng công cụ C++ CLC NER của nhóm tác giả Đinh Điền) và có cấu trúc tương tự như tập tin có định dạng raw.
+Tượng tự, Giàu cũng đã làm tập tin json có định dạng là .ner.json cho phần dữ liệu sau khi xử lý NER và có các trường tương tự như tập tin có định dạng là .tok.json.
+
+%Quá trình xử lý từ văn bản thô sang dạng thể hiện để gom nhóm
+Qui trình cuối cùng là Giàu đã đọc nội dung của từng bài báo, rồi sau đó đánh giá lại việc gom nhóm của Google có hợp lý hay không.
+Nếu việc gom nhóm của Google là đúng thì bài báo sẽ vẫn được giữ nguyên trong phân nhóm hiện tại của Google.
+Còn nếu bài báo bị xếp vào phân nhóm không hợp lý, Giàu sẽ tìm xem có thể xếp bài báo này vào các phân nhóm khác có sẵn hay không.
+Trong trường hợp tìm được phân nhóm thích hợp thì bài báo sẽ được đưa vào phân nhóm này.
+Ngược lại, bài báo sẽ được xếp vào một phân nhóm mới hoàn toàn.
+
+%where
+	%Thuc hien noi nao
+	
+%who
+	%Do ai thuc nghiem 
+%when
+	%Duoc lay trong khoang thoi gian nao
+	%
+%why
+	%Muc tieu cua viec lay du lieu dung de lam gi
+%what
+	%Mo ta cac bai bao sau khi thu hoach duoc
+	%Sau khi co du lieu tho, dung de lam gi
+%how
+	%Su dung cong cu gi de ho tro
+	%Trang web nao
+	%Qua trinh kiem chung cac ket qua cua gom nhom Google
+	%Co su dung tool gi de lay khong
 
 
 %Các bước chuẩn bị cần thiết khi sử dụng dữ liệu
