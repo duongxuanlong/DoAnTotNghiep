@@ -282,42 +282,55 @@ Ngoài ra, NMI còn cho ra kết quả chia sẻ thông tin với lớp thực s
 
 Giá trị của chỉ số bị ràng buộc trong khoảng từ 0 đến 1.
 
-Sau đây là ví dụ về cách tính cho chỉ số NMI, cho 2 bảng sau:
-\begin{table}[ht]
-\begin{center}
-\begin{tabularx}{\textwidth}{|Y|Y|Y|}
-\hline
-$P_1$ & $P_2$ & $P_3$ \\
-\hline
-1 & 2 & 3\\
+Sau đây tôi sẽ trình bày ví dụ về cách tính cho chỉ số NMI.
+Cho tập $S$ có các phần tử như sau: $S = {s_1, s_2, s_3, s_4, s_5, s_6, s_7, s_8, s_9}$.
+Gọi tập $P$ là tập có kết quả gom nhóm thực tế của tập $S$:
+\begin{enumerate}
+\item[•] $P_1 = {s_1, \, s_2, \, s_3}$
+\item[•] $P_2 = {s_4, \, s_5, \, s_6}$
+\item[•] $P_3 = {s_7, \, s_8, \, s_9}$
+\end{enumerate}
+Khi ta thực thi chương trình gom nhóm trên tập $S$, ta có kết quả là tập $C$ như sau:
+\begin{enumerate}
+\item[•] $C_1 = {s_1, \, s_2, \, s_4}$
+\item[•] $C_2 = {s_7, \, s_5, \, s_6}$
+\item[•] $C_3 = {s_3, \, s_8, \, s_9}$
+\end{enumerate}
+%\begin{table}[ht]
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+%\hline
+%$P_1$ & $P_2$ & $P_3$ \\
+%\hline
+%1 & 2 & 3\\
+%
+%1 & 2 & 3\\
+%
+%1 & 2 & 3\\
+%\hline
+%\end{tabularx}
+%\caption[Các tập phân nhóm ban đầu]{Các tập phân nhóm ban đầu}
+%\label{bang_4_3}
+%\end{center}
+%\end{table}
 
-1 & 2 & 3\\
-
-1 & 2 & 3\\
-\hline
-\end{tabularx}
-\caption[Các tập phân nhóm ban đầu]{Các tập phân nhóm ban đầu}
-\label{bang_4_3}
-\end{center}
-\end{table}
-
-\begin{table}[ht]
-\begin{center}
-\begin{tabularx}{\textwidth}{|Y|Y|Y|}
-\hline
-$P_1$ & $P_2$ & $P_3$\\
-\hline
-1 & 2 & 3\\
-
-1 & 2 & 3\\
-
-2 & 3 & 1\\
-\hline
-\end{tabularx}
-\caption[Kết quả gom nhóm]{Kết quả gom nhóm}
-\label{bang_4_4}
-\end{center}
-\end{table}
+%\begin{table}[ht]
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+%\hline
+%$P_1$ & $P_2$ & $P_3$\\
+%\hline
+%1 & 2 & 3\\
+%
+%1 & 2 & 3\\
+%
+%2 & 3 & 1\\
+%\hline
+%\end{tabularx}
+%\caption[Kết quả gom nhóm]{Kết quả gom nhóm}
+%\label{bang_4_4}
+%\end{center}
+%\end{table}
 
 Dựa vào công thức \ref{eq:NMI}, ta có thể tính NMI có kết quả là: $0.16502$
 
@@ -360,7 +373,7 @@ t_1 = \sum^k_{i=1} \binom {|C_i|} {2} , t_2 = \sum_{j=1}^l \binom {|P_j|} {2}, t
 
 Chỉ số này có giá trị kì vọng là 0 cho 2 tập phân nhóm độc lập hoàn toàn và có giá trị là 1 cho 2 tập phân nhóm giống nhau hoàn toàn.
 Ý nghĩa của việc điều chỉnh cho cách tính này là đưa ra được câu hỏi cho giả thiết làm cách nào để phân phối.
-Melina chỉ ra rằng một vài trường hợp có thể cho ra giá trị âm~\cite{Melina-ARI}.
+Melina chỉ ra rằng một vài trường hợp có thể cho ra giá trị âm\cite{Melina-ARI}.
 
 Sau đây là ví dụ về cách tính chỉ số ARI, cho bảng tần số ngẫu nghiên sau:
 \begin{table}[ht]
