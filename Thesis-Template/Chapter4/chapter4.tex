@@ -363,7 +363,7 @@ Hai tập được vẽ ngẫu nhiên với một số nhóm cố định và m�
 Sau đó, ta sẽ điều chỉnh cho RI về độ dị biệt và giá trị kì vọng dưới siêu lý thuyết rỗng.
 \begin{center}
 \begin{equation} \label{eq:ARI}
-R_{adj}(\textbf{C}, \textbf{P}) = \frac{\sum^k_{i=1} \sum^l_{j=1} \binom {m_{ij}}  {2} - t_3}{\frac{1}{2} (t_1 + t_2) - t_3}
+R_{adj}(\textbf{C}, \textbf{P}) = \frac{\sum^k_{i=1} \sum^l_{j=1} \binom {n_{ij}}  {2} - t_3}{\frac{1}{2} (t_1 + t_2) - t_3}
 \end{equation}
 
 \begin{equation} \label{eq:ARIParts}
@@ -393,7 +393,15 @@ $Sums$ & 2 & 3 & 5 & $n = 10$ \\
 \end{center}
 \end{table}
 
-Dựa vào công thức \ref{eq:ARI}, ta sẽ có được kết quả là $0.313$.
+Dựa vào công thức \ref{eq:ARI} và công thức \ref{eq:ARIParts}, ta sẽ cần phải tính lần lượt các giá trị như sau: $\sum^k_{i=1} \sum^l_{j=1} \binom {n_{ij}}{2}$, $t_1$, $t_2$ và $t_3$.
+\begin{enumerate}
+\item[•]$\sum_{i,j} \binom {n_{ij}}{2} = \binom {2}{2} + \binom {4}{2} = 7$.
+\item[•]$t_1 = \sum_{i} \binom {n_i}{2} = \binom {2}{2} + \binom {4}{2} + \binom {4}{2} = 13$.
+\item[•]$t_2 = \sum_{i} \binom {n_j}{2} = \binom {2}{2} + \binom {3}{2} + \binom {5}{2} = 14$.
+\item[•]$t_3 = \frac{2 t_1 t_2}{n (n - 1)} = \frac{2 * 13 * 14}{10 * (10 - 1)} = 4.0444$.
+\end{enumerate}
+
+Sau khi có được những giá trị cần thiết, ta dựa vào công thức \ref{eq:ARI} thì kết quả sẽ có được là $0.313$.
 
 % được sử dụng thống kê và gom nhóm dữ liệu.
 %RI dùng để đo độ tương đồng giữa các nhóm dữ liệu.
