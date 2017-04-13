@@ -51,7 +51,12 @@ Khi ta sử dụng các nhóm mẫu thay cho bộ dữ liệu, độ chính xác
 Trong thực tế, ta sẽ tạo ra một bảng biểu dành cho các nhóm mẫu, có nghĩa là mỗi nhóm mẫu sẽ được gán cho một số nguyên trong bảng này.
 Mỗi đối tượng sẽ được gán với con số mà nhóm mẫu này thể hiện.
 Các thức nén này được gọi là định lượng vector (vector quantization) và thường được áp dụng trong hình ảnh, âm thanh, và video.
-
+Các điều kiện để thỏa mãn cách thức nén này là các đối tượng dữ liệu  phải tương đồng gần giống nhau, một vài mất mát thông tin có thể chấp nhận được và việc giảm độ lớn của dữ liệu là điều cần thiết.
+\item[•]Tìm kiếm ``láng giềng'' gần nhất hiệu quả: tìm kiếm ``láng giềng'' gần nhất có thể đòi hỏi phải tính toán khoảng cách giữa các cặp trong tất cả các điểm.
+Các nhóm và nhóm mẫu thường được sử dụng để tìm thay thế cho một điểm để tăng tính hiệu quả.
+Nếu như các đối tượng điểm liên quan đến mẫu của chính mình thì ta có thể sử dụng nhóm mẫu để làm giảm số lượng phép tính khoảng cách cần thiết để tìm kiếm ``láng giềng'' gần nhất của đối tượng.
+Và nếu như hai nhóm mẫu ở khoảng cách quá xa thì những đối tượng ở trong nhóm tương ứng không thể là ``láng giềng'' gần nhất được.
+Vì vậy, ta có thể tìm kiếm ``láng giềng'' gần nhất bằng cách tính khoảng cách giữa những đối tượng gần các nhóm với khoảng cách giữa các nhóm được tính bằng khoảng cách giữa những nhóm mẫu.
 \end{enumerate}
 
 %Vấn đề gom nhóm được nghiên cứu rộng rãi trong cơ sở dữ liệu và thống kê trong khai thác dữ liệu.
@@ -59,23 +64,11 @@ Các thức nén này được gọi là định lượng vector (vector quantiz
 %Trong một vài trường hợp, việc gom nhóm được xem là cầu nối để thực hiện cho mục đích khác như là tóm tắt dữ liệu.
 %Bất kể ta sử dụng gom nhóm cho mục đích gì, ngữ nghĩa hay là hữu dụng thì gom nhóm có vai trò quan trọng trong nhiều lĩnh vực khác nhau như: tâm lý học và các ngành khoa học xã hội khác, sinh học, thống kê, nhận diện mô hình, truy vấn thông tin, máy học và khai thác dữ liệu.
 
-Gom nhóm được thực hiện bằng cách dựa vào độ tương đồng của các đối tượng.
-Độ tương đồng giữa các đối tượng được xác định bằng hàm tương đồng.
-Dựa vào độ tương đồng này, gom nhóm có thể gom những đối tượng gần giống nhau vào thành những nhóm khác biệt.
-Qua đó, gom nhóm giúp cho chúng ta dễ dàng phân loại được dữ liệu.
-Đặc biệt, gom nhóm rất hữu dụng trong việc áp dụng cho văn bản để giúp phân loại và truy xuất văn bản được cải thiện.
-
-%Sự bùng nổ thông tin trong thời đại internet
-Ngày nay, internet đang được phủ rộng khắp mọi nơi nên giúp cho việc cập nhật thông tin trở nên dễ dàng hơn.
-Tuy nhiên, mặt trái của internet chính là việc đưa thông tin ồ ạt mà không có chọn lọc.
-Điều đó khiến cho người dùng gặp nhiều khó khăn trước muôn vàn lựa chọn.
-Do đó, người dùng cần một giải pháp để giúp cho họ có thể tiếp cận thông tin một cách dễ dàng và có chọn lọc hơn.
-Gom nhóm văn bản có thể gom những bài báo, chủ để gần nhau giống nhau để giúp người dùng có thể dễ dàng chọn lựa.
-
-%Sự chắt lọc cần thiết cho thông tin
-Gom nhóm không những giúp cho người dùng lựa chọn dễ dàng và còn chắt lọc thông tin cho người dùng.
-Việc chắt lọc này là do trong quá trình gom nhóm các loại thông tin gần giống nhau thành các nhóm.
-Từ đó, người dùng thay vì phải tìm kiếm thông tin dàn trải thì có thể chỉ vào những chủ đề mà mình yêu thích để tiết kiệm thời gian.
+%Gom nhóm được thực hiện bằng cách dựa vào độ tương đồng của các đối tượng.
+%Độ tương đồng giữa các đối tượng được xác định bằng hàm tương đồng.
+%Dựa vào độ tương đồng này, gom nhóm có thể gom những đối tượng gần giống nhau vào thành những nhóm khác biệt.
+%Qua đó, gom nhóm giúp cho chúng ta dễ dàng phân loại được dữ liệu.
+%Đặc biệt, gom nhóm rất hữu dụng trong việc áp dụng cho văn bản để giúp phân loại và truy xuất văn bản được cải thiện.
 
 %Sự tham gia của các công ty công nghệ trong lĩnh vực truyền thông
 %Chúng ta thường hay đọc tin tức trực tuyến thông qua các trang báo tin tức trên mạng.
@@ -92,6 +85,17 @@ Từ đó, người dùng thay vì phải tìm kiếm thông tin dàn trải th�
 %Nhưng mà cách thực hiện, cũng như là ý tưởng của gom nhóm văn bản cũng không có gì khác so với gom nhóm.
 
 \section{Gom nhóm văn bản}
+%Sự bùng nổ thông tin trong thời đại internet
+Ngày nay, internet đang được phủ rộng khắp mọi nơi nên giúp cho việc cập nhật thông tin trở nên dễ dàng hơn.
+Tuy nhiên, mặt trái của internet chính là việc đưa thông tin ồ ạt mà không có chọn lọc.
+Điều đó khiến cho người dùng gặp nhiều khó khăn trước việc tiếp cần thông tin một cách hiệu quả.
+Do đó, người dùng cần một giải pháp để giúp cho họ có thể tiếp cận thông tin một cách dễ dàng và có chọn lọc hơn.
+Gom nhóm văn bản có thể gom những bài báo, chủ để gần nhau giống nhau để giúp người dùng có thể dễ dàng chọn lựa.
+
+%Sự chắt lọc cần thiết cho thông tin
+Gom nhóm không những giúp cho người dùng lựa chọn dễ dàng và còn chắt lọc thông tin cho người dùng.
+Việc chắt lọc này là do trong quá trình gom nhóm các loại thông tin gần giống nhau thành các nhóm.
+Từ đó, người dùng thay vì phải tìm kiếm thông tin dàn trải thì có thể chỉ vào những chủ đề mà mình yêu thích để tiết kiệm thời gian.
 
 %Giới thiệu gom nhóm văn bản
 Để thực hiện gom nhóm văn bản, chúng ta không thể sử dụng văn bản dưới dạng dữ liệu thô.
@@ -143,25 +147,25 @@ Có thể thấy, việc số hóa văn bản đã đem lại những lợi ích
 
 %Những thách thức khi làm gom nhóm văn bản
 
-\section{Các phương pháp gom nhóm văn bản}
+%\section{Các phương pháp gom nhóm văn bản}
 %Các phương pháp gom nhóm văn bản hiện thời
 	%phương pháp phân chia miền
 	%phương pháp dựa vào mật độ
 	%phương pháp dựa vào lưới tọa độ
 	%phương pháp dựa vào mô hình
 
-\section{Các công thức tính khoảng cách}
+%\section{Các công thức tính khoảng cách}
 %Các công thức tính khoảng cách
-Trong gom nhóm văn bản, các công thức tính khoảng cách được sử dụng để đo lường giữa hai văn bản. Sau đây, một số công thức tính khoảng cách thường được sử dụng:
-\begin{enumerate}
-\item[•]Khoảng cách Euclidean : $\parallel a \,- \, b \parallel_2 \, = \, \sqrt{\underset{i}{\sum}(a_i \, - \, b_i)^2} $
-\item[•]Khoảng cách Euclidean vuông : $\parallel \, a \, - \, b \, \parallel^2_2 \, = \, \underset{i}{\sum} (a_i - b_i)^2$
-\item[•]Khoảng cách Manhatthan : $\parallel \, a \, - \, b \, \parallel_1 \, = \, \underset{i}{\sum} \mid a_i \, - \, b_i\mid$
-\item[•]Khoảng cách cực đại : $\parallel \, a \, - \, b\, \parallel_\infty \, = \, \underset{i}{max} \mid a_i \, - \, b_i \mid$
-\item[•]Khoảng cách Mahalanobis : $\sqrt{(a \, - \, b)^{\top} \, S^{-1} \, (a \, - \, b)}$ với $S$ là ma trận covariance
-\end{enumerate}
-
-\section{Lựa chọn công thức tính khoảng cách}
+%Trong gom nhóm văn bản, các công thức tính khoảng cách được sử dụng để đo lường giữa hai văn bản. Sau đây, một số công thức tính khoảng cách thường được sử dụng:
+%\begin{enumerate}
+%\item[•]Khoảng cách Euclidean : $\parallel a \,- \, b \parallel_2 \, = \, \sqrt{\underset{i}{\sum}(a_i \, - \, b_i)^2} $
+%\item[•]Khoảng cách Euclidean vuông : $\parallel \, a \, - \, b \, \parallel^2_2 \, = \, \underset{i}{\sum} (a_i - b_i)^2$
+%\item[•]Khoảng cách Manhatthan : $\parallel \, a \, - \, b \, \parallel_1 \, = \, \underset{i}{\sum} \mid a_i \, - \, b_i\mid$
+%\item[•]Khoảng cách cực đại : $\parallel \, a \, - \, b\, \parallel_\infty \, = \, \underset{i}{max} \mid a_i \, - \, b_i \mid$
+%\item[•]Khoảng cách Mahalanobis : $\sqrt{(a \, - \, b)^{\top} \, S^{-1} \, (a \, - \, b)}$ với $S$ là ma trận covariance
+%\end{enumerate}
+%
+%\section{Lựa chọn công thức tính khoảng cách}
 %Lưa chọn công thức tính khoảng cách
 
 %Tại sao chọn bài toán
