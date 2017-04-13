@@ -11,15 +11,15 @@ Bất kể việc sử dụng gom nhóm cho mục đích ngữ nghĩa hay là h�
 
 %Gom nhóm dành cho ngữ nghĩa
 \section{Gom nhóm ngữ nghĩa}
-Gom nhóm dành cho mục đích ngữ nghĩa thường bao gồm những đối tượng có cùng đặc trưng, có vai trò quan trọng trong việc con người làm cách nào phân tích và nhận dạng.
+Gom nhóm dành cho mục đích ngữ nghĩa thường bao gồm những đối tượng có cùng đặc trưng và có vai trò quan trọng trong việc giúp con người làm cách nào phân tích và nhận dạng.
 Thực tế, con người có thể nhận dạng và chia các đối tượng vào các nhóm khác nhau và gán nhãn cụ thể cho từng nhóm này.
-Chẳng hạn, chúng ta có thể nhanh chóng gán nhãn cho các đối tượng vào thành các chủ đề như xây dựng, xe cộ, con người, động vật, cây cối\lots
+Chẳng hạn, chúng ta có thể nhanh chóng gán nhãn cho các đối tượng vào thành các chủ đề như xây dựng, xe cộ, con người, động vật, cây cối,\ldots
 Để có thể hiểu được ngữ cảnh của dữ liệu, việc tìm kiếm những nhóm có tiềm năng là ngành học của việc tự động hóa tìm kiếm nhóm.
 Sau đây là một vài ví dụ cho việc tự động hóa cho gom nhóm ngữ nghĩa:
 \begin{enumerate}
-\item[•]Sinh học: các nhà sinh vật học đã dành nhiều năm để có thể tạo ra phép phân loại cho sinh vật sống như: giới, ngành, lớp, bậc, chủng tộc, giống và loài.
+\item[•]Sinh học: các nhà sinh vật học đã dành nhiều năm để có thể tạo ra phép phân loại cho sinh vật sống: giới, ngành, lớp, bậc, chủng tộc, giống và loài.
 Đây không phải là điều ngạc nhiên vì ngay từ xưa con người đã phân tích để tạo ra hệ thống phân loại này.
-Gần đây, các nhà khoa học đã áp dụng hệ thống gom nhóm để phân tích số lượng lớn thông tin về gen hiện có.
+Gần đây, các nhà khoa học đã áp dụng hệ thống gom nhóm để phân tích số lượng lớn thông tin về gen thông qua hệ thống phân loại hiện có.
 Như việc gom nhóm để tìm kiếm nhóm gen có cùng chức năng.
 \item[•]Truy vấn thông tin: thế giới mạng chứa đựng hàng triệu trang web và kết quả của một câu truy vấn dựa vào một công nghệ tìm kiếm có thể trả về hàng ngàn trang khác nhau.
 Gom nhóm có thể đem những kết quả tìm kiếm vào các phân nhóm nhỏ với mỗi phân nhóm tương ứng với một khía cạnh của câu truy vấn.
@@ -27,12 +27,37 @@ Như trường hợp này, khi ta truy vấn chữ ``movie'' có thể trả v�
 Mỗi phân nhóm này lại có thể được chia nhỏ thành các phân nhóm con khác, tạo ra hệ thống cấu trúc cây phân cấp để hỗ trợ người dùng khám phá thêm kết quả tìm kiếm được.
 \item[•]Thời tiết: để có thể hiểu được khí hậu của Trái đất đòi hỏi phải tìm kiếm mẫu mô hình hoạt động trong không khí và đại dương.
 Để làm được điều này, gom nhóm được sử dụng để phân tích và tìm kiếm các mẫu mô hình mà có tác động đến khí hậu đất liền dựa vào áp suất của không khí trong vùng phân cực và khu vực của đại dương.
+\item[•]Tâm lý và y học: mỗi căn bệnh hay tình trạng thường có nhiều biểu hiện, gom nhóm có thể được sử dụng để xác nhận những biểu hiện này.
+Chẳng hạn, gom nhóm được sử dụng để xác nhận suy nhược.
+Ngoài ra, gom nhóm còn được sử dụng để phát hiện mô hình phân phối trong không gian và nhiệt độ của căn bệnh.
+\item[•]Kinh tế: trong kinh doanh, các công ty thường phải thu thập lượng lớn thông tin đến từ khách hàng.
+Gom nhóm được sử dụng để phân chia khách hàng thành các nhóm nhỏ hơn để dễ phân tích và hoạt động quảng cáo hiệu quả hơn.
 \end{enumerate}
 
-Vấn đề gom nhóm được nghiên cứu rộng rãi trong cơ sở dữ liệu và thống kê trong khai thác dữ liệu.
-Nếu như mục đích của gom nhóm là tìm kiếm ngữ nghĩa của các nhóm thì  các nhóm sau khi được gom thể hiện cấu trúc của dữ liệu.
-Trong một vài trường hợp, việc gom nhóm được xem là cầu nối để thực hiện cho mục đích khác như là tóm tắt dữ liệu.
-Bất kể ta sử dụng gom nhóm cho mục đích gì, ngữ nghĩa hay là hữu dụng thì gom nhóm có vai trò quan trọng trong nhiều lĩnh vực khác nhau như: tâm lý học và các ngành khoa học xã hội khác, sinh học, thống kê, nhận diện mô hình, truy vấn thông tin, máy học và khai thác dữ liệu.
+%Gom nhóm dành cho hữu dụng
+\section{Gom nhóm hữu dụng}
+Gom nhóm hữu dụng được sử dụng để tạo ra cầu nối mà kết quả của gom nhóm sẽ được sử dụng cho mục đích khác.
+Trong đó, gom nhóm sẽ tạo ra một lớp ảo dành cho các đối tượng dữ liệu mà đối tượng đó thuộc về.
+Ngoải ra, một số kỹ thuật gom nhóm tạo ra đặc trưng cho mỗi nhóm trong điều kiện của nhóm mẫu.
+Điều đó có nghĩa là một đối tượng dữ liệu đại diện cho những đối tượng khác trong nhóm.
+Những nhóm mẫu này có thể được sử dụng làm nền tảng cho một số kỹ thuật phân tích dữ liệu hoặc truy xuất dữ liệu.
+Vì thế, có thể hiểu gom nhóm hữu dụng là ngành chuyên nghiên cứu về kỹ thuật tạo ra nhóm mẫu cho các nhóm.
+\begin{enumerate}
+\item[•]Tóm tắt: nhiều kỹ thuật phân tích dữ liệu như hồi quy hoặc PCA có độ phức tạp thuật toán là $O(m^2)$ hoặc cao hơn (khi $m$ là số lượng đối tượng).
+Vì thế, các kỹ thuật này sẽ khó được áp dụng khi gặp phải lượng dữ liệu lớn.
+Tuy nhiên, thay vì áp dụng các kỹ thuật này cho toàn bộ dữ liệu gốc thì ta có thể sử dụng các kỹ thuật này dành cho bản dữ liệu thu gọn, chính là các nhóm mẫu.
+Khi ta sử dụng các nhóm mẫu thay cho bộ dữ liệu, độ chính xác của thuật toán có thể đạt được tiệm cận so với bộ gốc. 
+\item[•]Nén: các nhóm mẫu có thể được sử dụng cho dữ liệu nén.
+Trong thực tế, ta sẽ tạo ra một bảng biểu dành cho các nhóm mẫu, có nghĩa là mỗi nhóm mẫu sẽ được gán cho một số nguyên trong bảng này.
+Mỗi đối tượng sẽ được gán với con số mà nhóm mẫu này thể hiện.
+Các thức nén này được gọi là định lượng vector (vector quantization) và thường được áp dụng trong hình ảnh, âm thanh, và video.
+
+\end{enumerate}
+
+%Vấn đề gom nhóm được nghiên cứu rộng rãi trong cơ sở dữ liệu và thống kê trong khai thác dữ liệu.
+%Nếu như mục đích của gom nhóm là tìm kiếm ngữ nghĩa của các nhóm thì  các nhóm sau khi được gom thể hiện cấu trúc của dữ liệu.
+%Trong một vài trường hợp, việc gom nhóm được xem là cầu nối để thực hiện cho mục đích khác như là tóm tắt dữ liệu.
+%Bất kể ta sử dụng gom nhóm cho mục đích gì, ngữ nghĩa hay là hữu dụng thì gom nhóm có vai trò quan trọng trong nhiều lĩnh vực khác nhau như: tâm lý học và các ngành khoa học xã hội khác, sinh học, thống kê, nhận diện mô hình, truy vấn thông tin, máy học và khai thác dữ liệu.
 
 Gom nhóm được thực hiện bằng cách dựa vào độ tương đồng của các đối tượng.
 Độ tương đồng giữa các đối tượng được xác định bằng hàm tương đồng.
@@ -53,18 +78,18 @@ Việc chắt lọc này là do trong quá trình gom nhóm các loại thông t
 Từ đó, người dùng thay vì phải tìm kiếm thông tin dàn trải thì có thể chỉ vào những chủ đề mà mình yêu thích để tiết kiệm thời gian.
 
 %Sự tham gia của các công ty công nghệ trong lĩnh vực truyền thông
-Chúng ta thường hay đọc tin tức trực tuyến thông qua các trang báo tin tức trên mạng.
-Nhưng việc phải vào từng trang báo chỉ để đọc một vài tin tức chọn lọc thì rất là mất thời gian.
-Chính vì vậy, các đại gia công nghệ đã bắt đầu tiến vào lĩnh vực truyền thông bằng các công cụ như Google news, Apple news, Facebook news. 
-Đây là những công cụ tập hợp thông tin từ các trang báo trên mạng rồi từ đó gom nhóm thành chuyên mục tương tự nhau.
-Có thể thấy, gom nhóm văn bản đang đóng vai trò quan trọng trong việc kết nối người dùng trên mạng với nhau.
-
-%Áp dụng gom nhóm trong văn bản
-Việc nhiều công ty công nghệ lớn cùng tham gia vào lĩnh vực truyền thông cụ thể là mảng tin tức trực tuyến cho thấy được tầm quan trọng của gom nhóm văn bản.
-Tương tự như gom nhóm, nhiệm vụ của gom nhóm văn bản cũng là tìm kiếm những văn bản có độ tương đồng gần giống nhau thành các nhóm.
-Tuy nhiên, do văn bản là tập hợp các chữ, từ, câu nên không thể gom nhóm dưới dạng dữ liệu thô vì gây ra quá nhiều khó khăn.
-Vì vậy, văn bản cần được biểu diễn lại dưới dạng dữ liệu khác để giúp cho việc gom nhóm các văn bản với nhau trở nên dễ dàng hơn.
-Nhưng mà cách thực hiện, cũng như là ý tưởng của gom nhóm văn bản cũng không có gì khác so với gom nhóm.
+%Chúng ta thường hay đọc tin tức trực tuyến thông qua các trang báo tin tức trên mạng.
+%Nhưng việc phải vào từng trang báo chỉ để đọc một vài tin tức chọn lọc thì rất là mất thời gian.
+%Chính vì vậy, các đại gia công nghệ đã bắt đầu tiến vào lĩnh vực truyền thông bằng các công cụ như Google news, Apple news, Facebook news. 
+%Đây là những công cụ tập hợp thông tin từ các trang báo trên mạng rồi từ đó gom nhóm thành chuyên mục tương tự nhau.
+%Có thể thấy, gom nhóm văn bản đang đóng vai trò quan trọng trong việc kết nối người dùng trên mạng với nhau.
+%
+%%Áp dụng gom nhóm trong văn bản
+%Việc nhiều công ty công nghệ lớn cùng tham gia vào lĩnh vực truyền thông cụ thể là mảng tin tức trực tuyến cho thấy được tầm quan trọng của gom nhóm văn bản.
+%Tương tự như gom nhóm, nhiệm vụ của gom nhóm văn bản cũng là tìm kiếm những văn bản có độ tương đồng gần giống nhau thành các nhóm.
+%Tuy nhiên, do văn bản là tập hợp các chữ, từ, câu nên không thể gom nhóm dưới dạng dữ liệu thô vì gây ra quá nhiều khó khăn.
+%Vì vậy, văn bản cần được biểu diễn lại dưới dạng dữ liệu khác để giúp cho việc gom nhóm các văn bản với nhau trở nên dễ dàng hơn.
+%Nhưng mà cách thực hiện, cũng như là ý tưởng của gom nhóm văn bản cũng không có gì khác so với gom nhóm.
 
 \section{Gom nhóm văn bản}
 
