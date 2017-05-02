@@ -67,8 +67,8 @@ Ngoài ra, ta còn có thể tính độ tương đồng giữa các cặp nhóm
 Ở những cách trên, ta xem một nhóm như là đại diện cho tất cả những điểm trong đó.
 Tuy nhiên, ta có thể thay đổi hướng tiếp cận bằng cách sử dụng một điểm như là một đại diện cho toàn nhóm và điểm này chính là điểm trung tâm của nhóm.
 Với hướng tiếp cận này, độ tương đồng của hai nhóm được xem như là độ tương đồng của hai điểm trung tâm.
-Một cách khác tương tự như cách tiếp cận này là phương pháp Ward.
-Khác với điểm trung tâm, phương pháp Ward tính độ tương đồng giữa hai nhóm dựa vào kết quả tối tiểu hóa khoảng cách sum of squard giữa các điểm của hai nhóm.
+Ngoài ra, một cách khác có hướng tiếp cận tương đối khác biệt là phương pháp Ward.
+Phương pháp Ward tính độ tương đồng giữa hai nhóm dựa vào kết quả tối tiểu hóa khoảng cách sum of squard giữa các điểm của hai nhóm.
 
 %Độ phức tạp của thuật toán
 Kỹ thuật thường được sử dụng trong gom nhóm phân cấp là ma trận tương đồng.
@@ -123,7 +123,19 @@ Hình vẽ sau đây thể hiện kết quả của gom nhóm phân cấp theo k
 
 Do $dist(\{3, 6, 4\}, \{2, 5\})$ nhỏ hơn $dist(\{3, 6, 4\}, \{1\})$ và $dist(\{2, 5\}, \{1\})$, nên $dist(\{3, 6, 4\}, \{1\})$ và $dist(\{2, 5\}, \{1\})$ sẽ được gom lại thành một nhóm mới ở bước thứ tư.
 
-\subsubsection{Kỹ thuật trung điểm và phương pháp Ward}
+\subsubsection{Kỹ thuật điểm trung tâm và phương pháp Ward}
+Cách tính độ tương đồng của phương pháp Ward giữa hai nhóm là tối tiểu hóa độ lỗi của kết quả trong lúc gom nhóm.
+Vì vậy, phương pháp này có hàm mục tiêu giống như phương pháp gom nhóm K-means.
+Phương pháp này dường như là kỹ thuật hơi tách biệt so với những phương pháp khác, một vài công thức đại số chỉ ra rằng kỹ thuật này hơi giống với phương pháp nhóm trung bình khi mà độ tương đồng giữa hai điểm là khoảng cách được bình phương giữa chúng.
+Hình vẽ sau đây thể hiện kết quả của việc áp dụng phương pháp Ward. Kết quả của quá trình gom nhóm hơi khác so với các kỹ thuật nhỏ nhất, lớn nhất và nhóm trung bình.
+
+Kỹ thuật điểm trung tâm tính độ tương đồng giữa hai nhóm bằng việc tính khoảng cách giữa hai điểm trung tâm của hai nhóm.
+Kỹ thuật này dường như tương đồng với K-means, nhưng cần lưu ý rằng phương pháp Ward mới gần tương đồng với kỹ thuật này.
+
+Ngoài ra, kỹ thuật điểm trung tâm còn có đặc tính khác là sự khả nghịch mà những kỹ thuật khác không thể hiện được.
+Đối với gom nhóm phân cấp, quá trình gom hai nhóm về sau thì độ tương đồng giảm so với hai nhóm được gom trước đó.
+Tuy nhiên, sự khả nghịch có thể làm đảo chiều quá trình này, nghĩa là độ tương đồng về sau có thể tăng chứ không phải giảm.
+
 
 \subsubsection{Các cách để thực hiện vết cắt trên HAC}
 %Giải thích
