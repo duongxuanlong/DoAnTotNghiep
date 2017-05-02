@@ -10,37 +10,127 @@ Tuy nhiên, các phương pháp này chỉ cho ta thấy được kết quả go
 Hơn thế nữa, các phương pháp này đa phần cần phải xác định số lượng phân nhóm ban đầu.
 Vì vậy, một phương pháp khác được giới thiệu là gom nhóm phân cấp để khắc phục các nhược điểm trên.
 
-\subsection{Các hướng tiếp cận}
+\section{Các hướng tiếp cận}
 %Các hướng tiếp cận
 Để xây dựng nên cấu trúc cây của các phân nhóm trong gom nhóm phân cấp, ta có hai hướng tiếp cận khác nhau. Đó là hướng tiếp cận tích tụ và hướng tiếp cận phân chia.
 
-	\subsubsection{Hướng tiếp cận tích tụ}
-	%Hướng tiếp cận agglomerative
-		%Giới thiệu
-		Hướng tiếp cận tích tụ là một trong những cách tiếp cận của gom nhóm phân cấp.
-		Đây là phương pháp tiếp cận gom nhóm theo cách đi từ dưới lên.
-		Phương pháp này bắt đầu từ việc quan sát mỗi phân nhóm, các phân nhóm sẽ gom lại với nhau và chuyển thành cấp cao hơn trong cây.
-		Trong trường hợp thông thường, độ phức tạp của thuật toán theo hướng tiếp cận tích tụ là $O(n^2\log(n))$.
-		Tuy nhiên, thuật toán có thể tối ưu hóa để làm giảm độ phức tạp bằng cách sử dụng liên kết đơn hoặc là liên kết toàn phần.
+\subsection{Hướng tiếp cận phân chia}
+%Hướng tiếp cận divisive	
+%Giới thiệu
+Hướng tiếp cận phân chia là một trong những cách tiếp cận của gom nhóm phân cấp.
+Đây là phương pháp tiếp cận gom nhóm theo cách đi từ trên xuống.
+Phương pháp này bắt đầu từ việc quan sát tất cả chỉ trong một phân nhóm, và khi di chuyển xuống sẽ tách dần dần thành các phân nhóm con.
+Quá trình gộp và tách thường sẽ tốn nhiều chi phí cho thuật toán.
+Khác với hướng tiếp cận tích tụ, hướng tiếp cận phân chia có độ phức tạp lớn hơn, $O(2^n)$.
 		
-		%Ví dụ
-		Cho dữ liệu thô sau, ta sẽ sử dụng hướng tiếp cận tích tụ để gom nhóm phân cấp với công thức tính khoảng cách là Euclid.
+%Ví dụ
 		
-		\begin{tikzpicture}
-		\draw(10,20) circle (5mm) node{$c$};
-		\end{tikzpicture}
-	
-	\subsubsection{Hướng tiếp cận phân chia}
-	%Hướng tiếp cận divisive	
-		%Giới thiệu
-		Hướng tiếp cận phân chia là một trong những cách tiếp cận của gom nhóm phân cấp.
-		Đây là phương pháp tiếp cận gom nhóm theo cách đi từ trên xuống.
-		Phương pháp này bắt đầu từ việc quan sát tất cả chỉ trong một phân nhóm, và khi di chuyển xuống sẽ tách dần dần thành các phân nhóm con.
-		Quá trình gộp và tách thường sẽ tốn nhiều chi phí cho thuật toán.
-		Khác với hướng tiếp cận tích tụ, hướng tiếp cận phân chia có độ phức tạp lớn hơn, $O(2^n)$.
+\subsection{Hướng tiếp cận tích tụ}
+%Hướng tiếp cận agglomerative
+\subsubsection{Giới thiệu}
+%Giới thiệu
+Nhiều kỹ thuật gom nhóm phân cấp khác nhau đều hướng đến một mục tiêu: bắt đầu bằng việc xem mỗi điểm như là một nhóm, sau đó dần dần gom các nhóm đơn lẻ này lại với nhau thành nhóm lớn hơn và cho đến khi chỉ còn lại một nhóm duy nhất.
+Sau đây là thuật toán mô tả quá trình gom nhóm theo hướng tích tụ.
+
+\begin{algorithm}
+\caption{Basic Agglomerative Hierarchical Clustering Algorithm}\label{agglomerative}
+\begin{algorithmic}[1]
+\State Compute the proximity graph, if neccessary.
+\Repeat
+\State Merge the closest two clusters.
+\State Update the proximity matrix to reflect the proximity between the new cluster and the original clusters.
+\Until{Only one cluster remains.}
+\end{algorithmic}
+\end{algorithm}
+
+%Hướng tiếp cận tích tụ là một trong những cách tiếp cận của gom nhóm phân cấp.
+%Đây là phương pháp tiếp cận gom nhóm theo cách đi từ dưới lên.
+%Phương pháp này bắt đầu từ việc quan sát mỗi phân nhóm, các phân nhóm sẽ gom lại với nhau và chuyển thành cấp cao hơn trong cây.
+%Trong trường hợp thông thường, độ phức tạp của thuật toán theo hướng tiếp cận tích tụ là $O(n^2\log(n))$.
+%Tuy nhiên, thuật toán có thể tối ưu hóa để làm giảm độ phức tạp bằng cách sử dụng liên kết đơn hoặc là liên kết toàn phần.
 		
-		%Ví dụ
-		
+%Ví dụ
+%		Cho dữ liệu thô sau, ta sẽ sử dụng hướng tiếp cận tích tụ để gom nhóm phân cấp với công thức tính khoảng cách là Euclid.
+%		
+%		\begin{tikzpicture}
+%		\draw(10,20) circle (5mm) node{$c$};
+%		\end{tikzpicture}
+
+%Các phương pháp liên kết trong hướng tiếp cận tích tụ
+\subsubsection{Các phương pháp liên kết}
+Điểm khác biệt trong gom nhóm phân cấp theo hướng tích tụ so với hướng phân chia chính là cách tính độ tương đồng giữa các nhóm và điều đó làm cho kết quả của thuật toán trở nên khác biệt tùy vào độ tương đồng.
+Độ tương đồng của các nhóm thường được định nghĩa tùy vào quan điểm ngữ cảnh của các nhóm.
+Chẳng hạn khi ta xem một nhóm như là đại diện của tất các điểm trong đó, nếu ta xem độ tương đồng giữa 2 điểm thuộc hai nhóm khác nhau có khoảng cách gần nhất là độ tương đồng của hai nhóm thì ta có kỹ thuật \textit{nhỏ nhất} và thường được gọi là liên kết đơn.
+Tương tự, ta có thể xem xét độ tương đồng với hai điểm xa nhất giữa hai nhóm khác nhau để tạo thành độ tương đồng giữa hai nhóm, đây được xem là kỹ thuật \textit{xa nhất} và được gọi là liên kết toàn vẹn.
+Ngoài ra, ta còn có thể tính độ tương đồng giữa các cặp nhóm thông qua khoảng cách trung bình của các điểm để tạo thành kỹ thuật \textit{nhóm trung bình}.
+
+Ở những cách trên, ta xem một nhóm như là đại diện cho tất cả những điểm trong đó.
+Tuy nhiên, ta có thể thay đổi hướng tiếp cận bằng cách sử dụng một điểm như là một đại diện cho toàn nhóm và điểm này chính là điểm trung tâm của nhóm.
+Với hướng tiếp cận này, độ tương đồng của hai nhóm được xem như là độ tương đồng của hai điểm trung tâm.
+Một cách khác tương tự như cách tiếp cận này là phương pháp Ward.
+Khác với điểm trung tâm, phương pháp Ward tính độ tương đồng giữa hai nhóm dựa vào kết quả tối tiểu hóa khoảng cách sum of squard giữa các điểm của hai nhóm.
+
+%Độ phức tạp của thuật toán
+Kỹ thuật thường được sử dụng trong gom nhóm phân cấp là ma trận tương đồng.
+Điều này đòi hỏi tính toán và lưu trữ gần $m^2$ với $m$ là số điểm của dữ liệu.
+Qua đó, ta có thể thấy được sự hạn chế của số lượng dữ liệu có thể tiến hành thực nghiệm.
+Ngoài ra, thời gian để chạy thuật toán thường của gom nhóm phân cấp theo hướng tiếp cận tích tụ thường là $O(m^2 \log{m}).$
+
+\subsubsection{Liên kết đơn}		
+%Giói thiệu
+Liên kết đơn hay kỹ thuật nhỏ nhất trong gom nhóm phân cấp là phương pháp xem xét độ tương đồng của hai nhóm chính là khoảng cách gần nhất của hai điểm bất kì trong mỗi nhóm. 
+Phương pháp này được gọi là liên kết đơn vì thuật toán bắt đầu với tất cả các điểm đơn lẻ được xem như là một nhóm, thêm kết nối giữa các nhóm này với liên kết ``mạnh'' trước rồi những liên kết này kết nối các điểm lại với nhau.
+Liên kết đơn là kỹ thuật mạnh trong xử lí dữ liệu có hình dạng không phải ellip và đồng thời cũng nhạy cảm với độ nhiễu và những điểm tách biệt.
+
+%Chi tiết
+Hình vẽ sau đây thể hiện kỹ thuật liên kết đơn trong gom nhóm phân cấp.
+Ta có thể thấy hình bên trái là một chuỗi các vòng ellip lồng vào nhau, còn hình bên phải là biểu đồ đồ thị thể hiện thông tin lúc gom nhóm.
+Chiều cao mà hai nhóm gom lại vào nhau trong đồ thị thể hiện khoảng cách của hai nhóm.
+Ví dụ, từ biểu đồ, ta có thể thấy khoảng cách giữa 2 điểm 3 và 6 là 0.11 và đây cũng là khoảng cách dài nhất mà hai nhóm sát nhập vào nhau thành một. 
+Một ví dụ khác, khoảng cách giữa các nhóm \{3, 6\} và \{2, 5\} được tính  bằng cách $dist(\{3, 6\}, \{2, 5\}) = min(dist(3,2),dist(6, 2), dist(3, 5), dist(6, 5)) = min (0.148, 0.254, 0.284, 0.392) = 0.148$.
+
+%Nhược điểm
+
+\subsubsection{Liên kết toàn vẹn}		
+%Giới thiệu
+Liên kết toàn vẹn còn được gọi là kỹ thuật lớn nhất hoặc là CLIQUE.
+Liên kết toàn vẹn tính độ tương đồng của hai nhóm dựa vào khoảng cách lớn nhất của hai điểm bất kì của hai nhóm khác nhau.
+Kỹ thuật này gọi là liên kết toàn vẹn vì khi ta bắt đầu tất cả các điểm được xem như là các nhóm đơn lẻ và thêm đường kết nối giữa các điểm, đường liên kết ``mạnh'' trước, sau đó nhóm các điểm không phải cùng trong nhóm cho đến khi tất cả các điểm được liên kết hoàn toàn.
+Liên kết toàn vẹn thường không nhạy cảm với độ nhiễu và điểm tách biệt, nhưng lại có thể chia cắt nhóm lớn và có xu hướng tạo thành nhóm toàn cục.
+
+%Chi tiết
+Hình vẽ sau đây cho ta thấy được kết quả của việc áp dụng kỹ thuật liên kết toàn vẹn trong gom nhóm phân cấp.
+Một lần nữa, điểm 3 và 6 được gom vào thành một nhóm trước.
+Tuy nhiên, \{3, 6\} lại được gom với \{4\} thay vì gom với \{2, 5\}.
+Điều này xảy ra vì $dist(\{3, 6\}, \{4\}) = max(dist(3, 4), dist(6, 4)) = max(0.151, 0.221) = 0.221$, đây là khoảng cách nhỏ hơn $dist(\{3, 6\}, \{2, 5\}) = max(dist(3, 2), dist(6, 2), dist(3, 5), dist(6, 5)) = max(0.148, 0.254, 0.284, 0.392) = 0.392$ và $dist({3, 6}, {1}) = max(dist(3, 1), dist(6, 1)) = max(0.221, 0.234) = 0.234$.
+
+%Nhược điểm
+
+\subsubsection{Nhóm trung bình}
+Trong kỹ thuật nhóm trung bình của gom nhóm phân cấp, độ tương đồng của hai nhóm được định nghĩa là độ tương đồng trung bình của cặp nhóm với tất cả các điểm trong các nhóm khác nhau.
+Đây là hướng tiếp cận trung gian giữa kỹ thuật nhỏ nhất và kỹ thuật lớn nhất với công thức: 
+\begin{equation}
+proximity(cluster_1, cluster_2) = \sum_{\substack{p_1 \in cluster_1 \\ p_2 \in cluster_2}} \frac{proximity(p_1, p_2)}{size(cluster_1) * size(cluster_2)}
+\end{equation}
+
+Hình vẽ sau đây thể hiện kết quả của gom nhóm phân cấp theo kỹ thuật nhóm trung bình.
+Để thấy được cách hoạt động của nhóm trung bình, ta tính khoảng cách giữa các nhóm:
+\begin{enumerate}
+\item[]$dist(\{3, 6, 4\}, \{1\}) = (0.221 + 0.368 + 0.234) / (3 * 1) = 0.275$. 
+\item[]$dist(\{2, 5\}, \{1\}) = (0.235 + 0.342) / (2 * 1)$.
+\item[]$dist(\{3, 6, 4\}, \{2, 5\}) = (0.148 + 0.284 + 0.254 + 0.392 + 0.204 + 0.2932) /  (3 * 2) = 0.263$.
+\end{enumerate}
+
+Do $dist(\{3, 6, 4\}, \{2, 5\})$ nhỏ hơn $dist(\{3, 6, 4\}, \{1\})$ và $dist(\{2, 5\}, \{1\})$, nên $dist(\{3, 6, 4\}, \{1\})$ và $dist(\{2, 5\}, \{1\})$ sẽ được gom lại thành một nhóm mới ở bước thứ tư.
+
+\subsubsection{Kỹ thuật trung điểm và phương pháp Ward}
+
+\subsubsection{Các cách để thực hiện vết cắt trên HAC}
+%Giải thích
+
+%Cách để thực hiện vết cắt của gom nhóm phân cấp
+Sau đây, một vài cách để cắt tạo thành các nhóm thường được sử dụng trong HAC
+
 %Các công thức tính khoảng cách
 %Trong gom nhóm văn bản, các công thức tính khoảng cách được sử dụng để đo lường giữa hai văn bản. Sau đây, một số công thức tính khoảng cách thường được sử dụng:
 %\begin{enumerate}
@@ -51,16 +141,15 @@ Vì vậy, một phương pháp khác được giới thiệu là gom nhóm phâ
 %\item[•]Khoảng cách Mahalanobis : $\sqrt{(a \, - \, b)^{\top} \, S^{-1} \, (a \, - \, b)}$ với $S$ là ma trận covariance
 %\end{enumerate}
 
-%Các phương pháp liên kết trong hướng tiếp cận tích tụ
-\subsection{Các phương pháp liên kết trong hướng tiếp cận tích tụ}
-Các phương pháp liên kết là tiêu chuẩn dùng đề tác động khoảng cách được sử dụng giữa các tập đặc trưng.
-Thuật toán sẽ hợp các cặp phân nhóm với nhau với việc tối thiểu hóa các tiêu chuẩn này.
-Gom nhóm phân cấp có 3 phương pháp liên kết: liên kết đơn, liên kết hoàn toàn và liên kết trung bình.
-\begin{enumerate}
-\item[•]Liên kết đơn tối thiểu hóa độ biến thiên giữa các phân nhóm được ghép vào nhau.
-\item[•]Liên kết hoàn toàn tối thiểu hóa khoảng cách tối đa giữa các đặc trưng của hai tập.
-\item[•]Liên kết trung bình tối thiểu hóa cách trung bình của mỗi đặc trưng của hai tập.
-\end{enumerate}
+
+%Các phương pháp liên kết là tiêu chuẩn dùng đề tác động khoảng cách được sử dụng giữa các tập đặc trưng.
+%Thuật toán sẽ hợp các cặp phân nhóm với nhau với việc tối thiểu hóa các tiêu chuẩn này.
+%Gom nhóm phân cấp có 3 phương pháp liên kết: liên kết đơn, liên kết hoàn toàn và liên kết trung bình.
+%\begin{enumerate}
+%\item[•]Liên kết đơn tối thiểu hóa độ biến thiên giữa các phân nhóm được ghép vào nhau.
+%\item[•]Liên kết hoàn toàn tối thiểu hóa khoảng cách tối đa giữa các đặc trưng của hai tập.
+%\item[•]Liên kết trung bình tối thiểu hóa cách trung bình của mỗi đặc trưng của hai tập.
+%\end{enumerate}
  
 %Đồng gom nhóm phân cấp
 \section{Đồng gom nhóm phân cấp}
