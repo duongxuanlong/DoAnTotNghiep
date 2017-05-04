@@ -18,10 +18,28 @@ Vì vậy, một phương pháp khác được giới thiệu là gom nhóm phâ
 %Hướng tiếp cận divisive	
 %Giới thiệu
 Hướng tiếp cận phân chia là một trong những cách tiếp cận của gom nhóm phân cấp.
+Tuy nhiên, hướng tiếp cận này ít phổ biến hơn so với hướng tiếp cận tích tụ.
 Đây là phương pháp tiếp cận gom nhóm theo cách đi từ trên xuống.
-Phương pháp này bắt đầu từ việc quan sát tất cả chỉ trong một phân nhóm, và khi di chuyển xuống sẽ tách dần dần thành các phân nhóm con.
-Quá trình gộp và tách thường sẽ tốn nhiều chi phí cho thuật toán.
-Khác với hướng tiếp cận tích tụ, hướng tiếp cận phân chia có độ phức tạp lớn hơn, $O(2^n)$.
+Kỹ thuật này còn có tên gọi khác là tối tiểu hóa khoảng cách của độ tương đồng đồ thị.
+
+Kỹ thuật tối tiểu hóa khoảng cách cây của độ tương đồng đồ thị được xây dựng bắt đầu bằng một điểm bất kỳ nào của cây.
+Trong những bước tiếp theo, ta sẽ tìm kiếm những cặp điểm gần nhất, $p$ và $q$ sao cho với điểm $p$ là điểm hiện đang thuộc thuộc về cây còn điểm $q$ thì không.
+Ta sẽ thêm $p$ vào cây và nối cạnh giữa hai điểm $p$ và $p$.
+Sau đây là thuật toán thể hiện ý tưởng trên:
+
+\begin{algorithm}
+\caption{Divisive Hierarchical Clustering Algorithm}\label{Divisive}
+\begin{algorithmic}[1]
+\State Compute a minimum spanning tree for the proximity graph.
+\Repeat
+\State Create a new cluster by breaking the link corresponding to the largest distance (smallest similarity).
+\Until{Only singleton clusters remains.}
+\end{algorithmic}
+\end{algorithm}
+
+%Phương pháp này bắt đầu từ việc quan sát tất cả chỉ trong một phân nhóm, và khi di chuyển xuống sẽ tách dần dần thành các phân nhóm con.
+%Quá trình gộp và tách thường sẽ tốn nhiều chi phí cho thuật toán.
+%Khác với hướng tiếp cận tích tụ, hướng tiếp cận phân chia có độ phức tạp lớn hơn, $O(2^n)$.
 		
 %Ví dụ
 		
