@@ -2,8 +2,8 @@
 \label{Chapter4}
 Chương này trình bày môi trường thực nghiệm của đồ án, các công cụ hỗ trợ thực nghiệm, các tập ngữ liệu được sử dụng, các công cụ dùng để đánh giá kết quả gom nhóm và kết quả của thực nghiệm.
 
-\section{Thực nghiệm}
-\subsection{Môi trường thực nghiệm}
+\section{Môi trường thực nghiệm}
+%\subsection{Môi trường thực nghiệm}
 %Môi trường thực nghiệm
 Quá trình thực nghiệm đồ án được thực hiện với môi trường như sau:
 \begin{enumerate}
@@ -436,9 +436,22 @@ Sau khi có được những giá trị cần thiết, ta dựa vào công thứ
 %%Ví dụ
 %\subsubsection{Ví dụ}
 
-\section{Kết quả}
+\section{Thực nghiệm và kết quả}
+Thực nghiệm được chạy với thuật toán HAC theo hướng tiếp cận từ dưới lên (Agglomerative clustering) từ thư viện scikitlearn.
+Ta sẽ chạy thuật toán trên ngữ liệu tiếng Việt lẫn tiếng Anh dựa theo doc2vec lẫn TFIDF để so sánh kết quả.
+Do doc2vec cần lượng ngữ liệu lớn để xác định ngữ cảnh của từ ngữ nên phần dữ liệu tiếng Việt hiện tại là không đủ.
+Vì vậy, ngoài 300 nhóm có sẵn của Google news, ta sẽ trộn thêm một phần ngữ liệu khác có cùng các nhóm chủ với Google news để tạo thành tập huấn luyện mới.
+Sau đó, ta sẽ dùng tập 300 nhóm của Google news để xác định kết quả gom nhóm của tập ngữ liệu tiếng Việt.
+
+Thuật toán HAC có thể được điều chỉnh để thay đổi độ đo khoảng cách cũng như là cách liên kết nên kết quả thực nghiệm có thể 
+khác nhau.
+Trong scikitlearn, ta có các cách thức liên kết như sau: ward, toàn phần và trung bình.
+Ngoải ra, ta còn có thể sử dụng các công thức tính khoảng cách khác nhau như: euclidean, l1, l2, manhattan, cosine.
+Tuy nhiên, khi sử dụng liên kết ward, thuật toán chỉ có thể áp dụng được với công thức tính khoảng cách euclidean.
+Ta sẽ phải chạy thuật toán ứng với mỗi lựa chọn về khoảng cách kết hợp với các cách liên kết để có thể tìm ra được kết quả tối ưu nhất.
+
 %Thực nghiệm kết quả
-Sau đây, kết quả phần thực nghiệm của thuật toán HAC thực hiện trên dữ liệu tiếng Anh và tiếng Việt được thể hiện dưới các bảng sau (dấu x biểu thị thực nghiệm không thể thực hiện):
+Kết quả phần thực nghiệm của thuật toán HAC thực hiện trên dữ liệu tiếng Anh và tiếng Việt được thể hiện dưới các bảng sau (dấu x biểu thị thực nghiệm không thể thực hiện):
 %
 %\begin{table}[]
 %\centering
@@ -514,7 +527,7 @@ Sau đây, kết quả phần thực nghiệm của thuật toán HAC thực hi�
 
 %Giải thích chi tiết(5 đoạn)
 \section{Thảo luận}
-
+Nhìn vào bảng kết quả thực nghiệm 
 %%18
 
 
