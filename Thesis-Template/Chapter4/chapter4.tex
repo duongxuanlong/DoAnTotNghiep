@@ -473,7 +473,7 @@ Kết quả phần thực nghiệm của thuật toán HAC thực hiện trên d
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 % \usepackage{graphicx}
-\begin{table}[ht]
+\begin{table}[h!]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -499,7 +499,7 @@ Kết quả phần thực nghiệm của thuật toán HAC thực hiện trên d
 \label{bang_4_7}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[h!]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -527,7 +527,13 @@ Kết quả phần thực nghiệm của thuật toán HAC thực hiện trên d
 
 %Giải thích chi tiết(5 đoạn)
 \section{Thảo luận}
-Nhìn vào bảng kết quả thực nghiệm 
+Nhìn vào kết quả thực nghiệm tiếng Việt \ref{bang_4_7}, giá trị cao nhất của chỉ số ARI đối với doc2vec là 0.835 với liên kết Ward và độ đo khoảng cách Euclidean.
+Đối với TFIDF, chỉ số ARI cao nhất là 0.821 với liên kết Ward và độ đo khoảng cách Euclidean.
+Như vậy, chỉ số ARI của doc2vec cao hơn so với TFIDF.
+Còn đối với chỉ số NMI, kết quả cao nhất khi sử đụng doc2vec là 0.886 với liên kết Ward và độ đo Euclidean.
+Nhưng chỉ số NMI của TFIDF là 0.910 với liên kết Ward và độ đo Eucldean, nghĩa là cao hơn so với doc2vec.
+
+Còn đối với thực nghiệm tiếng Anh, chỉ sô ARI và NMI đều cao hơn so với doc2vec.
 %%18
 
 
