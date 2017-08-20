@@ -10,171 +10,34 @@ Trong một vài trường hợp, gom nhóm được xem là cầu nối để t
 Bất kể việc sử dụng gom nhóm cho mục đích ngữ nghĩa hay là hữu dụng thì gom nhóm đóng vai trò quan trọng trong nhiều lĩnh vực khác nhau như: tâm lý học và các ngành khoa học xã hội, sinh học, thống kê, nhận diện mô hình, truy vấn thông tin, máy học và khai thác dữ liệu.
 
 Gom nhóm văn bản là một ứng dụng của gom nhóm.
-Trong đó, các văn bản gần tương đồng sẽ được gom chung với nhau thành những nhóm riêng biệt.
+Trong đó, các văn bản gần tương đồng sẽ được gom chung với nhau thành nhóm riêng biệt theo cách thức không giám sát.
+Các văn bản gần liên quan với nhau có độ tương đồng lớn hơn so với những văn bản dị biệt.
+Như vậy, những văn bản tương đồng này có thể tạo thành nhóm có cùng một chủ để.
+Các nhóm này được hình thành từ quá trình gom nhóm không giám sát nên giúp cho chúng ta thấy được cấu trúc của ngữ liệu.
 
+Ngày nay, việc tìm kiếm thông tin trên mạng đã trở thành kỹ năng cần thiết cho bất kì ai.
+Tuy nhiên, khi ta truy vấn thông tin với từ khóa bất kì thì có thể cho ra quá nhiều kết quả khác nhau.
+Vì vậy, ta cần tổ chức lại thông tin cần truy vấn thành cấu trúc phù hợp.
+Gom nhóm văn bản có thể giúp chúng ta sắp xếp các văn bản thành những chủ để phù hợp và giúp cho việc truy vấn dễ dàng hơn.
 
-%Gom nhóm dành cho ngữ nghĩa
-\section{Gom nhóm ngữ nghĩa}
-Gom nhóm dành cho mục đích ngữ nghĩa thường là các nhóm bao gồm những đối tượng có cùng đặc trưng và nắm vai trò quan trọng trong việc giúp con người tìm ra hướng phân tích và nhận dạng.
-Thực tế, con người có thể nhận dạng và chia các đối tượng vào các nhóm khác nhau và gán nhãn cụ thể cho từng nhóm này.
-Chẳng hạn, chúng ta có thể nhanh chóng gán nhãn cho các đối tượng vào các chủ đề như xây dựng, xe cộ, con người, động vật, cây cối,\ldots
-Tuy nhiên, việc gán nhãn thủ công này gặp nhiều hạn chế khi gặp phải dữ liệu lớn.
-Để có thể giải quyết vấn đề này, các nhà nghiên cứu đã phát triển những công cụ tự động hóa trong việc tìm kiếm nhóm để có thể hiểu được ngữ nghĩa của dữ liệu.
-Sau đây là một vài ví dụ cho việc tự động hóa gom nhóm theo ngữ nghĩa:
+Gom nhóm văn bản tự động tạo ra những nhóm có văn bản liên quan với nhau mà không cần phải tạo trước tập huấn luyện hay nguyên tắc phân loại. Ngoải ra gom nhóm văn bản dựa vào độ tương đồng của nội dung để cải thiện hiệu quả tìm kiếm.
 \begin{enumerate}
-\item[•]Sinh học: các nhà sinh vật học đã dành nhiều năm để có thể tạo ra phép phân loại cho sinh vật sống theo cấp bậc: giới, ngành, lớp, bậc, chủng tộc, giống và loài.
-Đây không phải là điều ngạc nhiên vì ngay từ xưa con người đã phân tích để tạo ra hệ thống phân loại này.
-Dựa vào hệ thống phân loại này, các nhà khoa học đã áp dụng các cách thức gom nhóm để phân tích số lượng lớn thông tin về gen để tìm kiếm những đặc trưng gần giống nhau của các cấp bậc.
-Như việc gom nhóm để tìm kiếm những nhóm gen có cùng chức năng.
-\item[•]Truy vấn thông tin: thế giới mạng chứa đựng hàng triệu trang web và kết quả của một câu truy vấn dựa vào một công cụ tìm kiếm có thể trả về hàng ngàn trang khác nhau.
-Gom nhóm có thể đem chia kết quả tìm kiếm thành các nhóm nhỏ với mỗi nhóm nhỏ tương ứng với một khía cạnh của câu truy vấn.
-Như trong trường hợp này, khi ta truy vấn chữ ``movie'' có thể trả về những trang web đã được gom nhóm thành các chủ đề khác nhau như: đánh giá, trailers, điểm xếp hạng và các rạp xem phim.
-Mỗi nhóm nhỏ này lại có thể được chia nhỏ thành các phân nhóm con khác, tạo ra hệ thống cấu trúc cây phân cấp để hỗ trợ người dùng khám phá thêm kết quả tìm kiếm được.
-\item[•]Thời tiết: để có thể hiểu được khí hậu của Trái đất đòi hỏi phải tìm kiếm mẫu mô hình hoạt động trong không khí và đại dương.
-Để làm được điều này, gom nhóm được sử dụng để phân tích và tìm kiếm các mẫu mô hình mà có tác động đến khí hậu đất liền dựa vào áp suất của không khí trong vùng phân cực và khu vực của đại dương.
-\item[•]Tâm lý và y học: mỗi căn bệnh hay triệu chứng thường có những biểu hiện, gom nhóm có thể được sử dụng để xác nhận những biểu hiện này.
-Chẳng hạn, gom nhóm được sử dụng để xác nhận sự suy nhược của cơ thể.
-Ngoài ra, gom nhóm còn được sử dụng để phát hiện mô hình phân phối trong không gian và nhiệt độ của căn bệnh.
-\item[•]Kinh tế: trong kinh doanh, các công ty thường phải thu thập lượng lớn thông tin đến từ khách hàng.
-Gom nhóm được sử dụng để phân chia khách hàng thành các nhóm nhỏ hơn để dễ phân tích và giúp hoạt động quảng cáo hiệu quả hơn.
+\item[•]Cải thiện hồi quy trong tìm kiếm: khi câu truy vấn trùng với một văn bản thì kết quả trả về có thể bao gồm toàn bộ nhóm chứa văn bản.
+\item[•]Cải thiện độ chính xác trong tìm kiếm: gom nhóm văn bản thành những nhóm nhỏ hơn trong nhóm của những văn bản liên quan.
+\item[•]Phân tán hoặc tập hợp: khi một câu truy vấn không thể được công thức hóa thì ta có thể cho phép người dùng duyệt văn bản theo nhóm.
+\item[•]Gom nhóm theo truy vấn đặc tả: những văn bản gần liên quan đến câu truy vấn nhất sẽ nằm trong nhóm con lồng vào bên trong nhóm lớn hơn có độ tương đồng thấp hơn.
 \end{enumerate}
 
-%Gom nhóm dành cho hữu dụng
-\section{Gom nhóm hữu dụng}
-Gom nhóm hữu dụng được sử dụng để tạo ra cầu nối mà kết quả của gom nhóm sẽ được sử dụng cho mục đích khác.
-Trong đó, gom nhóm hữu dụng sẽ tạo ra một lớp trung gian dành cho các đối tượng dữ liệu mà đối tượng đó thuộc về.
-Ngoải ra, một số kỹ thuật gom nhóm tạo ra đặc trưng cho mỗi nhóm hình thành nên nhóm mẫu trong điều kiện nhất định.
-Điều đó có nghĩa là một đối tượng dữ liệu đại diện cho những đối tượng khác trong nhóm.
-Những nhóm mẫu này có thể được sử dụng làm nền tảng cho một số kỹ thuật phân tích dữ liệu hoặc truy xuất dữ liệu.
-Vì thế, có thể hiểu gom nhóm hữu dụng là ngành chuyên nghiên cứu về kỹ thuật tạo ra nhóm mẫu cho các nhóm.
+Nghiên cứu của vấn đề gom nhóm đứng trước tính khả dụng khi ứng dụng vào văn bản. Các phương pháp truyền thống cho gom nhóm thường tập trung vào dữ liệu lớn, khi thuộc tính của dữ liệu là số. Vấn đề này cũng được nghiên cứu trong phân loại dữ liệu, khi mà thuộc tính có giá trị nặc danh. Vấn đề của gom nhóm là tìm được tính khả dụng trong các nhiệm vụ sau:
 \begin{enumerate}
-\item[•]Tóm tắt: nhiều kỹ thuật phân tích dữ liệu như hồi quy hoặc PCA có độ phức tạp thuật toán là $O(m^2)$ hoặc cao hơn (với $m$ là số lượng đối tượng).
-Vì thế, các kỹ thuật này sẽ khó được áp dụng khi gặp phải lượng dữ liệu lớn.
-Tuy nhiên, thay vì áp dụng các kỹ thuật này cho toàn bộ dữ liệu gốc thì ta có thể sử dụng các kỹ thuật này dành cho bản dữ liệu thu gọn, chính là các nhóm mẫu.
-Khi ta sử dụng các nhóm mẫu thay cho bộ dữ liệu, độ chính xác của thuật toán có thể đạt được tiệm cận so với bộ gốc. 
-\item[•]Nén: các nhóm mẫu có thể được sử dụng để nén dữ liệu.
-Trong thực tế, ta sẽ tạo ra một bảng biểu dành cho các nhóm mẫu, có nghĩa là mỗi nhóm mẫu sẽ được gán cho một số nguyên trong bảng này.
-Mỗi đối tượng sẽ được gán với con số mà nhóm mẫu này được chọn làm đại diện.
-Cách thức nén này được gọi là định lượng vector (vector quantization) và thường được áp dụng trong hình ảnh, âm thanh, và video.
-Các điều kiện để thỏa mãn cách thức nén này là các đối tượng dữ liệu phải tương đồng gần giống nhau, một vài mất mát thông tin có thể chấp nhận được và việc giảm độ lớn của dữ liệu là điều cần thiết.
-\item[•]Tìm kiếm ``láng giềng'' gần nhất hiệu quả: tìm kiếm ``láng giềng'' gần nhất có thể đòi hỏi phải tính toán khoảng cách giữa các cặp trong tất cả các điểm.
-Các nhóm và nhóm mẫu thường được sử dụng để tìm thay thế cho một điểm để tăng tính hiệu quả.
-Nếu như các đối tượng điểm liên quan đến mẫu của mình thì ta có thể sử dụng nhóm mẫu để làm giảm số lượng phép tính khoảng cách cần thiết để tìm kiếm ``láng giềng'' gần nhất của đối tượng.
-Và nếu như hai nhóm mẫu ở khoảng cách quá xa thì những đối tượng ở trong nhóm tương ứng không thể là ``láng giềng'' gần nhất được.
-Vì vậy, ta có thể tìm kiếm ``láng giềng'' gần nhất bằng cách tính khoảng cách giữa những đối tượng gần các nhóm với khoảng cách giữa các nhóm được tính bằng khoảng cách giữa những nhóm mẫu.
+\item[•]Duyệt và tổ chức văn bản: tổ chức phân cấp của văn bản vào trong các hạng mục mạch lạc. Điều này có thể giúp ích cho việc duyệt hệ thống của tập hợp văn bản. Ví dụ kinh kiển cho phương pháp này là phân tán hoặc tập hợp. Phương pháp này cung cấp kỹ thuật duyệt hệ thống với sử dụng gom nhóm tổ chức của tập hợp văn bản.
+\item[•]Tóm tắt ngữ liệu: kỹ thuật gom nhóm cung cấp tóm tắt mạch lạc của tập hợp trong dạng nhóm tài tiệu hoặc nhóm từ. Điều này được sử dụng đề cung cấp tóm tắt trong phần nội dung tổng kết của ngữ liệu căn bản. Lĩnh vực này có nhiều phương pháp, đặc biệt là gom nhóm câu dùng để tóm tắt văn bản. Vấn đề của gom nhóm liên quan đến việc giảm số chiều và mô hình hóa chủ đề. 
+\item[•]Phân loại văn bản : Gom nhóm là phương pháp học không giám sát. Nó thể được đòn bẩy hóa để cải thiện chất lượng kết quả trong giám sát. Cụ thể, các nhóm từ và phương thức đồng huấn luyện có thể được sử dụng để cải thiện độ chính xác phân loại của ứng dụng giám sát với tác dụng của kỹ thuật gom nhóm.
 \end{enumerate}
 
-%Vấn đề gom nhóm được nghiên cứu rộng rãi trong cơ sở dữ liệu và thống kê trong khai thác dữ liệu.
-%Nếu như mục đích của gom nhóm là tìm kiếm ngữ nghĩa của các nhóm thì  các nhóm sau khi được gom thể hiện cấu trúc của dữ liệu.
-%Trong một vài trường hợp, việc gom nhóm được xem là cầu nối để thực hiện cho mục đích khác như là tóm tắt dữ liệu.
-%Bất kể ta sử dụng gom nhóm cho mục đích gì, ngữ nghĩa hay là hữu dụng thì gom nhóm có vai trò quan trọng trong nhiều lĩnh vực khác nhau như: tâm lý học và các ngành khoa học xã hội khác, sinh học, thống kê, nhận diện mô hình, truy vấn thông tin, máy học và khai thác dữ liệu.
+\section{Bài toán gom nhóm văn bản}
 
-%Gom nhóm được thực hiện bằng cách dựa vào độ tương đồng của các đối tượng.
-%Độ tương đồng giữa các đối tượng được xác định bằng hàm tương đồng.
-%Dựa vào độ tương đồng này, gom nhóm có thể gom những đối tượng gần giống nhau vào thành những nhóm khác biệt.
-%Qua đó, gom nhóm giúp cho chúng ta dễ dàng phân loại được dữ liệu.
-%Đặc biệt, gom nhóm rất hữu dụng trong việc áp dụng cho văn bản để giúp phân loại và truy xuất văn bản được cải thiện.
+\section{Các phương pháp gom nhóm văn bản}
 
-%Sự tham gia của các công ty công nghệ trong lĩnh vực truyền thông
-%Chúng ta thường hay đọc tin tức trực tuyến thông qua các trang báo tin tức trên mạng.
-%Nhưng việc phải vào từng trang báo chỉ để đọc một vài tin tức chọn lọc thì rất là mất thời gian.
-%Chính vì vậy, các đại gia công nghệ đã bắt đầu tiến vào lĩnh vực truyền thông bằng các công cụ như Google news, Apple news, Facebook news. 
-%Đây là những công cụ tập hợp thông tin từ các trang báo trên mạng rồi từ đó gom nhóm thành chuyên mục tương tự nhau.
-%Có thể thấy, gom nhóm văn bản đang đóng vai trò quan trọng trong việc kết nối người dùng trên mạng với nhau.
-%
-%%Áp dụng gom nhóm trong văn bản
-%Việc nhiều công ty công nghệ lớn cùng tham gia vào lĩnh vực truyền thông cụ thể là mảng tin tức trực tuyến cho thấy được tầm quan trọng của gom nhóm văn bản.
-%Tương tự như gom nhóm, nhiệm vụ của gom nhóm văn bản cũng là tìm kiếm những văn bản có độ tương đồng gần giống nhau thành các nhóm.
-%Tuy nhiên, do văn bản là tập hợp các chữ, từ, câu nên không thể gom nhóm dưới dạng dữ liệu thô vì gây ra quá nhiều khó khăn.
-%Vì vậy, văn bản cần được biểu diễn lại dưới dạng dữ liệu khác để giúp cho việc gom nhóm các văn bản với nhau trở nên dễ dàng hơn.
-%Nhưng mà cách thực hiện, cũng như là ý tưởng của gom nhóm văn bản cũng không có gì khác so với gom nhóm.
+\section{Mục tiêu của đồ án}
 
-\section{Gom nhóm văn bản}
-%Sự bùng nổ thông tin trong thời đại internet
-Ngày nay, internet đang được phủ rộng khắp mọi nơi nên giúp cho việc cập nhật thông tin trở nên dễ dàng hơn.
-Tuy nhiên, điểm hạn chế của việc cung cấp thông tin này là chúng xuất hiện ồ ạt gây nhiễu loạn cho người đọc.
-Điều đó khiến cho người dùng gặp nhiều khó khăn trước việc tiếp cận thông tin một cách hiệu quả.
-Do đó, người dùng cần một giải pháp để giúp cho họ có thể tiếp cận thông tin một cách dễ dàng và có chọn lọc hơn.
-Gom nhóm văn bản được ra đời để có thể gom những bài báo, chủ để gần nhau giống nhau thành các nhóm riêng biệt để giúp người dùng có thể dễ dàng chọn lựa.
-
-%Sự chắt lọc cần thiết cho thông tin
-Gom nhóm không những giúp cho người dùng lựa chọn dễ dàng và còn chắt lọc thông tin cho người dùng.
-Việc chắt lọc này là do trong quá trình gom nhóm các loại thông tin gần giống nhau thành các nhóm.
-Từ đó, người dùng thay vì phải tìm kiếm thông tin dàn trải thì có thể chỉ tập trung vào những chủ đề mà mình yêu thích để tiết kiệm thời gian.
-
-%Giới thiệu gom nhóm văn bản
-Để thực hiện gom nhóm văn bản, chúng ta không thể sử dụng văn bản dưới dạng dữ liệu thô vì việc này gây ra nhiều khó khăn cho quá trình gom nhóm.
-Vì vậy, văn bản cần được biểu diễn thành kiểu dữ liệu khác để giúp cho việc khai thác các thuật toán trên văn bản trở nên dễ dàng hơn.
-Văn bản thường được chuyển đổi thành vector với các từ là tần số xuất hiện.
-Việc chuyển đổi này giúp cho việc gom nhóm văn bản thêm hiệu quả và chính xác.
-
-
-%Lợi ích của gom nhóm văn bản
-Gom nhóm văn bản dùng để gom những văn bản gần giống nhau thành các nhóm có cùng chủ đề. 
-Do vậy, gom nhóm văn bản rất hữu ích trong việc phân chia văn bản.
-Việc gom các văn bản gần tương đồng cũng giúp ích cho việc tìm kiếm văn bản.
-Sự sắp xếp của các nhóm văn bản cũng hỗ trợ cho việc truy xuất văn bản được cải thiện.
-Như vậy, gom nhóm văn bản đem lại nhiều lợi ích cho việc phân loại, tìm kiếm cũng như là tăng tốc độ truy xuất văn bản.
-
-%tầm quan trọng của gom nhóm văn bản
-
-%Tính khả dụng trong nhiệm vụ của gom nhóm văn bản
-Nghiên cứu của vấn đề gom nhóm đứng trước tính khả dụng khi ứng dụng vào văn bản để thỏa mãn một trong các yếu tố sau:
-\begin{enumerate}
-%Duyệt và tổ chức văn bản
-\item[•]Duyệt và tổ chức văn bản: tổ chức phân cấp của văn bản vào trong các hạng mục mạch lạc.
-Điều này có thể giúp ích cho việc duyệt hệ thống của tập hợp văn bản.
-Ví dụ kinh kiển cho phương pháp này là Scatter/Gather.
-Phương pháp này cung cấp kỹ thuật duyệt hệ thống với sử dụng gom nhóm tổ chức của tập hợp văn bản.
-%Tóm tắt corpus
-\item[•]Tóm tắt ngữ liệu: kỹ thuật gom nhóm này cung cấp tóm tắt mạch lạc của tập hợp trong dạng nhóm tài tiệu hoặc nhóm từ.
-Điều này được sử dụng đề cung cấp tóm tắt trong phần nội dung tổng kết của ngữ liệu căn bản.
-Lĩnh vực này có nhiều phương pháp, đặc biệt là gom nhóm câu dùng để tóm tắt văn bản.
-Vấn đề của gom nhóm liên quan đến việc giảm số chiều và mô hình hóa chủ đề. 
-%Gom nhóm văn bản
-\item[•]Phân loại văn bản: Gom nhóm là phương pháp học không giám sát.
-Nó có thể được đòn bẩy hóa để cải thiện chất lượng kết quả trong giám sát.
-Cụ thể, các nhóm từ và phương thức đồng huấn luyện có thể được sử dụng để cải thiện độ chính xác phân loại của ứng dụng giám sát với tác dụng của kỹ thuật gom nhóm.
-\end{enumerate}
-
-%Cách biểu diễn văn bản
-Các phương pháp truyền thống cho gom nhóm thường tập trung vào dữ liệu lớn, khi thuộc tính của dữ liệu là số.
-Vấn đề này cũng được nghiên cứu trong phân loại dữ liệu, khi mà thuộc tính có giá trị nặc danh.
-Tuy nhiên, văn bản có định dạng không phải là số nên khi gom nhóm văn bản ta cần chuyển đổi văn bản bằng một dạng thể hiện khác mà ta có thể thao tác được.
-Thông thường, văn bản sẽ được chuyển đổi và biểu diễn thành dạng vector để giúp cho việc số hóa văn bản.
-Việc số hóa văn bản giúp cho chúng ta có thể gom nhóm dễ dàng hơn so với việc phải thao tác trên các từ, chữ, câu của văn bản thông thường.
-
-%Ích lợi của việc số hóa văn bản
-Sự thay đổi định dạng của văn bản từ dạng chữ sang số với thể hiện là vector đã giúp cho mang lại nhiều lợi ích trong việc gom nhóm.
-Do thể hiện của văn bản là dạng vector nên các thuật toán gom nhóm vẫn có thể được áp dụng được.
-Không những thế, việc để định dạng là số giúp cho việc tính toán cũng như là thay đổi trở nên dễ dàng hơn.
-Khi ta số hóa các định dạng chữ của văn bản cũng là cách để tiết kiệm bộ nhớ, qua đó cải thiện thuật toán, tăng tốc độ thực thi.
-Có thể thấy, việc số hóa văn bản đã đem lại những lợi ích to lớn trong quá trình gom nhóm văn bản.
-
-%Những thách thức khi làm gom nhóm văn bản
-
-%\section{Các phương pháp gom nhóm văn bản}
-%Các phương pháp gom nhóm văn bản hiện thời
-	%phương pháp phân chia miền
-	%phương pháp dựa vào mật độ
-	%phương pháp dựa vào lưới tọa độ
-	%phương pháp dựa vào mô hình
-
-%\section{Các công thức tính khoảng cách}
-%Các công thức tính khoảng cách
-%Trong gom nhóm văn bản, các công thức tính khoảng cách được sử dụng để đo lường giữa hai văn bản. Sau đây, một số công thức tính khoảng cách thường được sử dụng:
-%\begin{enumerate}
-%\item[•]Khoảng cách Euclidean : $\parallel a \,- \, b \parallel_2 \, = \, \sqrt{\underset{i}{\sum}(a_i \, - \, b_i)^2} $
-%\item[•]Khoảng cách Euclidean vuông : $\parallel \, a \, - \, b \, \parallel^2_2 \, = \, \underset{i}{\sum} (a_i - b_i)^2$
-%\item[•]Khoảng cách Manhatthan : $\parallel \, a \, - \, b \, \parallel_1 \, = \, \underset{i}{\sum} \mid a_i \, - \, b_i\mid$
-%\item[•]Khoảng cách cực đại : $\parallel \, a \, - \, b\, \parallel_\infty \, = \, \underset{i}{max} \mid a_i \, - \, b_i \mid$
-%\item[•]Khoảng cách Mahalanobis : $\sqrt{(a \, - \, b)^{\top} \, S^{-1} \, (a \, - \, b)}$ với $S$ là ma trận covariance
-%\end{enumerate}
-%
-%\section{Lựa chọn công thức tính khoảng cách}
-%Lưa chọn công thức tính khoảng cách
-
-%Tại sao chọn bài toán
-%Mục đích của đồ án nhằm giải quyết vấn đề gì
-%Đóng góp chính
-%%18
