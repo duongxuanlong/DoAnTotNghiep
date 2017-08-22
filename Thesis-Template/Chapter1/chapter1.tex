@@ -36,6 +36,44 @@ Nghiên cứu của vấn đề gom nhóm đứng trước tính khả dụng kh
 \end{enumerate}
 
 \section{Bài toán gom nhóm văn bản}
+Gom nhóm là quá trình gom các đối tượng dữ liệu dựa vào thông tin được tìm thấy trong dữ liệu mô tả đối tượng và quan hệ giữa các đối tượng.
+Mục tiêu của gom nhóm là những đối tượng gần giống nhau (tương đồng) sẽ ở trong cùng một nhóm so với đối tượng dị biệt sẽ ở trong nhóm khác.
+Độ tương đồng càng lớn trong một nhóm kết hợp với độ khác biệt sẽ càng lớn giữa các nhóm có thể tạo ra khoảng cách càng lớn để kết nối giữa các nhóm.
+
+Trong nhiều ứng dụng, ý tưởng để tạo thành một nhóm không được định nghĩa rõ.
+Vì vậy, ta cần hiểu hiểu rõ khó khăn của quá trình tạo thành một nhóm.
+Cùng nhau xem hình 
+
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.2492789)(6.5971155,1.2492789)
+\psdots[linecolor=black, dotsize=0.2](0.49855775,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](0.8985577,0.75072116)
+\psdots[linecolor=black, dotsize=0.2](0.8985577,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](0.8985577,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](1.2985578,0.75072116)
+\psdots[linecolor=black, dotsize=0.2](2.0985577,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](2.0985577,-0.04927885)
+\psdots[linecolor=black, dotsize=0.2](2.4985578,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](0.49855775,-0.44927886)
+\psdots[linecolor=black, dotsize=0.2](0.09855774,-0.04927885)
+\psdots[linecolor=black, dotsize=0.2](0.09855774,-0.44927886)
+\psdots[linecolor=black, dotsize=0.2](4.8985577,1.1507212)
+\psdots[linecolor=black, dotsize=0.2](4.4985576,0.75072116)
+\psdots[linecolor=black, dotsize=0.2](4.8985577,0.75072116)
+\psdots[linecolor=black, dotsize=0.2](4.8985577,-0.04927885)
+\psdots[linecolor=black, dotsize=0.2](5.2985578,-0.04927885)
+\psdots[linecolor=black, dotsize=0.2](4.4985576,-0.44927886)
+\psdots[linecolor=black, dotsize=0.2](4.8985577,-0.44927886)
+\psdots[linecolor=black, dotsize=0.2](6.098558,0.75072116)
+\psdots[linecolor=black, dotsize=0.2](6.098558,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](6.4985576,0.35072115)
+\rput[bl](1.6985577,-1.2492789){(a) Các điểm gốc}
+\end{pspicture}
+}
 
 \section{Các phương pháp gom nhóm văn bản}
 
