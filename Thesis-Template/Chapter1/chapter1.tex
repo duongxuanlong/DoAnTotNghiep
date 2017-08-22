@@ -20,7 +20,8 @@ Tuy nhiên, khi ta truy vấn thông tin với từ khóa bất kì thì có th�
 Vì vậy, ta cần tổ chức lại thông tin cần truy vấn thành cấu trúc phù hợp.
 Gom nhóm văn bản có thể giúp chúng ta sắp xếp các văn bản thành những chủ để phù hợp và giúp cho việc truy vấn dễ dàng hơn.
 
-Gom nhóm văn bản tự động tạo ra những nhóm có văn bản liên quan với nhau mà không cần phải tạo trước tập huấn luyện hay nguyên tắc phân loại. Ngoải ra gom nhóm văn bản dựa vào độ tương đồng của nội dung để cải thiện hiệu quả tìm kiếm.
+Gom nhóm văn bản tự động tạo ra những nhóm có văn bản liên quan với nhau mà không cần phải tạo trước tập huấn luyện hay nguyên tắc phân loại.
+Ngoài ra gom nhóm văn bản dựa vào độ tương đồng của nội dung để cải thiện hiệu quả tìm kiếm.
 \begin{enumerate}
 \item[•]Cải thiện hồi quy trong tìm kiếm: khi câu truy vấn trùng với một văn bản thì kết quả trả về có thể bao gồm toàn bộ nhóm chứa văn bản.
 \item[•]Cải thiện độ chính xác trong tìm kiếm: gom nhóm văn bản thành những nhóm nhỏ hơn trong nhóm của những văn bản liên quan.
@@ -42,12 +43,18 @@ Mục tiêu của gom nhóm là những đối tượng gần giống nhau (tư�
 
 Trong nhiều ứng dụng, ý tưởng để tạo thành một nhóm không được định nghĩa rõ.
 Vì vậy, ta cần hiểu hiểu rõ khó khăn của quá trình tạo thành một nhóm.
-Cùng nhau xem hình 
+Nhìn vào hình \ref{fig:pic11}, ta thấy có 20 điểm nhưng lại có đến 3 cách khác nhau để gom nhóm.
+Hình dạng của dữ liệu sẽ chỉ dẫn mối quan hệ giữa các nhóm.
+Hình \ref{fig:pic11}(a) và hình \ref{fig:pic11}(b) chia dữ liệu thành 2 nhóm khác nhau với mỗi nhóm gồm 6 điểm.
+Tuy nhiên, ta có thể nhìn thấy là ở mỗi nhóm lớn ta còn có thể chia nhỏ tiếp được thành 2 nhóm nhỏ hơn.
+Điều này mang tính chất chủ quan dựa vào cách nhìn của mỗi người và có thể tạo thành 4 nhóm khác nhau như hình \ref{fig:pic11}(c).
+Hình \ref{fig:pic11} cho ta thấy định nghĩa một nhóm không có đúng tuyệt đối và cách tiếp cận tốt nhất là ta phải dựa vào bản chất của dữ liệu và kết quả mong muốn.
 
+\begin{figure}[htp]
 \makeatletter % For spaces in paths
 \patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
 \makeatother
-\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+\psscalebox{0.8 0.8} % Change this value to rescale the drawing.
 {
 \begin{pspicture}(0,-1.2492789)(6.5971155,1.2492789)
 \psdots[linecolor=black, dotsize=0.2](0.49855775,0.35072115)
@@ -74,8 +81,22 @@ Cùng nhau xem hình
 \rput[bl](1.6985577,-1.2492789){(a) Các điểm gốc}
 \end{pspicture}
 }
+\caption{Những cách khác nhau về gom nhóm trên cùng một tập điểm}
+\label{fig:pic11}
+\end{figure}
 
-\section{Các phương pháp gom nhóm văn bản}
+Gom nhóm có thể liên quan đến các kỹ thuật khác như chia dữ liệu vào  các nhóm khác nhau.
+Chẳng hạn, gom nhóm có thể liên quan đến một dạng phân lớp mà nó tạo ra nhãn của đối tượng với lớp (hoặc nhóm) nhãn.
+Tuy nhiên, gom nhóm dẫn xuất các nhãn này từ dữ liệu.
+Trong khi đó, phân lớp lại là phương pháp có tên gọi là phân lớp giám sát, những đối tượng chưa có nhãn sẽ được gán với nhãn của đối tượng biết trước.
+Vì vậy, gom nhóm hay còn được biết đến như là phân lớp không có giám sát.
+
+Có thể nói, bài toán gom nhóm là bài toán dùng để giải quyết việc tìm kiếm số lượng nhóm có thể có trong dữ liệu.
+Quá trình này có thể được tiếp cận từ các phương pháp khác nhau nhưng đều có đặc điểm chung đều là không có giám sát.
+Vì vậy, tìm kiếm số lượng nhóm cần có là mục tiêu của gom nhóm.
+
+\section{Các phương pháp gom nhóm}
+
 
 \section{Mục tiêu của đồ án}
 
