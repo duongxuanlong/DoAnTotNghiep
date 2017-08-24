@@ -95,8 +95,158 @@ Có thể nói, bài toán gom nhóm là bài toán dùng để giải quyết v
 Quá trình này có thể được tiếp cận từ các phương pháp khác nhau nhưng đều có đặc điểm chung đều là không có giám sát.
 Vì vậy, tìm kiếm số lượng nhóm cần có là mục tiêu của gom nhóm.
 
-\section{Các phương pháp gom nhóm}
+\section{Các hướng tiếp cận}
+\subsection{Phân cấp và phân chia}
+Vấn đề thường được thảo luận về điểm khác biệt giữa những kiểu gom nhóm là tập hợp các nhóm được lồng vào nhau hay tách biệt, thường được gọi với thuật ngữ phân cấp và phân chia.
+Gom nhóm theo phân chia đơn giản chỉ là chia tập dữ liệu đối tượng vào thành các nhóm không đè lên nhau.
+Phương pháp gom nhóm phân chia chia mỗi đối tượng dữ liệu vào một nhóm duy nhất.
+Do vậy, phương pháp này cho ra kết quả bao gồm các nhóm riêng biệt, độc lập với nhau.
+Nhìn vào hình \ref{fig:pic11} từ (b) đến (d) cho chúng ta thấy được phương pháp gom nhóm phân chia.
 
+Nếu như ta có thể chia những nhóm hiện hữu thành các nhóm con thì ta sẽ có được cấu trúc phân cấp, thường được gọi là gom nhóm phân cấp.
+Gom nhóm phân cấp là tập hợp các nhóm lồng vào nhau tạo thành cấu trúc cây.
+Mỗi một nốt (nhóm) trong cây (ngoại trừ nốt lá) là tập hợp của những nốt con (nhóm con) và nốt gốc của cây trong nhóm chứa toàn bộ đối tượng.
+Thông thường, nốt lá trong cây là nhóm đơn lẻ chứa dữ liệu.
+Như vậy, gom nhóm phân cấp cho ta thấy được mối quan hệ giữa các nhóm trong dữ liệu dựa vào cấu trúc lồng phân cấp trong cây.
+
+Nếu như ta cho phép các nhóm được phép lồng vào nhau, dựa vào hình \ref{fig:pic11}(a), ta có thể có được 2 nhóm con.
+Tiếp đến hình \ref{fig:pic11}(b), ứng với mỗi nhóm, ta có thể lần lượt chia thành 3 nhóm con (như hình \ref{fig:pic11}(d)).
+Các nhóm trong hình \ref{fig:pic11} từ (a) đến (d), khi thực thi theo thứ tự có thể tạo thành nhóm phân cấp tương ứng 1, 2, 4, và 6 nhóm ứng với mỗi mức độ.
+Cuối cùng, ta có thể xem gom nhóm phân cấp là là chuỗi liên tiếp của gom nhóm phân chia.
+Nghĩa là ta có thể lấy được kết quả của gom nhóm phân chia bằng việc cắt cây trong gom nhóm phân cấp ở một mức độ nhất định.
+
+\subsection{Duy nhất, chồng đè và mờ}
+Các nhóm trong hình \ref{fig:pic11} đều đi theo hướng duy nhất, nghĩa là mỗi đối tượng được gán vào một nhóm duy nhất.
+Thực tế, ta có rất nhiều trường hợp mà một đối tượng có thể được gắn với nhiều nhóm khác nhau.
+Với những trường hợp như vậy, ta đang đi theo hướng tiếp cận không duy nhất hay còn gọi là chồng đè.
+Trong trường hợp tổng quát, hướng tiếp cận chồng đè hay không duy nhất dùng để phản ánh một đối tượng có thể được gán đồng thời ở nhóm này cũng như là nhóm khác.
+Hướng tiếp cận duy nhất cho ta thấy được các nhóm độc lập, riêng lẻ với nhau còn hướng tiếp cận không duy nhất hay còn gọi là chồng đè cho ta thấy được quan hệ giữa các nhóm.
+
+Ví dụ, một người trong công ty có thể kiêm nhiều chức vụ khác nhau.
+Hướng tiếp cận không duy nhất thường được sử dụng khi mà một đối tượng ở giữa một hoặc nhiều nhóm khác nhau.
+Đồng thời, đối tượng này có thể được gán vào một trong những nhóm này mà vẫn đảm bảo được tính hợp lý.
+
+Trong gom nhóm mờ, mỗi đối tượng thuộc về mỗi nhóm với trọng số có thể là 0 (không thuộc về) hoặc là 1 (hoàn toàn thuộc về).
+Nói cách khác, các nhóm được xem như là tập hợp mờ.
+Nghĩa là các phần tử trong các nhóm này có một trong hai khả năng là 0 hoặc 1, thuộc về hoặc không thuộc về.
+Gom nhóm mờ thường có điều kiện ràng buộc là tổng của trọng số trong mỗi đối tượng phải bằng 1.
+Tương tự, kỹ thuật gom nhóm xác suất tính ra xác suất của mỗi điểm thuộc về ứng với nhóm, và tổng của xác suất này phải bằng 1.
+
+Vì tổng của trọng số hay là xác suất cho bất kỳ đối tượng nào cũng phải bằng 1, gom nhóm mờ hay là xác suất không thể chỉ ra được tình huống đa lớp, tình huống mà một đối tượng có thể thuộc về nhiều lớp.
+Thay vào đó, những hướng tiếp cận này thường thích hợp cho việc tránh ngẫu nhiên gán một đối tượng vào một nhóm duy nhất khi mà nó có thể thích hợp cho nhiều nhóm khác nhau.
+Trong thực tế, gom nhóm mờ hay là xác suất thường chuyển đổi thành gom nhóm duy nhất bằng việc gán mỗi đối tượng vào nhóm mà có trọng số hay là xác suất là cao nhất.
+
+\subsection{Toàn phần và cục bộ}
+Gom nhóm toàn phần gán mỗi đối tượng vào một nhóm, trong khi gom nhóm cục bộ thì lại khác.
+Điều thúc đẩy gom nhóm cục bộ là các đối tượng trong dữ liệu có thể không thuộc về các nhóm hiện tại.
+Vì sự hiện diện của các đối tượng này có thể gây ra nhiễu và nằm ngoài so với các đối tượng còn lại.
+Ví dụ, nhiều bài báo có thể cùng chia sẻ chủ đề như sự ấm lên của toàn cầu, trong khi đó những bài báo khác lại mô tả chung chung.
+Cho nên, đề tìm kiếm những chủ đề quan trọng trong các bài báo, ta muốn tìm những nhóm văn bản mà liên quan chặt chẽ đến chủ đề mong muốn.
+Trong những trường hợp khác, gom nhóm toàn phần thường được sử dụng. 
+
+\section{Các loại gom nhóm}
+\label{sec:clgn}
+Gom nhóm dùng để tìm được các nhóm đối tượng hữu dụng, thế nào được xem là hữu dụng tùy vào mục đích của việc phân tích dữ liệu.
+Ta có rất nhiều cách cũng như là ý tưởng khác nhau về gom nhóm để thể chứng minh được sự hữu dụng trong thực tế.
+Để có cái nhìn tổng quát về những cách gom nhóm khác nhau, ta sẽ sử dụng dữ liệu là điểm có hai chiều.
+Tuy nhiên, những phương pháp được thảo luận dưới đây đều có thể áp dụng cho bất kì dữ liệu dạng nào.
+Nghĩa là các phương pháp có thể được sử dụng độc lập với dạng dữ liệu.
+
+\subsection{Phân tách nhiều}
+Một nhóm là tập hợp của các đối tượng mà mỗi đối tượng có độ tương đồng gần hơn ở các đối tượng trong nhóm.
+Thỉnh thoảng, ta sẽ đặt ngưỡng để đặc tả, phân chia dữ liệu trong nhóm để có được độ tương đồng mà các phần tử trong nhóm phải ở mức từ ngưỡng trở lên để đảm bảo nhóm được hình thành ít nhiễu nhất có thể.
+Tuy nhiên, ý tưởng này chỉ khả thi khi mà nhóm cần phân chia phải thỏa mãn được khoảng cách giữa các nhóm cách nhau xa.
+Hình \ref{fig:pic12}(a) đưa ra ví dụ về gom nhóm phân tách nhiều, ta có hai nhóm điểm tách biệt nhau.
+Khoảng cách giữa hai điểm bất kì của hai nhóm khác nhau luôn lớn hơn so với khoảng cách giữa hai điểm trong một nhóm.
+Gom nhóm phân tách nhiều không nhất thiết phải là hình cầu mà có thể là kì hình dạng nào.
+
+\subsection{Dựa vào mẫu}
+Một nhóm là một tập hợp các đối tượng mà trong đó mỗi đối tượng gần tương đồng với mẫu.
+Nghĩa là mỗi nhóm sẽ có một mẫu, các đối tượng gần với mẫu nào sẽ nằm trong nhóm có mẫu đó.
+Đối với dữ liệu có thuộc tính liên tục, mẫu của một nhóm thường là trung điểm (nghĩa là điểm trung bình của nhóm đó).
+Khi mà trung điểm được sử dụng không hiệu quả, trong trường hợp dữ liệu tồn tại thuộc tính phân lớp, mẫu sẽ sử dụng điểm tiêu biểu, nghĩa là điểm đại diện cho toàn bộ nhóm.
+Đối với nhiều loại dữ liệu, mẫu thường được xem như là trung điểm, và trong những trường hợp như vậy, ta thường gọi gom nhóm dựa vào mẫu là gom nhóm dựa vào trung điểm.
+Hình dạng thường thấy của dạng gom nhóm này là hình cầu, hình \ref{fig:pic12}(b) cho ta thấy điều đó.
+
+\subsection{Dựa vào đồ thị}
+Nếu như dữ liệu được biểu diễn như là đồ thị, với nốt là các đối tượng và các liên kết thể hiện phần kết nối giữa các đối tượng.
+Khi đó, nhóm được định nghĩa như là một thành phần liên kết, nghĩa là một nhóm bao gồm các đối tượng liên kết với nhau nhưng mà không tồn tại liên kết với các đối tượng ở ngoài nhóm.
+Một ví dụ quan trọng của gom nhóm dựa vào đồ thị là gom nhóm dựa vào tính liên tục, khi mà hai đối tượng được liên kết khi và chỉ khi hai điểm nằm trong khoảng cách đặc tả của nhau.
+Điều này ngầm chỉ định mỗi đối tượng trong nhóm liên tục luôn ở gần hơn so với một vài đối tượng khác ở trong cùng nhóm và hơn hẳn những đối tượng ở khác nhóm.
+Hình \ref{fig:pic12}(c) chỉ ra ví dụ về gom nhóm dựa vào đồ thị.
+
+Cách sử dụng gom nhóm này chỉ hữu dụng khi các nhóm này dị biệt hoặc là quấn vào nhau.
+Tuy nhiên, một vấn đề cần chú ý là cách gom nhóm này có thể xuất hiện nhiễu, như trong hình \ref{fig:pic12}(c), một cây cầu nhỏ xuất hiện tạo thành cầu nối giữa hai nhóm riêng biệt.
+Những loại gom nhóm dựa vào đồ thị cũng có thể sử dụng được.
+Một trong những hướng tiếp cận này là clique, một tập hợp các nốt trong đồ thị mà kết nối hoàn toàn với nhau.
+Đặc biệt, nếu ta có thể thêm vào phần kết nối giữa các đối tượng theo thứ tự dựa vào khoảng cách, nhóm được hình thành rồi từ đó tạo thành tập đối tượng tạo nên clique.
+Cũng như gom nhóm dựa vào mẫu, các nhóm theo phương pháp này thường có xu hướng tạo nên hình cầu.
+
+\subsection{Dựa vào mật độ}
+Nhóm được định nghĩa là vùng mật độ của các đối tượng mà bao quanh nó là vùng có mật độ thấp.
+Hình \ref{fig:pic12}(d) cho ta thấy gom nhóm dựa vào mật độ cho dữ liệu được tạo bằng cách thêm độ nhiễu cho dữ liệu từ hình \ref{fig:pic12}(c).
+Hai hình tròn không có trộn vào nhau như hình \ref{fig:pic12}(c), bởi vì phần cầu nối giữa hai nhóm bị che mờ trong phần nhiễu.
+Tương tự, phần cong thể hiện trong hình \ref{fig:pic12}(c) cũng bị che mờ trong phần nhiễu và không tạo thành nhóm trong hình \ref{fig:pic12}(d).
+
+\subsection{Chia sẻ thuộc tính (gom nhóm theo ý tưởng)}
+Ta có thể định nghĩa nhóm như là tập hợp của các đối tượng mà chia sẻ chung thuộc tính.
+Cách định nghĩa này bao gồm tất cả định nghĩa về gom nhóm ở các phần trước.
+Các đối tượng sẽ nằm trong nhóm trung tâm chia sẻ thuộc tính mà tất cả cùng ở gần điểm trung tâm hay là điểm tiêu biểu, như là các nhóm ở trong hình \ref{fig:pic12}(e).
+Khu vực tam giác nằm kế cận khu vực tứ giác và 2 đường tròn quấn vào nhau.
+Trong cả 2 trường hợp trên, thuật toán gom nhóm cần ý tưởng đặc tả của nhóm để có thể tìm được thành công những nhóm này.
+Quá trình tìm kiếm những nhóm như vậy được gọi là gom nhom theo ý tưởng.
+Tuy nhiên, nếu ý tưởng của nhóm quá phức tạp có thể dẫn đến nhận diện mẫu.
+
+\begin{figure}[htp]
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+\psscalebox{0.8 0.8} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.2492789)(6.5971155,1.2492789)
+\psdots[linecolor=black, dotsize=0.2](0.49855775,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](0.8985577,0.75072116)
+\psdots[linecolor=black, dotsize=0.2](0.8985577,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](0.8985577,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](1.2985578,0.75072116)
+\psdots[linecolor=black, dotsize=0.2](2.0985577,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](2.0985577,-0.04927885)
+\psdots[linecolor=black, dotsize=0.2](2.4985578,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](0.49855775,-0.44927886)
+\psdots[linecolor=black, dotsize=0.2](0.09855774,-0.04927885)
+\psdots[linecolor=black, dotsize=0.2](0.09855774,-0.44927886)
+\psdots[linecolor=black, dotsize=0.2](4.8985577,1.1507212)
+\psdots[linecolor=black, dotsize=0.2](4.4985576,0.75072116)
+\psdots[linecolor=black, dotsize=0.2](4.8985577,0.75072116)
+\psdots[linecolor=black, dotsize=0.2](4.8985577,-0.04927885)
+\psdots[linecolor=black, dotsize=0.2](5.2985578,-0.04927885)
+\psdots[linecolor=black, dotsize=0.2](4.4985576,-0.44927886)
+\psdots[linecolor=black, dotsize=0.2](4.8985577,-0.44927886)
+\psdots[linecolor=black, dotsize=0.2](6.098558,0.75072116)
+\psdots[linecolor=black, dotsize=0.2](6.098558,0.35072115)
+\psdots[linecolor=black, dotsize=0.2](6.4985576,0.35072115)
+\rput[bl](1.6985577,-1.2492789){(a) Các điểm gốc}
+\end{pspicture}
+}
+\caption{Những phương pháp gom nhóm khác nhau}
+\label{fig:pic12}
+\end{figure}
+
+\section{Phương pháp gom nhóm}
+\label{sec:ppgn}
+Dựa vào những loại gom nhóm được đề cập ở \ref{sec:clgn}, ta có thể liệt kê ra các phương pháp gom nhóm sau:
+\begin{enumerate}
+\item[•]\textbf{K-means}: đây là phương pháp gom nhóm theo mẫu và sử dụng kỹ thuật phân chia để có thể tìm được số lượng nhóm biết trước (K), và mỗi nhóm được đại diện bằng điểm trung tâm.
+\item[•]\textbf{Gom nhóm phân cấp tích tụ}: cách gom nhóm này tiếp cận theo một tập hợp của những nhóm liên quan mật thiết mà tạo ra được các nhóm phân cấp bằng việc bắt đầu với mỗi điểm như là một nhóm đơn lẻ và sau đó thì không ngừng trộn những nhóm ở gần với nhau nhất cho đến khi chỉ còn lại một nhóm duy nhất.
+Một vài kỹ thuật của cách tiếp cận này có kiểu thực thi theo cách gom nhóm theo đồ thị, trong khi một số khác thì theo hướng tiếp cận gom nhóm theo mẫu.
+\item[•]\textbf{DBSCAN}: đây là thuật toán gom nhóm the hướng dựa vào mật độ tạo ra các nhóm được phân chia, trong đó số lượng nhóm được xác định tự động bởi thuật toán.
+Những điểm nằm trong vùng mật độ thấp được xem như là nhiễu và bị loại bỏ.
+Vì vậy, DBSCAN không thể tạo ra gom nhóm hoàn chỉnh.
+\end{enumerate}
 
 \section{Mục tiêu của đồ án}
-
+Dựa vào những phương pháp đã liệt kê ở \ref{sec:ppgn} thì phương pháp gom nhóm phân cấp cho ta thấy được kết quả tốt hơn so với K-means và DBSCAN.
+Vì gom nhóm phân cấp không cần biết trước số lượng nhóm (K-means cần biết trước số lượng nhóm) và không làm mất dữ liệu (như DBSCAN).
+Mục tiêu của đồ án là gom nhóm tin tức tiếng Việt nên cần lựa chọn phương pháp tối ưu nhất đẻ thực hiện.
+Tuy nhiên, khi gom nhóm với dữ liệu lớn thì số chiều của dữ liệu tăng lên rất nhiều làm chậm quá trình thực thi.
+Vì vậy, việc sử dụng cách thể hiện dữ liệu khác để làm giảm số chiều như doc2vec có thể làm tăng hiệu năng và làm nhanh quá trình thực thi.
