@@ -1,14 +1,33 @@
 \chapter{Gom nhóm phân cấp}
 \label{Chapter2}
 
-\section{Gom nhóm phân cấp}
-\subsection{Giới thiệu}
+\section{Giới thiệu}
 %Giới thiệu phương pháp gom nhóm phân cấp
-Gom nhóm phân cấp là phương pháp gom nhóm dùng để xây dựng các nhóm thành các cấp bậc khác nhau.
-Các phương pháp gom nhóm được liệt kê ở chương 1 cho ta thấy được sự hiệu quả trong việc gom nhóm và tương đối đơn giản.
-Tuy nhiên, các phương pháp này chỉ cho ta thấy được kết quả gom nhóm cuối cùng, không cho chúng ta thấy được cấu trúc của dữ liệu.
-Hơn thế nữa, các phương pháp này đa phần cần phải xác định số lượng phân nhóm ban đầu.
-Vì vậy, một phương pháp khác được giới thiệu là gom nhóm phân cấp để khắc phục các nhược điểm trên.
+Gom nhóm phân cấp là kỹ thuật quan trọng trong việc phân loại nhóm. Phương pháp gom nhóm này dùng để xây dựng các nhóm thành các cấp bậc khác nhau.
+Khác với phương pháp gom nhóm phân chia, kết quả có được chỉ là những đối tượng nằm ở trong các nhóm riêng biệt.
+Ngoài ra, phương pháp gom nhóm phân chia cần phải xác định số lượng nhóm cần phải gom.
+Gom nhóm phân cấp khắc phục được các nhược điểm của gom nhóm phân chia đồng thời cho chúng ta thấy được cấu trúc của ngữ liệu.
+
+Gom nhóm phân cấp thường được biểu diễn dưới dạng đồ thị hình cây với tên gọi là dendrogram, thể hiện mối quan hệ giữa nhóm và nhóm con.
+Đồ thị này thể hiện thứ tự các nhóm được gom (hướng tiếp cận tích tụ) hoặc là tách (hướng tiếp cận phân chia). 
+Cho một tập gồm các điểm 2 chiều, gom nhóm phân cấp có thể biểu diễn các nhóm lồng vào nhau hoặc dưới dạng cây phân cấp.
+Hình \ref{fig:pic21} cho thấy 2 loại biểu diễn của gom nhóm phân cấp cho tập điểm 2 chiều.
+Các điểm này được gom nhóm theo kỹ thuật liên kết đơn (\ref{sec:lkd}).
+
+\begin{figure}[htp]
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\end{pspicture}
+}
+\caption{Gom nhóm phân cấp với 4 điểm được biểu diễn dưới đồ thị dạng cây và đồ thị hình tròn lồng vào nhau}
+\label{fig:pic21}
+\end{figure}
 
 \section{Các hướng tiếp cận}
 %Các hướng tiếp cận
@@ -28,7 +47,8 @@ Ta sẽ thêm $p$ vào cây và nối cạnh giữa hai điểm $p$ và $p$.
 Sau đây là thuật toán thể hiện ý tưởng trên:
 
 \begin{algorithm}
-\caption{Divisive Hierarchical Clustering Algorithm}\label{Divisive}
+\caption{Divisive Hierarchical Clustering Algorithm}
+\label{alg:Divisive}
 \begin{algorithmic}[1]
 \State Compute a minimum spanning tree for the proximity graph.
 \Repeat
@@ -36,6 +56,8 @@ Sau đây là thuật toán thể hiện ý tưởng trên:
 \Until{Only singleton clusters remains.}
 \end{algorithmic}
 \end{algorithm}
+
+Theo như ~\cite{wiki-HAC}, thuật toán gom nhóm phân cấp theo hướng phân chia có độ phức tạp rất lớn: $O(2^n)$.
 
 %Phương pháp này bắt đầu từ việc quan sát tất cả chỉ trong một phân nhóm, và khi di chuyển xuống sẽ tách dần dần thành các phân nhóm con.
 %Quá trình gộp và tách thường sẽ tốn nhiều chi phí cho thuật toán.
@@ -45,13 +67,13 @@ Sau đây là thuật toán thể hiện ý tưởng trên:
 		
 \subsection{Hướng tiếp cận tích tụ}
 %Hướng tiếp cận agglomerative
-\subsubsection{Giới thiệu}
 %Giới thiệu
-Nhiều kỹ thuật gom nhóm phân cấp khác nhau đều hướng đến một mục tiêu: bắt đầu bằng việc xem mỗi điểm như là một nhóm, sau đó dần dần gom các nhóm đơn lẻ này lại với nhau thành nhóm lớn hơn và cho đến khi chỉ còn lại một nhóm duy nhất.
+Gom nhóm phân cấp theo hướng tích tụ là hướng tiếp cận phổ biến nhất trong gom nhóm phân cấp.
+Phương pháp này bắt đầu bằng việc xem mỗi điểm như là một nhóm, sau đó dần dần gom các nhóm đơn lẻ này lại với nhau thành nhóm lớn hơn và cho đến khi chỉ còn lại một nhóm duy nhất.
 Sau đây là thuật toán mô tả quá trình gom nhóm theo hướng tích tụ.
 
 \begin{algorithm}
-\caption{Basic Agglomerative Hierarchical Clustering Algorithm}\label{agglomerative}
+\caption{Basic Agglomerative Hierarchical Clustering Algorithm}\label{agl:agglomerative}
 \begin{algorithmic}[1]
 \State Compute the proximity graph, if neccessary.
 \Repeat
@@ -60,6 +82,8 @@ Sau đây là thuật toán mô tả quá trình gom nhóm theo hướng tích t
 \Until{Only one cluster remains.}
 \end{algorithmic}
 \end{algorithm}
+
+Theo như ~\cite{wiki-HAC}, thuật toán gom nhóm phân cấp theo hướng tích tụ có độ phức tạp là $O(n^2\log(n))$.
 
 %Hướng tiếp cận tích tụ là một trong những cách tiếp cận của gom nhóm phân cấp.
 %Đây là phương pháp tiếp cận gom nhóm theo cách đi từ dưới lên.
@@ -75,91 +99,342 @@ Sau đây là thuật toán mô tả quá trình gom nhóm theo hướng tích t
 %		\end{tikzpicture}
 
 %Các phương pháp liên kết trong hướng tiếp cận tích tụ
-\subsubsection{Các phương pháp liên kết}
-Điểm khác biệt trong gom nhóm phân cấp theo hướng tích tụ so với hướng phân chia chính là cách tính độ tương đồng giữa các nhóm và điều đó làm cho kết quả của thuật toán trở nên khác biệt tùy vào độ tương đồng.
-Độ tương đồng của các nhóm thường được định nghĩa tùy vào quan điểm ngữ cảnh của các nhóm.
-Chẳng hạn khi ta xem một nhóm như là đại diện của tất các điểm trong đó, nếu ta xem độ tương đồng giữa 2 điểm thuộc hai nhóm khác nhau có khoảng cách gần nhất là độ tương đồng của hai nhóm thì ta có kỹ thuật \textit{nhỏ nhất} và thường được gọi là liên kết đơn.
-Tương tự, ta có thể xem xét độ tương đồng với hai điểm xa nhất giữa hai nhóm khác nhau để tạo thành độ tương đồng giữa hai nhóm, đây được xem là kỹ thuật \textit{xa nhất} và được gọi là liên kết toàn vẹn.
-Ngoài ra, ta còn có thể tính độ tương đồng giữa các cặp nhóm thông qua khoảng cách trung bình của các điểm để tạo thành kỹ thuật \textit{nhóm trung bình}.
+\section{Các phương pháp liên kết}
+Điểm nhấn chính trong thuật toán \ref{agl:agglomerative} là cách tính độ tương đồng giữa các nhóm và điều đó làm cho kết quả của gom nhóm phân cách tích tụ trở nên khác biệt.
+Độ tương đồng của các nhóm thường được định nghĩa dựa vào loại nhóm cụ thể.
+Gom nhóm phân cấp tích tụ có thể sử dụng nhiều kỹ thuật khác nhau như nhỏ nhất (liên kết đơn), lớn nhất (liên kết hoàn toàn) và  nhóm trung bình.
+Liên kết đơn định nghĩa độ tương đồng của nhóm là độ tương đồng giữa 2 điểm gần nhất ở 2 nhóm khác nhau, nghĩa là khoảng cách gần nhất giữa hai nốt của hai tập khác nhau.
+Liên kết đơn tạo ra các nhóm liền kề như trong hình \ref{fig:pic14}.
+Hình \ref{fig:pic22} cho ta thấy gom nhóm theo kỹ thuật liên kết đơn.
+\begin{figure}[htp]
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\end{pspicture}
+}
+\caption{Liên kết đơn}
+\label{fig:pic22}
+\end{figure}
 
-Ở những cách trên, ta xem một nhóm như là đại diện cho tất cả những điểm trong đó.
-Tuy nhiên, ta có thể thay đổi hướng tiếp cận bằng cách sử dụng một điểm như là một đại diện cho toàn nhóm và điểm này chính là điểm trung tâm của nhóm.
-Với hướng tiếp cận này, độ tương đồng của hai nhóm được xem như là độ tương đồng của hai điểm trung tâm.
-Ngoài ra, một cách khác có hướng tiếp cận tương đối khác biệt là phương pháp Ward.
-Phương pháp Ward tính độ tương đồng giữa hai nhóm dựa vào kết quả tối tiểu hóa khoảng cách sum of squard giữa các điểm của hai nhóm.
+Trong khi đó, liên kết hoàn toàn tính độ tương đồng của nhóm dựa vào 2 điểm xa nhất ở 2 hai nhóm khác nhau, nghĩa là khoảng cách xa nhất giữa 2 nốt của 2 tập khác nhau.
+Hình \ref{fig:pic23} cho ta thấy kỹ thuật liên kết hoàn toàn.
+\begin{figure}[htp]
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\end{pspicture}
+}
+\caption{Liên kết hoàn toàn}
+\label{fig:pic23}
+\end{figure}
 
-%Độ phức tạp của thuật toán
-Kỹ thuật thường được sử dụng trong gom nhóm phân cấp là ma trận tương đồng.
-Điều này đòi hỏi tính toán và lưu trữ gần $m^2$ với $m$ là số điểm của dữ liệu.
-Qua đó, ta có thể thấy được sự hạn chế của số lượng dữ liệu có thể tiến hành thực nghiệm.
-Ngoài ra, thời gian để chạy thuật toán thường của gom nhóm phân cấp theo hướng tiếp cận tích tụ thường là $O(m^2 \log{m}).$
+Một hướng tiếp cận khác là kỹ thuật gom nhóm trung bình với định nghĩa độ tương đồng là độ tương đồng trung bình của hai nhóm với khoảng cách của tất cả các điểm.
+Hình \ref{fig:pic24} cho ta thấy kỹ thuật nhóm trung bình.
+\begin{figure}[htp]
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\end{pspicture}
+}
+\caption{Nhóm trung bình}
+\label{fig:pic24}
+\end{figure}
 
-\subsubsection{Liên kết đơn}		
+Nếu ta có thể tiếp cận theo hướng dựa vào mẫu, với việc xem một nhóm như được đại diện biểu điểm trung tâm thì định nghĩa về độ tương đồng của nhóm sẽ trở nên tự nhiên hơn.
+Ngoài ra, một kỹ thuật thay thế khác với tên gọi là Ward với giả định một nhóm được đại diện bởi trung điểm.
+Tuy nhiêm, phương pháp Ward tính độ tương đồng giữa hai nhóm dựa vào kết quả của độ gia tăng trong SSE từ quá trình gom nhóm.
+Tương tự như K-means, phương pháp Ward cố gắng giảm khoảng cách SS của điểm từ trung điểm của nhóm.
+
+\subsection{Dữ liệu mẫu}
+Trước khi giới thiệu nhiều kỹ thuật liên kết khác nhau, sau đây là phần dữ liệu sẽ được sử dụng trong các kỹ thuật liên kết được đề cập sau nay.
+
+\begin{figure}[htp]
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\end{pspicture}
+}
+\caption{Đồ thị thể hiện tọa độ giữa các điểm}
+\label{fig:pic25}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\caption{Bảng thể hiện tọa độ của các điểm}
+\label{tab:2_1}
+\begin{tabular}{|c|c|c|}
+\hline
+Point & x Coordinate & y Coordinate \\ \hline
+p1    & 0.40         & 0.53         \\ \hline
+p2    & 0.22         & 0.38         \\ \hline
+p3    & 0.35         & 0.32         \\ \hline
+p4    & 0.26         & 0.19         \\ \hline
+p5    & 0.08         & 0.41         \\ \hline
+p6    & 0.45         & 0.30         \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Bảng thể hiện độ đo khoảng cách Euclean giữa các điểm}
+\label{tab:2_2}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+   & p1   & p2   & p3   & p4   & p5   & p6   \\ \hline
+p1 & 0.00 & 0.24 & 0.22 & 0.37 & 0.34 & 0.23 \\ \hline
+p2 & 0.24 & 0.00 & 0.15 & 0.2  & 0.14 & 0.25 \\ \hline
+p3 & 0.22 & 0.15 & 0.00 & 0.15 & 0.28 & 0.11 \\ \hline
+p4 & 0.37 & 0.2  & 0.15 & 0.00 & 0.29 & 0.22 \\ \hline
+p5 & 0.34 & 0.14 & 0.28 & 0.29 & 0.00 & 0.39 \\ \hline
+p6 & 0.23 & 0.25 & 0.11 & 0.22 & 0.39 & 0.00 \\ \hline
+\end{tabular}%
+\end{table}
+
+\subsection{Liên kết đơn}	
+\label{sec:lkd}	
 %Giói thiệu
 Liên kết đơn hay kỹ thuật nhỏ nhất trong gom nhóm phân cấp là phương pháp xem xét độ tương đồng của hai nhóm chính là khoảng cách gần nhất của hai điểm bất kì trong mỗi nhóm. 
-Phương pháp này được gọi là liên kết đơn vì thuật toán bắt đầu với tất cả các điểm đơn lẻ được xem như là một nhóm, thêm kết nối giữa các nhóm này với liên kết ``mạnh'' trước rồi những liên kết này kết nối các điểm lại với nhau.
-Liên kết đơn là kỹ thuật mạnh trong xử lí dữ liệu có hình dạng không phải ellip và đồng thời cũng nhạy cảm với độ nhiễu và những điểm tách biệt.
+Kỹ thuật này bắt đầu với tất cả các điểm đơn lẻ được xem như là một nhóm, thêm kết nối giữa các hai điểm tại một thời điểm, khoảng cách ngắn nhất sẽ được thêm vào trước.
+Những kết nối này sẽ giúp kết hợp những điểm vào trong nhóm.
+Liên kết đơn là kỹ thuật mạnh trong xử lí dữ liệu có hình dạng không phải ellip nhưng có nhược điểm là nhạy cảm với độ nhiễu và những điểm tách biệt.
 
 %Chi tiết
-Hình vẽ sau đây thể hiện kỹ thuật liên kết đơn trong gom nhóm phân cấp.
-Ta có thể thấy hình bên trái là một chuỗi các vòng ellip lồng vào nhau, còn hình bên phải là biểu đồ đồ thị thể hiện thông tin lúc gom nhóm.
+Hình vẽ \ref{fig:pic26} sau đây thấy được kết quả của việc ứng dụng kỹ thuật liên kết đơn trong gom nhóm phân cấp đối với dữ liệu ở \ref.
+Ta có thể thấy hình \ref{fig:pic26}(a) bên trái là một chuỗi các vòng ellip lồng vào nhau tương ứng cho việc các nhóm lồng vào nhau với mỗi số kết hợp với hình ellipse thể hiện thú tự gom.
+Còn hình \ref{fig:pic26}(b) bên phải có thông tin tương tự như hình \ref{fig:pic26}(a) nhưng được biểu diễn dưới dạng đồ thị.
 Chiều cao mà hai nhóm gom lại vào nhau trong đồ thị thể hiện khoảng cách của hai nhóm.
-Ví dụ, từ biểu đồ, ta có thể thấy khoảng cách giữa 2 điểm 3 và 6 là 0.11 và đây cũng là khoảng cách dài nhất mà hai nhóm sát nhập vào nhau thành một. 
-Một ví dụ khác, khoảng cách giữa các nhóm \{3, 6\} và \{2, 5\} được tính  bằng cách $dist(\{3, 6\}, \{2, 5\}) = min(dist(3,2),dist(6, 2), dist(3, 5), dist(6, 5)) = min (0.148, 0.254, 0.284, 0.392) = 0.148$.
+Ví dụ, từ bảng \ref{tab:2_2}, ta có thể thấy khoảng cách giữa 2 điểm 3 và 6 là 0.11 và đây cũng là khoảng cách mà hai nhóm sát nhập vào nhau thành một. 
+Một ví dụ khác, khoảng cách giữa các nhóm \{3, 6\} và \{2, 5\} được tính  bằng cách
+\begin{equation}
+\begin{aligned}
+dist(\{3, 6\}, \{2, 5\})
+&= min(dist(3,2),dist(6, 2), dist(3, 5), dist(6, 5)) \\
+&= min (0.148, 0.254, 0.284, 0.392) = 0.148. \\
+\end{aligned}
+\end{equation}
+
+
+\begin{figure}[htp]
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\end{pspicture}
+}
+\caption{Kết quả khi ứng dụng liên kết đơn}
+\label{fig:pic26}
+\end{figure}
 
 %Nhược điểm
 
-\subsubsection{Liên kết toàn vẹn}		
+\subsection{Liên kết toàn vẹn}		
 %Giới thiệu
 Liên kết toàn vẹn còn được gọi là kỹ thuật lớn nhất hoặc là CLIQUE.
-Liên kết toàn vẹn tính độ tương đồng của hai nhóm dựa vào khoảng cách lớn nhất của hai điểm bất kì của hai nhóm khác nhau.
-Kỹ thuật này gọi là liên kết toàn vẹn vì khi ta bắt đầu tất cả các điểm được xem như là các nhóm đơn lẻ và thêm đường kết nối giữa các điểm, đường liên kết ``mạnh'' trước, sau đó nhóm các điểm không phải cùng trong nhóm cho đến khi tất cả các điểm được liên kết hoàn toàn.
+Liên kết toàn vẹn tính độ tương đồng của hai nhóm dựa vào khoảng cách lớn nhất (độ tương đồng nhỏ nhất) của hai điểm bất kì của hai nhóm khác nhau.
+Kỹ thuật này bắt đầu với tất cả các điểm đơn lẻ được xem như là một nhóm, thêm kết nối giữa các hai điểm tại một thời điểm, khoảng cách ngắn nhất sẽ được thêm vào trước, sau đó nhóm các điểm không phải nằm trong nhóm cho đến khi hoàn toàn liên kết.
 Liên kết toàn vẹn thường không nhạy cảm với độ nhiễu và điểm tách biệt, nhưng lại có thể chia cắt nhóm lớn và có xu hướng tạo thành nhóm toàn cục.
 
 %Chi tiết
-Hình vẽ sau đây cho ta thấy được kết quả của việc áp dụng kỹ thuật liên kết toàn vẹn trong gom nhóm phân cấp.
+Hình \ref{fig:pic27} đây cho ta thấy được kết quả của việc áp dụng kỹ thuật liên kết toàn vẹn trong gom nhóm phân cấp.
 Một lần nữa, điểm 3 và 6 được gom vào thành một nhóm trước.
 Tuy nhiên, \{3, 6\} lại được gom với \{4\} thay vì gom với \{2, 5\}.
-Điều này xảy ra vì $dist(\{3, 6\}, \{4\}) = max(dist(3, 4), dist(6, 4)) = max(0.151, 0.221) = 0.221$, đây là khoảng cách nhỏ hơn $dist(\{3, 6\}, \{2, 5\}) = max(dist(3, 2), dist(6, 2), dist(3, 5), dist(6, 5)) = max(0.148, 0.254, 0.284, 0.392) = 0.392$ và $dist({3, 6}, {1}) = max(dist(3, 1), dist(6, 1)) = max(0.221, 0.234) = 0.234$.
+Điều này xảy ra vì 
+\begin{equation}
+\begin{aligned}
+dist(\{3, 6\}, \{4\})
+&= max(dist(3, 4), dist(6, 4)) 		\\
+&= max(0.15, 0.22) 					\\
+&= 0.22.							\\
+dist(\{3, 6\}, \{2, 5\})
+&= max(dist(3, 2), dist(6, 2), dist(3, 5), dist(6, 5))			\\
+&= max(0.15, 0.25, 0.28, 0.39)									\\
+&= 0.392.										\\					
+dist({3, 6}, {1})
+&= max(dist(3, 1), dist(6, 1)) =	\\ 
+&= max(0.22, 0.23) = 0.23.		\\
+\end{aligned}
+\end{equation}
 
-%Nhược điểm
+\begin{figure}[htp]
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\end{pspicture}
+}
+\caption{Kết quả khi ứng dụng liên kết hoàn toàn}
+\label{fig:pic27}
+\end{figure}
 
-\subsubsection{Nhóm trung bình}
-Trong kỹ thuật nhóm trung bình của gom nhóm phân cấp, độ tương đồng của hai nhóm được định nghĩa là độ tương đồng trung bình của cặp nhóm với tất cả các điểm trong các nhóm khác nhau.
-Đây là hướng tiếp cận trung gian giữa kỹ thuật nhỏ nhất và kỹ thuật lớn nhất với công thức: 
+\subsection{Nhóm trung bình}
+\label{sec:ntb}
+Trong kỹ thuật nhóm trung bình của gom nhóm phân cấp, độ tương đồng của hai nhóm được định nghĩa là độ tương đồng trung bình của các cặp điểm với ở các nhóm khác nhau.
+Đây là hướng tiếp cận trung gian giữa kỹ thuật nhỏ nhất và kỹ thuật lớn nhất.
+Độ tương đồng của nhóm trung bình $proximity(C_i, C_j)$ của nhóm $C_i$ và $C_j$, với độ lớn là $m_i$ và $m_j$, được biểu diễn thành công thức:
 \begin{equation}
 proximity(cluster_1, cluster_2) = \sum_{\substack{p_1 \in cluster_1 \\ p_2 \in cluster_2}} \frac{proximity(p_1, p_2)}{size(cluster_1) * size(cluster_2)}
 \end{equation}
 
-Hình vẽ sau đây thể hiện kết quả của gom nhóm phân cấp theo kỹ thuật nhóm trung bình.
+Hình \ref{fig:pic28} thể hiện kết quả của gom nhóm phân cấp theo kỹ thuật nhóm trung bình.
 Để thấy được cách hoạt động của nhóm trung bình, ta tính khoảng cách giữa các nhóm:
-\begin{enumerate}
-\item[]$dist(\{3, 6, 4\}, \{1\}) = (0.221 + 0.368 + 0.234) / (3 * 1) = 0.275$. 
-\item[]$dist(\{2, 5\}, \{1\}) = (0.235 + 0.342) / (2 * 1)$.
-\item[]$dist(\{3, 6, 4\}, \{2, 5\}) = (0.148 + 0.284 + 0.254 + 0.392 + 0.204 + 0.2932) /  (3 * 2) = 0.263$.
-\end{enumerate}
+\begin{equation}
+\begin{aligned}
+dist(\{3, 6, 4\}, \{1\})
+&= (0.221 + 0.368 + 0.234) / (3 * 1)	\\ 
+&= 0.28									\\
+dist(\{2, 5\}, \{1\})
+&= (0.235 + 0.342) / (2 * 1)			\\
+&= 0.2889								\\
+dist(\{3, 6, 4\}, \{2, 5\})				
+&= (0.148 + 0.284 + 0.254 + 0.392 + 0.204 + 0.2932) /  (6 * 2)	\\
+&= 0.26									\\
+\end{aligned}
+\end{equation}
 
 Do $dist(\{3, 6, 4\}, \{2, 5\})$ nhỏ hơn $dist(\{3, 6, 4\}, \{1\})$ và $dist(\{2, 5\}, \{1\})$, nên $dist(\{3, 6, 4\}, \{1\})$ và $dist(\{2, 5\}, \{1\})$ sẽ được gom lại thành một nhóm mới ở bước thứ tư.
 
-\subsubsection{Kỹ thuật điểm trung tâm và phương pháp Ward}
-Cách tính độ tương đồng của phương pháp Ward giữa hai nhóm là tối tiểu hóa độ lỗi của kết quả trong lúc gom nhóm.
+\begin{figure}[htp]
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\end{pspicture}
+}
+\caption{Kết quả khi ứng dụng nhóm trung bình}
+\label{fig:pic28}
+\end{figure}
+
+\subsection{Kỹ thuật điểm trung tâm và phương pháp Ward}
+Độ tương đồng của phương pháp Ward giữa hai nhóm được định nghĩa là sự gia tăng lỗi toàn phương cho ra kết quả lúc gom 2 nhóm lại với nhau.
 Vì vậy, phương pháp này có hàm mục tiêu giống như phương pháp gom nhóm K-means.
-Phương pháp này dường như là kỹ thuật hơi tách biệt so với những phương pháp khác, một vài công thức đại số chỉ ra rằng kỹ thuật này hơi giống với phương pháp nhóm trung bình khi mà độ tương đồng giữa hai điểm là khoảng cách được bình phương giữa chúng.
-Hình vẽ sau đây thể hiện kết quả của việc áp dụng phương pháp Ward. Kết quả của quá trình gom nhóm hơi khác so với các kỹ thuật nhỏ nhất, lớn nhất và nhóm trung bình.
+Tuy nhiên, phương pháp này dường như là kỹ thuật hơi tách biệt so với những phương pháp gom nhóm phân cấp khác.
+Phương pháp Ward có công thức đại số chỉ ra rằng kỹ thuật này gần giống với phương pháp nhóm trung bình khi mà độ tương đồng giữa hai điểm là khoảng cách được bình phương giữa chúng.
+Hình \ref{fig:pic29} sau đây thể hiện kết quả của việc áp dụng phương pháp Ward. Kết quả của quá trình gom nhóm hơi khác so với các kỹ thuật nhỏ nhất, lớn nhất và nhóm trung bình.
+
+\begin{figure}[htp]
+\makeatletter % For spaces in paths
+\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+\makeatother
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\end{pspicture}
+}
+\caption{Kết quả khi ứng dụng phương pháp Ward}
+\label{fig:pic29}
+\end{figure}
 
 Kỹ thuật điểm trung tâm tính độ tương đồng giữa hai nhóm bằng việc tính khoảng cách giữa hai điểm trung tâm của hai nhóm.
-Kỹ thuật này dường như tương đồng với K-means, nhưng cần lưu ý rằng phương pháp Ward mới gần tương đồng với kỹ thuật này.
-
+%Kỹ thuật này dường như tương đồng với K-means, nhưng cần lưu ý rằng phương pháp Ward mới gần tương đồng với kỹ thuật này.
 Ngoài ra, kỹ thuật điểm trung tâm còn có đặc tính khác là sự khả nghịch mà những kỹ thuật khác không thể hiện được.
-Đối với gom nhóm phân cấp, quá trình gom hai nhóm về sau thì độ tương đồng giảm so với hai nhóm được gom trước đó.
+Đối với gom nhóm phân cấp, quá trình gom hai nhóm càng về sau thì độ tương đồng giảm so kết quả gom nhóm trước đó.
 Tuy nhiên, sự khả nghịch có thể làm đảo chiều quá trình này, nghĩa là độ tương đồng về sau có thể tăng chứ không phải giảm.
 
+\subsection{Công thực Lance-William cho độ tương đồng nhóm}
+Các cách tính dộ tương đồng nhóm mà được thảo luận ở những phần trước có thể được xem như là những tham số khác nhau cho độ tương đồng giữa 2 nhóm $Q$ và $R$.
+$R$ được tạo thành từ quá trình gom 2 nhóm $A$ và $B$.
+Trong công thức \ref{eq:2_Lance_William}, $p(.,.)$ là hàm tương đồng, với $m_A, \, m_B$ và $m_Q$ là số lượng phần tử tương ứng trong nhóm $A, \, B$ và $Q$.
+Nói cách khác, sau khi gom 2 nhóm $A$ và $B$ thành nhóm $R$, độ tương đồng của nhóm mới $R$ đối với nhóm hiện có $Q$ là hàm tuyến tính của độ tương đồng của nhóm $Q$ đối với 2 nhóm ban đầu $A$ và $B$.
+Bảng ???? chỉ ra những giá trị của hệ số cho những kỹ thuật mà đã được thảo luận.
 
-\subsubsection{Các cách để thực hiện vết cắt trên HAC}
+\begin{equation}
+\label{eq:2_Lance_William}
+p(R,Q)=\alpha_Ap(A,Q) + \alpha_Bp(B,Q) + \beta p(A,B) + \gamma |p(A, Q) - p(B, Q)|
+\end{equation}
+
+Bất kỳ kỹ thuật gom nhóm phân cấp nào cũng có thể biểu diễn dưới dạng công thức của Lance-William và không cần giữ lại dữ liệu gốc ban đầu.
+Thay vào đó, ma trận tương đồng sẽ cập nhật khi gom nhóm xảy ra.
+Công thức Lance-William giúp cho ta có cái nhìn tổng quát cũng như là dễ thực thi trong lập trình.
+
+\subsection{Những vấn đề trong gom nhóm phân cấp}
+\subsubsection{Thiếu hàm mục tiêu toàn cục}
+Gom nhóm phân cấp tích tụ không thể được xem như là hàm mục tiêu tối tưu toàn cục.
+Thay vào đo, gom nhóm phân cấp tích tụ sử dụng những kỹ thuật khác nhau để quyết định ở cục bộ mỗi bước thì nhóm nào sẽ được gom vào (hoặc là tách nếu sử dụng hướng tiếp cận phân chia).
+Cách tiếp cận này tạo ra thuật toán gom nhóm tránh được khó khăn khi giải quyết vấn đề tối ưu kết hợp trong trường hợp khó.
+Ngoài ra, gom nhóm phân cấp tích tụ không gặp phải vấn đề chọn điểm khởi tạo.
+
+\subsubsection{khả năng xử lý kích cỡ nhóm khác nhau}
+Một khía cạnh khác của gom nhóm phân cấp tích tụ là ta vẫn chưa thảo luận làm sao để xử lý kích cỡ của cặp nhóm vừa mới được gom vào nhau (Vấn đề này chỉ áp dụng khi sử dụng độ tương đồng nhóm liên quan đến tổng như trung điểm, phương pháp Ward và nhóm trung bình).
+Đối với vấn đề này, có 2 hướng tiếp cận: có trọng số, khi xem tất cả các nhóm là như nhau hoặc là không có trọng, xem xét số lượng điểm trong mỗi nhóm.
+Lưu ý rằng có trọng số hay không có trọng số liên quan đến số lượng điểm trong dữ liệu, chứ không phải nhóm.
+Nghĩa là nếu ta xem xét dựa vào nhóm mà không có cùng kích thước như nhau thì dẫn đến sự khác biệt về trọng số của điểm trong các nhóm khác nhau.
+Còn khi ta xem xét dựa vào kích thước của nhóm thì ta quan tâm đến số lượng điểm trong mỗi nhóm khác nhau mà các điểm này thì cùng trọng số.
+
+Sau đây, ta sử dụng kỹ thuật gom nhóm trung bình \ref{sec:ntb} với phiên bản sử dụng không có trọng số.
+Ta sẽ chuyển kỹ thuật này thành tham số của công thức như bảng ???.
+Hệ số trong trường hợp này liên quan đến kích thước của mỗi nhóm sau khi được gom xong:
+\begin{equation}
+\begin{aligned}
+\alpha_A &= \frac{m_A}{m_A + m_B}	\\
+\alpha_B &= \frac{m_B}{m_A + m_B}	\\
+\beta = 0		\\
+\gamma = 0
+\end{aligned}
+\end{equation}
+Trong trường hợp ta sử dụng gom nhóm trung bình có trọng số thì hệ số sẽ là:
+\begin{equation}
+\begin{aligned}
+\alpha_A = \frac{1}{2} \\
+\alpha_B = \frac{1}{2} \\
+\beta = 0		\\
+\gamma = 0		\\
+\end{aligned}
+\end{equation}
+
+Trong trường hợp tổng quát, cách tiếp cận không có trọng số được sử dụng nhiều trừ khi có lý do để tin tưởng rằng mỗi một điểm nên có trọng số riêng.
+
+\subsubsection{Quyết định gom nhóm là cuối cùng}
+Gom nhóm phân cấp tích tụ có xu hường chọn quyết định cục bộ tốt về kết hợp giữa 2 nhóm khi mà cùng sử dụng thông tin về độ tương đồng của nhau.
+Tuy nhiên, một khi quyết định gom 2 nhóm lại với nhau được thực hiện thì không có cách nào có thể làm ngược lại được.
+Cách tiếp cận này ngăn chặn tiêu chuẩn tối ưu cục bộ từ trở thành tiêu chuẩn tối ưu toàn cục.
+Ví dụ, mặc dù tối tiểu hóa lỗi bình phương là tiêu chuẩn từ K-means được sử dụng trong quyết định gom nhóm của phương pháp Ward, các nhóm tại mỗi mức thì lại không thể hiện cục bộ tối tiểu theo tổng SSE.
+Thay vào đó, các nhóm sẽ không ổn định, trong trường hợp là có thể có điểm ở gần trung điểm của nhóm khác hơn là trung điểm đang trong nhóm.
+Dù thế nào đi nữa, phương pháp Ward thường được sử dụng như là cách thức mạnh của việc khởi tạo nhóm trọng K-means, chỉ ra rằng tối tiểu hóa lỗi bình phương cục bộ của hàm mục tiêu có liên kết với tối tiểu hóa lỗi bình phương toàn cục của hàm mục tiêu.
+
+Một vài kỹ thuật được đề xuất đề cố gắng vượt quá giới hạn của quyết định gom nhóm là cuối cùng.
+Một hường tiếp cận để giải quyết vấn đề này là di chuyển những nhánh cây ra xung quanh để cái thiện hàm mục tiêu toàn cục.
+Hướng tiếp cận khác là sử dụng kỹ thuật gom nhóm phân chia như K-means để tạo ra nhiều nhóm nhỏ, rồi sử dụng gom nhóm phân cấp với những nhóm nhỏ này như là điểm khởi đầu.
+
+
+%\subsection{Các cách để thực hiện vết cắt trên HAC}
 %Giải thích
 
 %Cách để thực hiện vết cắt của gom nhóm phân cấp
-Sau đây, một vài cách để cắt tạo thành các nhóm thường được sử dụng trong HAC
+%Sau đây, một vài cách để cắt tạo thành các nhóm thường được sử dụng trong HAC
 
 %Các công thức tính khoảng cách
 %Trong gom nhóm văn bản, các công thức tính khoảng cách được sử dụng để đo lường giữa hai văn bản. Sau đây, một số công thức tính khoảng cách thường được sử dụng:
