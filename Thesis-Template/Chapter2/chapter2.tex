@@ -15,14 +15,35 @@ Hình \ref{fig:pic21} cho thấy 2 loại biểu diễn của gom nhóm phân c�
 Các điểm này được gom nhóm theo kỹ thuật liên kết đơn (\ref{sec:lkd}).
 
 \begin{figure}[htp]
-\makeatletter % For spaces in paths
-\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
-\makeatother
-\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+%\makeatletter % For spaces in paths
+%\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
+%\makeatother
+\psscalebox{1.2 1.2} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\begin{pspicture}(0,-2.21)(14.42,2.21)
+\psline[linecolor=black, linewidth=0.04](0.02,2.19)(0.02,-1.81)(0.02,-1.41)
+\psline[linecolor=black, linewidth=0.04](2.02,-1.81)(2.02,-0.21)(2.02,-0.21)
+\psline[linecolor=black, linewidth=0.04](3.22,-0.21)(3.22,-1.81)
+\psline[linecolor=black, linewidth=0.04](4.42,-1.81)(4.42,0.99)
+\psline[linecolor=black, linewidth=0.04](2.02,-0.21)(3.22,-0.21)
+\psline[linecolor=black, linewidth=0.04](2.82,-0.21)(2.82,-0.21)
+\psline[linecolor=black, linewidth=0.04](2.82,-0.21)(2.82,0.99)(4.42,0.99)
+\psline[linecolor=black, linewidth=0.04](3.62,0.99)(3.62,2.19)(0.02,2.19)
+\rput[bl](0.02,-2.21){p1}
+\rput[bl](2.02,-2.21){p2}
+\rput[bl](3.22,-2.21){p3}
+\rput[bl](4.42,-2.21){p4}
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](11.02,0.19)(3.4,2.0)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](12.02,-0.01)(2.0,1.4)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](11.42,-0.01)(1.0,1.0)
+\psdots[linecolor=black, dotsize=0.2](8.82,0.99)
+\psdots[linecolor=black, dotsize=0.2](10.82,0.19)
+\psdots[linecolor=black, dotsize=0.2](10.82,-0.61)
+\psdots[linecolor=black, dotsize=0.2](13.22,-0.21)
+\rput[bl](8.82,0.19){p1}
+\rput[bl](11.22,-0.61){p2}
+\rput[bl](11.22,0.19){p3}
+\rput[bl](12.82,-0.61){p4}
 \end{pspicture}
 }
 \caption{Gom nhóm phân cấp với 4 điểm được biểu diễn dưới đồ thị dạng cây và đồ thị hình tròn lồng vào nhau}
@@ -107,14 +128,18 @@ Liên kết đơn định nghĩa độ tương đồng của nhóm là độ tư
 Liên kết đơn tạo ra các nhóm liền kề như trong hình \ref{fig:pic14}.
 Hình \ref{fig:pic22} cho ta thấy gom nhóm theo kỹ thuật liên kết đơn.
 \begin{figure}[htp]
-\makeatletter % For spaces in paths
-\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
-\makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\begin{pspicture}(0,-2.4)(12.4,2.4)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](2.0,0.4)(2.0,1.2)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.0,0.0){2.4}
+\psdots[linecolor=black, dotsize=0.2](2.0,1.2)
+\psdots[linecolor=black, dotsize=0.2](1.2,-0.4)
+\psdots[linecolor=black, dotsize=0.2](8.4,0.0)
+\psdots[linecolor=black, dotsize=0.2](9.6,1.6)
+\psdots[linecolor=black, dotsize=0.2](11.2,-1.2)
+\psdots[linecolor=black, dotsize=0.2](3.2,0.4)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.2,0.4)(8.4,0.0)(8.4,0.0)
 \end{pspicture}
 }
 \caption{Liên kết đơn}
@@ -124,14 +149,18 @@ Hình \ref{fig:pic22} cho ta thấy gom nhóm theo kỹ thuật liên kết đơ
 Trong khi đó, liên kết hoàn toàn tính độ tương đồng của nhóm dựa vào 2 điểm xa nhất ở 2 hai nhóm khác nhau, nghĩa là khoảng cách xa nhất giữa 2 nốt của 2 tập khác nhau.
 Hình \ref{fig:pic23} cho ta thấy kỹ thuật liên kết hoàn toàn.
 \begin{figure}[htp]
-\makeatletter % For spaces in paths
-\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
-\makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\begin{pspicture}(0,-2.4)(12.4,2.4)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](2.0,0.4)(2.0,1.2)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.0,0.0){2.4}
+\psdots[linecolor=black, dotsize=0.2](2.0,1.2)
+\psdots[linecolor=black, dotsize=0.2](1.2,-0.4)
+\psdots[linecolor=black, dotsize=0.2](8.4,0.0)
+\psdots[linecolor=black, dotsize=0.2](9.6,1.6)
+\psdots[linecolor=black, dotsize=0.2](11.2,-1.2)
+\psdots[linecolor=black, dotsize=0.2](3.2,0.4)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.2,-0.4)(1.2,-0.4)(11.2,-1.2)
 \end{pspicture}
 }
 \caption{Liên kết hoàn toàn}
@@ -141,14 +170,26 @@ Hình \ref{fig:pic23} cho ta thấy kỹ thuật liên kết hoàn toàn.
 Một hướng tiếp cận khác là kỹ thuật gom nhóm trung bình với định nghĩa độ tương đồng là độ tương đồng trung bình của hai nhóm với khoảng cách của tất cả các điểm.
 Hình \ref{fig:pic24} cho ta thấy kỹ thuật nhóm trung bình.
 \begin{figure}[htp]
-\makeatletter % For spaces in paths
-\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
-\makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\begin{pspicture}(0,-2.4)(12.4,2.4)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](2.0,0.4)(2.0,1.2)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.0,0.0){2.4}
+\psdots[linecolor=black, dotsize=0.2](2.0,1.2)
+\psdots[linecolor=black, dotsize=0.2](1.2,-0.4)
+\psdots[linecolor=black, dotsize=0.2](8.4,0.0)
+\psdots[linecolor=black, dotsize=0.2](9.6,1.6)
+\psdots[linecolor=black, dotsize=0.2](11.2,-1.2)
+\psdots[linecolor=black, dotsize=0.2](3.2,0.4)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.2,-0.4)(1.2,-0.4)(11.2,-1.2)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.2,-0.4)(8.4,0.0)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.2,-0.4)(9.6,1.6)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.0,1.2)(9.6,1.6)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.0,1.2)(8.4,0.0)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.0,1.2)(11.2,-1.2)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.2,0.4)(9.6,1.6)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.2,0.4)(8.4,0.0)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.2,0.4)(11.2,-1.2)
 \end{pspicture}
 }
 \caption{Nhóm trung bình}
@@ -164,14 +205,47 @@ Tương tự như K-means, phương pháp Ward cố gắng giảm khoảng cách
 Trước khi giới thiệu nhiều kỹ thuật liên kết khác nhau, sau đây là phần dữ liệu sẽ được sử dụng trong các kỹ thuật liên kết được đề cập sau nay.
 
 \begin{figure}[htp]
-\makeatletter % For spaces in paths
-\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
-\makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\begin{pspicture}(0,-3.9618518)(8.025,3.9618518)
+\psline[linecolor=black, linewidth=0.04](0.7038889,3.7418518)(0.7038889,-3.3692594)(0.7038889,-3.3692594)(7.815,-3.3692594)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.8890741,3.7418518)(1.8890741,-3.3692594)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.0742593,-3.3692594)(3.0742593,3.7418518)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.259444,3.7418518)(4.259444,-3.3692594)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](5.4446297,3.7418518)(5.4446297,-3.3692594)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](6.6298146,-3.3692594)(6.6298146,3.7418518)(6.6298146,3.7418518)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](7.815,3.7418518)(7.815,-3.3692594)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.7038889,-2.1840742)(7.815,-2.1840742)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.7038889,-0.9988889)(7.815,-0.9988889)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.7038889,0.1862963)(7.815,0.1862963)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.7038889,1.3714815)(7.815,1.3714815)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.7038889,2.5566666)(7.815,2.5566666)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.7038889,3.7418518)(7.815,3.7418518)
+\rput[b](0.4075926,-3.6655555){0}
+\rput[b](1.8890741,-3.9618518){0.1}
+\rput[b](3.0742593,-3.9618518){0.2}
+\rput[b](4.259444,-3.9618518){0.3}
+\rput[b](5.4446297,-3.9618518){0.4}
+\rput[b](6.6298146,-3.9618518){0.5}
+\rput[b](7.815,-3.9618518){0.6}
+\rput[b](0.215,-2.1840742){0.1}
+\rput[b](0.215,-0.9988889){0.2}
+\rput[b](0.215,0.1862963){0.3}
+\rput[b](0.215,1.3714815){0.4}
+\rput[b](0.215,2.5566666){0.5}
+\rput[b](0.215,3.7418518){0.6}
+\psdots[linecolor=black, dotsize=0.2](1.5927777,1.6677778)
+\psdots[linecolor=black, dotsize=0.2](3.3705556,1.0751852)
+\psdots[linecolor=black, dotsize=0.2](5.4446297,2.852963)
+\psdots[linecolor=black, dotsize=0.2](4.852037,0.48259258)
+\psdots[linecolor=black, dotsize=0.2](6.0372224,0.1862963)
+\psdots[linecolor=black, dotsize=0.2](3.6668518,-1.2951852)
+\rput[b](1.8890741,1.6677778){5}
+\rput[b](3.6668518,1.0751852){2}
+\rput[b](5.740926,2.852963){1}
+\rput[b](5.1483335,0.48259258){3}
+\rput[b](6.3335185,0.1862963){6}
+\rput[b](3.963148,-1.5914814){4}
 \end{pspicture}
 }
 \caption{Đồ thị thể hiện tọa độ giữa các điểm}
@@ -235,14 +309,52 @@ dist(\{3, 6\}, \{2, 5\})
 
 
 \begin{figure}[htp]
-\makeatletter % For spaces in paths
-\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
-\makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\begin{pspicture}(0,-3.6)(16.92,3.6)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](3.6,0.0){3.6}
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](3.6,0.0)(3.2,2.8)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](3.6,0.4)(2.8,2.0)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](2.6,1.0)(1.4,0.6)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](4.2,-0.6)(1.4,0.6)
+\rput[bl](3.6,-3.2){4}
+\rput[bl](6.8,2.4){5}
+\rput[bl](2.8,2.0){2}
+\rput[bl](4.4,1.6){3}
+\rput[bl](4.8,0.4){1}
+\psdots[linecolor=black, dotsize=0.2](3.2,3.2)
+\psdots[linecolor=black, dotsize=0.2](1.6,1.2)
+\psdots[linecolor=black, dotsize=0.2](2.8,0.8)
+\psdots[linecolor=black, dotsize=0.2](3.2,-0.4)
+\psdots[linecolor=black, dotsize=0.2](4.4,-0.8)
+\psdots[linecolor=black, dotsize=0.2](3.2,-2.4)
+\rput[bl](3.6,3.2){1}
+\rput[bl](3.2,0.8){2}
+\rput[bl](3.6,-0.4){3}
+\rput[bl](4.8,-0.8){6}
+\rput[bl](3.6,-2.4){4}
+\rput[bl](2.0,1.2){5}
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(9.6,-3.2)(16.8,-3.2)
+\psline[linecolor=black, linewidth=0.04](9.6,-2.0)(10.0,-2.0)(10.0,-2.0)
+\psline[linecolor=black, linewidth=0.04](9.6,-0.8)(10.0,-0.8)
+\psline[linecolor=black, linewidth=0.04](9.6,0.4)(10.0,0.4)
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(10.0,1.6)
+\rput[bl](8.4,-2.0){0.05}
+\rput[bl](8.4,-0.8){0.1}
+\rput[bl](8.4,0.4){0.15}
+\rput[bl](8.4,1.6){0.2}
+\rput[bl](10.8,-3.6){3}
+\rput[bl](12.0,-3.6){6}
+\rput[bl](13.2,-3.6){2}
+\rput[bl](14.4,-3.6){5}
+\rput[bl](15.6,-3.6){4}
+\rput[bl](16.8,-3.6){1}
+\psline[linecolor=black, linewidth=0.02](10.8,-3.2)(10.8,-0.4)(12.0,-0.4)(12.0,-3.2)
+\psline[linecolor=black, linewidth=0.02](13.2,-3.2)(13.2,0.0)(14.4,0.0)(14.4,-3.2)
+\psline[linecolor=black, linewidth=0.02](11.2,-0.4)(11.2,0.4)(14.0,0.4)(14.0,0.0)
+\psline[linecolor=black, linewidth=0.02](15.6,-3.2)(15.6,0.8)(12.4,0.8)(12.4,0.4)
+\psline[linecolor=black, linewidth=0.02](14.0,0.8)(14.0,2.0)(16.8,2.0)(16.8,-3.2)
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(9.6,3.2)(9.6,3.2)
 \end{pspicture}
 }
 \caption{Kết quả khi ứng dụng liên kết đơn}
@@ -280,14 +392,52 @@ dist({3, 6}, {1})
 \end{equation}
 
 \begin{figure}[htp]
-\makeatletter % For spaces in paths
-\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
-\makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\begin{pspicture}(0,-3.6)(16.95,3.6)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](3.6,0.0){3.6}
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](2.6,1.0)(1.4,0.6)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](5.0,-0.6)(1.4,0.6)
+\rput[bl](2.4,2.8){4}
+\rput[bl](6.8,2.4){5}
+\rput[bl](1.6,1.6){2}
+\rput[bl](2.0,-1.2){3}
+\rput[bl](4.8,-1.6){1}
+\psdots[linecolor=black, dotsize=0.2](3.6,2.4)
+\psdots[linecolor=black, dotsize=0.2](1.6,1.2)
+\psdots[linecolor=black, dotsize=0.2](2.8,0.8)
+\psdots[linecolor=black, dotsize=0.2](4.0,-0.4)
+\psdots[linecolor=black, dotsize=0.2](5.6,-0.8)
+\psdots[linecolor=black, dotsize=0.2](3.2,-2.4)
+\rput[bl](4.0,2.4){1}
+\rput[bl](3.2,0.8){2}
+\rput[bl](4.4,-0.4){3}
+\rput[bl](5.2,-0.8){6}
+\rput[bl](3.6,-2.4){4}
+\rput[bl](2.0,1.2){5}
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(9.6,-3.2)(16.8,-3.2)
+\psline[linecolor=black, linewidth=0.04](9.6,-2.0)(10.0,-2.0)(10.0,-2.0)
+\psline[linecolor=black, linewidth=0.04](9.6,-0.8)(10.0,-0.8)
+\psline[linecolor=black, linewidth=0.04](9.6,0.4)(10.0,0.4)
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(10.0,1.6)
+\rput[bl](8.4,-2.0){0.1}
+\rput[bl](8.4,-0.8){0.2}
+\rput[bl](8.4,0.4){0.3}
+\rput[bl](8.4,1.6){0.4}
+\rput[bl](10.8,-3.6){3}
+\rput[bl](12.0,-3.6){6}
+\rput[bl](13.2,-3.6){4}
+\rput[bl](14.4,-3.6){1}
+\rput[bl](15.6,-3.6){2}
+\rput[bl](16.8,-3.6){5}
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(9.6,3.2)(9.6,3.2)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](2.8,1.6)(2.0,1.6)
+\rput{36.308563}(0.025317831,-2.8772123){\psellipse[linecolor=black, linewidth=0.04, dimen=outer](4.4,-1.4)(2.8,1.4)}
+\psline[linecolor=black, linewidth=0.04](10.8,-3.2)(10.8,-2.0)(12.0,-2.0)(12.0,-3.2)
+\psline[linecolor=black, linewidth=0.04](11.2,-2.0)(11.2,-0.4)(13.2,-0.4)(13.2,-3.2)
+\psline[linecolor=black, linewidth=0.04](15.6,-3.2)(15.6,-1.2)(16.8,-1.2)(16.8,-3.2)
+\psline[linecolor=black, linewidth=0.04](14.4,-3.2)(14.4,0.8)(16.0,0.8)(16.0,-1.2)
+\psline[linecolor=black, linewidth=0.04](12.0,-0.4)(12.0,1.6)(15.2,1.6)(15.2,0.8)
 \end{pspicture}
 }
 \caption{Kết quả khi ứng dụng liên kết hoàn toàn}
@@ -322,14 +472,54 @@ dist(\{3, 6, 4\}, \{2, 5\})
 Do $dist(\{3, 6, 4\}, \{2, 5\})$ nhỏ hơn $dist(\{3, 6, 4\}, \{1\})$ và $dist(\{2, 5\}, \{1\})$, nên $dist(\{3, 6, 4\}, \{1\})$ và $dist(\{2, 5\}, \{1\})$ sẽ được gom lại thành một nhóm mới ở bước thứ tư.
 
 \begin{figure}[htp]
-\makeatletter % For spaces in paths
-\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
-\makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\begin{pspicture}(0,-3.6)(16.92,3.6)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](3.6,0.0){3.6}
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](2.6,1.4)(1.4,0.6)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](4.6,0.2)(1.4,0.6)
+\rput[bl](4.8,-2.8){4}
+\rput[bl](6.8,2.4){5}
+\rput[bl](2.8,2.0){2}
+\rput[bl](1.6,-0.4){3}
+\rput[bl](4.4,-0.8){1}
+\psdots[linecolor=black, dotsize=0.2](3.6,3.2)
+\psdots[linecolor=black, dotsize=0.2](1.6,1.6)
+\psdots[linecolor=black, dotsize=0.2](2.8,1.2)
+\psdots[linecolor=black, dotsize=0.2](3.6,0.4)
+\psdots[linecolor=black, dotsize=0.2](5.2,0.0)
+\psdots[linecolor=black, dotsize=0.2](2.8,-1.6)
+\rput[bl](4.0,3.2){1}
+\rput[bl](3.2,1.2){2}
+\rput[bl](4.0,0.4){3}
+\rput[bl](4.8,0.0){6}
+\rput[bl](3.2,-1.6){4}
+\rput[bl](2.0,1.6){5}
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(9.6,-3.2)(16.8,-3.2)
+\psline[linecolor=black, linewidth=0.04](9.6,-2.0)(10.0,-2.0)(10.0,-2.0)
+\psline[linecolor=black, linewidth=0.04](9.6,-0.8)(10.0,-0.8)
+\psline[linecolor=black, linewidth=0.04](9.6,0.4)(10.0,0.4)
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(10.0,1.6)
+\rput[bl](8.4,-2.0){0.05}
+\rput[bl](8.4,-0.8){0.1}
+\rput[bl](8.4,0.4){0.15}
+\rput[bl](8.4,1.6){0.2}
+\rput[bl](10.8,-3.6){3}
+\rput[bl](12.0,-3.6){6}
+\rput[bl](13.2,-3.6){4}
+\rput[bl](14.4,-3.6){2}
+\rput[bl](15.6,-3.6){5}
+\rput[bl](16.8,-3.6){1}
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(9.6,3.2)(9.6,3.2)
+\rput{36.308563}(0.42136064,-2.4850307){\psellipse[linecolor=black, linewidth=0.04, dimen=outer](4.0,-0.6)(2.8,1.4)}
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](3.6,-0.2)(3.2,3.0)
+\psline[linecolor=black, linewidth=0.04](9.6,2.8)(10.0,2.8)
+\rput[bl](8.4,2.8){0.25}
+\psline[linecolor=black, linewidth=0.02](10.8,-3.2)(10.8,-0.8)(12.0,-0.8)(12.0,-3.2)
+\psline[linecolor=black, linewidth=0.02](13.2,-3.2)(13.2,1.2)(11.6,1.2)(11.6,-0.8)
+\psline[linecolor=black, linewidth=0.02](14.4,-3.2)(14.4,-0.4)(15.6,-0.4)(15.6,-3.2)
+\psline[linecolor=black, linewidth=0.02](12.4,1.2)(12.4,2.8)(14.8,2.8)(14.8,-0.4)
+\psline[linecolor=black, linewidth=0.02](16.8,-3.2)(16.8,3.2)(13.6,3.2)(13.6,2.8)
 \end{pspicture}
 }
 \caption{Kết quả khi ứng dụng nhóm trung bình}
@@ -344,14 +534,54 @@ Phương pháp Ward có công thức đại số chỉ ra rằng kỹ thuật n�
 Hình \ref{fig:pic29} sau đây thể hiện kết quả của việc áp dụng phương pháp Ward. Kết quả của quá trình gom nhóm hơi khác so với các kỹ thuật nhỏ nhất, lớn nhất và nhóm trung bình.
 
 \begin{figure}[htp]
-\makeatletter % For spaces in paths
-\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
-\makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
+\begin{pspicture}(0,-3.6)(16.95,3.6)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](3.6,0.0){3.6}
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](1.8,1.4)(1.4,0.6)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](4.6,-0.6)(1.4,0.6)
+\rput[bl](1.6,-1.6){4}
+\rput[bl](0.8,2.8){5}
+\rput{-12.733253}(-0.38180095,0.578176){\rput[bl](2.4,2.0){2}}
+\rput[bl](3.2,-2.4){3}
+\rput[bl](5.2,-1.6){1}
+\psdots[linecolor=black, dotsize=0.2](4.8,2.0)
+\psdots[linecolor=black, dotsize=0.2](0.8,1.6)
+\psdots[linecolor=black, dotsize=0.2](2.0,1.2)
+\psdots[linecolor=black, dotsize=0.2](3.6,-0.4)
+\psdots[linecolor=black, dotsize=0.2](5.2,-0.8)
+\psdots[linecolor=black, dotsize=0.2](4.0,-2.0)
+\rput[bl](5.2,2.0){1}
+\rput[bl](2.4,1.2){2}
+\rput[bl](4.0,-0.4){3}
+\rput[bl](4.8,-0.8){6}
+\rput[bl](4.4,-2.0){4}
+\rput[bl](1.2,1.6){5}
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(9.6,-3.2)(16.8,-3.2)
+\psline[linecolor=black, linewidth=0.04](9.6,-2.0)(10.0,-2.0)(10.0,-2.0)
+\psline[linecolor=black, linewidth=0.04](9.6,-0.8)(10.0,-0.8)
+\psline[linecolor=black, linewidth=0.04](9.6,0.4)(10.0,0.4)
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(10.0,1.6)
+\rput[bl](8.4,-2.0){0.05}
+\rput[bl](8.4,-0.8){0.1}
+\rput[bl](8.4,0.4){0.15}
+\rput[bl](8.4,1.6){0.2}
+\rput[bl](10.8,-3.6){3}
+\rput[bl](12.0,-3.6){6}
+\rput[bl](13.2,-3.6){4}
+\rput[bl](14.4,-3.6){1}
+\rput[bl](15.6,-3.6){2}
+\rput[bl](16.8,-3.6){5}
+\psline[linecolor=black, linewidth=0.04](9.6,1.6)(9.6,3.2)(9.6,3.2)
+\psline[linecolor=black, linewidth=0.04](9.6,2.8)(10.0,2.8)
+\rput[bl](8.4,2.8){0.25}
+\rput{-2.7438383}(0.04357028,0.2192881){\psellipse[linecolor=black, linewidth=0.02, dimen=outer](4.6,-0.8)(1.4,1.6)}
+\rput{-36.899612}(1.1215355,2.5617006){\psellipse[linecolor=black, linewidth=0.02, dimen=outer](4.4,-0.4)(2.0,3.2)}
+\psline[linecolor=black, linewidth=0.02](10.8,-3.2)(10.8,-1.2)(12.0,-1.2)(12.0,-3.2)
+\psline[linecolor=black, linewidth=0.02](11.2,-1.2)(11.2,0.4)(13.2,0.4)(13.2,-3.2)
+\psline[linecolor=black, linewidth=0.02](15.6,-3.2)(15.6,-0.8)(16.8,-0.8)(16.8,-3.2)(16.8,-3.2)
+\psline[linecolor=black, linewidth=0.02](14.4,-3.2)(14.4,2.0)(12.0,2.0)(12.0,0.4)(12.0,0.4)
+\psline[linecolor=black, linewidth=0.02](13.2,2.0)(13.2,3.2)(16.0,3.2)(16.0,-0.8)
 \end{pspicture}
 }
 \caption{Kết quả khi ứng dụng phương pháp Ward}
@@ -364,7 +594,7 @@ Ngoài ra, kỹ thuật điểm trung tâm còn có đặc tính khác là sự 
 Đối với gom nhóm phân cấp, quá trình gom hai nhóm càng về sau thì độ tương đồng giảm so kết quả gom nhóm trước đó.
 Tuy nhiên, sự khả nghịch có thể làm đảo chiều quá trình này, nghĩa là độ tương đồng về sau có thể tăng chứ không phải giảm.
 
-\subsection{Công thực Lance-William cho độ tương đồng nhóm}
+\subsection{Công thức Lance-William cho độ tương đồng nhóm}
 Các cách tính dộ tương đồng nhóm mà được thảo luận ở những phần trước có thể được xem như là những tham số khác nhau cho độ tương đồng giữa 2 nhóm $Q$ và $R$.
 $R$ được tạo thành từ quá trình gom 2 nhóm $A$ và $B$.
 Trong công thức \ref{eq:2_Lance_William}, $p(.,.)$ là hàm tương đồng, với $m_A, \, m_B$ và $m_Q$ là số lượng phần tử tương ứng trong nhóm $A, \, B$ và $Q$.
@@ -387,7 +617,7 @@ Thay vào đo, gom nhóm phân cấp tích tụ sử dụng những kỹ thuật
 Cách tiếp cận này tạo ra thuật toán gom nhóm tránh được khó khăn khi giải quyết vấn đề tối ưu kết hợp trong trường hợp khó.
 Ngoài ra, gom nhóm phân cấp tích tụ không gặp phải vấn đề chọn điểm khởi tạo.
 
-\subsubsection{khả năng xử lý kích cỡ nhóm khác nhau}
+\subsubsection{Khả năng xử lý kích cỡ nhóm khác nhau}
 Một khía cạnh khác của gom nhóm phân cấp tích tụ là ta vẫn chưa thảo luận làm sao để xử lý kích cỡ của cặp nhóm vừa mới được gom vào nhau (Vấn đề này chỉ áp dụng khi sử dụng độ tương đồng nhóm liên quan đến tổng như trung điểm, phương pháp Ward và nhóm trung bình).
 Đối với vấn đề này, có 2 hướng tiếp cận: có trọng số, khi xem tất cả các nhóm là như nhau hoặc là không có trọng, xem xét số lượng điểm trong mỗi nhóm.
 Lưu ý rằng có trọng số hay không có trọng số liên quan đến số lượng điểm trong dữ liệu, chứ không phải nhóm.
@@ -401,17 +631,17 @@ Hệ số trong trường hợp này liên quan đến kích thước của mỗ
 \begin{aligned}
 \alpha_A &= \frac{m_A}{m_A + m_B}	\\
 \alpha_B &= \frac{m_B}{m_A + m_B}	\\
-\beta = 0		\\
-\gamma = 0
+\beta &= 0		\\
+\gamma &= 0
 \end{aligned}
 \end{equation}
 Trong trường hợp ta sử dụng gom nhóm trung bình có trọng số thì hệ số sẽ là:
 \begin{equation}
 \begin{aligned}
-\alpha_A = \frac{1}{2} \\
-\alpha_B = \frac{1}{2} \\
-\beta = 0		\\
-\gamma = 0		\\
+\alpha_A &= \frac{1}{2} \\
+\alpha_B &= \frac{1}{2} \\
+\beta &= 0		\\
+\gamma &= 0		\\
 \end{aligned}
 \end{equation}
 
