@@ -1,6 +1,54 @@
 \chapter{Phương pháp đề xuất}
 \label{Chapter3}
 
+Thuật toán gom nhóm phân cấp được thể hiện thông qua sử dụng ma trận tương đồng.
+Điều này đòi hỏi dung lượng cần thiết để lưu trữ ma trận tương đồng là $\frac{1}{2} m^2$ (giả định ma trận tương đồng là ma trận vuông) với $m$ là số điểm dữ liệu.
+Thuật toán cũng cần khoảng trống cần thiết để giữ cho việc đánh dấu tỷ lệ các nhóm được gom với tổng số nhóm, có giá trị là $m - 1$ và trừ đi những nhóm đơn lẻ.
+Vì thế, dung lượng cần thiết để chạy thuật toán gom nhóm phân cấp là $O(m^2)$.
+
+Phân tích cơ bản dành cho thuật toán gom nhóm phân cấp cũng liên quan trực tiếp đến độ phức tạp tính toán.
+$O(m^2)$ là thời gian cần thiết để tính ma trận tương đồng.
+Sau bước đó, dựa vào thuật toán \ref{agl:agglomerative}, ta còn $m - 1$ lần lặp cho bước 3 và 4 vì ta có $m$ nhóm lúc ban đầu và mối lần lặp thì có 2 nhóm được gom vào.
+Nếu ta thực thi như tìm kiếm tuyến tính của ma trận tương đồng thì sau lần lặp thứ $i$ thì thời gian ở bước 3 sẽ là $O(m - i + 1)^2)$.
+Điều này tỷ lệ với số lương hiện tại của bình phương nhóm.%
+Thời gian cần để chạy bước thứ 4 là $O(m - i + 1)$ để cập nhật ma trận tương đồng sau khi gom 2 nhóm (một nhóm được gom lại chỉ mất khoảng $O(m - i + 1)$).
+Nếu như không có thay đổi, thuật toán có độ phức tạp là $O(m^3)$.
+Trong trường hợp khoảng cách từ nhóm này đến các nhóm khác được lưu trữ theo thứ tự thì có khả năng làm giảm quá trình tìm kiếm 2 nhóm gần nhất.
+Tuy nhiên, trường hợp tổng quát cho độ phức tạp của thuật toán là $O(m^2 \log)m$.
+
+Dựa vào phân tích về tốc độ thực thi cũng như là ảnh hưởng đến lưu trữ bộ nhớ của gom nhóm phân cấp, ta có thể tiến hành cải thiện thuật toán dựa vào 2 hướng tiếp cận này.
+Đồ án tập trung vào cải thiện bộ nhớ lưu trữ trong quá trình gom nhóm phân cấp.
+Như đã đề cập ở trên, dung lượng cần thiết để chạy chương trình là $O(m^2)$, với m là số lượng điểm trong dữ liệu.
+Tuy nhiên, các thực nghiệm chạy trong các ví dụ trên chỉ gồm các điểm có 2 chiều.
+Nhưng trên thức tế, các văn bản để gom nhóm thường rất lớn, nên dung lương lúc chạy thuật toán là rất lớn.
+
+Mục tiêu của đồ án là gom nhóm văn bản tin tức tiếng Việt nên ngữ liệu sẽ rất lớn.
+Do văn bản là từ ngữ sẽ gây khó khăn khi tính toán nên ta sẽ phải chuyển đồi thể hiện từ từ ngữ sang số.
+Ta sẽ chuyển đổi mỗi văn bản thành định dạng vector, với chiều của vector tương ứng với số lượng từ ngữ trong ngữ liệu.
+Điều này đồng nghĩa chiều của vector sẽ phụ thuộc vào số lương từ có trong ngữ liệu.
+Nếu số lượng từ càng nhiều thì chiều của văn bản càng lớn, điều này dẫn lớn lúc chạy thuật toán gom nhóm phân cấp thì dung lượng sẽ rất lớn.
+
+Việc sử dụng thể hiện của văn bản với vector có số chiều tương ứng với số lượng từ trong ngữ liệu sẽ khiến cho thuật toán bị giới hạn do tốn quá nhiều dung lượng bộ nhớ.
+Vì vậy, ta có thể thay đổi thể hiện của văn bản chuyển từ sử dụng tần số sang doc2vec.
+Doc2vec là thuật toán không giám sát để tạo ra vector cho câu, đoạn văn hoặc là văn bản.
+Thuật toán là phiên bản tương thích với word2vec, dùng để tạo ra vector cho từ.
+
+Vector được tạo bởi doc2vec thường được sử dụng cho các nhiệm vụ như tìm độ tương đồng giữa câu, đoạn văn và văn bản.
+Không như các mô hình câu như RNN, các chuỗi từ được giữ lại trong quá trình tạo ra vector câu, doc2vec độc lập với thứ tự từ.
+Trong nhiệm vụ tìm kiếm độ tương đồng, doc2vec biểu diễn định dạng của văn bản rất tốt vì giới hạn được số lượng chiều.
+Vì vậy, doc2vec được chọn để biểu diễn văn bản cho thuật toán gom nhóm phân cấp.
+
+Do vector biểu diễn bằng doc2vec có số chiều nhỏ hơn rất nhiều so với vector biểu diễn tần số, dung lượng bộ nhớ khi sử dụng thuật toán gom nhóm phân cấp sẽ được giảm đáng kể.
+Vector biểu diễn bằng tần số có số chiều tương ứng với số lượng từ trong ngữ liệu.
+Trong khi đó, số chiều trong doc2vec được thiết lập cố định.
+Vì doc2vec là thuật toán dùng để tìm kiếm thể hiện cho văn bản nên ta phải thiết lập cố định số chiều lúc huấn luyện.
+Chính vì điều này nên doc2vec có số chiều nhỏ hơn so với tần số và sẽ giúp cho dung lượng bộ nhớ giảm đi nhiều khi thực thi chương trình gom nhóm phân cấp.
+
+%Đây là hướng tiếp cận kinh điển trong việc thể hiện văn bản, có tên gọi là TFIDF (term-frequecny - inverse frequency document).
+%TFIDF là một dạng thống kê số học 
+
+
+
 %Phân tích điểm hạn chế của thuật toán(2-3 đoạn)
 
 %Biến liên tục

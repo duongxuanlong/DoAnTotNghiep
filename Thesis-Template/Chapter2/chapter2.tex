@@ -146,7 +146,7 @@ Hình \ref{fig:pic22} cho ta thấy gom nhóm theo kỹ thuật liên kết đơ
 \label{fig:pic22}
 \end{figure}
 
-Trong khi đó, liên kết hoàn toàn tính độ tương đồng của nhóm dựa vào 2 điểm xa nhất ở 2 hai nhóm khác nhau, nghĩa là khoảng cách xa nhất giữa 2 nốt của 2 tập khác nhau.
+Trong khi đó, liên kết toàn vẹn tính độ tương đồng của nhóm dựa vào 2 điểm xa nhất ở 2 hai nhóm khác nhau, nghĩa là khoảng cách xa nhất giữa 2 nốt của 2 tập khác nhau.
 Hình \ref{fig:pic23} cho ta thấy kỹ thuật liên kết hoàn toàn.
 \begin{figure}[htp]
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
@@ -202,7 +202,7 @@ Tuy nhiêm, phương pháp Ward tính độ tương đồng giữa hai nhóm d�
 Tương tự như K-means, phương pháp Ward cố gắng giảm khoảng cách SS của điểm từ trung điểm của nhóm.
 
 \subsection{Dữ liệu mẫu}
-Trước khi giới thiệu nhiều kỹ thuật liên kết khác nhau, sau đây là phần dữ liệu sẽ được sử dụng trong các kỹ thuật liên kết được đề cập sau nay.
+Trước khi giới thiệu nhiều kỹ thuật liên kết khác nhau, phần dữ liệu sau đây sẽ được sử dụng đẻ biểu diễn các kỹ thuật liên kết.
 
 \begin{figure}[htp]
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
@@ -258,7 +258,7 @@ Trước khi giới thiệu nhiều kỹ thuật liên kết khác nhau, sau đ�
 \label{tab:2_1}
 \begin{tabular}{|c|c|c|}
 \hline
-Point & x Coordinate & y Coordinate \\ \hline
+Điểm & x & y \\ \hline
 p1    & 0.40         & 0.53         \\ \hline
 p2    & 0.22         & 0.38         \\ \hline
 p3    & 0.35         & 0.32         \\ \hline
@@ -288,12 +288,12 @@ p6 & 0.23 & 0.25 & 0.11 & 0.22 & 0.39 & 0.00 \\ \hline
 \label{sec:lkd}	
 %Giói thiệu
 Liên kết đơn hay kỹ thuật nhỏ nhất trong gom nhóm phân cấp là phương pháp xem xét độ tương đồng của hai nhóm chính là khoảng cách gần nhất của hai điểm bất kì trong mỗi nhóm. 
-Kỹ thuật này bắt đầu với tất cả các điểm đơn lẻ được xem như là một nhóm, thêm kết nối giữa các hai điểm tại một thời điểm, khoảng cách ngắn nhất sẽ được thêm vào trước.
+Kỹ thuật này bắt đầu với tất cả các điểm đơn lẻ được xem như là một nhóm, thêm kết nối giữa hai điểm tại một thời điểm, khoảng cách ngắn nhất sẽ được thêm vào trước.
 Những kết nối này sẽ giúp kết hợp những điểm vào trong nhóm.
 Liên kết đơn là kỹ thuật mạnh trong xử lí dữ liệu có hình dạng không phải ellip nhưng có nhược điểm là nhạy cảm với độ nhiễu và những điểm tách biệt.
 
 %Chi tiết
-Hình vẽ \ref{fig:pic26} sau đây thấy được kết quả của việc ứng dụng kỹ thuật liên kết đơn trong gom nhóm phân cấp đối với dữ liệu ở \ref.
+Hình vẽ \ref{fig:pic26} sau đây thấy được kết quả của việc ứng dụng kỹ thuật liên kết đơn trong gom nhóm phân cấp đối với dữ liệu ở \ref{fig:pic25}.
 Ta có thể thấy hình \ref{fig:pic26}(a) bên trái là một chuỗi các vòng ellip lồng vào nhau tương ứng cho việc các nhóm lồng vào nhau với mỗi số kết hợp với hình ellipse thể hiện thú tự gom.
 Còn hình \ref{fig:pic26}(b) bên phải có thông tin tương tự như hình \ref{fig:pic26}(a) nhưng được biểu diễn dưới dạng đồ thị.
 Chiều cao mà hai nhóm gom lại vào nhau trong đồ thị thể hiện khoảng cách của hai nhóm.
@@ -367,7 +367,7 @@ dist(\{3, 6\}, \{2, 5\})
 %Giới thiệu
 Liên kết toàn vẹn còn được gọi là kỹ thuật lớn nhất hoặc là CLIQUE.
 Liên kết toàn vẹn tính độ tương đồng của hai nhóm dựa vào khoảng cách lớn nhất (độ tương đồng nhỏ nhất) của hai điểm bất kì của hai nhóm khác nhau.
-Kỹ thuật này bắt đầu với tất cả các điểm đơn lẻ được xem như là một nhóm, thêm kết nối giữa các hai điểm tại một thời điểm, khoảng cách ngắn nhất sẽ được thêm vào trước, sau đó nhóm các điểm không phải nằm trong nhóm cho đến khi hoàn toàn liên kết.
+Kỹ thuật này bắt đầu với tất cả các điểm đơn lẻ được xem như là một nhóm, thêm kết nối giữa các hai điểm tại một thời điểm, khoảng cách ngắn nhất và xa nhất giữa 2 điểm thuộc 2 nhóm khác nhau sẽ được thêm vào trước, sau đó nhóm các điểm không phải nằm trong nhóm cho đến khi hoàn toàn liên kết.
 Liên kết toàn vẹn thường không nhạy cảm với độ nhiễu và điểm tách biệt, nhưng lại có thể chia cắt nhóm lớn và có xu hướng tạo thành nhóm toàn cục.
 
 %Chi tiết
@@ -446,11 +446,11 @@ dist({3, 6}, {1})
 
 \subsection{Nhóm trung bình}
 \label{sec:ntb}
-Trong kỹ thuật nhóm trung bình của gom nhóm phân cấp, độ tương đồng của hai nhóm được định nghĩa là độ tương đồng trung bình của các cặp điểm với ở các nhóm khác nhau.
+Trong kỹ thuật nhóm trung bình của gom nhóm phân cấp, độ tương đồng của hai nhóm được định nghĩa là độ tương đồng trung bình của các cặp điểm ở các nhóm khác nhau.
 Đây là hướng tiếp cận trung gian giữa kỹ thuật nhỏ nhất và kỹ thuật lớn nhất.
 Độ tương đồng của nhóm trung bình $proximity(C_i, C_j)$ của nhóm $C_i$ và $C_j$, với độ lớn là $m_i$ và $m_j$, được biểu diễn thành công thức:
 \begin{equation}
-proximity(cluster_1, cluster_2) = \sum_{\substack{p_1 \in cluster_1 \\ p_2 \in cluster_2}} \frac{proximity(p_1, p_2)}{size(cluster_1) * size(cluster_2)}
+proximity(C_i, C_j) = \sum_{\substack{x \in C_i \\ y \in C_j}} \frac{proximity(x, y)}{m_i * m_j}
 \end{equation}
 
 Hình \ref{fig:pic28} thể hiện kết quả của gom nhóm phân cấp theo kỹ thuật nhóm trung bình.
@@ -599,7 +599,7 @@ Các cách tính dộ tương đồng nhóm mà được thảo luận ở nhữ
 $R$ được tạo thành từ quá trình gom 2 nhóm $A$ và $B$.
 Trong công thức \ref{eq:2_Lance_William}, $p(.,.)$ là hàm tương đồng, với $m_A, \, m_B$ và $m_Q$ là số lượng phần tử tương ứng trong nhóm $A, \, B$ và $Q$.
 Nói cách khác, sau khi gom 2 nhóm $A$ và $B$ thành nhóm $R$, độ tương đồng của nhóm mới $R$ đối với nhóm hiện có $Q$ là hàm tuyến tính của độ tương đồng của nhóm $Q$ đối với 2 nhóm ban đầu $A$ và $B$.
-Bảng ???? chỉ ra những giá trị của hệ số cho những kỹ thuật mà đã được thảo luận.
+Bảng \ref{tab:2_3} chỉ ra những giá trị của hệ số cho những kỹ thuật mà đã được thảo luận.
 
 \begin{equation}
 \label{eq:2_Lance_William}
@@ -610,22 +610,56 @@ Bất kỳ kỹ thuật gom nhóm phân cấp nào cũng có thể biểu diễn
 Thay vào đó, ma trận tương đồng sẽ cập nhật khi gom nhóm xảy ra.
 Công thức Lance-William giúp cho ta có cái nhìn tổng quát cũng như là dễ thực thi trong lập trình.
 
+\begin{table}[h!]
+\centering
+\caption{Hệ số của Lance-William dành cho các cách gom nhóm phân cấp}
+\label{tab:2_3}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+Cách thức gom nhóm & $\alpha_A$ & $\alpha_B$ & $\beta$ & $\gamma$ \\ \hline \hline
+Liên kết đơn       & 1/2 & 1/2 & 0 & -1/2 \\ \hline
+Liên kết toàn vẹn  & 1/2 & 1/2 & 0 & 1/2 \\ \hline
+Nhóm trung bình    & $\frac{m_A}{m_A + m_B}$ & $\frac{m_B}{m_A + m_B}$ & 0 & 0 \\ \hline
+Trung điểm         & $\frac{m_A}{m_A + m_B}$ & $\frac{m_B}{m_A + m_B}$ & $\frac{-m_A m_B}{(m_A + m_B) ^ 2}$ & 0 \\ \hline
+Phương pháp Ward   & $\frac{m_A + m_Q}{m_A + m_B + m_Q}$ & $\frac{m_B + m_Q}{m_A + m_B + m_Q}$ & $\frac{-m_Q}{m_A + m_B + m_Q}$ & 0 \\ \hline
+\end{tabular}
+}
+\end{table}
+
+%\begin{table}[h!]
+%\centering
+%\caption{Hệ số của Lance-William dành cho các cách gom nhóm phân cấp}
+%\label{tab:2_3}
+%\resizebox{\textwidth}{!}{%
+%\begin{tabular}{|l|r|r|r|r|}
+%\hline
+%Cách thức gom nhóm & $\alpha_A$ & $\alpha_B$ & $\beta$ & $\gamma$ \\ \hline \hline
+%Liên kết đơn       & 1/2 & 1/2 & 0 & -1/2 \\ \hline
+%Liên kết hoàn toàn & 1/2 & 1/2 & 0 & 1/2 \\ \hline
+%Nhóm trung bình    & $\frac{m_A}{m_A + m_B}$ & $\frac{m_B}{m_A + m_B}$ & 0 & 0 \\ \hline
+%Trung điểm         & $\frac{m_A}{m_A + m_B}$ & $\frac{m_B}{m_A + m_B}$ & $\frac{-m_A m_B}{(m_A + m_B) ^ 2}$ & 0 \\ \hline
+%Phương pháp Ward   & $\frac{m_A + m_Q}{m_A + m_B + m_Q}$ & $\frac{m_B + m_Q}{m_A + m_B + m_Q}$ & $\frac{-m_Q}{m_A + m_B + m_Q}$ & 0 \\ \hline
+%\end{tabular}%
+%}
+%\end{table}
+
 \subsection{Những vấn đề trong gom nhóm phân cấp}
 \subsubsection{Thiếu hàm mục tiêu toàn cục}
-Gom nhóm phân cấp tích tụ không thể được xem như là hàm mục tiêu tối tưu toàn cục.
+Gom nhóm phân cấp tích tụ không thể được xem như là hàm mục tiêu tối ưu toàn cục.
 Thay vào đo, gom nhóm phân cấp tích tụ sử dụng những kỹ thuật khác nhau để quyết định ở cục bộ mỗi bước thì nhóm nào sẽ được gom vào (hoặc là tách nếu sử dụng hướng tiếp cận phân chia).
 Cách tiếp cận này tạo ra thuật toán gom nhóm tránh được khó khăn khi giải quyết vấn đề tối ưu kết hợp trong trường hợp khó.
 Ngoài ra, gom nhóm phân cấp tích tụ không gặp phải vấn đề chọn điểm khởi tạo.
 
 \subsubsection{Khả năng xử lý kích cỡ nhóm khác nhau}
 Một khía cạnh khác của gom nhóm phân cấp tích tụ là ta vẫn chưa thảo luận làm sao để xử lý kích cỡ của cặp nhóm vừa mới được gom vào nhau (Vấn đề này chỉ áp dụng khi sử dụng độ tương đồng nhóm liên quan đến tổng như trung điểm, phương pháp Ward và nhóm trung bình).
-Đối với vấn đề này, có 2 hướng tiếp cận: có trọng số, khi xem tất cả các nhóm là như nhau hoặc là không có trọng, xem xét số lượng điểm trong mỗi nhóm.
+Đối với vấn đề này, có 2 hướng tiếp cận: có trọng số, khi xem tất cả các nhóm là như nhau hoặc là không có trọng số, xem xét số lượng điểm trong mỗi nhóm.
 Lưu ý rằng có trọng số hay không có trọng số liên quan đến số lượng điểm trong dữ liệu, chứ không phải nhóm.
 Nghĩa là nếu ta xem xét dựa vào nhóm mà không có cùng kích thước như nhau thì dẫn đến sự khác biệt về trọng số của điểm trong các nhóm khác nhau.
 Còn khi ta xem xét dựa vào kích thước của nhóm thì ta quan tâm đến số lượng điểm trong mỗi nhóm khác nhau mà các điểm này thì cùng trọng số.
 
 Sau đây, ta sử dụng kỹ thuật gom nhóm trung bình \ref{sec:ntb} với phiên bản sử dụng không có trọng số.
-Ta sẽ chuyển kỹ thuật này thành tham số của công thức như bảng ???.
+Ta sẽ chuyển kỹ thuật này thành tham số của công thức như bảng \ref{tab:2_3}.
 Hệ số trong trường hợp này liên quan đến kích thước của mỗi nhóm sau khi được gom xong:
 \begin{equation}
 \begin{aligned}
