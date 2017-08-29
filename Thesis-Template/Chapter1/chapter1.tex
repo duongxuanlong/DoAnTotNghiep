@@ -4,10 +4,11 @@
 \section{Giới thiệu về gom nhóm văn bản}
 
 %Gom nhóm là gì?
-Gom nhóm là công việc tìm kiếm và chia những đối tượng gần giống nhau vào thành những nhóm trong dữ liệu sao cho nhũng nhóm này có ý nghĩa, hữu dụng hoặc cả hai. %\cite{1984-TeX-Knuth}
-Nếu như mục đích của gom nhóm là tìm kiếm ngữ nghĩa của dữ liệu thì các nhóm được gom sẽ thể hiện cấu trúc của dữ liệu.
-Trong một vài trường hợp, gom nhóm được xem là cầu nối để thực hiện cho những mục đích khác như tóm tắt dữ liệu.
-Bất kể việc sử dụng gom nhóm cho mục đích ngữ nghĩa hay là hữu dụng thì gom nhóm đóng vai trò quan trọng trong nhiều lĩnh vực khác nhau như: tâm lý học và các ngành khoa học xã hội, sinh học, thống kê, nhận diện mô hình, truy vấn thông tin, máy học và khai thác dữ liệu.
+Gom nhóm là vấn đề được nghiên cứu nhiều trong khai thác dữ liệu ~\cite{Jain-Dubes, Jardin-Rijsbergen, Ji-Xu, Jolliffee}.
+The như Kumar định nghĩa ~\cite{Vipin-Kumar} ``\textit{Gom nhóm là công việc tìm kiếm và chia những đối tượng gần giống nhau vào thành những nhóm trong dữ liệu sao cho nhũng nhóm này có ý nghĩa, hữu dụng hoặc cả hai}''. %\cite{1984-TeX-Knuth}
+Nếu như mục đích của gom nhóm là tìm kiếm ý nghĩa của dữ liệu thì các nhóm được gom sẽ thể hiện cấu trúc của dữ liệu.
+Trong trường hợp ngược lại, nếu sử dụng gom nhóm với mục đích hữu dụng thì gom nhóm được xem là cầu nối, quá trình trung gian để thực hiện cho những mục đích khác như tóm tắt dữ liệu.
+Bất kể việc sử dụng gom nhóm cho mục đích ý nghĩa hay là hữu dụng thì gom nhóm đóng vai trò quan trọng trong nhiều lĩnh vực khác nhau như: tâm lý học và các ngành khoa học xã hội, sinh học, thống kê, nhận diện mô hình, truy vấn thông tin, máy học và khai thác dữ liệu.
 
 Gom nhóm văn bản là một ứng dụng của gom nhóm.
 Trong đó, các văn bản gần tương đồng sẽ được gom chung với nhau thành nhóm riêng biệt theo cách thức không giám sát.
@@ -15,31 +16,49 @@ Các văn bản gần liên quan với nhau có độ tương đồng lớn hơn
 Như vậy, những văn bản tương đồng này có thể tạo thành nhóm có cùng một chủ để.
 Các nhóm này được hình thành từ quá trình gom nhóm không giám sát nên giúp cho chúng ta thấy được cấu trúc của ngữ liệu.
 
-Ngày nay, việc tìm kiếm thông tin trên mạng đã trở thành kỹ năng cần thiết cho bất kì ai.
-Tuy nhiên, khi ta truy vấn thông tin với từ khóa bất kì thì có thể cho ra quá nhiều kết quả khác nhau.
-Vì vậy, ta cần tổ chức lại thông tin cần truy vấn thành cấu trúc phù hợp.
-Gom nhóm văn bản có thể giúp chúng ta sắp xếp các văn bản thành những chủ để phù hợp và giúp cho việc truy vấn dễ dàng hơn.
-
-Gom nhóm văn bản tự động tạo ra những nhóm có văn bản liên quan với nhau mà không cần phải tạo trước tập huấn luyện hay nguyên tắc phân loại.
-Ngoài ra gom nhóm văn bản dựa vào độ tương đồng của nội dung để cải thiện hiệu quả tìm kiếm.
+Khi áp dụng gom nhóm vào văn bản, ta cần nghiên cứu tính khả dụng của vấn đề này.
+Thông thường, các phương pháp áp dụng cho gom nhóm tập trung vào dữ liệu lớn có thuộc tính là số.
+Trong khi đó, văn bản là thông tin có thể hiện là từ ngữ nên ta cần chuyển đổi thể hiện của văn bản sang dạng số để có thể áp dụng gom nhóm.
+Gom nhóm văn bản cần có được tính khả dụng trong các nhiệm vụ sau:
 \begin{enumerate}
-\item[•]Cải thiện hồi quy trong tìm kiếm: khi câu truy vấn trùng với một văn bản thì kết quả trả về có thể bao gồm toàn bộ nhóm chứa văn bản.
-\item[•]Cải thiện độ chính xác trong tìm kiếm: gom nhóm văn bản thành những nhóm nhỏ hơn trong nhóm của những văn bản liên quan.
-\item[•]Phân tán hoặc tập hợp: khi một câu truy vấn không thể được công thức hóa thì ta có thể cho phép người dùng duyệt văn bản theo nhóm.
-\item[•]Gom nhóm theo truy vấn đặc tả: những văn bản gần liên quan đến câu truy vấn nhất sẽ nằm trong nhóm con lồng vào bên trong nhóm lớn hơn có độ tương đồng thấp hơn.
-\end{enumerate}
-
-Nghiên cứu của vấn đề gom nhóm đứng trước tính khả dụng khi ứng dụng vào văn bản. Các phương pháp truyền thống cho gom nhóm thường tập trung vào dữ liệu lớn, khi thuộc tính của dữ liệu là số. Vấn đề này cũng được nghiên cứu trong phân loại dữ liệu, khi mà thuộc tính có giá trị nặc danh. Vấn đề của gom nhóm là tìm được tính khả dụng trong các nhiệm vụ sau:
-\begin{enumerate}
-\item[•]Duyệt và tổ chức văn bản: tổ chức phân cấp của văn bản vào trong các hạng mục mạch lạc. Điều này có thể giúp ích cho việc duyệt hệ thống của tập hợp văn bản. Ví dụ kinh kiển cho phương pháp này là phân tán hoặc tập hợp. Phương pháp này cung cấp kỹ thuật duyệt hệ thống với sử dụng gom nhóm tổ chức của tập hợp văn bản.
-\item[•]Tóm tắt ngữ liệu: kỹ thuật gom nhóm cung cấp tóm tắt mạch lạc của tập hợp trong dạng nhóm tài tiệu hoặc nhóm từ. Điều này được sử dụng đề cung cấp tóm tắt trong phần nội dung tổng kết của ngữ liệu căn bản. Lĩnh vực này có nhiều phương pháp, đặc biệt là gom nhóm câu dùng để tóm tắt văn bản. Vấn đề của gom nhóm liên quan đến việc giảm số chiều và mô hình hóa chủ đề. 
+\item[•]Duyệt và tổ chức văn bản: tổ chức phân cấp của văn bản vào trong các hạng mục hợp lý có thể giúp ích cho việc duyệt hệ thống của tập hợp văn bản. Ví dụ kinh kiển cho phương pháp này là phân tán hoặc tập hợp. Phương pháp này cung cấp kỹ thuật duyệt hệ thống với sử dụng gom nhóm tổ chức của tập hợp văn bản.
+\item[•]Tóm tắt ngữ liệu: kỹ thuật gom nhóm cung cấp tóm tắt mạch lạc của tập hợp trong dạng nhóm tài tiệu hoặc nhóm từ. Điều này được sử dụng đề cung cấp tóm tắt trong phần nội dung tổng kết của ngữ liệu căn bản. Lĩnh vực này có nhiều phương pháp, đặc biệt là gom nhóm câu dùng để tóm tắt văn bản.
 \item[•]Phân loại văn bản : Gom nhóm là phương pháp học không giám sát. Nó thể được đòn bẩy hóa để cải thiện chất lượng kết quả trong giám sát. Cụ thể, các nhóm từ và phương thức đồng huấn luyện có thể được sử dụng để cải thiện độ chính xác phân loại của ứng dụng giám sát với tác dụng của kỹ thuật gom nhóm.
 \end{enumerate}
 
+\section{Tầm quan trọng gom nhóm văn bản}
+Ngày nay, việc tìm kiếm thông tin đã trở thành kỹ năng cần thiết cho bất kì ai.
+Cho nên, truy vấn thông tin trở thành nhu cầu quan trọng của người dùng.
+Tuy nhiên, khi truy vấn thông tin, nếu dữ liệu được truy vấn không được tổ chức khoa học thì ta có thể mất khá nhiều thời gian để có kết quả của câu truy vấn hoặc thông tin ta nhận được lại có thể không đầy đủ.
+Vì vậy, ta cần tổ chức lại dữ liệu thành cấu trúc phù hợp để hỗ trợ truy vấn thông tin.
+Và gom nhóm văn bản là một phương pháp để giúp cho việc sắp xếp thông tin từ các văn bản thành những chủ để phù hợp.
+Từ đó, việc truy vấn thông tin trở nên dễ dàng hơn.
+
+Gom nhóm văn bản và truy vấn thông tin có quan hệ mật thiết với nhau.
+Truy vấn thông tin cần tìm kiếm những văn bản một cách nhanh chóng, chính xác và đầy đủ.
+Gom nhóm văn bản tự động tạo ra những nhóm có văn bản liên quan thành cùng một chủ đề.
+Từ đó, khi ta truy vấn sử dụng từ khóa thì sẽ những văn bản liên quan đến từ khóa cần truy vấn sẽ trở thành kết quả trả về.
+Ngoài ra, gom nhóm văn bản không cần phải tạo trước tập huấn luyện hay nguyên tắc phân loại.
+Có thể nói ~\cite{text-clustering}, gom nhóm văn bản được dùng để cải thiện hiệu quả tìm kiếm trong truy vấn thông tin.
+\begin{enumerate}
+\item[•]Cải thiện hồi quy trong tìm kiếm: khi câu truy vấn trùng với một văn bản thì kết quả trả về có thể bao gồm toàn bộ nhóm chứa văn bản được tìm kiếm.
+\item[•]Cải thiện độ chính xác trong tìm kiếm: gom nhóm những văn bản vào thành những nhóm nhỏ hơn trong nhóm chứa các văn bản liên quan.
+\item[•]Phân tán hoặc tập hợp: khi một câu truy vấn không thể được công thức hóa thì ta có thể cho phép người dùng duyệt văn bản theo nhóm.
+\item[•]Gom nhóm theo truy vấn đặc tả: những văn bản gần liên quan đến câu truy vấn nhất sẽ nằm trong nhóm con (có độ tương đồng cao) bên trong nhóm lớn (độ tương đồng thấp hơn).
+\end{enumerate}
+
+%Nghiên cứu của vấn đề gom nhóm đứng trước tính khả dụng khi ứng dụng vào văn bản. Các phương pháp truyền thống cho gom nhóm thường tập trung vào dữ liệu lớn, khi thuộc tính của dữ liệu là số. Vấn đề này cũng được nghiên cứu trong phân loại dữ liệu, khi mà thuộc tính có giá trị nặc danh. Vấn đề của gom nhóm là tìm được tính khả dụng trong các nhiệm vụ sau:
+%\begin{enumerate}
+%\item[•]Duyệt và tổ chức văn bản: tổ chức phân cấp của văn bản vào trong các hạng mục mạch lạc. Điều này có thể giúp ích cho việc duyệt hệ thống của tập hợp văn bản. Ví dụ kinh kiển cho phương pháp này là phân tán hoặc tập hợp. Phương pháp này cung cấp kỹ thuật duyệt hệ thống với sử dụng gom nhóm tổ chức của tập hợp văn bản.
+%\item[•]Tóm tắt ngữ liệu: kỹ thuật gom nhóm cung cấp tóm tắt mạch lạc của tập hợp trong dạng nhóm tài tiệu hoặc nhóm từ. Điều này được sử dụng đề cung cấp tóm tắt trong phần nội dung tổng kết của ngữ liệu căn bản. Lĩnh vực này có nhiều phương pháp, đặc biệt là gom nhóm câu dùng để tóm tắt văn bản. Vấn đề của gom nhóm liên quan đến việc giảm số chiều và mô hình hóa chủ đề. 
+%\item[•]Phân loại văn bản : Gom nhóm là phương pháp học không giám sát. Nó thể được đòn bẩy hóa để cải thiện chất lượng kết quả trong giám sát. Cụ thể, các nhóm từ và phương thức đồng huấn luyện có thể được sử dụng để cải thiện độ chính xác phân loại của ứng dụng giám sát với tác dụng của kỹ thuật gom nhóm.
+%\end{enumerate}
+
 \section{Bài toán gom nhóm văn bản}
-Gom nhóm là quá trình gom các đối tượng dữ liệu dựa vào thông tin được tìm thấy trong dữ liệu mô tả đối tượng và quan hệ giữa các đối tượng.
-Mục tiêu của gom nhóm là những đối tượng gần giống nhau (tương đồng) sẽ ở trong cùng một nhóm so với đối tượng dị biệt sẽ ở trong nhóm khác.
-Độ tương đồng càng lớn trong một nhóm kết hợp với độ khác biệt sẽ càng lớn giữa các nhóm có thể tạo ra khoảng cách càng lớn để kết nối giữa các nhóm.
+Động lực để thực hiện gom nhóm văn bản là quá trình tự động gom các văn bản thành các nhóm khác nhau dựa vào thông tin được tìm thấy trong dữ liệu mô tả của văn bản và quan hệ giữa các văn bản.
+Mục tiêu của gom nhóm văn bản là những văn bản gần giống nhau (có độ tương đồng gần nhau) sẽ ở trong cùng một nhóm so với những văn bản dị biệt được gom trong nhóm khác.
+Độ tương đồng giữa các văn bản trong cùng một nhóm quá lớn và độ khác biệt giữa các nhóm cũng quá lớn có thể dẫn đến khoảng cách để kết nối giữa các nhóm là rất lớn.
+Nếu ta gom nhóm văn bản một cách hiệu quả thì có thể giúp ích cho việc tìm kiếm kết quả trong truy vấn thông tin.
 
 Trong nhiều ứng dụng, ý tưởng để tạo thành một nhóm không được định nghĩa rõ.
 Vì vậy, ta cần hiểu hiểu rõ khó khăn của quá trình tạo thành một nhóm.
@@ -155,7 +174,7 @@ Hình \ref{fig:pic11} cho ta thấy định nghĩa một nhóm không có đúng
 \label{fig:pic11}
 \end{figure}
 
-Gom nhóm có thể liên quan đến các kỹ thuật khác như chia dữ liệu vào  các nhóm khác nhau.
+Gom nhóm có thể liên quan đến các kỹ thuật khác như chia dữ liệu vào các nhóm khác nhau.
 Chẳng hạn, gom nhóm có thể liên quan đến một dạng phân lớp mà nó tạo ra nhãn của đối tượng với lớp (hoặc nhóm) nhãn.
 Tuy nhiên, gom nhóm dẫn xuất các nhãn này từ dữ liệu.
 Trong khi đó, phân lớp lại là phương pháp có tên gọi là phân lớp giám sát, những đối tượng chưa có nhãn sẽ được gán với nhãn của đối tượng biết trước.
