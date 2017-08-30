@@ -572,7 +572,7 @@ Tuy nhiên, nếu hình dạng của nhóm quá phức tạp có thể dẫn đ�
 \section{Phương pháp gom nhóm văn bản}
 \label{sec:ppgn}
 Dựa vào những loại gom nhóm được đề cập ở \ref{sec:clgn}, ta có các phương pháp gom nhóm văn bản sau:
-\subsection{Gom nhóm văn bản phân chia} ~\cite{partitioning-clustering, partitioning-clustering-Krish}
+\subsection{Gom nhóm văn bản phân chia}%~\cite{partitioning-clustering, partitioning-clustering-Krish}
 Gom nhóm văn bản phân chia tạo thành các nhóm dựa vào số lượng $K$ nhóm cho trước với điều kiện $K$ nhỏ hơn số lượng văn bản.
 Các nhóm này được hình thành sao cho tối tiểu hóa tổng của bình phương khoảng cách.
 \begin{equation}
@@ -588,14 +588,51 @@ Sau đó, ta sẽ cập nhật lại vị trí điểm trung tâm cho từng nh�
 Thuật toán sẽ được lặp cho đến khi hội tụ.
 
 \textbf{Ưu điểm}
+\begin{enumerate}
+\item[•]Hướng tiếp cận này đơn giản, dễ hiểu.
+\item[•]Tất cả các văn bản tự động được gom vào một nhóm nhất định.
+\item[•]Phương pháp này tương đối hiệu quả và thường kết thúc ở tối ưu cục bộ.
+\end{enumerate}
 
 \textbf{Khuyết điểm}
+\begin{enumerate}
+\item[•]Hướng tiếp cận này phải chọn trước $K$ nhóm cần phải gom.
+\item[•]Tất cả các văn bản buộc phải gom vào một nhóm cố định.
+\item[•]Cách tiếp cận này không thể xử lý nhiễu hoặc văn bản ngoại vi vì quá nhạy cảm với các văn bản ngoại vi.
+\item[•]Hướng tiếp cận này không thích hợp đề tìm kiếm hình dạng các nhóm mà không phải là đa giác lồi.
+\end{enumerate}
 
-\subsection{Gom nhóm văn bản phân cấp}
-~\cite{hierarchical-clustering}
+\subsection{Gom nhóm văn bản phân cấp} %~\cite{hierarchical-clustering}
+Gom nhóm văn bản phân cấp tạo ra các nhóm lồng vào nhau thành cấu trúc cây phân cấp.
+Phương pháp này có 2 cách tiếp cận khác nhau: gom nhóm phân cấp tích tụ  và gom nhóm phân cấp phân chia.
+Gom nhóm phân cấp tích tụ bắt đầu mỗi nhóm là một văn bản rồi gom dần các văn bản lại với nhau cho đến khi chỉ còn một nhóm duy nhất.
+Gom nhóm phân cấp phân chia bắt đầu với tất cả các văn bản là một nhóm lớn rồi chia dần nhóm này đến khi mỗi nhóm chỉ có một văn bản.
 
-\subsection{Gom nhóm văn bản mật độ}
-~\cite{density-clustering}
+\textbf{Ưu điểm}
+\begin{enumerate}
+\item[•]Hướng tiếp cận không cần phải đưa trước số nhóm cụ thể cần phải gom.
+\item[•]Phương pháp này có thể cho ta số nhóm mong muốn bằng việc cắt tại một mức nào đó của cây phân cấp.
+
+\textbf{Khuyết điểm}
+\begin{enumerate}
+\item[•]Quyết định gom nhóm khi đã thực hiện thì không thể làm ngược lại.
+\item[•]Hướng tiếp cận này không có hàm mục tiêu nhất định để tối ưu.
+\item[•]Cách tiếp cận này có độ phức tạp khá cao, ít nhất là $O(n^2)$ với n là số lượng nhóm cần phải gom.
+\end{enumerate}
+
+\subsection{Gom nhóm văn bản mật độ} %~\cite{density-clustering}
+Gom nhóm văn bản mật độ xem mỗi văn bản như là tâm và với bán kính cho trước, ta tính khoảng cách từ tâm đến các văn bản khác và nếu khoảng cách này nhỏ hơn bán kính thì văn bản đó sẽ được gom lại vào thành một nhóm.
+Thuật toán tiêu biểu cho hướng tiếp cận này là DBSCAN.
+
+\textbf{Ưu điểm}
+\begin{enumerate}
+\item[•]Hướng tiếp cận không cần phải đưa trước số nhóm cụ thể cần phải gom.
+
+\textbf{Khuyết điểm}
+\begin{enumerate}
+\item[•]Những điểm nằm trong vùng mật độ thấp được xem như là nhiễu và bị loại bỏ.
+\item[•]Cần xác định bán kính cụ thể và số lượng văn bản ít nhất để tạo thành nhóm.
+\end{enumerate}
 
 %\begin{enumerate}
 %\item[•]\textbf{K-means}: đây là phương pháp gom nhóm theo mẫu và sử dụng kỹ thuật phân chia để có thể tìm được số lượng nhóm biết trước (K), và mỗi nhóm được đại diện bằng điểm trung tâm.
