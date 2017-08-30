@@ -26,48 +26,17 @@ Gom nhóm văn bản cần có được tính khả dụng trong các nhiệm v�
 \item[•]Phân loại văn bản : Gom nhóm là phương pháp học không giám sát. Nó thể được đòn bẩy hóa để cải thiện chất lượng kết quả trong giám sát. Cụ thể, các nhóm từ và phương thức đồng huấn luyện có thể được sử dụng để cải thiện độ chính xác phân loại của ứng dụng giám sát với tác dụng của kỹ thuật gom nhóm.
 \end{enumerate}
 
-\section{Tầm quan trọng gom nhóm văn bản}
-Ngày nay, việc tìm kiếm thông tin đã trở thành kỹ năng cần thiết cho bất kì ai.
-Cho nên, truy vấn thông tin trở thành nhu cầu quan trọng của người dùng.
-Tuy nhiên, khi truy vấn thông tin, nếu dữ liệu được truy vấn không được tổ chức khoa học thì ta có thể mất khá nhiều thời gian để có kết quả của câu truy vấn hoặc thông tin ta nhận được lại có thể không đầy đủ.
-Vì vậy, ta cần tổ chức lại dữ liệu thành cấu trúc phù hợp để hỗ trợ truy vấn thông tin.
-Và gom nhóm văn bản là một phương pháp để giúp cho việc sắp xếp thông tin từ các văn bản thành những chủ để phù hợp.
-Từ đó, việc truy vấn thông tin trở nên dễ dàng hơn.
-
-Gom nhóm văn bản và truy vấn thông tin có quan hệ mật thiết với nhau.
-Truy vấn thông tin cần tìm kiếm những văn bản một cách nhanh chóng, chính xác và đầy đủ.
-Gom nhóm văn bản tự động tạo ra những nhóm có văn bản liên quan thành cùng một chủ đề.
-Từ đó, khi ta truy vấn sử dụng từ khóa thì sẽ những văn bản liên quan đến từ khóa cần truy vấn sẽ trở thành kết quả trả về.
-Ngoài ra, gom nhóm văn bản không cần phải tạo trước tập huấn luyện hay nguyên tắc phân loại.
-Có thể nói ~\cite{text-clustering}, gom nhóm văn bản được dùng để cải thiện hiệu quả tìm kiếm trong truy vấn thông tin.
-\begin{enumerate}
-\item[•]Cải thiện hồi quy trong tìm kiếm: khi câu truy vấn trùng với một văn bản thì kết quả trả về có thể bao gồm toàn bộ nhóm chứa văn bản được tìm kiếm.
-\item[•]Cải thiện độ chính xác trong tìm kiếm: gom nhóm những văn bản vào thành những nhóm nhỏ hơn trong nhóm chứa các văn bản liên quan.
-\item[•]Phân tán hoặc tập hợp: khi một câu truy vấn không thể được công thức hóa thì ta có thể cho phép người dùng duyệt văn bản theo nhóm.
-\item[•]Gom nhóm theo truy vấn đặc tả: những văn bản gần liên quan đến câu truy vấn nhất sẽ nằm trong nhóm con (có độ tương đồng cao) bên trong nhóm lớn (độ tương đồng thấp hơn).
-\end{enumerate}
-
-%Nghiên cứu của vấn đề gom nhóm đứng trước tính khả dụng khi ứng dụng vào văn bản. Các phương pháp truyền thống cho gom nhóm thường tập trung vào dữ liệu lớn, khi thuộc tính của dữ liệu là số. Vấn đề này cũng được nghiên cứu trong phân loại dữ liệu, khi mà thuộc tính có giá trị nặc danh. Vấn đề của gom nhóm là tìm được tính khả dụng trong các nhiệm vụ sau:
-%\begin{enumerate}
-%\item[•]Duyệt và tổ chức văn bản: tổ chức phân cấp của văn bản vào trong các hạng mục mạch lạc. Điều này có thể giúp ích cho việc duyệt hệ thống của tập hợp văn bản. Ví dụ kinh kiển cho phương pháp này là phân tán hoặc tập hợp. Phương pháp này cung cấp kỹ thuật duyệt hệ thống với sử dụng gom nhóm tổ chức của tập hợp văn bản.
-%\item[•]Tóm tắt ngữ liệu: kỹ thuật gom nhóm cung cấp tóm tắt mạch lạc của tập hợp trong dạng nhóm tài tiệu hoặc nhóm từ. Điều này được sử dụng đề cung cấp tóm tắt trong phần nội dung tổng kết của ngữ liệu căn bản. Lĩnh vực này có nhiều phương pháp, đặc biệt là gom nhóm câu dùng để tóm tắt văn bản. Vấn đề của gom nhóm liên quan đến việc giảm số chiều và mô hình hóa chủ đề. 
-%\item[•]Phân loại văn bản : Gom nhóm là phương pháp học không giám sát. Nó thể được đòn bẩy hóa để cải thiện chất lượng kết quả trong giám sát. Cụ thể, các nhóm từ và phương thức đồng huấn luyện có thể được sử dụng để cải thiện độ chính xác phân loại của ứng dụng giám sát với tác dụng của kỹ thuật gom nhóm.
-%\end{enumerate}
-
 \section{Bài toán gom nhóm văn bản}
-Động lực để thực hiện gom nhóm văn bản là quá trình tự động gom các văn bản thành các nhóm khác nhau dựa vào thông tin được tìm thấy trong dữ liệu mô tả của văn bản và quan hệ giữa các văn bản.
-Mục tiêu của gom nhóm văn bản là những văn bản gần giống nhau (có độ tương đồng gần nhau) sẽ ở trong cùng một nhóm so với những văn bản dị biệt được gom trong nhóm khác.
-Độ tương đồng giữa các văn bản trong cùng một nhóm quá lớn và độ khác biệt giữa các nhóm cũng quá lớn có thể dẫn đến khoảng cách để kết nối giữa các nhóm là rất lớn.
-Nếu ta gom nhóm văn bản một cách hiệu quả thì có thể giúp ích cho việc tìm kiếm kết quả trong truy vấn thông tin.
-
-Trong nhiều ứng dụng, ý tưởng để tạo thành một nhóm không được định nghĩa rõ.
-Vì vậy, ta cần hiểu hiểu rõ khó khăn của quá trình tạo thành một nhóm.
-Nhìn vào hình \ref{fig:pic11}, ta thấy có 20 điểm nhưng lại có đến 3 cách khác nhau để gom nhóm.
-Hình dạng của dữ liệu sẽ chỉ dẫn mối quan hệ giữa các nhóm.
-Hình \ref{fig:pic11}(a) và hình \ref{fig:pic11}(b) chia dữ liệu thành 2 nhóm khác nhau với mỗi nhóm gồm 6 điểm.
-Tuy nhiên, ta có thể nhìn thấy là ở mỗi nhóm lớn ta còn có thể chia nhỏ tiếp được thành 2 nhóm nhỏ hơn.
-Điều này mang tính chất chủ quan dựa vào cách nhìn của mỗi người và có thể tạo thành 4 nhóm khác nhau như hình \ref{fig:pic11}(c).
-Hình \ref{fig:pic11} cho ta thấy định nghĩa một nhóm không có đúng tuyệt đối và cách tiếp cận tốt nhất là ta phải dựa vào bản chất của dữ liệu và kết quả mong muốn.
+Trong nhiều ứng dụng, khái niệm về nhóm được định nghĩa không rõ ràng.
+Cho nên, ta cần phải hiểu rõ một nhóm được tạo thành như thế nào trong quá trình gom nhóm.
+Nhìn vào hình \ref{fig:pic11}, ta thấy có 20 điểm nhưng lại có đến 3 cách khác nhau để tạo thành nhóm.
+Ta có thể dựa vào hình dạng của dữ liệu để thấy được mối quan hệ giữa các nhóm để tiến hành gom nhóm.
+Dựa vào hình \ref{fig:pic11}(a) và hình \ref{fig:pic11}(b), ta có thể chia dữ liệu thành 2 nhóm khác nhau với mỗi nhóm gồm 6 điểm.
+Tuy nhiên, khi quan sát kỹ hơn, ta có thể chia mỗi nhóm lớn này thành 2 nhóm nhỏ hơn như hình \ref{fig:pic11}(c).
+Điều này mang tính chất chủ quan dựa vào cách nhìn của từng người mà ta có thể chia thành những nhóm con khác nhau.
+Thậm chí, ta có thể tạo thành 6 nhóm khác nhau như hình \ref{fig:pic11}(d).
+Vì vậy, định nghĩa về nhóm chỉ mang tính tương đối và cách tiếp cận tốt nhất là ta phải dựa vào bản chất của dữ liệu và kết quả mong muốn.
+Đối với gom nhóm văn bản, một nhóm được xem là gồm những văn bản có độ tương đồng gần giống nhau.
 
 \begin{figure}[htp]
 \makeatletter % For spaces in paths
@@ -174,80 +143,107 @@ Hình \ref{fig:pic11} cho ta thấy định nghĩa một nhóm không có đúng
 \label{fig:pic11}
 \end{figure}
 
-Gom nhóm có thể liên quan đến các kỹ thuật khác như chia dữ liệu vào các nhóm khác nhau.
-Chẳng hạn, gom nhóm có thể liên quan đến một dạng phân lớp mà nó tạo ra nhãn của đối tượng với lớp (hoặc nhóm) nhãn.
-Tuy nhiên, gom nhóm dẫn xuất các nhãn này từ dữ liệu.
-Trong khi đó, phân lớp lại là phương pháp có tên gọi là phân lớp giám sát, những đối tượng chưa có nhãn sẽ được gán với nhãn của đối tượng biết trước.
-Vì vậy, gom nhóm hay còn được biết đến như là phân lớp không có giám sát.
+Gom nhóm văn bản có thể liên quan đến các kỹ thuật để phân chia văn bản vào các nhóm khác nhau.
+Gom nhóm văn bản có thể tự động tạo ra nhãn đại diện cho nhóm trong quá trình gom nhóm.
+Các nhãn này được trích xuất từ văn bản trong quá trình tạo thành nhóm.
+Trong khi đó, phân lớp văn bản lại là phương pháp có giám sát, những văn bản chưa có nhãn sẽ được gán với nhãn đã được cho trước.
+Những văn bản có cùng nhãn sẽ được phân vào thành một lớp.
+Điều này khác hoàn toàn với gom nhóm văn bản khi mà quá trình gom nhóm có thể trích xuất ra nhãn cho nhóm.
+Vì vậy, gom nhóm văn bản còn được gọi là phân lớp văn bản 
+không có giám sát.
 
-Có thể nói, bài toán gom nhóm là bài toán dùng để giải quyết việc tìm kiếm số lượng nhóm có thể có trong dữ liệu.
-Quá trình này có thể được tiếp cận từ các phương pháp khác nhau nhưng đều có đặc điểm chung đều là không có giám sát.
-Vì vậy, tìm kiếm số lượng nhóm cần có là mục tiêu của gom nhóm.
+Có thể nói, bài toán gom nhóm văn bản là bài toán dùng để giải quyết việc tìm kiếm số lượng nhóm có thể có trong ngữ liệu.
+Quá trình gom nhóm văn bản có thể được thực thi từ các phương pháp khác nhau nhưng đều có đặc điểm chung là phương pháp không có giám sát.
+Động lực để thực hiện gom nhóm văn bản là quá trình tự động gom các văn bản thành các nhóm khác nhau dựa vào thông tin được tìm thấy trong dữ liệu mô tả của văn bản và quan hệ giữa các văn bản.
+Mục tiêu của gom nhóm văn bản là những văn bản gần giống nhau (có độ tương đồng gần nhau) sẽ ở trong cùng một nhóm so với những văn bản dị biệt được gom trong nhóm khác.
+Độ tương đồng giữa các văn bản trong cùng một nhóm quá lớn và độ khác biệt giữa các nhóm cũng quá lớn có thể dẫn đến khoảng cách để kết nối giữa các nhóm là rất lớn.
+Nếu ta gom nhóm văn bản một cách hiệu quả thì có thể giúp ích cho việc tìm kiếm kết quả trong truy vấn thông tin.
 
-\section{Các hướng tiếp cận}
+\section{Tầm quan trọng gom nhóm văn bản}
+Ngày nay, việc tìm kiếm thông tin đã trở thành kỹ năng cần thiết cho bất kì ai.
+Cho nên, truy vấn thông tin trở thành nhu cầu quan trọng của người dùng.
+Tuy nhiên, khi truy vấn thông tin, nếu dữ liệu được truy vấn không được tổ chức khoa học thì ta có thể mất khá nhiều thời gian để có kết quả của câu truy vấn hoặc thông tin ta nhận được lại có thể không đầy đủ.
+Vì vậy, ta cần tổ chức lại dữ liệu thành cấu trúc phù hợp để hỗ trợ truy vấn thông tin.
+Và gom nhóm văn bản là một phương pháp để giúp cho việc sắp xếp thông tin từ các văn bản thành những chủ để phù hợp.
+Từ đó, việc truy vấn thông tin trở nên dễ dàng hơn.
+
+Gom nhóm văn bản và truy vấn thông tin có quan hệ mật thiết với nhau.
+Truy vấn thông tin cần tìm kiếm những văn bản một cách nhanh chóng, chính xác và đầy đủ.
+Gom nhóm văn bản tự động tạo ra những nhóm có văn bản liên quan thành cùng một chủ đề.
+Từ đó, khi ta truy vấn sử dụng từ khóa thì sẽ những văn bản liên quan đến từ khóa cần truy vấn sẽ trở thành kết quả trả về.
+Ngoài ra, gom nhóm văn bản không cần phải tạo trước tập huấn luyện hay nguyên tắc phân loại.
+Có thể nói ~\cite{text-clustering}, gom nhóm văn bản được dùng để cải thiện hiệu quả tìm kiếm trong truy vấn thông tin.
+\begin{enumerate}
+\item[•]Cải thiện hồi quy trong tìm kiếm: khi câu truy vấn trùng với một văn bản thì kết quả trả về có thể bao gồm toàn bộ nhóm chứa văn bản được tìm kiếm.
+\item[•]Cải thiện độ chính xác trong tìm kiếm: gom nhóm những văn bản vào thành những nhóm nhỏ hơn trong nhóm chứa các văn bản liên quan.
+\item[•]Phân tán hoặc tập hợp: khi một câu truy vấn không thể được công thức hóa thì ta có thể cho phép người dùng duyệt văn bản theo nhóm.
+\item[•]Gom nhóm theo truy vấn đặc tả: những văn bản gần liên quan đến câu truy vấn nhất sẽ nằm trong nhóm con (có độ tương đồng cao) bên trong nhóm lớn (độ tương đồng thấp hơn).
+\end{enumerate}
+
+%Nghiên cứu của vấn đề gom nhóm đứng trước tính khả dụng khi ứng dụng vào văn bản. Các phương pháp truyền thống cho gom nhóm thường tập trung vào dữ liệu lớn, khi thuộc tính của dữ liệu là số. Vấn đề này cũng được nghiên cứu trong phân loại dữ liệu, khi mà thuộc tính có giá trị nặc danh. Vấn đề của gom nhóm là tìm được tính khả dụng trong các nhiệm vụ sau:
+%\begin{enumerate}
+%\item[•]Duyệt và tổ chức văn bản: tổ chức phân cấp của văn bản vào trong các hạng mục mạch lạc. Điều này có thể giúp ích cho việc duyệt hệ thống của tập hợp văn bản. Ví dụ kinh kiển cho phương pháp này là phân tán hoặc tập hợp. Phương pháp này cung cấp kỹ thuật duyệt hệ thống với sử dụng gom nhóm tổ chức của tập hợp văn bản.
+%\item[•]Tóm tắt ngữ liệu: kỹ thuật gom nhóm cung cấp tóm tắt mạch lạc của tập hợp trong dạng nhóm tài tiệu hoặc nhóm từ. Điều này được sử dụng đề cung cấp tóm tắt trong phần nội dung tổng kết của ngữ liệu căn bản. Lĩnh vực này có nhiều phương pháp, đặc biệt là gom nhóm câu dùng để tóm tắt văn bản. Vấn đề của gom nhóm liên quan đến việc giảm số chiều và mô hình hóa chủ đề. 
+%\item[•]Phân loại văn bản : Gom nhóm là phương pháp học không giám sát. Nó thể được đòn bẩy hóa để cải thiện chất lượng kết quả trong giám sát. Cụ thể, các nhóm từ và phương thức đồng huấn luyện có thể được sử dụng để cải thiện độ chính xác phân loại của ứng dụng giám sát với tác dụng của kỹ thuật gom nhóm.
+%\end{enumerate}
+
+\section{Hình dạng gom nhóm}
 \subsection{Phân cấp và phân chia}
-Vấn đề thường được thảo luận về điểm khác biệt giữa những kiểu gom nhóm là tập hợp các nhóm được lồng vào nhau hay tách biệt, thường được gọi với thuật ngữ phân cấp và phân chia.
-Gom nhóm theo phân chia đơn giản chỉ là chia tập dữ liệu đối tượng vào thành các nhóm không đè lên nhau.
-Phương pháp gom nhóm phân chia chia mỗi đối tượng dữ liệu vào một nhóm duy nhất.
-Do vậy, phương pháp này cho ra kết quả bao gồm các nhóm riêng biệt, độc lập với nhau.
-Nhìn vào hình \ref{fig:pic11} từ (b) đến (d) cho chúng ta thấy được phương pháp gom nhóm phân chia.
+Vấn đề thường được thảo luận về điểm khác biệt về hình dạng của dữ liệu là các nhóm sau khi được gom có lồng vào nhau hay là tách biệt thành từng nhóm riêng biệt.
+Hình dạng các nhóm lồng vào nhau còn có tên gọi phân cấp và những nhóm tách biệt thì có tên gọi là phân chia.
+Các nhóm được gom theo phân chia khi tập dữ liệu sẽ chia các đối tượng vào thành từng nhóm riêng biệt.
+Nhìn vào hình \ref{fig:pic11} từ (b) đến (d) cho chúng ta thấy được hình dạng của dữ liệu bao gồm các nhóm riêng biệt sau khi phân chia các đối tượng vào những nhóm này.
 
-Nếu như ta có thể chia những nhóm hiện hữu thành các nhóm con thì ta sẽ có được cấu trúc phân cấp, thường được gọi là gom nhóm phân cấp.
-Gom nhóm phân cấp là tập hợp các nhóm lồng vào nhau tạo thành cấu trúc cây.
-Mỗi một nốt (nhóm) trong cây (ngoại trừ nốt lá) là tập hợp của những nốt con (nhóm con) và nốt gốc của cây trong nhóm chứa toàn bộ đối tượng.
-Thông thường, nốt lá trong cây là nhóm đơn lẻ chứa dữ liệu.
-Như vậy, gom nhóm phân cấp cho ta thấy được mối quan hệ giữa các nhóm trong dữ liệu dựa vào cấu trúc lồng phân cấp trong cây.
+Nếu ta có thể chia tách những nhóm hiện hữu thành các nhóm con thì ta sẽ có được hình dạng phân cấp, gồm các nhóm lồng vào nhau hình thành nên cấu trúc cây phân cấp.
+Mỗi một nốt (nhóm) trong cây có thể là tập hợp của những nốt con (nhóm con) và nốt gốc trong cây là nhóm chứa toàn bộ các nhóm còn lại.
+Ngoài ra, nốt trong cây cũng có thể là nốt lá, đơn vị chứa dữ liệu.
+Như vậy, hình dạng phân cấp của các nhóm cho ta thấy được mối quan hệ giữa các nhóm trong dữ liệu.
 
-Nếu như ta cho phép các nhóm được phép lồng vào nhau, dựa vào hình \ref{fig:pic11}(a), ta có thể có được 2 nhóm con.
-Tiếp đến hình \ref{fig:pic11}(b), ứng với mỗi nhóm, ta có thể lần lượt chia thành 3 nhóm con (như hình \ref{fig:pic11}(d)).
+Áp dụng ý tưởng trên vào hình \ref{fig:pic11}(a), ta thấy được đây là nốt gốc có chứa 2 nhóm con.
+Tiếp đến hình \ref{fig:pic11}(b), ứng với mỗi nhóm, ta có thể lần lượt chia thành 3 nhóm con (kết quả như hình \ref{fig:pic11}(d)).
 Các nhóm trong hình \ref{fig:pic11} từ (a) đến (d), khi thực thi theo thứ tự có thể tạo thành nhóm phân cấp tương ứng 1, 2, 4, và 6 nhóm ứng với mỗi mức độ.
-Cuối cùng, ta có thể xem gom nhóm phân cấp là là chuỗi liên tiếp của gom nhóm phân chia.
-Nghĩa là ta có thể lấy được kết quả của gom nhóm phân chia bằng việc cắt cây trong gom nhóm phân cấp ở một mức độ nhất định.
+Cuối cùng, ta có thể xem hình dạng phân cấp của nhóm là là chuỗi liên tiếp của hình dạng phân chia của nhóm.
+Nghĩa là ta có thể lấy được kết quả của hình dạng phân chia của nhóm bằng việc cắt tại một mức độ nhất định trong hình dạng cây phân cấp của nhóm.
 
 \subsection{Duy nhất, chồng đè và mờ}
-Các nhóm trong hình \ref{fig:pic11} đều đi theo hướng duy nhất, nghĩa là mỗi đối tượng được gán vào một nhóm duy nhất.
+Hình dạng các nhóm trong hình \ref{fig:pic11} đều được xem là duy nhất khi mà mỗi đối tượng được gán vào một nhóm duy nhất.
 Thực tế, ta có rất nhiều trường hợp mà một đối tượng có thể được gắn với nhiều nhóm khác nhau.
-Với những trường hợp như vậy, ta đang đi theo hướng tiếp cận không duy nhất hay còn gọi là chồng đè.
-Trong trường hợp tổng quát, hướng tiếp cận chồng đè hay không duy nhất dùng để phản ánh một đối tượng có thể được gán đồng thời ở nhóm này cũng như là nhóm khác.
-Hướng tiếp cận duy nhất cho ta thấy được các nhóm độc lập, riêng lẻ với nhau còn hướng tiếp cận không duy nhất hay còn gọi là chồng đè cho ta thấy được quan hệ giữa các nhóm.
+Với những trường hợp mà một đối tượng có thể nằm trong nhóm này hoặc nhóm khác thì ta sẽ có các nhóm không duy nhất hay còn gọi là chồng đè.
+%Trong trường hợp tổng quát, hướng tiếp cận chồng đè hay không duy nhất dùng để phản ánh một đối tượng có thể được gán đồng thời ở nhóm này cũng như là nhóm khác.
+%Hướng tiếp cận duy nhất cho ta thấy được các nhóm độc lập, riêng lẻ với nhau còn hướng tiếp cận không duy nhất hay còn gọi là chồng đè cho ta thấy được quan hệ giữa các nhóm.
+%Ví dụ, một người trong công ty có thể kiêm nhiều chức vụ khác nhau.
+%Hướng tiếp cận không duy nhất thường được sử dụng khi mà một đối tượng ở giữa một hoặc nhiều nhóm khác nhau.
+%Đồng thời, đối tượng này có thể được gán vào một trong những nhóm này mà vẫn đảm bảo được tính hợp lý.
+Ngoài ra, ta còn có thêm hình dạng của các nhóm mờ với mỗi đối tượng thuộc về từng nhóm ứng với trọng số nằm trong khoảng từ 0 (không thuộc về) đến 1 (hoàn toàn thuộc về).
+Nói cách khác, các nhóm này được xem như là tập hợp mờ.
+Tập hợp mờ là tập hợp mà các phần tử ở trong bất kì tập nào đều có trọng số ứng với tập đó và có giá trị nằm trong khoảng từ 0 đến 1.
+Tuy nhiên, tổng của tất cả trọng số của mỗi phần tử đều phải bằng 1.
 
-Ví dụ, một người trong công ty có thể kiêm nhiều chức vụ khác nhau.
-Hướng tiếp cận không duy nhất thường được sử dụng khi mà một đối tượng ở giữa một hoặc nhiều nhóm khác nhau.
-Đồng thời, đối tượng này có thể được gán vào một trong những nhóm này mà vẫn đảm bảo được tính hợp lý.
-
-Trong gom nhóm mờ, mỗi đối tượng thuộc về mỗi nhóm với trọng số có thể là 0 (không thuộc về) hoặc là 1 (hoàn toàn thuộc về).
-Nói cách khác, các nhóm được xem như là tập hợp mờ.
-Nghĩa là các phần tử trong các nhóm này có một trong hai khả năng là 0 hoặc 1, thuộc về hoặc không thuộc về.
-Gom nhóm mờ thường có điều kiện ràng buộc là tổng của trọng số trong mỗi đối tượng phải bằng 1.
-Tương tự, kỹ thuật gom nhóm xác suất tính ra xác suất của mỗi điểm thuộc về ứng với nhóm, và tổng của xác suất này phải bằng 1.
-
-Vì tổng của trọng số hay là xác suất cho bất kỳ đối tượng nào cũng phải bằng 1, gom nhóm mờ hay là xác suất không thể chỉ ra được tình huống đa lớp, tình huống mà một đối tượng có thể thuộc về nhiều lớp.
-Thay vào đó, những hướng tiếp cận này thường thích hợp cho việc tránh ngẫu nhiên gán một đối tượng vào một nhóm duy nhất khi mà nó có thể thích hợp cho nhiều nhóm khác nhau.
-Trong thực tế, gom nhóm mờ hay là xác suất thường chuyển đổi thành gom nhóm duy nhất bằng việc gán mỗi đối tượng vào nhóm mà có trọng số hay là xác suất là cao nhất.
+Gom nhóm mờ rất giống với gom nhóm xác suất khi trọng số của mỗi đối tượng ứng với mỗi nhóm xem như xác suất của đối tượng thuộc về nhóm đó và tổng của xác suất này phải bằng 1.
+Vì tổng của trọng số có giá trị là 1 và ứng với mỗi nhóm thì đối tượng có trọng số khác nhau nên gom nhóm mờ không thể chỉ ra được tình huống mà một đối tượng có thể thuộc về nhiều nhóm.
+Thay vào đó, gom nhóm mờ thường thích hợp cho việc tránh ngẫu nhiên gán một đối tượng vào một nhóm duy nhất khi mà nó có thể thích hợp cho nhiều nhóm khác nhau.
+Trong thực tế, gom nhóm mờ thường được chuyển đổi thành gom nhóm duy nhất bằng việc gán đối tượng vào nhóm mà có trọng số cao nhất.
 
 \subsection{Toàn phần và cục bộ}
-Gom nhóm toàn phần gán mỗi đối tượng vào một nhóm, trong khi gom nhóm cục bộ thì lại khác.
-Điều thúc đẩy gom nhóm cục bộ là các đối tượng trong dữ liệu có thể không thuộc về các nhóm hiện tại.
-Vì sự hiện diện của các đối tượng này có thể gây ra nhiễu và nằm ngoài so với các đối tượng còn lại.
-Ví dụ, nhiều bài báo có thể cùng chia sẻ chủ đề như sự ấm lên của toàn cầu, trong khi đó những bài báo khác lại mô tả chung chung.
-Cho nên, đề tìm kiếm những chủ đề quan trọng trong các bài báo, ta muốn tìm những nhóm văn bản mà liên quan chặt chẽ đến chủ đề mong muốn.
-Trong những trường hợp khác, gom nhóm toàn phần thường được sử dụng. 
+Gom nhóm toàn phần là gán mỗi đối tượng vào một nhóm cụ thể, trong khi gom nhóm cục bộ thì lại khác.
+Trong gom nhóm cục bộ, một vài đối tượng có thể không được gán vào bất kì nhóm nào.
+Điều này xảy ra vì độ tương đồng giữa các đối tượng này so với các nhóm hiện tại là không cao nên các đối tượng này sẽ được loại bỏ.
+Và sự tồn tại của các đối tượng này có thể gây ra độ nhiễu trong hình dạng của gom nhóm.
 
 \section{Các loại gom nhóm}
 \label{sec:clgn}
-Gom nhóm dùng để tìm được các nhóm đối tượng hữu dụng, thế nào được xem là hữu dụng tùy vào mục đích của việc phân tích dữ liệu.
-Ta có rất nhiều cách cũng như là ý tưởng khác nhau về gom nhóm để thể chứng minh được sự hữu dụng trong thực tế.
-Để có cái nhìn tổng quát về những cách gom nhóm khác nhau, ta sẽ sử dụng dữ liệu là điểm có hai chiều.
-Tuy nhiên, những phương pháp được thảo luận dưới đây đều có thể áp dụng cho bất kì dữ liệu dạng nào.
-Nghĩa là các phương pháp có thể được sử dụng độc lập với dạng dữ liệu.
+Gom nhóm dùng để tìm được các nhóm đối tượng hữu dụng, thế nào được xem là hữu dụng tùy vào mục đích gom nhóm.
+Ta có rất nhiều cách cũng như là ý tưởng khác nhau đê thực hiện gom nhóm.
+Để có cái nhìn tổng quát về các loại gom nhóm khác nhau, ta sẽ sử dụng dữ liệu là điểm có hai chiều.
+Tuy nhiên, những phương pháp được thảo luận dưới đây đều có thể áp dụng cho bất kì dạng dữ liệu dạng nào.
 
 \subsection{Phân tách nhiều}
-Một nhóm là tập hợp của các đối tượng mà mỗi đối tượng có độ tương đồng gần hơn ở các đối tượng trong nhóm.
-Thỉnh thoảng, ta sẽ đặt ngưỡng để đặc tả, phân chia dữ liệu trong nhóm để có được độ tương đồng mà các phần tử trong nhóm phải ở mức từ ngưỡng trở lên để đảm bảo nhóm được hình thành ít nhiễu nhất có thể.
-Tuy nhiên, ý tưởng này chỉ khả thi khi mà nhóm cần phân chia phải thỏa mãn được khoảng cách giữa các nhóm cách nhau xa.
-Hình \ref{fig:pic12} đưa ra ví dụ về gom nhóm phân tách nhiều, ta có hai nhóm điểm tách biệt nhau.
-Khoảng cách giữa hai điểm bất kì của hai nhóm khác nhau luôn lớn hơn so với khoảng cách giữa hai điểm trong một nhóm.
-Gom nhóm phân tách nhiều không nhất thiết phải là hình cầu mà có thể là kì hình dạng nào.
+Một nhóm là tập hợp của các đối tượng mà mỗi đối tượng có độ tương đồng gần nhau thì ở trong cùng nhóm.
+Đôi khi ta sẽ đặt ngưỡng để đảm bảo rằng các đối tượng ở trong cùng nhóm phải có độ tương đồng bằng hoặc trên ngưỡng đó để nhóm được hình thành ít nhiễu nhất có thể.
+Tuy nhiên, ý tưởng này chỉ khả thi khi mà hình dạng của các nhóm có khoảng cách xa nhau như thể hiện trong hình \ref{fig:pic12}.
+Dựa vào hình \ref{fig:pic12}, ta có thể thấy gom nhóm phân tách nhiều đã chia các điểm nằm ở hai nhóm tách biệt nhau.
+Khoảng cách giữa hai điểm bất kì của hai nhóm khác nhau luôn lớn hơn so với khoảng cách giữa hai điểm trong cùng một nhóm.
+Gom nhóm phân tách nhiều không nhất thiết phải là hình cầu mà có thể là bất kì hình dạng nào.
 
 \begin{figure}[htp]
 \makeatletter % For spaces in paths
@@ -265,12 +261,13 @@ Gom nhóm phân tách nhiều không nhất thiết phải là hình cầu mà c
 \end{figure}
 
 \subsection{Dựa vào mẫu}
-Một nhóm là một tập hợp các đối tượng mà trong đó mỗi đối tượng gần tương đồng với mẫu.
-Nghĩa là mỗi nhóm sẽ có một mẫu, các đối tượng gần với mẫu nào sẽ nằm trong nhóm có mẫu đó.
-Đối với dữ liệu có thuộc tính liên tục, mẫu của một nhóm thường là trung điểm (nghĩa là điểm trung bình của nhóm đó).
-Khi mà trung điểm được sử dụng không hiệu quả, trong trường hợp dữ liệu tồn tại thuộc tính phân lớp, mẫu sẽ sử dụng điểm tiêu biểu, nghĩa là điểm đại diện cho toàn bộ nhóm.
-Đối với nhiều loại dữ liệu, mẫu thường được xem như là trung điểm, và trong những trường hợp như vậy, ta thường gọi gom nhóm dựa vào mẫu là gom nhóm dựa vào trung điểm.
-Hình dạng thường thấy của dạng gom nhóm này là hình cầu, hình \ref{fig:pic13}(b) cho ta thấy điều đó.
+Một nhóm là một tập hợp các đối tượng mà mỗi đối tượng trong nhóm gần tương đồng với mẫu.
+Điều này có nghĩa là mỗi nhóm sẽ được đại diện bởi một mẫu, các đối tượng gần với mẫu nào sẽ nằm trong nhóm có mẫu đó.
+Đối với dữ liệu có thuộc tính liên tục, mẫu của một nhóm thường là trung điểm (nghĩa là điểm trung bình của tất cả các điểm trong nhóm đó).
+Tuy nhiên, khi dữ liệu tồn tại thuộc tính phân lớp thì sử dụng trung điểm sẽ không hiệu quả.
+Thay vào đó, ta sẽ sử dụng mẫu là điểm tiêu biểu (điểm đại diện cho toàn bộ nhóm).
+Đối với nhiều loại dữ liệu, mẫu thường được xem như là trung điểm và trong những trường hợp như vậy, ta thường gọi gom nhóm dựa vào mẫu là gom nhóm dựa vào trung điểm.
+Hình dạng thường thấy của dạng gom nhóm này là hình cầu, hình \ref{fig:pic13} cho ta thấy điều đó.
 
 \begin{figure}[htp]
 \makeatletter % For spaces in paths
@@ -410,18 +407,16 @@ Hình dạng thường thấy của dạng gom nhóm này là hình cầu, hình
 \end{figure}
 
 \subsection{Dựa vào đồ thị}
-Nếu như dữ liệu được biểu diễn như là đồ thị, với nốt là các đối tượng và các liên kết thể hiện phần kết nối giữa các đối tượng.
-Khi đó, nhóm được định nghĩa như là một thành phần liên kết, nghĩa là một nhóm bao gồm các đối tượng liên kết với nhau nhưng mà không tồn tại liên kết với các đối tượng ở ngoài nhóm.
-Một ví dụ quan trọng của gom nhóm dựa vào đồ thị là gom nhóm dựa vào tính liền kề, khi mà hai đối tượng được liên kết khi và chỉ khi hai điểm nằm trong khoảng cách đặc tả của nhau.
-Điều này ngầm chỉ định mỗi đối tượng trong nhóm liền kề luôn ở gần hơn so với một vài đối tượng khác ở trong cùng nhóm và hơn hẳn những đối tượng ở khác nhóm.
+Nếu như dữ liệu được biểu diễn như là đồ thị, với nốt là các đối tượng và các liên kết thể hiện phần kết nối giữa các đối tượng thì nhóm được định nghĩa như là một thành phần liên kết, nghĩa là một nhóm bao gồm các đối tượng liên kết với nhau nhưng mà không tồn tại liên kết với các đối tượng ở ngoài nhóm.
+Một ví dụ quan trọng của gom nhóm dựa vào đồ thị là gom nhóm dựa vào tính liền kề, hai đối tượng được liên kết khi và chỉ khi hai đối tượng này nằm trong khoảng cách đặc tả của nhau.
+Điều này có nghĩa là các đối tượng ở trong cùng nhóm luôn ở gần với nhau hơn so với các đối tượng ở trong nhóm khác.
 Hình \ref{fig:pic14} chỉ ra ví dụ về gom nhóm dựa vào liền kề.
 
-Cách sử dụng gom nhóm này chỉ hữu dụng khi các nhóm này dị biệt hoặc là quấn vào nhau.
-Tuy nhiên, một vấn đề cần chú ý là cách gom nhóm này có thể xuất hiện nhiễu, như trong hình \ref{fig:pic14}, một cây cầu nhỏ xuất hiện tạo thành cầu nối giữa hai nhóm riêng biệt.
-Những loại gom nhóm dựa vào đồ thị cũng có thể sử dụng được.
+Cách sử dụng gom nhóm này chỉ hữu dụng khi hình dạng của các nhóm này dị biệt hoặc là quấn vào nhau.
+Tuy nhiên, một vấn đề cần chú ý là cách gom nhóm này có thể xuất hiện nhiễu, như trong hình \ref{fig:pic14}, một đoạn thẳng xuất hiện tạo thành cầu nối giữa hai nhóm riêng biệt.
+Những loại gom nhóm khác dựa vào đồ thị cũng có thể gặp trường hợp tương tự.
 Một trong những hướng tiếp cận này là clique, một tập hợp các nốt trong đồ thị mà kết nối hoàn toàn với nhau.
-Đặc biệt, nếu ta có thể thêm vào phần kết nối giữa các đối tượng theo thứ tự dựa vào khoảng cách, nhóm được hình thành rồi từ đó tạo thành tập đối tượng tạo nên clique.
-Cũng như gom nhóm dựa vào mẫu, các nhóm theo phương pháp này thường có xu hướng tạo nên hình cầu.
+Cũng như gom nhóm dựa vào mẫu, các nhóm được gom dựa vào phương pháp này thường có xu hướng tạo nên hình cầu.
 
 \begin{figure}[htp]
 \makeatletter % For spaces in paths
@@ -445,9 +440,9 @@ Cũng như gom nhóm dựa vào mẫu, các nhóm theo phương pháp này thư�
 
 \subsection{Dựa vào mật độ}
 Nhóm được định nghĩa là vùng mật độ của các đối tượng mà bao quanh nó là vùng có mật độ thấp.
-Hình \ref{fig:pic15} cho ta thấy gom nhóm dựa vào mật độ cho dữ liệu được tạo bằng cách thêm độ nhiễu cho dữ liệu từ hình \ref{fig:pic14}.
-Hai hình tròn không có trộn vào nhau như hình \ref{fig:pic14}, bởi vì phần cầu nối giữa hai nhóm bị che mờ trong phần nhiễu.
-Tương tự, phần cong thể hiện trong hình \ref{fig:pic14} cũng bị che mờ trong phần nhiễu và không tạo thành nhóm trong hình \ref{fig:pic15}.
+Hình \ref{fig:pic15} cho ta thấy gom nhóm dựa vào mật độ với dữ liệu được tạo bằng cách thêm độ nhiễu cho dữ liệu từ hình \ref{fig:pic14}.
+Hai hình tròn đã không còn đường kết nối như hình \ref{fig:pic14}, bởi vì đường kết nối giữa hai nhóm bị che mờ trong phần nhiễu.
+Tương tự, đoạn đường cong thể hiện trong hình \ref{fig:pic14} cũng bị che mờ trong phần nhiễu và không tạo thành nhóm trong hình \ref{fig:pic15}.
 
 \begin{figure}[htp]
 \makeatletter % For spaces in paths
@@ -529,13 +524,14 @@ Tương tự, phần cong thể hiện trong hình \ref{fig:pic14} cũng bị ch
 
 
 \subsection{Chia sẻ thuộc tính (gom nhóm theo ý tưởng)}
-Ta có thể định nghĩa nhóm như là tập hợp của các đối tượng mà chia sẻ chung thuộc tính.
-Cách định nghĩa này bao gồm tất cả định nghĩa về gom nhóm ở các phần trước.
-Các đối tượng sẽ nằm trong nhóm trung tâm chia sẻ thuộc tính mà tất cả cùng ở gần điểm trung tâm hay là điểm tiêu biểu, như là các nhóm ở trong hình \ref{fig:pic16}.
-Khu vực tam giác nằm kế cận khu vực tứ giác và 2 đường tròn quấn vào nhau.
-Trong cả 2 trường hợp trên, thuật toán gom nhóm cần ý tưởng đặc tả của nhóm để có thể tìm được thành công những nhóm này.
+Ta có thể định nghĩa nhóm như là tập hợp của các đối tượng mà chia sẻ thuộc tính chung.
+Khái niệm này bao gồm tất cả định nghĩa về nhóm ở các phần trước.
+Chẳng hạn, khi gom nhóm dựa vào trung điểm, các đối tượng nằm gần khu vực trung tâm của nhóm có thuộc tính gần giống với điểm trung tâm hay là điểm tiêu biểu, như là các nhóm ở trong hình \ref{fig:pic16}.
+Tuy nhiên, gom nhóm dựa vào chia sẻ thuộc tính có thể tạo ra dạng nhóm mới.
+Dựa vào hình \ref{fig:pic16}, khu vực tam giác nằm kế cận khu vực tứ giác và 2 đường tròn quấn vào nhau.
+Trong cả 2 trường hợp trên, thuật toán gom nhóm cần lưu ý hình dạng đặc tả của nhóm để có thể tìm được những nhóm này thành công.
 Quá trình tìm kiếm những nhóm như vậy được gọi là gom nhom theo ý tưởng.
-Tuy nhiên, nếu ý tưởng của nhóm quá phức tạp có thể dẫn đến nhận diện mẫu.
+Tuy nhiên, nếu hình dạng của nhóm quá phức tạp có thể dẫn đến nhận diện mẫu.
 
 \begin{figure}[htp]
 \makeatletter % For spaces in paths
@@ -573,17 +569,42 @@ Tuy nhiên, nếu ý tưởng của nhóm quá phức tạp có thể dẫn đ�
 \end{figure}
 
 
-\section{Phương pháp gom nhóm}
+\section{Phương pháp gom nhóm văn bản}
 \label{sec:ppgn}
-Dựa vào những loại gom nhóm được đề cập ở \ref{sec:clgn}, ta có thể liệt kê ra các phương pháp gom nhóm sau:
-\begin{enumerate}
-\item[•]\textbf{K-means}: đây là phương pháp gom nhóm theo mẫu và sử dụng kỹ thuật phân chia để có thể tìm được số lượng nhóm biết trước (K), và mỗi nhóm được đại diện bằng điểm trung tâm.
-\item[•]\textbf{Gom nhóm phân cấp tích tụ}: cách gom nhóm này tiếp cận theo một tập hợp của những nhóm liên quan mật thiết mà tạo ra được các nhóm phân cấp bằng việc bắt đầu với mỗi điểm như là một nhóm đơn lẻ và sau đó thì không ngừng trộn những nhóm ở gần với nhau nhất cho đến khi chỉ còn lại một nhóm duy nhất.
-Một vài kỹ thuật của cách tiếp cận này có kiểu thực thi theo cách gom nhóm theo đồ thị, trong khi một số khác thì theo hướng tiếp cận gom nhóm theo mẫu.
-\item[•]\textbf{DBSCAN}: đây là thuật toán gom nhóm the hướng dựa vào mật độ tạo ra các nhóm được phân chia, trong đó số lượng nhóm được xác định tự động bởi thuật toán.
-Những điểm nằm trong vùng mật độ thấp được xem như là nhiễu và bị loại bỏ.
-Vì vậy, DBSCAN không thể tạo ra gom nhóm hoàn chỉnh.
-\end{enumerate}
+Dựa vào những loại gom nhóm được đề cập ở \ref{sec:clgn}, ta có các phương pháp gom nhóm văn bản sau:
+\subsection{Gom nhóm văn bản phân chia} ~\cite{partitioning-clustering, partitioning-clustering-Krish}
+Gom nhóm văn bản phân chia tạo thành các nhóm dựa vào số lượng $K$ nhóm cho trước với điều kiện $K$ nhỏ hơn số lượng văn bản.
+Các nhóm này được hình thành sao cho tối tiểu hóa tổng của bình phương khoảng cách.
+\begin{equation}
+\sum_{m=1}^k \sum{t_{mi} \in K_m} (C_m - t_{mi})^2
+\end{equation}
+Hướng tiếp cận này có tối ưu toàn cục với mỗi nhóm có ít nhất một văn bản và mỗi văn bản chỉ thuộc về một nhóm duy nhất.
+Các thuật toán tiêu biểu là k-means (mỗi nhóm được đại diện bởi điểm trung tâm) và k-medoids (mỗi nhóm được đại diện bởi điểm tiêu biểu).
+
+Trong đó, thuật toán k-means được triển khai tương đối đơn giản.
+Trước hết, ta khởi tạo $K$ nhóm với điểm trung tâm ngẫu nhiên.
+Mỗi văn bản sẽ được gán vào nhóm có điểm trung tâm gần nhất.
+Sau đó, ta sẽ cập nhật lại vị trí điểm trung tâm cho từng nhóm.
+Thuật toán sẽ được lặp cho đến khi hội tụ.
+
+\textbf{Ưu điểm}
+
+\textbf{Khuyết điểm}
+
+\subsection{Gom nhóm văn bản phân cấp}
+~\cite{hierarchical-clustering}
+
+\subsection{Gom nhóm văn bản mật độ}
+~\cite{density-clustering}
+
+%\begin{enumerate}
+%\item[•]\textbf{K-means}: đây là phương pháp gom nhóm theo mẫu và sử dụng kỹ thuật phân chia để có thể tìm được số lượng nhóm biết trước (K), và mỗi nhóm được đại diện bằng điểm trung tâm.
+%\item[•]\textbf{Gom nhóm phân cấp tích tụ}: cách gom nhóm này tiếp cận theo một tập hợp của những nhóm liên quan mật thiết mà tạo ra được các nhóm phân cấp bằng việc bắt đầu với mỗi điểm như là một nhóm đơn lẻ và sau đó thì không ngừng trộn những nhóm ở gần với nhau nhất cho đến khi chỉ còn lại một nhóm duy nhất.
+%Một vài kỹ thuật của cách tiếp cận này có kiểu thực thi theo cách gom nhóm theo đồ thị, trong khi một số khác thì theo hướng tiếp cận gom nhóm theo mẫu.
+%\item[•]\textbf{DBSCAN}: đây là thuật toán gom nhóm the hướng dựa vào mật độ tạo ra các nhóm được phân chia, trong đó số lượng nhóm được xác định tự động bởi thuật toán.
+%Những điểm nằm trong vùng mật độ thấp được xem như là nhiễu và bị loại bỏ.
+%Vì vậy, DBSCAN không thể tạo ra gom nhóm hoàn chỉnh.
+%\end{enumerate}
 
 \section{Mục tiêu của đồ án}
 Dựa vào những phương pháp đã liệt kê ở \ref{sec:ppgn} thì phương pháp gom nhóm phân cấp cho ta thấy được kết quả tốt hơn so với K-means và DBSCAN.
