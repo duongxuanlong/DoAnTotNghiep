@@ -121,6 +121,7 @@ Theo như ~\cite{wiki-HAC}, thuật toán gom nhóm phân cấp theo hướng t�
 
 %Các phương pháp liên kết trong hướng tiếp cận tích tụ
 \section{Các phương pháp liên kết}
+\label{sec:cpplk}
 ~\cite{AHC, Vipin-Kumar} Trong thuật toán \ref{agl:agglomerative}, mấu chốt của vấn đề là cách tính độ tương đồng giữa các nhóm.
 Cách tính độ tương đồng khác nhau có thể dẫn đến kết quả khác nhau của gom nhóm phân cấp tích tụ.
 Độ tương đồng của các nhóm được tính bằng cách sử dụng nhiều kỹ thuật liên kết khác nhau.
@@ -530,11 +531,12 @@ Do $dist(\{3, 6, 4\}, \{2, 5\})$ nhỏ hơn $dist(\{3, 6, 4\}, \{1\})$ và $dist
 \label{fig:pic28}
 \end{figure}
 
-\subsection{Kỹ thuật điểm trung tâm và phương pháp Ward}
-~\cite{Vipin-Kumar, AHC, hierarchical-clustering, centroid} Độ tương đồng của phương pháp Ward giữa hai nhóm được định nghĩa là sự gia tăng lỗi toàn phương cho ra kết quả lúc gom 2 nhóm lại với nhau.
+\subsection{Phương pháp Ward và điểm trung tâm}
+~\cite{Vipin-Kumar, AHC, hierarchical-clustering} Phương pháp Ward tính độ tương đồng của 2 nhóm bằng sự gia tăng SSE trong quá trình gom 2 nhóm với nhau.
 Vì vậy, phương pháp này có hàm mục tiêu giống như phương pháp gom nhóm K-means.
-Tuy nhiên, phương pháp này dường như là kỹ thuật hơi tách biệt so với những phương pháp gom nhóm phân cấp khác.
-Phương pháp Ward có công thức đại số chỉ ra rằng kỹ thuật này gần giống với phương pháp nhóm trung bình khi mà độ tương đồng giữa hai điểm là khoảng cách được bình phương giữa chúng.
+So với các phương pháp đã thảo luận ở trên thì phương pháp này có kỹ thuật hơi khác biệt.
+Mặc dù vậy, công thức tính độ tương đồng của phương pháp Ward có chút tương đồng với phương pháp nhóm trung bình.
+Điểm khác biệt của phương pháp Ward so với nhóm trung bình là khoảng cách giữa 2 điểm sẽ được bình phương lên.
 Hình \ref{fig:pic29} sau đây thể hiện kết quả của việc áp dụng phương pháp Ward. Kết quả của quá trình gom nhóm hơi khác so với các kỹ thuật nhỏ nhất, lớn nhất và nhóm trung bình.
 
 \begin{figure}[htp]
@@ -592,17 +594,19 @@ Hình \ref{fig:pic29} sau đây thể hiện kết quả của việc áp dụng
 \label{fig:pic29}
 \end{figure}
 
-Kỹ thuật điểm trung tâm tính độ tương đồng giữa hai nhóm bằng việc tính khoảng cách giữa hai điểm trung tâm của hai nhóm.
+~\cite{Vipin-Kumar, AHC, hierarchical-clustering, centroid} Gom nhóm phân cấp tích tụ theo điểm trung tâm tính độ tương đồng của 2 nhóm bằng cách tính độ tương đồng của 2 điểm trung tâm trong mỗi nhóm.
 %Kỹ thuật này dường như tương đồng với K-means, nhưng cần lưu ý rằng phương pháp Ward mới gần tương đồng với kỹ thuật này.
-Ngoài ra, kỹ thuật điểm trung tâm còn có đặc tính khác là sự khả nghịch mà những kỹ thuật khác không thể hiện được.
-Đối với gom nhóm phân cấp, quá trình gom hai nhóm càng về sau thì độ tương đồng giảm so kết quả gom nhóm trước đó.
-Tuy nhiên, sự khả nghịch có thể làm đảo chiều quá trình này, nghĩa là độ tương đồng về sau có thể tăng chứ không phải giảm.
+Ngoài ra, kỹ thuật này còn có đặc tính khác là sự khả nghịch mà những kỹ thuật khác không thể hiện được.
+Đối với các kỹ thuật gom nhóm phân cấp tích tụ khác đã được thảo luận, độ tương đồng của quá trình gom nhóm càng về sau thì càng giảm.
+Tuy nhiên, sự khả nghịch của phương pháp gom nhóm phân cấp tích tụ theo điểm trung tâm có thể làm đảo chiều quá trình này, nghĩa là độ tương đồng về sau có thể tăng chứ không phải giảm.
+Điều này thường được xem là không tốt vì gây khó khăn cho việc phân tích cây phân cấp.
 
-\subsection{Công thức Lance-William cho độ tương đồng nhóm}
-Các cách tính dộ tương đồng nhóm mà được thảo luận ở những phần trước có thể được xem như là những tham số khác nhau cho độ tương đồng giữa 2 nhóm $Q$ và $R$.
-$R$ được tạo thành từ quá trình gom 2 nhóm $A$ và $B$.
-Trong công thức \ref{eq:2_Lance_William}, $p(.,.)$ là hàm tương đồng, với $m_A, \, m_B$ và $m_Q$ là số lượng phần tử tương ứng trong nhóm $A, \, B$ và $Q$.
-Nói cách khác, sau khi gom 2 nhóm $A$ và $B$ thành nhóm $R$, độ tương đồng của nhóm mới $R$ đối với nhóm hiện có $Q$ là hàm tuyến tính của độ tương đồng của nhóm $Q$ đối với 2 nhóm ban đầu $A$ và $B$.
+\section{Công thức Lance-William cho độ tương đồng nhóm}
+~\cite{Vipin-Kumar} Các cách tính độ tương đồng của 2 nhóm mà được thảo luận ở phần trước \ref{sec:cpplk} có thể được tham số hóa như trong công thức \ref{eq:2_Lance_William} với các hệ số từ bảng \ref{tab:2_3}.
+Chẳng hạn, ta có 2 nhóm $Q$ và $R$ với $R$ được tạo thành từ quá trình gom 2 nhóm khác là $A$ và $B$.
+Ta sẽ sử dụng công thức \ref{eq:2_Lance_William} để tính độ tương đồng của 2 nhóm $Q$ và $R$ với $p(.,.)$ là hàm tương đồng của 2 nhóm, $m_A, \, m_B$ và $m_Q$ là số lượng phần tử tương ứng trong nhóm $A, \, B$ và $Q$.
+Độ tương đồng của 2 nhóm $Q$ và $R$ là hàm tuyến tính của độ tương đồng giữa $Q$ với 2 nhóm gốc $A$ và $B$ (2 nhóm tạo nên $R$).
+%Sau khi gom 2 nhóm $A$ và $B$ thành nhóm $R$, độ tương đồng của nhóm mới $R$ đối với nhóm hiện có $Q$ là hàm tuyến tính của độ tương đồng của nhóm $Q$ đối với 2 nhóm ban đầu $A$ và $B$.
 Bảng \ref{tab:2_3} chỉ ra những giá trị của hệ số cho những kỹ thuật mà đã được thảo luận.
 
 \begin{equation}
@@ -610,9 +614,10 @@ Bảng \ref{tab:2_3} chỉ ra những giá trị của hệ số cho những k�
 p(R,Q)=\alpha_Ap(A,Q) + \alpha_Bp(B,Q) + \beta p(A,B) + \gamma |p(A, Q) - p(B, Q)|
 \end{equation}
 
-Bất kỳ kỹ thuật gom nhóm phân cấp nào cũng có thể biểu diễn dưới dạng công thức của Lance-William và không cần giữ lại dữ liệu gốc ban đầu.
-Thay vào đó, ma trận tương đồng sẽ cập nhật khi gom nhóm xảy ra.
-Công thức Lance-William giúp cho ta có cái nhìn tổng quát cũng như là dễ thực thi trong lập trình.
+Bất kỳ kỹ thuật gom nhóm phân cấp nào cũng có thể biểu diễn dưới dạng công thức của Lance-William.
+Ngoài ra, gom nhóm phân cấp tích tụ còn có thể loại bỏ dữ liệu gốc ban đầu bằng việc xây dựng ma trận tương đồng như bảng \ref{tab:2_2}.
+Khi có nhóm mới xuất hiện, ma trận tương đồng sẽ được cập nhật giá trị giữa nhóm mới với các nhóm khác theo kỹ thuật đã được thảo luận ở phần \ref{sec:cpplk}.
+Nhìn chung, công thức Lance-William giúp cho ta có cái nhìn tổng quát cũng như là dễ thực thi trong lập trình.
 
 \begin{table}[h!]
 \centering
@@ -648,14 +653,14 @@ Phương pháp Ward   & $\frac{m_A + m_Q}{m_A + m_B + m_Q}$ & $\frac{m_B + m_Q}{
 %}
 %\end{table}
 
-\subsection{Những vấn đề trong gom nhóm phân cấp}
-\subsubsection{Thiếu hàm mục tiêu toàn cục}
+\section{Những vấn đề trong gom nhóm phân cấp}
+\subsection{Thiếu hàm mục tiêu toàn cục}
 Gom nhóm phân cấp tích tụ không thể được xem như là hàm mục tiêu tối ưu toàn cục.
 Thay vào đo, gom nhóm phân cấp tích tụ sử dụng những kỹ thuật khác nhau để quyết định ở cục bộ mỗi bước thì nhóm nào sẽ được gom vào (hoặc là tách nếu sử dụng hướng tiếp cận phân chia).
 Cách tiếp cận này tạo ra thuật toán gom nhóm tránh được khó khăn khi giải quyết vấn đề tối ưu kết hợp trong trường hợp khó.
 Ngoài ra, gom nhóm phân cấp tích tụ không gặp phải vấn đề chọn điểm khởi tạo.
 
-\subsubsection{Khả năng xử lý kích cỡ nhóm khác nhau}
+\subsection{Khả năng xử lý kích cỡ nhóm khác nhau}
 Một khía cạnh khác của gom nhóm phân cấp tích tụ là ta vẫn chưa thảo luận làm sao để xử lý kích cỡ của cặp nhóm vừa mới được gom vào nhau (Vấn đề này chỉ áp dụng khi sử dụng độ tương đồng nhóm liên quan đến tổng như trung điểm, phương pháp Ward và nhóm trung bình).
 Đối với vấn đề này, có 2 hướng tiếp cận: có trọng số, khi xem tất cả các nhóm là như nhau hoặc là không có trọng số, xem xét số lượng điểm trong mỗi nhóm.
 Lưu ý rằng có trọng số hay không có trọng số liên quan đến số lượng điểm trong dữ liệu, chứ không phải nhóm.
@@ -685,7 +690,7 @@ Trong trường hợp ta sử dụng gom nhóm trung bình có trọng số thì
 
 Trong trường hợp tổng quát, cách tiếp cận không có trọng số được sử dụng nhiều trừ khi có lý do để tin tưởng rằng mỗi một điểm nên có trọng số riêng.
 
-\subsubsection{Quyết định gom nhóm là cuối cùng}
+\subsection{Quyết định gom nhóm là cuối cùng}
 Gom nhóm phân cấp tích tụ có xu hường chọn quyết định cục bộ tốt về kết hợp giữa 2 nhóm khi mà cùng sử dụng thông tin về độ tương đồng của nhau.
 Tuy nhiên, một khi quyết định gom 2 nhóm lại với nhau được thực hiện thì không có cách nào có thể làm ngược lại được.
 Cách tiếp cận này ngăn chặn tiêu chuẩn tối ưu cục bộ từ trở thành tiêu chuẩn tối ưu toàn cục.
