@@ -27,15 +27,16 @@ Gom nhóm văn bản cần có được tính khả dụng trong các nhiệm v�
 \end{enumerate}
 
 \section{Bài toán gom nhóm văn bản}
-Trong nhiều ứng dụng, khái niệm về nhóm được định nghĩa không rõ ràng.
-Cho nên, ta cần phải hiểu rõ một nhóm được tạo thành như thế nào trong quá trình gom nhóm.
+Trước khi tiến hành gom nhóm, ta cần phải hiểu rõ định nghĩa của nhóm là gì.
+Vì trong nhiều ứng dụng, khái niệm về nhóm được định nghĩa không rõ ràng.
+Cho nên, ta cần phải biết được một nhóm được tạo thành như thế nào trong quá trình gom nhóm.
 Nhìn vào hình \ref{fig:pic11}, ta thấy có 20 điểm nhưng lại có đến 3 cách khác nhau để tạo thành nhóm.
 Ta có thể dựa vào hình dạng của dữ liệu để thấy được mối quan hệ giữa các nhóm để tiến hành gom nhóm.
 Dựa vào hình \ref{fig:pic11}(a) và hình \ref{fig:pic11}(b), ta có thể chia dữ liệu thành 2 nhóm khác nhau với mỗi nhóm gồm 6 điểm.
 Tuy nhiên, khi quan sát kỹ hơn, ta có thể chia mỗi nhóm lớn này thành 2 nhóm nhỏ hơn như hình \ref{fig:pic11}(c).
 Điều này mang tính chất chủ quan dựa vào cách nhìn của từng người mà ta có thể chia thành những nhóm con khác nhau.
 Thậm chí, ta có thể tạo thành 6 nhóm khác nhau như hình \ref{fig:pic11}(d).
-Vì vậy, định nghĩa về nhóm chỉ mang tính tương đối và cách tiếp cận tốt nhất là ta phải dựa vào bản chất của dữ liệu và kết quả mong muốn.
+Vì vậy, định nghĩa về nhóm chỉ mang tính tương đối và cách tiếp cận tốt nhất để gom nhóm là ta phải dựa vào bản chất của dữ liệu và kết quả mong muốn.
 Đối với gom nhóm văn bản, một nhóm được xem là gồm những văn bản có độ tương đồng gần giống nhau.
 
 \begin{figure}[htp]
@@ -214,7 +215,7 @@ Với những trường hợp mà một đối tượng có thể nằm trong nh
 %Ví dụ, một người trong công ty có thể kiêm nhiều chức vụ khác nhau.
 %Hướng tiếp cận không duy nhất thường được sử dụng khi mà một đối tượng ở giữa một hoặc nhiều nhóm khác nhau.
 %Đồng thời, đối tượng này có thể được gán vào một trong những nhóm này mà vẫn đảm bảo được tính hợp lý.
-Ngoài ra, ta còn có thêm hình dạng của các nhóm mờ với mỗi đối tượng thuộc về từng nhóm ứng với trọng số nằm trong khoảng từ 0 (không thuộc về) đến 1 (hoàn toàn thuộc về).
+Ngoài ra, ta còn có thêm hình dạng của các nhóm mờ với mỗi đối tượng thuộc về từng nhóm ứng với trọng số có giá trị trong khoảng từ 0 (không thuộc về) đến 1 (hoàn toàn thuộc về).
 Nói cách khác, các nhóm này được xem như là tập hợp mờ.
 Tập hợp mờ là tập hợp mà các phần tử ở trong bất kì tập nào đều có trọng số ứng với tập đó và có giá trị nằm trong khoảng từ 0 đến 1.
 Tuy nhiên, tổng của tất cả trọng số của mỗi phần tử đều phải bằng 1.
@@ -234,7 +235,7 @@ Và sự tồn tại của các đối tượng này có thể gây ra độ nhi
 \label{sec:clgn}
 Gom nhóm dùng để tìm được các nhóm đối tượng hữu dụng, thế nào được xem là hữu dụng tùy vào mục đích gom nhóm.
 Ta có rất nhiều cách cũng như là ý tưởng khác nhau đê thực hiện gom nhóm.
-Để có cái nhìn tổng quát về các loại gom nhóm khác nhau, ta sẽ sử dụng dữ liệu là điểm có hai chiều.
+Để có cái nhìn tổng quát về các loại gom nhóm khác nhau, ta sẽ sử dụng dữ liệu là điểm có hai chiều cho các ví dụ được thảo luận sau đây.
 Tuy nhiên, những phương pháp được thảo luận dưới đây đều có thể áp dụng cho bất kì dạng dữ liệu dạng nào.
 
 \subsection{Phân tách nhiều}
@@ -572,8 +573,8 @@ Tuy nhiên, nếu hình dạng của nhóm quá phức tạp có thể dẫn đ�
 \section{Phương pháp gom nhóm văn bản}
 \label{sec:ppgn}
 Dựa vào những loại gom nhóm được đề cập ở \ref{sec:clgn}, ta có các phương pháp gom nhóm văn bản sau:
-\subsection{Gom nhóm văn bản phân chia}%~\cite{partitioning-clustering, partitioning-clustering-Krish}
-Gom nhóm văn bản phân chia tạo thành các nhóm dựa vào số lượng $K$ nhóm cho trước với điều kiện $K$ nhỏ hơn số lượng văn bản.
+\subsection{Gom nhóm văn bản phân chia}
+~\cite{partitioning-clustering, partitioning-clustering-Krish} Gom nhóm văn bản phân chia tạo thành các nhóm dựa vào số lượng $K$ nhóm cho trước với điều kiện $K$ nhỏ hơn số lượng văn bản.
 Các nhóm này được hình thành sao cho tối tiểu hóa tổng của bình phương khoảng cách.
 \begin{equation}
 \sum_{m=1}^k \sum{t_{mi} \in K_m} (C_m - t_{mi})^2
@@ -598,20 +599,22 @@ Thuật toán sẽ được lặp cho đến khi hội tụ.
 \begin{enumerate}
 \item[•]Hướng tiếp cận này phải chọn trước $K$ nhóm cần phải gom.
 \item[•]Tất cả các văn bản buộc phải gom vào một nhóm cố định.
-\item[•]Cách tiếp cận này không thể xử lý nhiễu hoặc văn bản ngoại vi vì quá nhạy cảm với các văn bản ngoại vi.
-\item[•]Hướng tiếp cận này không thích hợp đề tìm kiếm hình dạng các nhóm mà không phải là đa giác lồi.
+\item[•]Cách tiếp cận này không thể xử lý nhiễu hoặc văn bản tách biệt vì quá nhạy cảm với các văn bản tách biệt.
+\item[•]Hướng tiếp cận này không thích hợp để tìm kiếm hình dạng các nhóm mà không phải là đa giác lồi.
 \end{enumerate}
 
-\subsection{Gom nhóm văn bản phân cấp} %~\cite{hierarchical-clustering}
-Gom nhóm văn bản phân cấp tạo ra các nhóm lồng vào nhau thành cấu trúc cây phân cấp.
+\subsection{Gom nhóm văn bản phân cấp}
+~\cite{hierarchical-clustering} Gom nhóm văn bản phân cấp tạo ra các nhóm lồng vào nhau thành cấu trúc cây phân cấp.
+Hình ảnh của cấu trúc cây phân cấp cho ta thấy được quan hệ giữa các nhóm.
 Phương pháp này có 2 cách tiếp cận khác nhau: gom nhóm phân cấp tích tụ  và gom nhóm phân cấp phân chia.
-Gom nhóm phân cấp tích tụ bắt đầu mỗi nhóm là một văn bản rồi gom dần các văn bản lại với nhau cho đến khi chỉ còn một nhóm duy nhất.
-Gom nhóm phân cấp phân chia bắt đầu với tất cả các văn bản là một nhóm lớn rồi chia dần nhóm này đến khi mỗi nhóm chỉ có một văn bản.
+Gom nhóm phân cấp tích tụ bắt đầu với mỗi nhóm là một văn bản rồi từ từ gom dần các văn bản lại với nhau cho đến khi chỉ còn một nhóm duy nhất.
+Gom nhóm phân cấp phân chia bắt đầu với tất cả các văn bản là một nhóm lớn rồi chia nhỏ dần nhóm này đến khi mỗi nhóm chỉ có một văn bản.
 
 \textbf{Ưu điểm}
 \begin{enumerate}
-\item[•]Hướng tiếp cận không cần phải đưa trước số nhóm cụ thể cần phải gom.
+\item[•]Hướng tiếp cận này không cần phải đưa trước số nhóm cụ thể cần phải gom.
 \item[•]Phương pháp này có thể cho ta số nhóm mong muốn bằng việc cắt tại một mức nào đó của cây phân cấp.
+\end{enumerate}
 
 \textbf{Khuyết điểm}
 \begin{enumerate}
@@ -620,19 +623,29 @@ Gom nhóm phân cấp phân chia bắt đầu với tất cả các văn bản l
 \item[•]Cách tiếp cận này có độ phức tạp khá cao, ít nhất là $O(n^2)$ với n là số lượng nhóm cần phải gom.
 \end{enumerate}
 
-\subsection{Gom nhóm văn bản mật độ} %~\cite{density-clustering}
-Gom nhóm văn bản mật độ xem mỗi văn bản như là tâm và với bán kính cho trước, ta tính khoảng cách từ tâm đến các văn bản khác và nếu khoảng cách này nhỏ hơn bán kính thì văn bản đó sẽ được gom lại vào thành một nhóm.
+\subsection{Gom nhóm văn bản mật độ} 
+~\cite{Manojit-Nandi} Gom nhóm văn bản mật độ xem mỗi văn bản như là tâm của đường tròn.
+Thuật toán bắt đầu với bán kính $\epsilon$ cho trước, ta tính khoảng cách từ tâm đến các văn bản khác và nếu khoảng cách này nhỏ hơn bán kính $\epsilon$ thì văn bản đó sẽ được gom lại vào thành một nhóm.
+Phương pháp gom nhóm này sẽ cho ta thấy được số nhóm sẽ có trong ngữ liệu mà không cần phải cho trước.
 Thuật toán tiêu biểu cho hướng tiếp cận này là DBSCAN.
 
 \textbf{Ưu điểm}
 \begin{enumerate}
 \item[•]Hướng tiếp cận không cần phải đưa trước số nhóm cụ thể cần phải gom.
+\end{enumerate}
 
 \textbf{Khuyết điểm}
 \begin{enumerate}
 \item[•]Những điểm nằm trong vùng mật độ thấp được xem như là nhiễu và bị loại bỏ.
 \item[•]Cần xác định bán kính cụ thể và số lượng văn bản ít nhất để tạo thành nhóm.
 \end{enumerate}
+
+%@online{densitycluster,
+% author               = {Manojit Nandi},
+% title                = {Density-Based Clustering},
+% url                  = {https://blog.dominodatalab.com/topology-and-density-based-clustering},
+% urldate              = {9 September 2015},
+%}
 
 %\begin{enumerate}
 %\item[•]\textbf{K-means}: đây là phương pháp gom nhóm theo mẫu và sử dụng kỹ thuật phân chia để có thể tìm được số lượng nhóm biết trước (K), và mỗi nhóm được đại diện bằng điểm trung tâm.
@@ -644,9 +657,17 @@ Thuật toán tiêu biểu cho hướng tiếp cận này là DBSCAN.
 %\end{enumerate}
 
 \section{Mục tiêu của đồ án}
-Dựa vào những phương pháp đã liệt kê ở \ref{sec:ppgn} thì phương pháp gom nhóm phân cấp cho ta thấy được kết quả tốt hơn so với K-means và DBSCAN.
-Vì gom nhóm phân cấp không cần biết trước số lượng nhóm (K-means cần biết trước số lượng nhóm) và không làm mất dữ liệu (như DBSCAN).
-Ngoài ra, ta có thể có được kết quả phân chia giống như K-means khi thực hiện vết cắt tại một mức độ trong gom nhóm phân cấp.
-Mục tiêu của đồ án là gom nhóm tin tức tiếng Việt nên cần lựa chọn phương pháp tối ưu nhất đẻ thực hiện.
-Tuy nhiên, khi gom nhóm với dữ liệu lớn thì số chiều của dữ liệu tăng lên rất nhiều làm chậm quá trình thực thi.
-Vì vậy, việc sử dụng cách thể hiện dữ liệu khác để làm giảm số chiều như doc2vec có thể làm tăng hiệu năng và làm nhanh quá trình thực thi.
+Mục tiêu của đồ án là gom nhóm văn bản tiếng Việt.
+Trong số những phương pháp đã liệt kê ở \ref{sec:ppgn} thì phương pháp gom nhóm phân cấp được sử dụng cho mục tiêu của đồ án vì:
+\begin{enumerate}
+\item[•]Gom nhóm phân cấp không cần biết trước số lượng nhóm (K-means cần biết trước số lượng nhóm).
+\item[•]Gom nhóm phân cấp bảo toàn dữ liệu (DBSCAN có thể loại bỏ nhiễu).
+\item[•]Gom nhóm phân cấp còn có thể cho ta có được kết quả của gom nhóm phân chia giống như K-means khi thực hiện vết cắt tại một mức nào đó trong cây phân cấp.
+\end{enumerate}
+
+Thông thường, gom nhóm thường hay sử dụng văn bản được biểu diễn dưới dạng vector tần số của các từ trong ngữ liệu.
+Tuy nhiên, khi ta gom nhóm với ngữ liệu lớn thì số chiều của vector sẽ tăng lên rất nhiều lần và làm chậm quá trình thực thi của thuật toán gom nhóm.
+Vì vậy, ta sẽ tìm cách để thay đổi cách thể hiện của văn bản để có thể làm giảm số chiều của vector.
+Đồ án đề xuất sử dụng doc2vec để biểu diễn vector cho văn bản nhằm thay thế cách sử dụng tần số của từ.
+Sự chuyển đổi này có thể làm giảm số chiều của vector trong văn bản và làm tăng hiệu năng và tốc độ trong quá trình thực thi.
+Việc chuyển đối thể hiện của văn bản là điểm đóng góp của đồ án với nhiệm vụ làm giảm số chiều để tăng nhanh quá trình thực thi.
