@@ -4,9 +4,9 @@
 \section{Giới thiệu}
 %Giới thiệu phương pháp gom nhóm phân cấp
 Gom nhóm phân cấp là kỹ thuật quan trọng trong việc phân loại nhóm. Phương pháp gom nhóm này dùng để xây dựng các nhóm thành các cấp bậc khác nhau.
-Khác với phương pháp gom nhóm phân chia, kết quả có được chỉ là những đối tượng nằm ở trong các nhóm riêng biệt.
+Điều này khác với phương pháp gom nhóm phân chia khi mà kết quả có được chỉ là những đối tượng nằm ở trong các nhóm riêng biệt.
 Ngoài ra, phương pháp gom nhóm phân chia cần phải xác định số lượng nhóm cần phải gom.
-Gom nhóm phân cấp khắc phục được các nhược điểm của gom nhóm phân chia đồng thời cho chúng ta thấy được cấu trúc của ngữ liệu.
+Gom nhóm phân cấp khắc phục được nhược điểm này của gom nhóm phân chia đồng thời cho ta thấy được cấu trúc phân cấp của các nhóm trong ngữ liệu.
 
 ~\cite{Vipin-Kumar} Gom nhóm phân cấp thường được biểu diễn dưới dạng đồ thị hình cây với tên gọi là dendrogram, thể hiện mối quan hệ giữa nhóm và nhóm con.
 Đồ thị này thể hiện thứ tự các nhóm được gom (hướng tiếp cận tích tụ) hoặc là tách (hướng tiếp cận phân chia). 
@@ -46,25 +46,25 @@ Các điểm này được gom nhóm theo kỹ thuật liên kết đơn (\ref{s
 \rput[bl](12.82,-0.61){p4}
 \end{pspicture}
 }
-\caption{Gom nhóm phân cấp với 4 điểm được biểu diễn dưới đồ thị dạng cây và đồ thị hình tròn lồng vào nhau}
+\caption{Gom nhóm phân cấp với 4 điểm được biểu diễn dưới đồ thị dạng cây và đồ thị hình ellip lồng vào nhau}
 \label{fig:pic21}
 \end{figure}
 
 \section{Các hướng tiếp cận}
 %Các hướng tiếp cận
-~\cite{Vipin-Kumar, hierarchical-clustering} Để xây dựng nên cấu trúc cây của các nhóm trong gom nhóm phân cấp, ta có hai hướng tiếp cận khác nhau. Đó là hướng tiếp cận tích tụ và hướng tiếp cận phân chia.
+Để xây dựng nên cấu trúc cây của các nhóm trong gom nhóm phân cấp, ta có hai hướng tiếp cận khác nhau. Đó là hướng tiếp cận phân chia và hướng tiếp cận tích tụ.
 
 \subsection{Hướng tiếp cận phân chia}
 %Hướng tiếp cận divisive	
 %Giới thiệu
-Hướng tiếp cận phân chia là một trong những cách tiếp cận của gom nhóm phân cấp.
+~\cite{Vipin-Kumar, hierarchical-clustering, cluster-analysis}Hướng tiếp cận phân chia là một trong những cách tiếp cận của gom nhóm phân cấp.
 Tuy nhiên, hướng tiếp cận này ít phổ biến hơn so với hướng tiếp cận tích tụ.
 Đây là phương pháp tiếp cận gom nhóm theo cách đi từ trên xuống.
 Kỹ thuật này còn có tên gọi khác là tối tiểu hóa khoảng cách của độ tương đồng đồ thị.
 
-Kỹ thuật tối tiểu hóa khoảng cách cây của độ tương đồng đồ thị được xây dựng bắt đầu bằng một điểm bất kỳ nào của cây.
-Trong những bước tiếp theo, ta sẽ tìm kiếm những cặp điểm gần nhất, $p$ và $q$ sao cho với điểm $p$ là điểm hiện đang thuộc thuộc về cây còn điểm $q$ thì không.
-Ta sẽ thêm $p$ vào cây và nối cạnh giữa hai điểm $p$ và $p$.
+Kỹ thuật tối tiểu hóa khoảng cách cây của độ tương đồng đồ thị được xây dựng bắt đầu bằng cách gom tất cả các điểm lại thành một nhóm lớn.
+Sau đó ở mỗi bước, ta sẽ tách đôi một nhóm thành 2 nhóm con dựa vào khoảng cách xa nhất của hai nhóm (độ tương đồng thấp nhất).
+Thuật toán kết thúc khi mỗi nhóm chỉ còn lại một đơn vị dữ liệu.
 Sau đây là thuật toán thể hiện ý tưởng trên:
 
 \begin{algorithm}
@@ -89,7 +89,7 @@ Theo như ~\cite{wiki-HAC}, thuật toán gom nhóm phân cấp theo hướng ph
 \subsection{Hướng tiếp cận tích tụ}
 %Hướng tiếp cận agglomerative
 %Giới thiệu
-Gom nhóm phân cấp theo hướng tích tụ là hướng tiếp cận phổ biến nhất trong gom nhóm phân cấp.
+~\cite{Vipin-Kumar, hierarchical-clustering, cluster-analysis}Gom nhóm phân cấp theo hướng tích tụ là hướng tiếp cận phổ biến nhất trong gom nhóm phân cấp.
 Phương pháp này bắt đầu bằng việc xem mỗi điểm như là một nhóm, sau đó dần dần gom các nhóm đơn lẻ này lại với nhau thành nhóm lớn hơn và cho đến khi chỉ còn lại một nhóm duy nhất.
 Sau đây là thuật toán mô tả quá trình gom nhóm theo hướng tích tụ.
 
@@ -120,7 +120,7 @@ Theo như ~\cite{wiki-HAC}, thuật toán gom nhóm phân cấp theo hướng t�
 %		\end{tikzpicture}
 
 %Các phương pháp liên kết trong hướng tiếp cận tích tụ
-\section{Các phương pháp liên kết}
+\section{Các phương pháp liên kết trong gom nhóm phân cấp tích tụ}
 \label{sec:cpplk}
 ~\cite{AHC, Vipin-Kumar} Trong thuật toán \ref{agl:agglomerative}, mấu chốt của vấn đề là cách tính độ tương đồng giữa các nhóm.
 Cách tính độ tương đồng khác nhau có thể dẫn đến kết quả khác nhau của gom nhóm phân cấp tích tụ.
@@ -200,7 +200,7 @@ Hình \ref{fig:pic24} cho ta thấy kỹ thuật nhóm trung bình.
 
 Ngoài ra, ta có thể gom nhóm phân cấp tích tụ dựa vào mẫu khi ta xem một nhóm được đại diện bởi điểm trung tâm thì khi đó độ tương đồng giữa 2 nhóm sẽ trở thành độ tương đồng giữa 2 điểm trung tâm.
 Một cách tiếp cận khác có tên gọi là Ward cũng gần như xem một nhóm được đại diện bởi điểm trung tâm.
-Tuy nhiêm, phương pháp Ward tính độ tương đồng giữa hai nhóm dựa vào điều kiện gia tăng trong SSE (error sum of squared) từ kết quả của quá trình gom nhóm.
+Tuy nhiêm, phương pháp Ward tính độ tương đồng giữa hai nhóm dựa vào điều kiện gia tăng trong SSE ~\cite{SSE} từ kết quả của quá trình gom nhóm.
 Tương tự như K-means, phương pháp Ward cũng cố gắng giảm tổng bình phương của khoảng cách từ điểm đến điểm trung tâm của nhóm.
 
 Sau đây là phần dữ liệu mẫu được thể hiện qua biểu đồ \ref{fig:pic25}, bảng \ref{tab:2_1} và bảng \ref{tab:2_2} với mục đích dùng để mô tả các kỹ thuật liên kết khác nhau trong gom nhóm phân cấp tích tụ.
@@ -370,7 +370,7 @@ dist(\{3, 6\}, \{2, 5\})
 ~\cite{Vipin-Kumar, HAC, AHC, hierarchical-clustering, single-complete}Liên kết toàn vẹn còn được gọi là kỹ thuật lớn nhất hoặc là CLIQUE.
 Liên kết toàn vẹn tính độ tương đồng của hai nhóm dựa vào khoảng cách lớn nhất (độ tương đồng nhỏ nhất) của hai điểm bất kì của hai nhóm khác nhau.
 Kỹ thuật này bắt đầu với tất cả các điểm đơn lẻ được xem như là một nhóm.
-Sau đó, ta sẽ lần lượt tính khoảng cách giữa các điểm thuộc các nhóm khác nhau và chọn khoảng cách xa nhất giữa các nhóm.
+Sau đó, ta sẽ lần lượt tính khoảng cách giữa các điểm thuộc các nhóm khác nhau và chọn những khoảng cách xa nhất giữa các nhóm.
 Trong số những khoảng cách xa nhất, ta sẽ chọn khoảng cách có giá trị nhỏ nhất và gom 2 nhóm có khoảng cách này thành một.
 Thuật toán sẽ thực thi cho đến khi các nhóm liên kết hoàn toàn.
 Liên kết toàn vẹn thường không nhạy cảm với độ nhiễu và điểm tách biệt, nhưng lại có thể chia cắt nhóm lớn và có xu hướng tạo thành nhóm toàn cục.
@@ -445,7 +445,7 @@ dist(\{3, 6\}, \{1\})
 \psline[linecolor=black, linewidth=0.04](12.0,-0.4)(12.0,1.6)(15.2,1.6)(15.2,0.8)
 \end{pspicture}
 }
-\caption{Kết quả khi ứng dụng liên kết hoàn toàn}
+\caption{Kết quả khi ứng dụng liên kết toàn vẹn}
 \label{fig:pic27}
 \end{figure}
 
@@ -532,7 +532,7 @@ Do $dist(\{3, 6, 4\}, \{2, 5\})$ nhỏ hơn $dist(\{3, 6, 4\}, \{1\})$ và $dist
 \end{figure}
 
 \subsection{Phương pháp Ward và điểm trung tâm}
-~\cite{Vipin-Kumar, AHC, hierarchical-clustering} Phương pháp Ward tính độ tương đồng của 2 nhóm bằng sự gia tăng SSE trong quá trình gom 2 nhóm với nhau.
+~\cite{Vipin-Kumar, AHC, hierarchical-clustering} Phương pháp Ward tính độ tương đồng của 2 nhóm bằng sự gia tăng SSE ~\cite{SSE} trong quá trình gom 2 nhóm với nhau.
 Vì vậy, phương pháp này có hàm mục tiêu giống như phương pháp gom nhóm K-means.
 So với các phương pháp đã thảo luận ở trên thì phương pháp này có kỹ thuật hơi khác biệt.
 Mặc dù vậy, công thức tính độ tương đồng của phương pháp Ward có chút tương đồng với phương pháp nhóm trung bình.
@@ -601,7 +601,7 @@ Ngoài ra, kỹ thuật này còn có đặc tính khác là sự khả nghịch
 Tuy nhiên, sự khả nghịch của phương pháp gom nhóm phân cấp tích tụ theo điểm trung tâm có thể làm đảo chiều quá trình này, nghĩa là độ tương đồng về sau có thể tăng chứ không phải giảm.
 Điều này thường được xem là không tốt vì gây khó khăn cho việc phân tích cây phân cấp.
 
-\section{Công thức Lance-William cho độ tương đồng nhóm}
+\section{Công thức Lance-William cho độ tương đồng trong gom nhóm phân cấp tích tụ}
 ~\cite{Vipin-Kumar} Các cách tính độ tương đồng của 2 nhóm mà được thảo luận ở phần trước \ref{sec:cpplk} có thể được tham số hóa như trong công thức \ref{eq:2_Lance_William} với các hệ số từ bảng \ref{tab:2_3}.
 Chẳng hạn, ta có 2 nhóm $Q$ và $R$ với $R$ được tạo thành từ quá trình gom 2 nhóm khác là $A$ và $B$.
 Ta sẽ sử dụng công thức \ref{eq:2_Lance_William} để tính độ tương đồng của 2 nhóm $Q$ và $R$ với $p(.,.)$ là hàm tương đồng của 2 nhóm, $m_A, \, m_B$ và $m_Q$ là số lượng phần tử tương ứng trong nhóm $A, \, B$ và $Q$.
@@ -653,23 +653,24 @@ Phương pháp Ward   & $\frac{m_A + m_Q}{m_A + m_B + m_Q}$ & $\frac{m_B + m_Q}{
 %}
 %\end{table}
 
-\section{Những vấn đề trong gom nhóm phân cấp}
+\section{Những vấn đề trong gom nhóm phân cấp tích tụ}
 \subsection{Thiếu hàm mục tiêu toàn cục}
-Gom nhóm phân cấp tích tụ không thể được xem như là hàm mục tiêu tối ưu toàn cục.
-Thay vào đo, gom nhóm phân cấp tích tụ sử dụng những kỹ thuật khác nhau để quyết định ở cục bộ mỗi bước thì nhóm nào sẽ được gom vào (hoặc là tách nếu sử dụng hướng tiếp cận phân chia).
-Cách tiếp cận này tạo ra thuật toán gom nhóm tránh được khó khăn khi giải quyết vấn đề tối ưu kết hợp trong trường hợp khó.
-Ngoài ra, gom nhóm phân cấp tích tụ không gặp phải vấn đề chọn điểm khởi tạo.
+~\cite{Vipin-Kumar} Gom nhóm phân cấp tích tụ không có hàm mục tiêu toàn cục để có thể tối ưu.
+Thay vào đó, thuật toán sẽ sử dụng những kỹ thuật liên kết khác nhau \ref{sec:cpplk} để quyết định cục bộ ở mỗi bước thì hai nhóm nào sẽ được gom vào nhau.
+Cách tiếp cận này giúp cho quá trình gom nhóm tránh được khó khăn khi giải quyết vấn đề tối ưu tổ hợp.
+Nhìn chung, vấn đề của gom nhóm phân cấp là không thể có được hàm mục tiêu để có thể tối ưu như tối tiểu hóa SSE ~\cite{SSE}.
+Tuy nhiên, gom nhóm phân cấp tích tụ lại không gặp phải vấn đề về lựa chọn điểm để khởi tạo nhóm.
 
-\subsection{Khả năng xử lý kích cỡ nhóm khác nhau}
-Một khía cạnh khác của gom nhóm phân cấp tích tụ là ta vẫn chưa thảo luận làm sao để xử lý kích cỡ của cặp nhóm vừa mới được gom vào nhau (Vấn đề này chỉ áp dụng khi sử dụng độ tương đồng nhóm liên quan đến tổng như trung điểm, phương pháp Ward và nhóm trung bình).
-Đối với vấn đề này, có 2 hướng tiếp cận: có trọng số, khi xem tất cả các nhóm là như nhau hoặc là không có trọng số, xem xét số lượng điểm trong mỗi nhóm.
-Lưu ý rằng có trọng số hay không có trọng số liên quan đến số lượng điểm trong dữ liệu, chứ không phải nhóm.
-Nghĩa là nếu ta xem xét dựa vào nhóm mà không có cùng kích thước như nhau thì dẫn đến sự khác biệt về trọng số của điểm trong các nhóm khác nhau.
-Còn khi ta xem xét dựa vào kích thước của nhóm thì ta quan tâm đến số lượng điểm trong mỗi nhóm khác nhau mà các điểm này thì cùng trọng số.
+\subsection{Khả năng xử lý kích thước khác nhau của nhóm}
+Một khía cạnh khác của gom nhóm phân cấp tích tụ mà vẫn chưa được thảo luận là làm sao để xử lý kích thước (số lượng điểm) của cặp nhóm vừa mới được gom vào thành một (vấn đề này chỉ được xem xét khi sử dụng độ tương đồng nhóm liên quan đến tổng như trung điểm, phương pháp Ward và nhóm trung bình).
+Đối với vấn đề này, ta có 2 hướng tiếp cận khác nhau.
+Hướng tiếp cận đầu tiên là xem mỗi điểm trong nhóm là khác nhau nên mỗi điểm sẽ có trọng số kèm theo.
+Hướng tiếp còn lại là không có trọng số, nghĩa là xem tất cả các điểm trong nhóm là như nhau.
+Nhìn chung, cách tiếp cận không có trọng số được sử dụng nhiều trừ khi có lý do để tin tưởng rằng mỗi một điểm nên có trọng số riêng.
 
 Sau đây, ta sử dụng kỹ thuật gom nhóm trung bình \ref{sec:ntb} với phiên bản sử dụng không có trọng số.
-Ta sẽ chuyển kỹ thuật này thành tham số của công thức như bảng \ref{tab:2_3}.
-Hệ số trong trường hợp này liên quan đến kích thước của mỗi nhóm sau khi được gom xong:
+Ta sẽ chuyển kỹ thuật này thành tham số của công thức \ref{eq:2_Lance_William} như bảng \ref{tab:2_3}.
+Hệ số trong trường hợp này liên quan đến kích thước của mỗi nhóm khi được gom là:
 \begin{equation}
 \begin{aligned}
 \alpha_A &= \frac{m_A}{m_A + m_B}	\\
@@ -678,6 +679,7 @@ Hệ số trong trường hợp này liên quan đến kích thước của mỗ
 \gamma &= 0
 \end{aligned}
 \end{equation}
+
 Trong trường hợp ta sử dụng gom nhóm trung bình có trọng số thì hệ số sẽ là:
 \begin{equation}
 \begin{aligned}
@@ -688,18 +690,16 @@ Trong trường hợp ta sử dụng gom nhóm trung bình có trọng số thì
 \end{aligned}
 \end{equation}
 
-Trong trường hợp tổng quát, cách tiếp cận không có trọng số được sử dụng nhiều trừ khi có lý do để tin tưởng rằng mỗi một điểm nên có trọng số riêng.
+\subsection{Quyết định gom nhóm không thể đảo ngược}
+Gom nhóm phân cấp tích tụ có xu hướng chọn quyết định cục bộ tốt về kết hợp giữa 2 nhóm khi mà cùng sử dụng thông tin về độ tương đồng của tất cả các cặp điểm của nhau.
+Tuy nhiên, một khi quyết định gom 2 nhóm lại với nhau được thực hiện thì không có cách nào có thể làm ngược lại.
+Cách tiếp cận này ngăn chặn tối ưu toàn cục vì không còn có thể thay đổi được ở cục bộ sau khi 2 nhóm được gom lại.
+Như đã giới thiệu, phương pháp Ward quyết định gom 2 nhóm dựa vào tiêu chuẩn tối tiểu hóa lỗi bình phương từ K-means.
+Tuy nhiên, các nhóm tại mỗi cấp thì lại không thể hiện cục bộ tối tiểu tương ứng theo tổng SSE ~\cite{SSE}.
+Phương pháp Ward thường được xem như là cách hiệu quả trong việc khởi tạo nhóm cho K-means.
 
-\subsection{Quyết định gom nhóm là cuối cùng}
-Gom nhóm phân cấp tích tụ có xu hường chọn quyết định cục bộ tốt về kết hợp giữa 2 nhóm khi mà cùng sử dụng thông tin về độ tương đồng của nhau.
-Tuy nhiên, một khi quyết định gom 2 nhóm lại với nhau được thực hiện thì không có cách nào có thể làm ngược lại được.
-Cách tiếp cận này ngăn chặn tiêu chuẩn tối ưu cục bộ từ trở thành tiêu chuẩn tối ưu toàn cục.
-Ví dụ, mặc dù tối tiểu hóa lỗi bình phương là tiêu chuẩn từ K-means được sử dụng trong quyết định gom nhóm của phương pháp Ward, các nhóm tại mỗi mức thì lại không thể hiện cục bộ tối tiểu theo tổng SSE.
-Thay vào đó, các nhóm sẽ không ổn định, trong trường hợp là có thể có điểm ở gần trung điểm của nhóm khác hơn là trung điểm đang trong nhóm.
-Dù thế nào đi nữa, phương pháp Ward thường được sử dụng như là cách thức mạnh của việc khởi tạo nhóm trọng K-means, chỉ ra rằng tối tiểu hóa lỗi bình phương cục bộ của hàm mục tiêu có liên kết với tối tiểu hóa lỗi bình phương toàn cục của hàm mục tiêu.
-
-Một vài kỹ thuật được đề xuất đề cố gắng vượt quá giới hạn của quyết định gom nhóm là cuối cùng.
-Một hường tiếp cận để giải quyết vấn đề này là di chuyển những nhánh cây ra xung quanh để cái thiện hàm mục tiêu toàn cục.
+Một vài kỹ thuật được đề xuất đề cố gắng vượt quá giới hạn của quyết định gom nhóm nhưng lại không thể đảo ngược.
+Một hưóng tiếp cận để giải quyết vấn đề này là di chuyển những nhánh cây ra xung quanh để cải thiện hàm mục tiêu toàn cục.
 Hướng tiếp cận khác là sử dụng kỹ thuật gom nhóm phân chia như K-means để tạo ra nhiều nhóm nhỏ, rồi sử dụng gom nhóm phân cấp với những nhóm nhỏ này như là điểm khởi đầu.
 
 
