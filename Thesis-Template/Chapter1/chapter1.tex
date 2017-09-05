@@ -19,11 +19,11 @@ Các nhóm này được hình thành từ quá trình gom nhóm không giám s�
 Khi áp dụng gom nhóm vào văn bản, ta cần nghiên cứu tính khả dụng của vấn đề này.
 Thông thường, các phương pháp áp dụng cho gom nhóm tập trung vào dữ liệu lớn có thuộc tính là số.
 Trong khi đó, văn bản là thông tin có thể hiện là từ ngữ nên ta cần chuyển đổi thể hiện của văn bản sang dạng số để có thể áp dụng gom nhóm.
-Theo~\cite{text-cluster} gom nhóm văn bản cần có được tính khả dụng trong các nhiệm vụ sau:
+Theo CC Aggarwal and CX Zhai~\cite{text-cluster}, gom nhóm văn bản cần có được tính khả dụng trong các nhiệm vụ sau:
 \begin{enumerate}
-\item[•]Duyệt và tổ chức văn bản: văn bản được gom nhóm theo cấu trúc phân cấp có các nhóm kết nối liền mạch với nhau tạo điều kiện cho kỹ thuật duyệt đối xứng với hệ thống văn bản.
+\item[•]Duyệt và tổ chức văn bản: văn bản được gom nhóm theo cấu trúc phân cấp có các nhóm kết nối liền mạch với nhau tạo điều kiện cho kỹ thuật duyệt đối xứng trên hệ thống văn bản.
 Ví dụ kinh kiển cho phương pháp duyệt văn bản này là tìm kiếm phân tán hoặc tập hợp.
-Phương pháp này cung cấp kỹ thuật duyệt đối xứng khi tận dụng hệ thống cấu trúc các nhóm của tập văn bản.
+Phương pháp này cung cấp kỹ thuật duyệt đối xứng khi tận dụng hệ thống cấu trúc các nhóm trong tập văn bản.
 \item[•]Tóm tắt ngữ liệu: kỹ thuật gom nhóm cung cấp tóm tắt ngữ nghĩa của tập dữ liệu trong dạng nhóm phân loại~\cite{cluster-digest} hoặc nhóm từ~\cite{cluster-word-1,cluster-word-2}.
 Điều này được sử dụng để cung cấp tóm tắt bên trong phần nội dung của ngữ liệu.
 Lĩnh vực này có nhiều phương pháp, đặc biệt là gom nhóm câu dùng để tóm tắt văn bản.
@@ -36,7 +36,7 @@ Cụ thể, các nhóm từ~\cite{cluster-word-1, cluster-word-2} và phương t
 Trước khi tiến hành gom nhóm, ta cần phải hiểu rõ định nghĩa của nhóm là gì.
 Vì trong nhiều ứng dụng, khái niệm về nhóm được định nghĩa không rõ ràng.
 Cho nên, ta cần phải biết được một nhóm được tạo thành như thế nào trong quá trình gom nhóm.
-Nhìn vào hình \ref{fig:pic11}, ta thấy có 20 điểm nhưng lại có đến 3 cách khác nhau để tạo thành nhóm.
+Hình vẽ \ref{fig:pic11} được biểu diễn dựa trên hình 8.1~\cite{Vipin-Kumar} cho ta thấy có 20 điểm nhưng lại có đến 3 cách khác nhau để tạo thành nhóm.
 Ta có thể dựa vào hình dạng của dữ liệu để thấy được mối quan hệ giữa các nhóm để tiến hành gom nhóm.
 Dựa vào hình \ref{fig:pic11}(a) và hình \ref{fig:pic11}(b), ta có thể chia dữ liệu thành 2 nhóm khác nhau với mỗi nhóm gồm 6 điểm.
 Tuy nhiên, khi quan sát kỹ hơn, ta có thể chia mỗi nhóm lớn này thành 2 nhóm nhỏ hơn như hình \ref{fig:pic11}(c).
@@ -179,7 +179,7 @@ Truy vấn thông tin cần tìm kiếm những văn bản một cách nhanh ch�
 Gom nhóm văn bản tự động tạo ra những nhóm có văn bản liên quan thành cùng một chủ đề.
 Từ đó, khi ta truy vấn sử dụng từ khóa thì sẽ những văn bản liên quan đến từ khóa cần truy vấn sẽ trở thành kết quả trả về.
 Ngoài ra, gom nhóm văn bản không cần phải tạo trước tập huấn luyện hay nguyên tắc phân loại.
-Có thể nói~\cite{text-clustering}, gom nhóm văn bản được dùng để cải thiện hiệu quả tìm kiếm trong truy vấn thông tin.
+Nhìn chung, gom nhóm văn bản được dùng để cải thiện hiệu quả tìm kiếm trong truy vấn thông tin~\cite{text-clustering}.
 \begin{enumerate}
 \item[•]Cải thiện độ bao phủ trong tìm kiếm: khi câu truy vấn trùng với một văn bản thì kết quả trả về có thể bao gồm toàn bộ nhóm chứa văn bản được tìm kiếm.
 \item[•]Cải thiện độ chính xác trong tìm kiếm: gom nhóm những văn bản vào thành những nhóm nhỏ hơn trong nhóm chứa các văn bản liên quan.
@@ -347,11 +347,13 @@ Gom nhóm dùng để tìm được các nhóm đối tượng hữu dụng, th�
 Ta có rất nhiều cách cũng như là ý tưởng khác nhau để thực hiện gom nhóm.
 Để có cái nhìn tổng quát về các loại gom nhóm khác nhau, ta sẽ sử dụng dữ liệu là điểm có hai chiều cho các ví dụ được thảo luận sau đây.
 Tuy nhiên, những phương pháp được thảo luận dưới đây đều có thể áp dụng cho bất kì dạng dữ liệu dạng nào.
+Theo như Kumar~\cite{Vipin-Kumar} thì ta có các loại gom nhóm như sau:
 
-\subsection{Phân tách nhiều}
-Một nhóm là tập hợp của các đối tượng mà mỗi đối tượng có độ tương đồng gần nhau thì ở trong cùng nhóm.
+\subsection{Gom nhóm phân tách nhiều}
+Một nhóm là tập hợp của các đối tượng mà mỗi đối tượng trong nhóm có độ tương đồng gần giống nhau.
 Đôi khi ta sẽ đặt ngưỡng để đảm bảo rằng các đối tượng ở trong cùng nhóm phải có độ tương đồng bằng hoặc trên ngưỡng đó để nhóm được hình thành ít nhiễu nhất có thể.
-Tuy nhiên, ý tưởng này chỉ khả thi khi mà hình dạng của các nhóm có khoảng cách xa nhau như thể hiện trong hình \ref{fig:pic12}.
+Tuy nhiên, ý tưởng này chỉ khả thi khi mà hình dạng của các nhóm có khoảng cách xa nhau.
+Hình \ref{fig:pic12} dựa vào hình 8.2(a)~\cite{Vipin-Kumar} thể hiện gom nhóm phân tách nhiều.
 Dựa vào hình \ref{fig:pic12}, ta có thể thấy gom nhóm phân tách nhiều đã chia các điểm nằm ở hai nhóm tách biệt nhau.
 Khoảng cách giữa hai điểm bất kì của hai nhóm khác nhau luôn lớn hơn so với khoảng cách giữa hai điểm trong cùng một nhóm.
 Gom nhóm phân tách nhiều không nhất thiết phải là hình cầu mà có thể là bất kì hình dạng nào.
@@ -362,14 +364,13 @@ Gom nhóm phân tách nhiều không nhất thiết phải là hình cầu mà c
 \makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.3333334)(11.515945,1.3333334)
+\begin{pspicture}(0,-1.3333334)(11.466666,1.3333334)
 \pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.3333334,0.0){1.3333334}
 \pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.133333,0.0){1.3333334}
 \psdots[linecolor=black, dotsize=0.1](1.2444445,0.8)
 \psdots[linecolor=black, dotsize=0.1](1.6888889,0.8)
 \psdots[linecolor=black, dotsize=0.1](1.2444445,1.2444445)
 \psdots[linecolor=black, dotsize=0.1](0.8,0.8)
-\psdots[linecolor=black, dotsize=0.1](0.35555556,0.8)
 \psdots[linecolor=black, dotsize=0.1](0.35555556,0.35555556)
 \psdots[linecolor=black, dotsize=0.1](0.8,0.35555556)
 \psdots[linecolor=black, dotsize=0.1](1.6888889,0.8)
@@ -385,8 +386,6 @@ Gom nhóm phân tách nhiều không nhất thiết phải là hình cầu mà c
 \psdots[linecolor=black, dotsize=0.1](1.6888889,-0.08888889)
 \psdots[linecolor=black, dotsize=0.1](2.1333334,-0.08888889)
 \psdots[linecolor=black, dotsize=0.1](2.1333334,-0.53333336)
-\psdots[linecolor=black, dotsize=0.1](2.5777779,-0.08888889)
-\psdots[linecolor=black, dotsize=0.1](2.5777779,0.35555556)
 \psdots[linecolor=black, dotsize=0.1](1.6888889,-0.53333336)
 \psdots[linecolor=black, dotsize=0.1](1.2444445,-0.53333336)
 \psdots[linecolor=black, dotsize=0.1](1.2444445,-0.53333336)
@@ -397,57 +396,51 @@ Gom nhóm phân tách nhiều không nhất thiết phải là hình cầu mà c
 \psdots[linecolor=black, dotsize=0.1](1.6888889,-0.9777778)
 \psdots[linecolor=black, dotsize=0.1](1.6888889,-0.9777778)
 \psdots[linecolor=black, dotsize=0.1](2.1333334,-0.9777778)
-\psdots[linecolor=black, dotsize=0.1](10.133333,0.8)
-\psdots[linecolor=black, dotsize=0.1](9.688889,1.2444445)
-\psdots[linecolor=black, dotsize=0.1](10.133333,1.2444445)
-\psdots[linecolor=black, dotsize=0.1](10.577778,1.2444445)
-\psdots[linecolor=black, dotsize=0.1](0.8,1.2444445)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.133333,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.133333,1.2444445)
 \psdots[linecolor=black, dotsize=0.1](1.6888889,1.2444445)
 \psdots[linecolor=black, dotsize=0.1](1.6888889,1.2444445)
-\psdots[linecolor=black, dotsize=0.1](9.688889,0.8)
-\psdots[linecolor=black, dotsize=0.1](10.133333,0.8)
-\psdots[linecolor=black, dotsize=0.1](10.577778,0.8)
-\psdots[linecolor=black, dotsize=0.1](11.0222225,0.8)
-\psdots[linecolor=black, dotsize=0.1](9.244445,0.8)
-\psdots[linecolor=black, dotsize=0.1](8.8,0.35555556)
-\psdots[linecolor=black, dotsize=0.1](9.244445,0.35555556)
-\psdots[linecolor=black, dotsize=0.1](9.244445,0.35555556)
-\psdots[linecolor=black, dotsize=0.1](9.688889,0.35555556)
-\psdots[linecolor=black, dotsize=0.1](10.133333,0.35555556)
-\psdots[linecolor=black, dotsize=0.1](10.133333,0.35555556)
-\psdots[linecolor=black, dotsize=0.1](10.577778,0.35555556)
-\psdots[linecolor=black, dotsize=0.1](11.0222225,0.35555556)
-\psdots[linecolor=black, dotsize=0.1](11.466666,-0.08888889)
-\psdots[linecolor=black, dotsize=0.1](11.0222225,-0.08888889)
-\psdots[linecolor=black, dotsize=0.1](10.577778,-0.08888889)
-\psdots[linecolor=black, dotsize=0.1](10.133333,-0.08888889)
-\psdots[linecolor=black, dotsize=0.1](9.688889,-0.08888889)
-\psdots[linecolor=black, dotsize=0.1](9.244445,-0.08888889)
-\psdots[linecolor=black, dotsize=0.1](9.244445,-0.08888889)
-\psdots[linecolor=black, dotsize=0.1](8.8,-0.08888889)
-\psdots[linecolor=black, dotsize=0.1](9.244445,-0.53333336)
-\psdots[linecolor=black, dotsize=0.1](9.688889,-0.53333336)
-\psdots[linecolor=black, dotsize=0.1](10.577778,-0.53333336)
-\psdots[linecolor=black, dotsize=0.1](10.133333,-0.53333336)
-\psdots[linecolor=black, dotsize=0.1](11.0222225,-0.53333336)
-\psdots[linecolor=black, dotsize=0.1](9.688889,-0.9777778)
-\psdots[linecolor=black, dotsize=0.1](10.133333,-0.9777778)
-\psdots[linecolor=black, dotsize=0.1](10.577778,-0.9777778)
-\psdots[linecolor=black, dotsize=0.1](11.0222225,-0.9777778)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.688889,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.133333,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.577778,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](11.0222225,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.244445,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.244445,0.35555556)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.244445,0.35555556)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.688889,0.35555556)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.133333,0.35555556)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.133333,0.35555556)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.577778,0.35555556)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](11.0222225,0.35555556)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](11.0222225,-0.08888889)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.577778,-0.08888889)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.133333,-0.08888889)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.688889,-0.08888889)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.244445,-0.08888889)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.244445,-0.08888889)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.244445,-0.53333336)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.688889,-0.53333336)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.577778,-0.53333336)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.133333,-0.53333336)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](11.0222225,-0.53333336)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.688889,-0.9777778)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.133333,-0.9777778)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](10.577778,-0.9777778)
 \end{pspicture}
 }
 \caption{Các nhóm được gom theo phân tách nhiều}
 \label{fig:pic12}
 \end{figure}
 
-\subsection{Gom nhóm dựa vào mẫu}
-Một nhóm là một tập hợp các đối tượng mà mỗi đối tượng trong nhóm gần tương đồng với mẫu.
+\subsection{Gom nhóm dựa vào nguyên mẫu}
+Một nhóm là một tập hợp các đối tượng mà mỗi đối tượng trong nhóm gần tương đồng với nguyên mẫu.
 Điều này có nghĩa là mỗi nhóm sẽ được đại diện bởi một mẫu, các đối tượng gần với mẫu nào sẽ nằm trong nhóm có mẫu đó.
 Đối với dữ liệu có thuộc tính liên tục, mẫu của một nhóm thường là trung điểm (nghĩa là điểm trung bình của tất cả các điểm trong nhóm đó).
 Tuy nhiên, khi dữ liệu tồn tại thuộc tính phân lớp thì sử dụng trung điểm sẽ không hiệu quả.
 Thay vào đó, ta sẽ sử dụng mẫu là điểm tiêu biểu (điểm đại diện cho toàn bộ nhóm).
 Đối với nhiều loại dữ liệu, mẫu thường được xem như là trung điểm và trong những trường hợp như vậy, ta thường gọi gom nhóm dựa vào mẫu là gom nhóm dựa vào trung điểm.
-Hình dạng thường thấy của dạng gom nhóm này là hình cầu, hình \ref{fig:pic13} cho ta thấy điều đó.
+Hình \ref{fig:pic13} dựa vào hình 8.2(b)~\cite{Vipin-Kumar} thể hiện gom nhóm dựa vào nguyên mẫu.
+Qua hình \ref{fig:pic13}, ta thấy hình dạng của loại gom nhóm này là hình cầu và đó cũng là hình dạng phổ biến của gom nhóm dựa vào nguyên mẫu.
 
 \begin{figure}[htp]
 \makeatletter % For spaces in paths
@@ -455,147 +448,140 @@ Hình dạng thường thấy của dạng gom nhóm này là hình cầu, hình
 \makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.2235354)(4.819711,1.2235354)
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.2197113,0.023535462){1.2}
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.82353544)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](0.019711304,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](0.019711304,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](1.6197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.7764645)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](1.6197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,-0.7764645)
-\psdots[linecolor=black, dotsize=0.04](1.6197113,-0.7764645)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.7764645)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](2.0197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](2.0197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](2.0197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](2.0197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](2.0197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](1.6197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](1.6197113,0.42353547)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,0.82353544)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,0.82353544)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,0.82353544)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,0.82353544)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,0.82353544)
-\psdots[linecolor=black, dotsize=0.04](1.6197113,0.82353544)
-\psdots[linecolor=black, dotsize=0.04](2.0197113,0.82353544)
-\psdots[linecolor=black, dotsize=0.04](2.0197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](2.0197113,-0.7764645)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](1.6197113,-0.37646455)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.7764645)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,-1.1764646)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,-1.1764646)
-\psdots[linecolor=black, dotsize=0.04](1.2197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,-0.7764645)
-\psdots[linecolor=black, dotsize=0.04](0.4197113,-0.7764645)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,0.023535462)
-\psdots[linecolor=black, dotsize=0.04](0.8197113,0.82353544)
-\psdots[linecolor=black, dotsize=0.04](1.6197113,0.82353544)
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](3.6197114,0.023535462){1.2}
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.82353544)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.4197114,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.4197114,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.7764645)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,-0.7764645)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,-0.7764645)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.7764645)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.42353547)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.82353544)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.82353544)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.82353544)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.82353544)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.82353544)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.82353544)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,0.82353544)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,-0.7764645)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,-0.37646455)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.7764645)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-1.1764646)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-1.1764646)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,-0.7764645)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,-0.7764645)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.023535462)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.82353544)
-\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.82353544)
+\begin{pspicture}(0,-1.2098558)(4.819711,1.2098558)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](1.2197113,0.009855804){1.2}
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.8098558)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](0.019711304,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](0.019711304,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](1.6197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.7901442)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](1.6197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,-0.7901442)
+\psdots[linecolor=black, dotsize=0.04](1.6197113,-0.7901442)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.7901442)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](2.0197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](2.0197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](2.0197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](2.0197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](2.0197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](1.6197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](1.6197113,0.4098558)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,0.8098558)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,0.8098558)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,0.8098558)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,0.8098558)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,0.8098558)
+\psdots[linecolor=black, dotsize=0.04](1.6197113,0.8098558)
+\psdots[linecolor=black, dotsize=0.04](2.0197113,0.8098558)
+\psdots[linecolor=black, dotsize=0.04](2.0197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](2.0197113,-0.7901442)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](1.6197113,-0.3901442)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,-0.7901442)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,-1.1901442)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,-1.1901442)
+\psdots[linecolor=black, dotsize=0.04](1.2197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,-0.7901442)
+\psdots[linecolor=black, dotsize=0.04](0.4197113,-0.7901442)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,0.009855804)
+\psdots[linecolor=black, dotsize=0.04](0.8197113,0.8098558)
+\psdots[linecolor=black, dotsize=0.04](1.6197113,0.8098558)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](3.6197114,0.009855804){1.2}
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.4197114,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.4197114,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8197112,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.7901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,-0.7901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,-0.7901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.7901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.4098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.8098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.8098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.8098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.8098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.8098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.419711,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,-0.3901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,-0.7901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6197114,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,-0.7901442)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.009855804)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2197113,0.8098558)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.0197115,0.8098558)
 \end{pspicture}
 }
 \caption{Các nhóm được gom dựa vào trung điểm}
 \label{fig:pic13}
 \end{figure}
 
-\subsection{Dựa vào đồ thị}
+\subsection{Gom nhóm dựa vào đồ thị}
 Nếu như dữ liệu được biểu diễn như là đồ thị, với nốt là các đối tượng và các liên kết thể hiện phần kết nối giữa các đối tượng thì nhóm được định nghĩa như là một thành phần liên kết, nghĩa là một nhóm bao gồm các đối tượng liên kết với nhau nhưng mà không tồn tại liên kết với các đối tượng ở ngoài nhóm.
 Một ví dụ quan trọng của gom nhóm dựa vào đồ thị là gom nhóm dựa vào tính liền kề, hai đối tượng được liên kết khi và chỉ khi hai đối tượng này nằm trong khoảng cách đặc tả của nhau.
 Điều này có nghĩa là các đối tượng ở trong cùng nhóm luôn ở gần với nhau hơn so với các đối tượng ở trong nhóm khác.
-Hình \ref{fig:pic14} chỉ ra ví dụ về gom nhóm dựa vào liền kề.
+Hình \ref{fig:pic14} dựa vào hình 8.2(c)~\cite{Vipin-Kumar} thể hiện gom nhóm dựa vào liền kề.
 
 Cách sử dụng gom nhóm này chỉ hữu dụng khi hình dạng của các nhóm này dị biệt hoặc là quấn vào nhau.
 Tuy nhiên, một vấn đề cần chú ý là cách gom nhóm này có thể xuất hiện nhiễu, như trong hình \ref{fig:pic14}, một đoạn thẳng xuất hiện tạo thành cầu nối giữa hai nhóm riêng biệt.
 Những loại gom nhóm khác dựa vào đồ thị cũng có thể gặp trường hợp tương tự.
-Một trong những hướng tiếp cận này là clique, một tập hợp các nốt trong đồ thị mà kết nối hoàn toàn với nhau.
+Một trong những hướng tiếp cận này sử dụng clique để kết nối hoàn toàn các nốt trong đồ thị.
 Cũng như gom nhóm dựa vào mẫu, các nhóm được gom dựa vào phương pháp này thường có xu hướng tạo nên hình cầu.
 
 \begin{figure}[htp]
@@ -604,13 +590,113 @@ Cũng như gom nhóm dựa vào mẫu, các nhóm được gom dựa vào phươ
 \makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-2.3036544)(10.806001,2.3036544)
-\definecolor{colour0}{rgb}{0.8,0.8,0.8}
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.2060003,1.0036933)(0.006000366,0.20369339)(1.6060004,-0.19630662)(0.006000366,-0.9963066)(0.006000366,-0.9963066)
-\rput{-269.66956}(4.83741,-4.8022056){\psarc[linecolor=colour0, linewidth=0.6, dimen=outer](4.806,0.00369339){2.0}{0.0}{180.0}}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](4.806,0.20369339){1.2}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](9.606,0.20369339){1.2}
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](6.0060005,0.20369339)(8.406,0.20369339)(8.406,0.20369339)
+\begin{pspicture}(0,-2.61)(16.0,2.61)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](6.4,0.61)(5.2,-0.19)(6.8,-0.59)(5.2,-1.39)(5.2,-1.39)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](10.0,-0.19){1.2}
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](14.8,-0.19){1.2}
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](11.2,-0.19)(13.6,-0.19)(13.6,-0.19)
+
+\pscustom[linecolor=black, linewidth=0.04]
+{
+\newpath
+\moveto(6.8,1.01)
+}
+\pscustom[linecolor=black, linewidth=0.04]
+{
+\newpath
+\moveto(8.4,1.41)
+}
+\pscustom[linecolor=black, linewidth=0.04]
+{
+\newpath
+\moveto(10.0,0.21)
+}
+\pscustom[linecolor=black, linewidth=0.04]
+{
+\newpath
+\moveto(10.8,0.21)
+}
+
+
+
+\pscustom[linecolor=black, linewidth=0.04]
+{
+\newpath
+\moveto(10.0,1.41)
+}
+
+
+
+
+
+\psarc[linecolor=black, linewidth=0.04, dimen=outer](10.0,-0.19){1.6}{90.0}{270.0}
+\psdots[linecolor=black, dotsize=0.1](10.0,0.21)
+\psdots[linecolor=black, dotsize=0.1](9.6,0.61)
+\psdots[linecolor=black, dotsize=0.1](10.0,0.61)
+\psdots[linecolor=black, dotsize=0.1](10.4,0.61)
+\psdots[linecolor=black, dotsize=0.1](9.6,0.21)
+\psdots[linecolor=black, dotsize=0.1](9.2,0.21)
+\psdots[linecolor=black, dotsize=0.1](10.4,0.21)
+\psdots[linecolor=black, dotsize=0.1](10.8,0.21)
+\psdots[linecolor=black, dotsize=0.1](9.2,-0.19)
+\psdots[linecolor=black, dotsize=0.1](9.6,-0.19)
+\psdots[linecolor=black, dotsize=0.1](10.0,-0.19)
+\psdots[linecolor=black, dotsize=0.1](10.4,-0.19)
+\psdots[linecolor=black, dotsize=0.1](10.8,-0.19)
+\psdots[linecolor=black, dotsize=0.1](9.6,-0.59)
+\psdots[linecolor=black, dotsize=0.1](10.4,-0.59)
+\psdots[linecolor=black, dotsize=0.1](10.0,-0.59)
+\psdots[linecolor=black, dotsize=0.1](10.8,-0.59)
+\psdots[linecolor=black, dotsize=0.1](10.0,-0.99)
+\psdots[linecolor=black, dotsize=0.1](9.6,-0.99)
+\psdots[linecolor=black, dotsize=0.1](9.2,-0.59)
+\psdots[linecolor=black, dotsize=0.1](10.4,-0.99)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.4,0.61)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.8,0.61)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](15.2,0.61)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.0,0.21)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.4,0.21)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.8,0.21)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](15.2,0.21)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](15.6,0.21)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](15.6,-0.19)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](15.2,-0.19)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.8,-0.19)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.4,-0.19)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.0,-0.19)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.0,-0.59)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.4,-0.59)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](15.2,-0.59)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](15.6,-0.59)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.8,-0.59)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.4,-0.99)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](14.8,-0.99)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](15.2,-0.99)
+\psline[linecolor=black, linewidth=0.04](10.0,-1.79)(10.0,-2.59)
+\psline[linecolor=black, linewidth=0.04](10.0,1.41)(10.0,2.21)
+\psarc[linecolor=black, linewidth=0.04, dimen=outer](10.0,-0.19){2.4}{90.0}{270.0}
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](9.6,1.81)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](9.2,1.81)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](9.2,1.81)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](9.2,1.41)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](9.2,1.41)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.8,1.41)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.4,1.01)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.0,0.61)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.4,0.61)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.0,-0.19)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.0,0.21)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.0,-0.59)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.0,-0.59)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.4,-0.99)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.0,-0.99)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.4,-1.39)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.8,-1.79)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.8,-1.79)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](8.4,-1.79)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](9.2,-1.79)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](9.2,-2.19)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](9.6,-2.19)
 \end{pspicture}
 }
 \caption{Các nhóm được gom dựa vào liền kề}
@@ -618,9 +704,10 @@ Cũng như gom nhóm dựa vào mẫu, các nhóm được gom dựa vào phươ
 \end{figure}
 
 
-\subsection{Dựa vào mật độ}
+\subsection{Gom nhóm dựa vào mật độ}
 Nhóm được định nghĩa là vùng mật độ của các đối tượng mà bao quanh nó là vùng có mật độ thấp.
-Hình \ref{fig:pic15} cho ta thấy gom nhóm dựa vào mật độ với dữ liệu được tạo bằng cách thêm độ nhiễu cho dữ liệu từ hình \ref{fig:pic14}.
+Hình \ref{fig:pic15} dựa vào hình 8.2(d)~\cite{Vipin-Kumar} thể hiện gom nhóm dựa vào mật độ.
+Hình này được tạo bằng cách thêm độ nhiễu cho dữ liệu từ hình \ref{fig:pic14}.
 Hai hình tròn đã không còn đường kết nối như hình \ref{fig:pic14}, bởi vì đường kết nối giữa hai nhóm bị che mờ trong phần nhiễu.
 Tương tự, đoạn đường cong thể hiện trong hình \ref{fig:pic14} cũng bị che mờ trong phần nhiễu và không tạo thành nhóm trong hình \ref{fig:pic15}.
 
@@ -630,72 +717,141 @@ Tương tự, đoạn đường cong thể hiện trong hình \ref{fig:pic14} c�
 \makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-2.967742)(11.383526,2.967742)
-\definecolor{colour0}{rgb}{0.8,0.8,0.8}
-\rput{-269.66956}(3.5690148,-3.380749){\psarc[linecolor=colour0, linewidth=0.6, dimen=outer](3.4651613,0.08387104){2.0}{0.0}{180.0}}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](3.4651613,0.28387105){1.2}
-\pscircle[linecolor=black, linewidth=0.04, dimen=outer](8.2651615,0.28387105){1.2}
+\begin{pspicture}(0,-2.967742)(11.384872,2.967742)
 \psframe[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm, dimen=outer](11.374839,2.967742)(0.020000149,-2.967742)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,2.7096775)(11.374839,2.7096775)(11.374839,2.7096775)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,2.451613)(11.374839,2.451613)(11.374839,2.451613)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,2.1935484)(2.6006453,2.1935484)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.6329033,2.1935484)(11.374839,2.1935484)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,1.9354839)(2.0845163,1.9354839)(2.0845163,1.9354839)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.6329033,1.9354839)(11.374839,1.9354839)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,1.6774194)(1.8264518,1.6774194)(1.5683873,1.6774194)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.8587098,1.6774194)(11.374839,1.6774194)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,1.4193549)(1.5683873,1.4193549)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.6006453,1.4193549)(3.1167743,1.4193549)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.1490326,1.4193549)(7.7619357,1.4193549)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.0522585,1.4193549)(11.116775,1.4193549)(11.374839,1.4193549)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,1.1612904)(1.3103228,1.1612904)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.3425808,1.1612904)(2.6006453,1.1612904)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.407097,1.1612904)(7.503871,1.1612904)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.310323,1.1612904)(11.374839,1.1612904)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,0.9032259)(1.3103228,0.9032259)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.0845163,0.9032259)(2.3425808,0.9032259)(2.3425808,0.9032259)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.6651616,0.9032259)(6.987742,0.9032259)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.310323,0.9032259)(11.374839,0.9032259)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,0.6451614)(1.0522583,0.6451614)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.8264518,0.6451614)(2.3425808,0.6451614)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.6651616,0.6451614)(6.987742,0.6451614)(6.987742,0.6451614)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.568387,0.6451614)(11.374839,0.6451614)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,0.38709685)(0.020000149,0.38709685)(1.0522583,0.38709685)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.0522583,0.38709685)(1.0522583,0.38709685)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.8264518,0.38709685)(2.0845163,0.38709685)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.6651616,0.38709685)(6.987742,0.38709685)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.568387,0.38709685)(11.374839,0.38709685)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,0.12903233)(1.0522583,0.12903233)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.8264518,0.12903233)(2.0845163,0.12903233)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.0845163,0.12903233)(2.3425808,0.12903233)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.6651616,0.12903233)(6.987742,0.12903233)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.568387,0.12903233)(11.374839,0.12903233)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-0.12903218)(1.0522583,-0.12903218)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.8264518,-0.12903218)(2.3425808,-0.12903218)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.6651616,-0.12903218)(6.987742,-0.12903218)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.568387,-0.12903218)(11.116775,-0.12903218)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-0.3870967)(1.0522583,-0.3870967)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.8264518,-0.3870967)(2.3425808,-0.3870967)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.407097,-0.3870967)(7.2458067,-0.3870967)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.310323,-0.3870967)(11.374839,-0.3870967)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-0.6451612)(1.3103228,-0.6451612)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.0845163,-0.6451612)(2.6006453,-0.6451612)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.407097,-0.6451612)(7.503871,-0.6451612)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.0522585,-0.6451612)(11.374839,-0.6451612)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-0.9032257)(1.3103228,-0.9032257)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.0845163,-0.9032257)(11.374839,-0.9032257)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-1.1612903)(1.3103228,-1.1612903)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.3425808,-1.1612903)(11.374839,-1.1612903)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-1.4193548)(1.5683873,-1.4193548)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.6006453,-1.4193548)(11.374839,-1.4193548)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-1.6774193)(1.8264518,-1.6774193)(1.8264518,-1.6774193)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.6329033,-1.6774193)(11.374839,-1.6774193)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-1.9354838)(2.3425808,-1.9354838)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.6329033,-1.9354838)(11.374839,-1.9354838)(11.374839,-1.9354838)
 \psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-2.1935482)(2.6006453,-2.1935482)
 \psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.6329033,-2.1935482)(11.374839,-2.1935482)
 \psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-2.451613)(11.374839,-2.451613)
 \psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-2.7096775)(11.374839,-2.7096775)
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](4.2651615,0.28387105){1.2}
+\pscircle[linecolor=black, linewidth=0.04, dimen=outer](9.065162,0.28387105){1.2}
+\psarc[linecolor=black, linewidth=0.04, dimen=outer](4.2651615,0.28387105){1.6}{90.0}{270.0}
+\psdots[linecolor=black, dotsize=0.1](4.2651615,0.68387103)
+\psdots[linecolor=black, dotsize=0.1](3.8651614,1.083871)
+\psdots[linecolor=black, dotsize=0.1](4.2651615,1.083871)
+\psdots[linecolor=black, dotsize=0.1](4.6651616,1.083871)
+\psdots[linecolor=black, dotsize=0.1](3.8651614,0.68387103)
+\psdots[linecolor=black, dotsize=0.1](3.4651613,0.68387103)
+\psdots[linecolor=black, dotsize=0.1](4.6651616,0.68387103)
+\psdots[linecolor=black, dotsize=0.1](5.065161,0.68387103)
+\psdots[linecolor=black, dotsize=0.1](3.4651613,0.28387105)
+\psdots[linecolor=black, dotsize=0.1](3.8651614,0.28387105)
+\psdots[linecolor=black, dotsize=0.1](4.2651615,0.28387105)
+\psdots[linecolor=black, dotsize=0.1](4.6651616,0.28387105)
+\psdots[linecolor=black, dotsize=0.1](5.065161,0.28387105)
+\psdots[linecolor=black, dotsize=0.1](3.8651614,-0.11612896)
+\psdots[linecolor=black, dotsize=0.1](4.6651616,-0.11612896)
+\psdots[linecolor=black, dotsize=0.1](4.2651615,-0.11612896)
+\psdots[linecolor=black, dotsize=0.1](5.065161,-0.11612896)
+\psdots[linecolor=black, dotsize=0.1](4.2651615,-0.51612896)
+\psdots[linecolor=black, dotsize=0.1](3.8651614,-0.51612896)
+\psdots[linecolor=black, dotsize=0.1](3.4651613,-0.11612896)
+\psdots[linecolor=black, dotsize=0.1](4.6651616,-0.51612896)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](8.665161,1.083871)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.065162,1.083871)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.465161,1.083871)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](8.2651615,0.68387103)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](8.665161,0.68387103)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.065162,0.68387103)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.465161,0.68387103)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.865162,0.68387103)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.865162,0.28387105)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.465161,0.28387105)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.065162,0.28387105)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](8.665161,0.28387105)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](8.2651615,0.28387105)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](8.2651615,-0.11612896)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](8.665161,-0.11612896)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.465161,-0.11612896)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.865162,-0.11612896)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.065162,-0.11612896)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](8.665161,-0.51612896)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.065162,-0.51612896)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](9.465161,-0.51612896)
+\psline[linecolor=black, linewidth=0.04](4.2651615,-1.316129)(4.2651615,-2.116129)
+\psline[linecolor=black, linewidth=0.04](4.2651615,1.8838711)(4.2651615,2.683871)
+\psarc[linecolor=black, linewidth=0.04, dimen=outer](4.2651615,0.28387105){2.4}{90.0}{270.0}
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](3.8651614,2.283871)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](3.4651613,2.283871)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](3.4651613,2.283871)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](3.4651613,1.8838711)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](3.4651613,1.8838711)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](3.0651615,1.8838711)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](2.6651614,1.483871)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](2.2651615,1.083871)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](2.6651614,1.083871)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](2.2651615,0.28387105)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](2.2651615,0.68387103)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](2.2651615,-0.11612896)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](2.2651615,-0.11612896)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](2.6651614,-0.51612896)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](2.2651615,-0.51612896)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](2.6651614,-0.91612893)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](3.0651615,-1.316129)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](3.0651615,-1.316129)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](2.6651614,-1.316129)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](3.4651613,-1.316129)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](3.4651613,-1.716129)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](3.8651614,-1.716129)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,2.7096775)(3.8909678,2.7096775)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.1490326,2.7096775)(11.374839,2.7096775)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,2.451613)(3.1167743,2.451613)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.407097,2.451613)(11.374839,2.451613)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,2.1935484)(2.6006453,2.1935484)(2.6006453,2.1935484)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.407097,2.1935484)(11.374839,2.1935484)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,1.9354839)(2.3425808,1.9354839)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.407097,1.9354839)(11.116775,1.9354839)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,1.6774194)(2.0845163,1.6774194)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.6329033,1.6774194)(11.374839,1.6774194)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,1.4193549)(2.0845163,1.4193549)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.3748388,1.4193549)(3.8909678,1.4193549)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.6651616,1.4193549)(8.536129,1.4193549)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.568387,1.4193549)(11.374839,1.4193549)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,1.1612904)(1.8264518,1.1612904)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.1167743,1.1612904)(3.3748388,1.1612904)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](10.084517,1.1612904)(11.116775,1.1612904)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](5.1812906,1.1612904)(8.02,1.1612904)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,0.9032259)(1.8264518,0.9032259)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.8587098,0.9032259)(3.1167743,0.9032259)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](5.439355,0.9032259)(8.02,0.9032259)(8.02,0.9032259)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](10.084517,0.9032259)(11.374839,0.9032259)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,0.6451614)(1.8264518,0.6451614)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.8587098,0.6451614)(3.1167743,0.6451614)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](5.439355,0.6451614)(7.7619357,0.6451614)(7.7619357,0.6451614)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](10.342581,0.6451614)(11.116775,0.6451614)(11.374839,0.6451614)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,0.38709685)(1.8264518,0.38709685)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.8587098,0.38709685)(2.8587098,0.38709685)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](10.342581,0.38709685)(11.374839,0.38709685)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](5.439355,0.38709685)(7.7619357,0.38709685)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,0.12903233)(1.8264518,0.12903233)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.8587098,0.12903233)(2.8587098,0.12903233)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](5.6974196,0.12903233)(7.7619357,0.12903233)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](10.342581,0.12903233)(11.374839,0.12903233)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-0.12903218)(1.8264518,-0.12903218)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.8587098,-0.12903218)(2.8587098,-0.12903218)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](5.439355,-0.12903218)(7.7619357,-0.12903218)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](10.342581,-0.12903218)(11.374839,-0.12903218)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-0.3870967)(1.8264518,-0.3870967)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.8587098,-0.3870967)(3.1167743,-0.3870967)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](5.439355,-0.3870967)(8.02,-0.3870967)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](10.084517,-0.3870967)(11.374839,-0.3870967)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-0.6451612)(1.8264518,-0.6451612)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.1167743,-0.6451612)(3.3748388,-0.6451612)(3.3748388,-0.6451612)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](5.1812906,-0.6451612)(8.02,-0.6451612)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](10.084517,-0.6451612)(11.116775,-0.6451612)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-0.9032257)(2.0845163,-0.9032257)(2.0845163,-0.9032257)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.3748388,-0.9032257)(3.8909678,-0.9032257)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.923226,-0.9032257)(8.536129,-0.9032257)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.568387,-0.9032257)(11.374839,-0.9032257)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-1.1612903)(2.3425808,-1.1612903)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.6329033,-1.1612903)(11.374839,-1.1612903)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-1.4193548)(2.3425808,-1.4193548)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.407097,-1.4193548)(11.116775,-1.4193548)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-1.6774193)(2.6006453,-1.6774193)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.407097,-1.6774193)(11.116775,-1.6774193)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.020000149,-1.9354838)(3.1167743,-1.9354838)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.407097,-1.9354838)(11.374839,-1.9354838)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.6006453,-2.1935482)(3.6329033,-2.1935482)
 \end{pspicture}
 }
 \caption{Các nhóm được gom dựa vào mật độ}
@@ -703,15 +859,16 @@ Tương tự, đoạn đường cong thể hiện trong hình \ref{fig:pic14} c�
 \end{figure}
 
 
-\subsection{Chia sẻ thuộc tính (gom nhóm theo ý tưởng)}
+\subsection{Gom nhóm theo chia sẻ thuộc tính (gom nhóm theo ý tưởng)}
 Ta có thể định nghĩa nhóm như là tập hợp của các đối tượng mà chia sẻ thuộc tính chung.
 Khái niệm này bao gồm tất cả định nghĩa về nhóm ở các phần trước.
 Chẳng hạn, khi gom nhóm dựa vào trung điểm, các đối tượng nằm gần khu vực trung tâm của nhóm có thuộc tính gần giống với điểm trung tâm hay là điểm tiêu biểu, như là các nhóm ở trong hình \ref{fig:pic16}.
 Tuy nhiên, gom nhóm dựa vào chia sẻ thuộc tính có thể tạo ra dạng nhóm mới.
-Dựa vào hình \ref{fig:pic16}, khu vực tam giác nằm kế cận khu vực tứ giác và 2 đường tròn quấn vào nhau.
+Hình \ref{fig:pic16} dựa vào hình 8.2(e)~\cite{Vipin-Kumar} thể hiện gom nhóm theo ý tưởng.
+Qua hình \ref{fig:pic16}, ta thấy khu vực tam giác nằm kế cận khu vực tứ giác và 2 đường tròn quấn vào nhau.
 Trong cả 2 trường hợp trên, thuật toán gom nhóm cần lưu ý hình dạng đặc tả của nhóm để có thể tìm được những nhóm này thành công.
 Quá trình tìm kiếm những nhóm như vậy được gọi là gom nhom theo ý tưởng.
-Tuy nhiên, nếu hình dạng của nhóm quá phức tạp có thể dẫn đến nhận diện mẫu.
+%Tuy nhiên, nếu hình dạng của nhóm quá phức tạp có thể dẫn đến nhận diện mẫu.
 
 \begin{figure}[htp]
 \makeatletter % For spaces in paths
@@ -719,29 +876,126 @@ Tuy nhiên, nếu hình dạng của nhóm quá phức tạp có thể dẫn đ�
 \makeatother
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
-\begin{pspicture}(0,-1.2132502)(14.024741,1.2132502)
-\definecolor{colour1}{rgb}{0.4,0.2,1.0}
-\definecolor{colour2}{rgb}{0.4,0.4,0.0}
-\psframe[linecolor=black, linewidth=0.04, dimen=outer](6.8247414,1.1932502)(2.4247413,-1.2067499)
-\rput{-269.72128}(1.2239491,-1.2315094){\pstriangle[linecolor=black, linewidth=0.04, dimen=outer](1.2247412,-1.2067499)(2.4,2.4)}
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.6247412,0.79325014)(2.4247413,0.79325014)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.6247412,0.79325014)(1.6247412,0.79325014)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.2247412,0.3932501)(2.4247413,0.3932501)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](0.4247412,-0.0067498777)(2.4247413,-0.0067498777)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.2247412,-0.40674987)(2.4247413,-0.40674987)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.6247412,-0.8067499)(2.4247413,-0.8067499)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](2.8247411,1.1932502)(2.8247411,-1.2067499)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.2247412,1.1932502)(3.2247412,-1.2067499)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](3.6247413,1.1932502)(3.6247413,-1.2067499)(3.6247413,-0.40674987)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.024741,1.1932502)(4.024741,-1.2067499)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.4247413,1.1932502)(4.4247413,-1.2067499)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](4.8247414,1.1932502)(4.8247414,-1.2067499)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](5.224741,1.1932502)(5.224741,-1.2067499)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](5.624741,1.1932502)(5.624741,-1.2067499)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](6.024741,1.1932502)(6.024741,1.1932502)(6.024741,-1.2067499)
-\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](6.4247413,1.1932502)(6.4247413,-1.2067499)
-\psellipse[linecolor=colour1, linewidth=0.4, dimen=outer](10.224741,-0.0067498777)(1.8,1.2)
-\psellipse[linecolor=colour2, linewidth=0.4, dimen=outer](12.224741,-0.0067498777)(1.8,1.2)
+\begin{pspicture}(0,-1.6)(14.824741,1.6)
+\psframe[linecolor=black, linewidth=0.04, dimen=outer](6.8247414,1.2)(2.4247413,-1.2)
+\rput{-269.72128}(1.2306988,-1.2247267){\pstriangle[linecolor=black, linewidth=0.04, dimen=outer](1.2247412,-1.2)(2.4,2.4)}
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](1.6247412,0.8)(1.6247412,0.8)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](11.224741,0.0)(1.2,0.96)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](11.224741,0.0)(2.0,1.6)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](12.824741,0.0)(1.2,0.96)
+\psellipse[linecolor=black, linewidth=0.04, dimen=outer](12.824741,0.0)(2.0,1.6)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8247411,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2247412,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6247413,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.024741,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.4247413,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.8247414,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](5.224741,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](5.624741,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](6.024741,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](6.4247413,0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8247411,0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6247413,0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2247412,0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.024741,0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.4247413,0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.8247414,0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](5.624741,0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](6.024741,0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](6.4247413,0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](5.224741,0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8247411,0.0)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2247412,0.0)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.024741,0.0)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6247413,0.0)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.4247413,0.0)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.8247414,0.0)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](5.624741,0.0)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](5.224741,0.0)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](6.024741,0.0)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](6.4247413,0.0)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.4247413,-0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2247412,-0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8247411,-0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6247413,-0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.024741,-0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.4247413,-0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.8247414,-0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](5.224741,-0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](5.624741,-0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](6.024741,-0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](6.4247413,-0.4)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](2.8247411,-0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.2247412,-0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](3.6247413,-0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.024741,-0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.4247413,-0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](4.8247414,-0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](5.224741,-0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](5.224741,-0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](5.624741,-0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](6.024741,-0.8)
+\psdots[linecolor=black, dotstyle=x, dotsize=0.1](6.4247413,-0.8)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](13.224741,1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](12.824741,1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](13.624742,1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](14.424741,0.8)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](14.024741,0.8)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](13.624742,0.8)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](14.424741,0.4)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](14.024741,0.4)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](14.424741,0.0)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](14.424741,-0.4)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](14.024741,-0.4)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](14.024741,-0.8)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](14.424741,-0.8)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](13.624742,-1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](14.024741,-1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](13.224741,-1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](12.824741,-1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](12.424741,-1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](12.024741,-1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](11.624742,-1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](11.624742,-0.8)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](11.224741,-0.8)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](11.224741,-0.4)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](11.224741,0.0)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](11.224741,0.4)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](11.624742,0.4)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](11.224741,0.8)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](11.624742,0.8)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](11.624742,1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](12.024741,1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](12.424741,1.2)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](12.024741,0.8)
+\psdots[linecolor=black, dotstyle=triangle*, dotsize=0.1](11.624742,-0.4)
+\psdots[linecolor=black, dotsize=0.1](2.0247412,0.8)
+\psdots[linecolor=black, dotsize=0.1](2.0247412,0.4)
+\psdots[linecolor=black, dotsize=0.1](1.6247412,0.4)
+\psdots[linecolor=black, dotsize=0.1](1.2247412,0.4)
+\psdots[linecolor=black, dotsize=0.1](0.4247412,0.0)
+\psdots[linecolor=black, dotsize=0.1](0.8247412,0.0)
+\psdots[linecolor=black, dotsize=0.1](1.2247412,0.0)
+\psdots[linecolor=black, dotsize=0.1](1.6247412,0.0)
+\psdots[linecolor=black, dotsize=0.1](2.0247412,0.0)
+\psdots[linecolor=black, dotsize=0.1](2.0247412,0.0)
+\psdots[linecolor=black, dotsize=0.1](2.0247412,-0.4)
+\psdots[linecolor=black, dotsize=0.1](1.6247412,-0.4)
+\psdots[linecolor=black, dotsize=0.1](1.2247412,-0.4)
+\psdots[linecolor=black, dotsize=0.1](2.0247412,-0.8)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](10.024741,1.2)(12.424741,1.2)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.624742,0.8)(10.424741,0.8)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](12.024741,0.8)(12.824741,0.8)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.624742,0.4)(10.024741,0.4)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](12.424741,0.4)(13.224741,0.4)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.224741,0.0)(10.024741,0.0)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](12.424741,0.0)(13.224741,0.0)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](10.024741,1.2)(12.424741,1.2)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.624742,-0.4)(10.024741,-0.4)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](12.424741,-0.4)(13.224741,-0.4)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](9.624742,-0.8)(10.424741,-0.8)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](11.624742,-0.8)(12.824741,-0.8)
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm](10.024741,-1.2)(12.424741,-1.2)
 \end{pspicture}
 }
 \caption{Gom nhóm ý tưởng}
@@ -753,7 +1007,7 @@ Tuy nhiên, nếu hình dạng của nhóm quá phức tạp có thể dẫn đ�
 \label{sec:ppgn}
 Dựa vào những loại gom nhóm được đề cập ở \ref{sec:clgn}, ta có các phương pháp gom nhóm văn bản sau:
 \subsection{Gom nhóm văn bản phân chia}
-~\cite{partitioning-clustering, partitioning-clustering-Krish} Gom nhóm văn bản phân chia tạo thành các nhóm dựa vào số lượng $K$ nhóm cho trước với điều kiện $K$ nhỏ hơn số lượng văn bản.
+Gom nhóm văn bản phân chia tạo thành các nhóm dựa vào số lượng $K$ nhóm cho trước với điều kiện $K$ nhỏ hơn số lượng văn bản~\cite{partitioning-clustering, partitioning-clustering-Krish}.
 Các nhóm này được hình thành sao cho tối thiểu hóa tổng của bình phương khoảng cách.
 \begin{equation}
 \sum_{m=1}^k \sum{t_{mi} \in K_m} (C_m - t_{mi})^2
@@ -774,60 +1028,81 @@ Mỗi văn bản sẽ được gán vào nhóm có điểm trung tâm gần nh�
 Sau đó, ta sẽ cập nhật lại vị trí điểm trung tâm cho từng nhóm.
 Thuật toán sẽ được lặp cho đến khi hội tụ.
 
-\textbf{Ưu điểm}
-\begin{enumerate}
-\item[•]Hướng tiếp cận này đơn giản, dễ hiểu.
-\item[•]Tất cả các văn bản tự động được gom vào một nhóm nhất định.
-\item[•]Phương pháp này tương đối hiệu quả và thường kết thúc ở tối ưu cục bộ.
-\end{enumerate}
+Hướng tiếp cận này có ưu điểm là đơn giản, dễ hiểu.
+Không những vậy, gom nhóm văn bản phân chia còn tự động phân chia các văn bản vào một nhóm nhất định.
+Ngoải ra, phương pháp này tương đối hiệu quả và thường kết thúc ở tối ưu cục bộ.
 
-\textbf{Khuyết điểm}
-\begin{enumerate}
-\item[•]Hướng tiếp cận này phải chọn trước $K$ nhóm cần phải gom.
-\item[•]Tất cả các văn bản buộc phải gom vào một nhóm cố định.
-\item[•]Cách tiếp cận này không thể xử lý nhiễu hoặc văn bản tách biệt vì quá nhạy cảm với các văn bản tách biệt.
-\item[•]Hướng tiếp cận này không thích hợp để tìm kiếm hình dạng các nhóm mà không phải là đa giác lồi.
-\end{enumerate}
+Tuy nhiên, hướng tiếp cận này có khuyết điểm là phải chọn trước $K$ nhóm cần phải gom.
+Việc tất cả văn bản buộc phải gom vào một nhóm cố định có thể xuất hiện nhiễu trong kết quả cuối cùng.
+Vì thế mà phương pháp này nhạy cảm với nhiễu và các văn bản tách biệt vì không thể xử lý chúng.
+Ngoải ra, phương pháp gom nhóm phân chia không thích hợp để tìm kiếm hình dạng các nhóm mà không phải là đa giác lồi.
+
+%\textbf{Ưu điểm}
+%\begin{enumerate}
+%\item[•]Hướng tiếp cận này đơn giản, dễ hiểu.
+%\item[•]Tất cả các văn bản tự động được gom vào một nhóm nhất định.
+%\item[•]Phương pháp này tương đối hiệu quả và thường kết thúc ở tối ưu cục bộ.
+%\end{enumerate}
+%
+%\textbf{Khuyết điểm}
+%\begin{enumerate}
+%\item[•]Hướng tiếp cận này phải chọn trước $K$ nhóm cần phải gom.
+%\item[•]Tất cả các văn bản buộc phải gom vào một nhóm cố định.
+%\item[•]Cách tiếp cận này không thể xử lý nhiễu hoặc văn bản tách biệt vì quá nhạy cảm với các văn bản tách biệt.
+%\item[•]Hướng tiếp cận này không thích hợp để tìm kiếm hình dạng các nhóm mà không phải là đa giác lồi.
+%\end{enumerate}
 
 \subsection{Gom nhóm văn bản phân cấp}
 \label{sec:gnvbpc}
-~\cite{hierarchical-clustering} Gom nhóm văn bản phân cấp tạo ra các nhóm lồng vào nhau thành cấu trúc cây phân cấp.
+Gom nhóm văn bản phân cấp tạo ra các nhóm lồng vào nhau thành cấu trúc cây phân cấp~\cite{hierarchical-clustering}.
 Hình ảnh của cấu trúc cây phân cấp cho ta thấy được quan hệ giữa các nhóm.
 Phương pháp này có 2 cách tiếp cận khác nhau: gom nhóm phân cấp tích tụ  và gom nhóm phân cấp phân chia.
 Gom nhóm phân cấp tích tụ bắt đầu với mỗi nhóm là một văn bản rồi từ từ gom dần các văn bản lại với nhau cho đến khi chỉ còn một nhóm duy nhất.
 Gom nhóm phân cấp phân chia bắt đầu với tất cả các văn bản là một nhóm lớn rồi chia nhỏ dần nhóm này đến khi mỗi nhóm chỉ có một văn bản.
 
-\textbf{Ưu điểm}
-\begin{enumerate}
-\item[•]Hướng tiếp cận này không cần phải đưa trước số nhóm cụ thể cần phải gom.
-\item[•]Phương pháp này có thể cho ta số nhóm mong muốn bằng việc cắt tại một mức nào đó của cây phân cấp.
-\end{enumerate}
+Gom nhóm văn bản phân cấp có ưu điểm là gom nhóm mà không cần phải biết trước số lượng nhóm cụ thể.
+Không những vậy, ta có thể đạt được kết quả như gom nhóm phân chia khi thực hiện cắt tại một mức nào đó trên cây phân cấp.
 
-\textbf{Khuyết điểm}
-\begin{enumerate}
-\item[•]Quyết định gom nhóm khi đã thực hiện thì không thể làm ngược lại.
-\item[•]Hướng tiếp cận này không có hàm mục tiêu nhất định để tối ưu.
-\item[•]Cách tiếp cận này có độ phức tạp khá cao, ít nhất là $O(n^2)$ với n là số lượng nhóm cần phải gom.
-\item[•]Đôi khi ta muốn tìm kiếm số lượng nhóm thực sự của dữ liệu nên ta sẽ cắt tại một mức nào đó tại đồ thị của cây phân cấp.
-Tuy nhiên, việc xác định vết cắt không phải lúc nào cũng là dễ dàng.
-\end{enumerate}
+Tuy nhiên, gom nhóm văn bản phân cấp khi đã thực hiện quyết định gom nhóm thì không thể đảo ngược lại được.
+Khác với gom nhóm phân chia, phương pháp này không có hàm mục tiêu cụ thể để có thể tối ưu.
+Không những vậy, thuật toán này có độ phức tạp khá cao, ít nhất là $O(n^2)$ với n là số lượng nhóm cần phải gom.
+Như đã nói, ta có thể đạt được kết quả như gom nhóm phân chia khi thực hiện cắt tại một mức nào đó trên cây phân cấp.
+Tuy nhiên, việc xác định vết cắt không phải lúc nào cũng là điều dễ dàng.
+%\textbf{Ưu điểm}
+%\begin{enumerate}
+%\item[•]Hướng tiếp cận này không cần phải đưa trước số nhóm cụ thể cần phải gom.
+%\item[•]Phương pháp này có thể cho ta số nhóm mong muốn bằng việc cắt tại một mức nào đó của cây phân cấp.
+%\end{enumerate}
+%
+%\textbf{Khuyết điểm}
+%\begin{enumerate}
+%\item[•]Quyết định gom nhóm khi đã thực hiện thì không thể làm ngược lại.
+%\item[•]Hướng tiếp cận này không có hàm mục tiêu nhất định để tối ưu.
+%\item[•]Cách tiếp cận này có độ phức tạp khá cao, ít nhất là $O(n^2)$ với n là số lượng nhóm cần phải gom.
+%\item[•]Đôi khi ta muốn tìm kiếm số lượng nhóm thực sự của dữ liệu nên ta sẽ cắt tại một mức nào đó tại đồ thị của cây phân cấp.
+%Tuy nhiên, việc xác định vết cắt không phải lúc nào cũng là dễ dàng.
+%\end{enumerate}
 
 \subsection{Gom nhóm văn bản mật độ} 
-~\cite{Manojit-Nandi} Gom nhóm văn bản mật độ xem mỗi văn bản như là tâm của đường tròn.
+Gom nhóm văn bản mật độ xem mỗi văn bản như là tâm của đường tròn~\cite{Manojit-Nandi}.
 Thuật toán bắt đầu với bán kính $\epsilon$ cho trước, ta tính khoảng cách từ tâm đến các văn bản khác và nếu khoảng cách này nhỏ hơn bán kính $\epsilon$ thì văn bản đó sẽ được gom lại vào thành một nhóm.
 Phương pháp gom nhóm này sẽ cho ta thấy được số nhóm sẽ có trong ngữ liệu mà không cần phải cho trước.
 Thuật toán tiêu biểu cho hướng tiếp cận này là DBSCAN.
 
-\textbf{Ưu điểm}
-\begin{enumerate}
-\item[•]Hướng tiếp cận không cần phải đưa trước số nhóm cụ thể cần phải gom.
-\end{enumerate}
+Hướng tiếp cận này có ưu điểm là không phải đưa trước số nhóm cụ thể cần phải gom.
 
-\textbf{Khuyết điểm}
-\begin{enumerate}
-\item[•]Những điểm nằm trong vùng mật độ thấp được xem như là nhiễu và bị loại bỏ.
-\item[•]Cần xác định bán kính cụ thể và số lượng văn bản ít nhất để tạo thành nhóm.
-\end{enumerate}
+Tuy nhiên, phương pháp gom nhóm này sẽ loại bỏ những điểm nằm trong vùng mật độ thấp vì chúng được xem là nhiễu.
+Ngoài ra, hướng tiếp cận này cần xác định bán kính cụ thể và số lượng văn bản ít nhất để tạo thành nhóm.
+%\textbf{Ưu điểm}
+%\begin{enumerate}
+%\item[•]Hướng tiếp cận không cần phải đưa trước số nhóm cụ thể cần phải gom.
+%\end{enumerate}
+%
+%\textbf{Khuyết điểm}
+%\begin{enumerate}
+%\item[•]Những điểm nằm trong vùng mật độ thấp được xem như là nhiễu và bị loại bỏ.
+%\item[•]Cần xác định bán kính cụ thể và số lượng văn bản ít nhất để tạo thành nhóm.
+%\end{enumerate}
 
 %@online{densitycluster,
 % author               = {Manojit Nandi},
@@ -856,6 +1131,7 @@ Ngoài ra, sau khi gom nhóm, cấu trúc của tập văn bản có thể giúp
 Trong số những phương pháp đã liệt kê ở \ref{sec:ppgn} thì phương pháp gom nhóm phân cấp được sử dụng cho mục tiêu của đồ án vì:
 \begin{enumerate}
 \item[•]Gom nhóm phân cấp không cần biết trước số lượng nhóm (K-means cần biết trước số lượng nhóm).
+Đồ án tiến hành gom nhóm văn bản tiếng Việt trên dữ liệu là các bài báo trên mạng nên việc không biết trước số lượng nhóm cụ thể sẽ giúp cho ta thấy được mối quan hệ giữa các nhóm để có thể tăng tính hiệu quả trong truy vấn thông tin.
 \item[•]Gom nhóm phân cấp bảo toàn dữ liệu (DBSCAN có thể loại bỏ nhiễu).
 \item[•]Gom nhóm phân cấp còn có thể cho ta có được kết quả của gom nhóm phân chia giống như K-means khi thực hiện vết cắt tại một mức nào đó trong cây phân cấp.
 \end{enumerate}
