@@ -73,7 +73,7 @@ Khi đó, vector nhị phân cho \textbf{VB3} sẽ là:
 
 Như vậy, vector nhị phân không thể cho ta biết được từ ``Tôi'' đã xuất hiện đến 2 lần trong \textbf{VB3}.
 Vì vậy, một cách khác được đề xuất có tên gọi là TF-IDF (term frequency - inverse document frequency).
-Theo như ~\cite{tf-idf}: ``TF-IDF là tích của 2 số TF và IDF. Trong đó TF là tần số của một từ xuất hiện trong văn bản và IDF là tần số ngược của văn bản, nghĩa là số lần xuất hiện ở những văn bản khác nhau của từ đó''.
+Theo như~\cite{tf-idf}: ``TF-IDF là tích của 2 số TF và IDF. Trong đó TF là tần số của một từ xuất hiện trong văn bản và IDF là tần số ngược của văn bản, nghĩa là số lần xuất hiện ở những văn bản khác nhau của từ đó''.
 Công thức để tính TFIDF cho một từ trong văn bản là:
 
 \begin{equation}
@@ -170,7 +170,7 @@ Các tham số được sử dụng cũng như là giá trị của một số t
 Sau đó, đồ án sẽ trích xuất những vector từ mô hình doc2vec dựa vào nhãn của văn bản, riêng đối với dữ liệu tiếng Việt thì chỉ trích xuất từ tập kiểm nghiệm kết quả.
 Cuối cùng, những thể hiện vector có số chiều là 100 sẽ được đem đi gom nhóm phân cấp tích tụ.
 
-Thuật toán gom nhóm phân cấp tích tụ sử dụng trong đồ án đến từ thư viện scikit-learn ~\cite{hac-scikit}.
+Thuật toán gom nhóm phân cấp tích tụ sử dụng trong đồ án đến từ thư viện scikit-learn~\cite{hac-scikit}.
 
 \label{ahc-scikit}
 \textit{AgglomerativeClustering(n{\_}clusters=2, affinity=`euclidean', \\

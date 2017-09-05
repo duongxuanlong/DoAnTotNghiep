@@ -78,7 +78,7 @@ Sau đây là thuật toán thể hiện ý tưởng trên:
 \end{algorithmic}
 \end{algorithm}
 
-Theo như ~\cite{wiki-HAC}, thuật toán gom nhóm phân cấp theo hướng phân chia có độ phức tạp rất lớn: $O(2^n)$.
+Theo như~\cite{wiki-HAC}, thuật toán gom nhóm phân cấp theo hướng phân chia có độ phức tạp rất lớn: $O(2^n)$.
 
 %Phương pháp này bắt đầu từ việc quan sát tất cả chỉ trong một phân nhóm, và khi di chuyển xuống sẽ tách dần dần thành các phân nhóm con.
 %Quá trình gộp và tách thường sẽ tốn nhiều chi phí cho thuật toán.
@@ -106,20 +106,20 @@ Sau đây là thuật toán mô tả quá trình gom nhóm theo hướng tích t
 \end{algorithmic}
 \end{algorithm}
 
-Theo như ~\cite{wiki-HAC}, thuật toán gom nhóm phân cấp theo hướng tích tụ có độ phức tạp là $O(n^2\log(n))$.
+Theo như~\cite{wiki-HAC}, thuật toán gom nhóm phân cấp theo hướng tích tụ có độ phức tạp là $O(n^2\log(n))$.
 
 Đã có nhiều giải pháp đề xuất để cải thiện thuật toán gom nhóm phân cấp tích tụ.
-Một trong số đó là sử dụng ràng buộc ~\cite{hac-constraints} làm giảm các phép tính toán để tăng nhanh quá trình thực thi cho thuật toán gom nhóm phân cấp.
+Một trong số đó là sử dụng ràng buộc~\cite{hac-constraints} làm giảm các phép tính toán để tăng nhanh quá trình thực thi cho thuật toán gom nhóm phân cấp.
 Khi ta sử dụng gom nhóm phân cấp tích tụ kết hợp với các ràng buộc, ngoài việc sử dụng kỹ thuật liên kết thì ta còn áp dụng thêm một tập các ràng buộc để quyết định xem hai nhóm có được gom vào nhau hay không?
 Việc hạn chế gom nhóm sẽ giúp ta làm giảm được các phép toán trong thuật toán.
 Tuy nhiên, hướng tiếp cận này cần phải giải quyết được 2 vấn đề có thể phát sinh ra lỗi trong thuật toán.
-Vấn đề thứ nhất là liệu các ràng buộc có dẫn thuật toán gặp phải tình huống np-complete ~\cite{np-complete} hay không?
+Vấn đề thứ nhất là liệu các ràng buộc có dẫn thuật toán gặp phải tình huống np-complete~\cite{np-complete} hay không?
 Vấn đề thứ hai là các ràng buộc có khả năng dẫn cây phân cấp không thể cập nhật thêm được nhóm mới hay không?
-Bài viết ~\cite{hac-constraints} đã liệt kê kết quả của sự kết hợp giữa các ràng buộc để tránh gặp phải 2 vấn đề trên.
+Bài viết~\cite{hac-constraints} đã liệt kê kết quả của sự kết hợp giữa các ràng buộc để tránh gặp phải 2 vấn đề trên.
 Ngoài ra, bài viết còn đề xuất thêm ràng buộc $\gamma$ để giúp giảm tính toán cho thuật toán.
 
 Khi gom nhóm phân cấp tích tụ sử dụng kỹ thuật liên kết đơn\ref{sec:lkd} để tìm độ tương đồng giữa các nhóm thì những nhóm ở gần nhau thường có xu hướng được gom vào nhau.
-Dựa vào đặc tính này, một phương pháp được đề xuất để tìm kiếm nhanh   các nhóm gần kề bằng việc sử dụng LSH (Locality-Sennsitive Hashing) ~\cite{single-link-hash}.
+Dựa vào đặc tính này, một phương pháp được đề xuất để tìm kiếm nhanh   các nhóm gần kề bằng việc sử dụng LSH (Locality-Sennsitive Hashing)~\cite{single-link-hash}.
 LSH sẽ băm tất cả các điểm vào các khu vực khác nhau.
 Khi ta muốn tìm kiếm những điểm lân cận với điểm $p$ bất kì, ta sẽ tìm trong những khu vực băm mà $p$ thuộc về và điểm nào ở gần với $p$ nhất sẽ được gom vào nhau thành một nhóm.
 Quá trình tìm kiếm những điểm ở gần với $p$ trong những khu vực băm sẽ nhanh hơn rất nhiều so với việc phải tìm kiếm tất cả các điểm trong dữ liệu nên độ phức tạp của thuật toán sẽ được giảm xuống rất nhiều, chỉ còn $O(nB)$ với $B$ là số điểm nhiều nhất nằm trong khu vực băm.
@@ -143,7 +143,7 @@ Trường hợp tổng quát cho độ phức tạp của thuật toán \ref{agl
 
 Dựa vào phân tích trên, thuật toán gom nhóm phân cấp tích tụ có độ phức tạp khá cao và tốn nhiều dung lượng để triển khai.
 Vì tốn nhiều dung lượng để thực thi nên thuật toán gặp nhiều khó khăn khi cần gom nhóm dữ liệu lớn.
-Chính vì vậy, không có gì ngạc nhiên khi các phương pháp đề xuất để cải thiện thuật toán như đã đề cập trong phần \ref{sec:htctt} đa phần tập trung vào việc làm giảm độ phức tạp ~\cite{hac-constraints, single-link-hash} để giúp cho thuật toán chạy nhanh hơn hoặc là giảm không gian lưu trữ lúc thực thi để có thể mở rộng giới hạn dữ liệu.
+Chính vì vậy, không có gì ngạc nhiên khi các phương pháp đề xuất để cải thiện thuật toán như đã đề cập trong phần \ref{sec:htctt} đa phần tập trung vào việc làm giảm độ phức tạp~\cite{hac-constraints, single-link-hash} để giúp cho thuật toán chạy nhanh hơn hoặc là giảm không gian lưu trữ lúc thực thi để có thể mở rộng giới hạn dữ liệu.
 Như đã đề cập trong phần \ref{sec:mtcda}, đồ án sẽ sử dụng doc2vec làm thể hiện cho văn bản.
 Doc2vec được sử dụng để rút ngắn số chiều của vector trong văn bản và thu nhỏ không gian lưu trữ lúc thực thi nên sẽ giúp mở rộng dữ liệu gom nhóm.
 Đây là hướng tiếp cận được đề xuất để làm giảm không gian lưu trữ trong lúc thực thi thuật toán.
@@ -228,7 +228,7 @@ Hình \ref{fig:pic24} cho ta thấy kỹ thuật nhóm trung bình.
 
 Ngoài ra, ta có thể gom nhóm phân cấp tích tụ dựa vào mẫu khi ta xem một nhóm được đại diện bởi điểm trung tâm thì khi đó độ tương đồng giữa 2 nhóm sẽ trở thành độ tương đồng giữa 2 điểm trung tâm.
 Một cách tiếp cận khác có tên gọi là Ward cũng gần như xem một nhóm được đại diện bởi điểm trung tâm.
-Tuy nhiêm, phương pháp Ward tính độ tương đồng giữa hai nhóm dựa vào điều kiện gia tăng trong SSE ~\cite{SSE} từ kết quả của quá trình gom nhóm.
+Tuy nhiêm, phương pháp Ward tính độ tương đồng giữa hai nhóm dựa vào điều kiện gia tăng trong SSE~\cite{SSE} từ kết quả của quá trình gom nhóm.
 Tương tự như K-means, phương pháp Ward cũng cố gắng giảm tổng bình phương của khoảng cách từ điểm đến điểm trung tâm của nhóm.
 
 Sau đây là phần dữ liệu mẫu được thể hiện qua biểu đồ \ref{fig:pic25}, bảng \ref{tab:2_1} và bảng \ref{tab:2_2} với mục đích dùng để mô tả các kỹ thuật liên kết khác nhau trong gom nhóm phân cấp tích tụ.
@@ -560,7 +560,7 @@ Do $dist(\{3, 6, 4\}, \{2, 5\})$ nhỏ hơn $dist(\{3, 6, 4\}, \{1\})$ và $dist
 \end{figure}
 
 \subsection{Phương pháp Ward và điểm trung tâm}
-~\cite{Vipin-Kumar, AHC, hierarchical-clustering} Phương pháp Ward tính độ tương đồng của 2 nhóm bằng sự gia tăng SSE ~\cite{SSE} trong quá trình gom 2 nhóm với nhau.
+~\cite{Vipin-Kumar, AHC, hierarchical-clustering} Phương pháp Ward tính độ tương đồng của 2 nhóm bằng sự gia tăng SSE~\cite{SSE} trong quá trình gom 2 nhóm với nhau.
 Vì vậy, phương pháp này có hàm mục tiêu giống như phương pháp gom nhóm K-means.
 So với các phương pháp đã thảo luận ở trên thì phương pháp này có kỹ thuật hơi khác biệt.
 Mặc dù vậy, công thức tính độ tương đồng của phương pháp Ward có chút tương đồng với phương pháp nhóm trung bình.
@@ -686,7 +686,7 @@ Phương pháp Ward   & $\frac{m_A + m_Q}{m_A + m_B + m_Q}$ & $\frac{m_B + m_Q}{
 ~\cite{Vipin-Kumar} Gom nhóm phân cấp tích tụ không có hàm mục tiêu toàn cục để có thể tối ưu.
 Thay vào đó, thuật toán sẽ sử dụng những kỹ thuật liên kết khác nhau \ref{sec:cpplk} để quyết định cục bộ ở mỗi bước thì hai nhóm nào sẽ được gom vào nhau.
 Cách tiếp cận này giúp cho quá trình gom nhóm tránh được khó khăn khi giải quyết vấn đề tối ưu tổ hợp.
-Nhìn chung, vấn đề của gom nhóm phân cấp là không thể có được hàm mục tiêu để có thể tối ưu như tối tiểu hóa SSE ~\cite{SSE}.
+Nhìn chung, vấn đề của gom nhóm phân cấp là không thể có được hàm mục tiêu để có thể tối ưu như tối tiểu hóa SSE~\cite{SSE}.
 Tuy nhiên, gom nhóm phân cấp tích tụ lại không gặp phải vấn đề về lựa chọn điểm để khởi tạo nhóm.
 
 \subsection{Khả năng xử lý kích thước khác nhau của nhóm}
@@ -723,7 +723,7 @@ Gom nhóm phân cấp tích tụ có xu hướng chọn quyết định cục b�
 Tuy nhiên, một khi quyết định gom 2 nhóm lại với nhau được thực hiện thì không có cách nào có thể làm ngược lại.
 Cách tiếp cận này ngăn chặn tối ưu toàn cục vì không còn có thể thay đổi được ở cục bộ sau khi 2 nhóm được gom lại.
 Như đã giới thiệu, phương pháp Ward quyết định gom 2 nhóm dựa vào tiêu chuẩn tối tiểu hóa lỗi bình phương từ K-means.
-Tuy nhiên, các nhóm tại mỗi cấp thì lại không thể hiện cục bộ tối tiểu tương ứng theo tổng SSE ~\cite{SSE}.
+Tuy nhiên, các nhóm tại mỗi cấp thì lại không thể hiện cục bộ tối tiểu tương ứng theo tổng SSE~\cite{SSE}.
 Phương pháp Ward thường được xem như là cách hiệu quả trong việc khởi tạo nhóm cho K-means.
 
 Một vài kỹ thuật được đề xuất đề cố gắng vượt quá giới hạn của quyết định gom nhóm nhưng lại không thể đảo ngược.
