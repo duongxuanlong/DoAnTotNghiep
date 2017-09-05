@@ -4,8 +4,8 @@
 \section{Giới thiệu về gom nhóm văn bản}
 
 %Gom nhóm là gì?
-Gom nhóm là vấn đề được nghiên cứu nhiều trong khai thác dữ liệu ~\cite{Jain-Dubes, Jardin-Rijsbergen, Ji-Xu, Jolliffee}.
-The như Kumar định nghĩa ~\cite{Vipin-Kumar} ``\textit{Gom nhóm là công việc tìm kiếm và chia những đối tượng gần giống nhau vào thành những nhóm trong dữ liệu sao cho nhũng nhóm này có ý nghĩa, hữu dụng hoặc cả hai}''. %\cite{1984-TeX-Knuth}
+Gom nhóm là vấn đề được nghiên cứu nhiều trong khai thác dữ liệu~\cite{Jain-Dubes, Jardin-Rijsbergen, Ji-Xu, Jolliffee}.
+The như Kumar định nghĩa~\cite{Vipin-Kumar} ``\textit{Gom nhóm là công việc tìm kiếm và chia những đối tượng gần giống nhau vào thành những nhóm trong dữ liệu sao cho nhũng nhóm này có ý nghĩa, hữu dụng hoặc cả hai}''. %\cite{1984-TeX-Knuth}
 Nếu như mục đích của gom nhóm là tìm kiếm ý nghĩa của dữ liệu thì các nhóm được gom sẽ thể hiện cấu trúc của dữ liệu.
 Trong trường hợp ngược lại, nếu sử dụng gom nhóm với mục đích hữu dụng thì gom nhóm được xem là cầu nối, quá trình trung gian để thực hiện cho những mục đích khác như tóm tắt dữ liệu.
 Bất kể việc sử dụng gom nhóm cho mục đích ý nghĩa hay là hữu dụng thì gom nhóm đóng vai trò quan trọng trong nhiều lĩnh vực khác nhau như: tâm lý học và các ngành khoa học xã hội, sinh học, thống kê, nhận diện mô hình, truy vấn thông tin, máy học và khai thác dữ liệu.
@@ -19,11 +19,17 @@ Các nhóm này được hình thành từ quá trình gom nhóm không giám s�
 Khi áp dụng gom nhóm vào văn bản, ta cần nghiên cứu tính khả dụng của vấn đề này.
 Thông thường, các phương pháp áp dụng cho gom nhóm tập trung vào dữ liệu lớn có thuộc tính là số.
 Trong khi đó, văn bản là thông tin có thể hiện là từ ngữ nên ta cần chuyển đổi thể hiện của văn bản sang dạng số để có thể áp dụng gom nhóm.
-Gom nhóm văn bản cần có được tính khả dụng trong các nhiệm vụ sau:
+Theo~\cite{text-cluster} gom nhóm văn bản cần có được tính khả dụng trong các nhiệm vụ sau:
 \begin{enumerate}
-\item[•]Duyệt và tổ chức văn bản: tổ chức phân cấp của văn bản vào trong các hạng mục hợp lý có thể giúp ích cho việc duyệt hệ thống của tập hợp văn bản. Ví dụ kinh kiển cho phương pháp này là phân tán hoặc tập hợp. Phương pháp này cung cấp kỹ thuật duyệt hệ thống với sử dụng gom nhóm tổ chức của tập hợp văn bản.
-\item[•]Tóm tắt ngữ liệu: kỹ thuật gom nhóm cung cấp tóm tắt mạch lạc của tập hợp trong dạng nhóm tài tiệu hoặc nhóm từ. Điều này được sử dụng để cung cấp tóm tắt trong phần nội dung tổng kết của ngữ liệu căn bản. Lĩnh vực này có nhiều phương pháp, đặc biệt là gom nhóm câu dùng để tóm tắt văn bản.
-\item[•]Phân loại văn bản : Gom nhóm là phương pháp học không giám sát. Nó thể được đòn bẩy hóa để cải thiện chất lượng kết quả trong giám sát. Cụ thể, các nhóm từ và phương thức đồng huấn luyện có thể được sử dụng để cải thiện độ chính xác phân loại của ứng dụng giám sát với tác dụng của kỹ thuật gom nhóm.
+\item[•]Duyệt và tổ chức văn bản: văn bản được gom nhóm theo cấu trúc phân cấp có các nhóm kết nối liền mạch với nhau tạo điều kiện cho kỹ thuật duyệt đối xứng với hệ thống văn bản.
+Ví dụ kinh kiển cho phương pháp duyệt văn bản này là tìm kiếm phân tán hoặc tập hợp.
+Phương pháp này cung cấp kỹ thuật duyệt đối xứng khi tận dụng hệ thống cấu trúc các nhóm của tập văn bản.
+\item[•]Tóm tắt ngữ liệu: kỹ thuật gom nhóm cung cấp tóm tắt ngữ nghĩa của tập dữ liệu trong dạng nhóm phân loại~\cite{cluster-digest} hoặc nhóm từ~\cite{cluster-word-1, cluster-word-2}.
+Điều này được sử dụng để cung cấp tóm tắt bên trong phần nội dung của ngữ liệu.
+Lĩnh vực này có nhiều phương pháp, đặc biệt là gom nhóm câu dùng để tóm tắt văn bản.
+\item[•]Phân loại văn bản: gom nhóm là phương pháp học không giám sát.
+Chính vì vậy, gom nhóm có thể được sử dụng làm đòn bẩy để cải thiện chất lượng của kết quả trong phương pháp có giám sát.
+Cụ thể, các nhóm từ~\cite{cluster-word-1, cluster-word-2} và phương thức đồng huấn luyện~\cite{cluster-word-3} có thể được sử dụng để cải thiện độ chính xác phân loại của ứng dụng giám sát với tác dụng của kỹ thuật gom nhóm.
 \end{enumerate}
 
 \section{Bài toán gom nhóm văn bản}
