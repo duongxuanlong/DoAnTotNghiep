@@ -87,6 +87,7 @@ Theo như ~\cite{wiki-HAC}, thuật toán gom nhóm phân cấp theo hướng ph
 %Ví dụ
 		
 \subsection{Hướng tiếp cận tích tụ}
+\label{sec:htctt}
 %Hướng tiếp cận agglomerative
 %Giới thiệu
 ~\cite{Vipin-Kumar, hierarchical-clustering, cluster-analysis}Gom nhóm phân cấp theo hướng tích tụ là hướng tiếp cận phổ biến nhất trong gom nhóm phân cấp.
@@ -94,7 +95,8 @@ Phương pháp này bắt đầu bằng việc xem mỗi điểm như là một 
 Sau đây là thuật toán mô tả quá trình gom nhóm theo hướng tích tụ.
 
 \begin{algorithm}
-\caption{Basic Agglomerative Hierarchical Clustering Algorithm}\label{agl:agglomerative}
+\caption{Basic Agglomerative Hierarchical Clustering Algorithm}
+\label{agl:agglomerative}
 \begin{algorithmic}[1]
 \State Compute the proximity graph, if neccessary.
 \Repeat
@@ -106,20 +108,46 @@ Sau đây là thuật toán mô tả quá trình gom nhóm theo hướng tích t
 
 Theo như ~\cite{wiki-HAC}, thuật toán gom nhóm phân cấp theo hướng tích tụ có độ phức tạp là $O(n^2\log(n))$.
 
-%Hướng tiếp cận tích tụ là một trong những cách tiếp cận của gom nhóm phân cấp.
-%Đây là phương pháp tiếp cận gom nhóm theo cách đi từ dưới lên.
-%Phương pháp này bắt đầu từ việc quan sát mỗi phân nhóm, các phân nhóm sẽ gom lại với nhau và chuyển thành cấp cao hơn trong cây.
-%Trong trường hợp thông thường, độ phức tạp của thuật toán theo hướng tiếp cận tích tụ là $O(n^2\log(n))$.
-%Tuy nhiên, thuật toán có thể tối ưu hóa để làm giảm độ phức tạp bằng cách sử dụng liên kết đơn hoặc là liên kết toàn phần.
-		
-%Ví dụ
-%		Cho dữ liệu thô sau, ta sẽ sử dụng hướng tiếp cận tích tụ để gom nhóm phân cấp với công thức tính khoảng cách là Euclid.
-%		
-%		\begin{tikzpicture}
-%		\draw(10,20) circle (5mm) node{$c$};
-%		\end{tikzpicture}
+Đã có nhiều giải pháp đề xuất để cải thiện thuật toán gom nhóm phân cấp tích tụ.
+Một trong số đó là sử dụng ràng buộc ~\cite{hac-constraints} làm giảm các phép tính toán để tăng nhanh quá trình thực thi cho thuật toán gom nhóm phân cấp.
+Khi ta sử dụng gom nhóm phân cấp tích tụ kết hợp với các ràng buộc, ngoài việc sử dụng kỹ thuật liên kết thì ta còn áp dụng thêm một tập các ràng buộc để quyết định xem hai nhóm có được gom vào nhau hay không?
+Việc hạn chế gom nhóm sẽ giúp ta làm giảm được các phép toán trong thuật toán.
+Tuy nhiên, hướng tiếp cận này cần phải giải quyết được 2 vấn đề có thể phát sinh ra lỗi trong thuật toán.
+Vấn đề thứ nhất là liệu các ràng buộc có dẫn thuật toán gặp phải tình huống np-complete ~\cite{np-complete} hay không?
+Vấn đề thứ hai là các ràng buộc có khả năng dẫn cây phân cấp không thể cập nhật thêm được nhóm mới hay không?
+Bài viết ~\cite{hac-constraints} đã liệt kê kết quả của sự kết hợp giữa các ràng buộc để tránh gặp phải 2 vấn đề trên.
+Ngoài ra, bài viết còn đề xuất thêm ràng buộc $\gamma$ để giúp giảm tính toán cho thuật toán.
 
-%Các phương pháp liên kết trong hướng tiếp cận tích tụ
+Khi gom nhóm phân cấp tích tụ sử dụng kỹ thuật liên kết đơn\ref{sec:lkd} để tìm độ tương đồng giữa các nhóm thì những nhóm ở gần nhau thường có xu hướng được gom vào nhau.
+Dựa vào đặc tính này, một phương pháp được đề xuất để tìm kiếm nhanh   các nhóm gần kề bằng việc sử dụng LSH (Locality-Sennsitive Hashing) ~\cite{single-link-hash}.
+LSH sẽ băm tất cả các điểm vào các khu vực khác nhau.
+Khi ta muốn tìm kiếm những điểm lân cận với điểm $p$ bất kì, ta sẽ tìm trong những khu vực băm mà $p$ thuộc về và điểm nào ở gần với $p$ nhất sẽ được gom vào nhau thành một nhóm.
+Quá trình tìm kiếm những điểm ở gần với $p$ trong những khu vực băm sẽ nhanh hơn rất nhiều so với việc phải tìm kiếm tất cả các điểm trong dữ liệu nên độ phức tạp của thuật toán sẽ được giảm xuống rất nhiều, chỉ còn $O(nB)$ với $B$ là số điểm nhiều nhất nằm trong khu vực băm.
+Qua thực nghiệm, nhóm tác giả đã cho thấy kết quả sau khi gom nhóm phân cấp tích tụ với kỹ thuật liên kết đơn kết hợp với LSH giống với kết quả khi không có sử dụng LSH nhưng thuật toán lại chạy nhanh hơn và có thể chạy trên được dữ liệu lớn hơn.
+
+\section{Độ phức tạp và lưu trữ của thuật toán gom nhóm phân cấp tích tụ}
+\label{sec:dpt}
+~\cite{Vipin-Kumar} Thuật toán gom nhóm phân cấp tích tụ sử dụng ma trận tương đồng (ma trận khoảng cách) để xem xét độ tương đồng giữa các nhóm.
+Ma trận tương đồng cần khoảng $\frac{1}{2} m^2$ dung lượng để lưu trữ (xem ma trận tương đồng là ma trận vuông) với $m$ là số điểm dữ liệu.
+Thuật toán cũng cần khoảng trống cần thiết để đánh dấu tỷ lệ các nhóm được gom với tổng số nhóm và tốn khoảng $m - 1$.
+Vì thế, dung lượng cần thiết để chạy thuật toán gom nhóm phân cấp tích tụ là $O(m^2)$.
+
+Phân tích dành cho hướng tiếp cận cơ bản của gom nhóm phân cấp tích tụ cho thấy thuật toán liên quan trực tiếp đến độ phức tạp tính toán.
+$O(m^2)$ là thời gian cần thiết để tính ma trận tương đồng.
+Sau khi tính xong ma trận tương đồng, dựa vào thuật toán \ref{agl:agglomerative}, ta còn $m - 1$ lần lặp cho bước 3 và 4 vì ta có $m$ nhóm lúc ban đầu và mỗi lần lặp thì chỉ có 2 nhóm được gom lại thành một.
+Nếu ta thực thi tìm kiếm tuyến tính cho ma trận tương đồng thì sau lần lặp thứ $i$, thời gian cần dành cho ở bước 3 sẽ là $O((m - i + 1)^2)$ tỷ lệ với bình phương của số lượng nhóm.
+Thời gian cần để chạy bước thứ 4 là $O(m - i + 1)$ để cập nhật ma trận tương đồng sau khi gom 2 nhóm (một nhóm được gom lại chỉ mất khoảng $O(m - i + 1)$).
+Nếu như không có thay đổi, thuật toán có độ phức tạp là $O(m^3)$.
+Trong trường hợp khoảng cách từ nhóm này đến các nhóm khác được lưu trữ theo thứ tự thì có khả năng làm giảm khoảng $O(m - i + 1)$ dành thời gian tìm kiếm 2 nhóm gần nhất.
+Trường hợp tổng quát cho độ phức tạp của thuật toán \ref{agl:agglomerative} là $O(m^2 \log m)$.
+
+Dựa vào phân tích trên, thuật toán gom nhóm phân cấp tích tụ có độ phức tạp khá cao và tốn nhiều dung lượng để triển khai.
+Vì tốn nhiều dung lượng để thực thi nên thuật toán gặp nhiều khó khăn khi cần gom nhóm dữ liệu lớn.
+Chính vì vậy, không có gì ngạc nhiên khi các phương pháp đề xuất để cải thiện thuật toán như đã đề cập trong phần \ref{sec:htctt} đa phần tập trung vào việc làm giảm độ phức tạp ~\cite{hac-constraints, single-link-hash} để giúp cho thuật toán chạy nhanh hơn hoặc là giảm không gian lưu trữ lúc thực thi để có thể mở rộng giới hạn dữ liệu.
+Như đã đề cập trong phần \ref{sec:mtcda}, đồ án sẽ sử dụng doc2vec làm thể hiện cho văn bản.
+Doc2vec được sử dụng để rút ngắn số chiều của vector trong văn bản và thu nhỏ không gian lưu trữ lúc thực thi nên sẽ giúp mở rộng dữ liệu gom nhóm.
+Đây là hướng tiếp cận được đề xuất để làm giảm không gian lưu trữ trong lúc thực thi thuật toán.
+
 \section{Các phương pháp liên kết trong gom nhóm phân cấp tích tụ}
 \label{sec:cpplk}
 ~\cite{AHC, Vipin-Kumar} Trong thuật toán \ref{agl:agglomerative}, mấu chốt của vấn đề là cách tính độ tương đồng giữa các nhóm.
@@ -702,7 +730,19 @@ Một vài kỹ thuật được đề xuất đề cố gắng vượt quá gi�
 Một hưóng tiếp cận để giải quyết vấn đề này là di chuyển những nhánh cây ra xung quanh để cải thiện hàm mục tiêu toàn cục.
 Hướng tiếp cận khác là sử dụng kỹ thuật gom nhóm phân chia như K-means để tạo ra nhiều nhóm nhỏ, rồi sử dụng gom nhóm phân cấp với những nhóm nhỏ này như là điểm khởi đầu.
 
-
+\subsection{Xác định vết cắt tại đồ thị cây phân cấp}
+Như đã nói, đôi lúc ta muốn xác định số lượng nhóm tồn tại thực sự trong dữ liệu như gom nhóm phân chia.
+Để làm được điều này, ta cần cắt tại một mức độ nào đó trên cây phân cấp để xác định số lượng nhóm.
+Tuy nhiên, vết cắt này cần được xác định rõ ràng và phải hợp lý.
+Một vài cách thức để thực hiện vết cắt như sau:
+\begin{enumerate}
+\item[•]Ta có thể cắt tại một ngưỡng cho trước.
+Ví dụ, ta có thể cắt đồ thị cây phân cấp tại giá trị bất kì cho trước.
+Giá trị này cho ta biết được độ tương đồng tối thiểu để gom các nhóm lại.
+\item[•]Khi khoảng cách để gom các nhóm lại là lớn nhất (nghĩa là có độ tương đồng nhỏ nhất), ta có thể cắt tại độ thị ở mức mà trước khi điều này xảy ra.
+Khi thuật toán gom nhóm ở khoảng cách lớn nhất sẽ gây ảnh hưởng đến chất lượng các nhóm được gom.
+Vì vậy, việc vết cắt được thực hiện ở thời điểm trước khi điều này xảy ra sẽ giúp ta tránh được kết quả gom nhóm xấu.
+\end{enumerate}
 %\subsection{Các cách để thực hiện vết cắt trên HAC}
 %Giải thích
 

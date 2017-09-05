@@ -604,6 +604,7 @@ Thuật toán sẽ được lặp cho đến khi hội tụ.
 \end{enumerate}
 
 \subsection{Gom nhóm văn bản phân cấp}
+\label{sec:gnvbpc}
 ~\cite{hierarchical-clustering} Gom nhóm văn bản phân cấp tạo ra các nhóm lồng vào nhau thành cấu trúc cây phân cấp.
 Hình ảnh của cấu trúc cây phân cấp cho ta thấy được quan hệ giữa các nhóm.
 Phương pháp này có 2 cách tiếp cận khác nhau: gom nhóm phân cấp tích tụ  và gom nhóm phân cấp phân chia.
@@ -621,7 +622,8 @@ Gom nhóm phân cấp phân chia bắt đầu với tất cả các văn bản l
 \item[•]Quyết định gom nhóm khi đã thực hiện thì không thể làm ngược lại.
 \item[•]Hướng tiếp cận này không có hàm mục tiêu nhất định để tối ưu.
 \item[•]Cách tiếp cận này có độ phức tạp khá cao, ít nhất là $O(n^2)$ với n là số lượng nhóm cần phải gom.
-\item[•]Đôi khi đồ thị của cây phân cấp quá phức tạp gây khó khăn cho việc tìm vết cắt thích hợp để tìm đúng số lượng nhóm cần thiết.
+\item[•]Đôi khi ta muốn tìm kiếm số lượng nhóm thực sự của dữ liệu nên ta sẽ cắt tại một mức nào đó tại đồ thị của cây phân cấp.
+Tuy nhiên, việc xác định vết cắt không phải lúc nào cũng là dễ dàng.
 \end{enumerate}
 
 \subsection{Gom nhóm văn bản mật độ} 
@@ -658,6 +660,7 @@ Thuật toán tiêu biểu cho hướng tiếp cận này là DBSCAN.
 %\end{enumerate}
 
 \section{Mục tiêu của đồ án}
+\label{sec:mtcda}
 Mục tiêu của đồ án là gom nhóm văn bản tiếng Việt.
 Trong số những phương pháp đã liệt kê ở \ref{sec:ppgn} thì phương pháp gom nhóm phân cấp được sử dụng cho mục tiêu của đồ án vì:
 \begin{enumerate}

@@ -1,48 +1,236 @@
 \chapter{Phương pháp đề xuất}
 \label{Chapter3}
 
-Thuật toán gom nhóm phân cấp được thể hiện thông qua sử dụng ma trận tương đồng.
-Điều này đòi hỏi dung lượng cần thiết để lưu trữ ma trận tương đồng là $\frac{1}{2} m^2$ (giả định ma trận tương đồng là ma trận vuông) với $m$ là số điểm dữ liệu.
-Thuật toán cũng cần khoảng trống cần thiết để giữ cho việc đánh dấu tỷ lệ các nhóm được gom với tổng số nhóm, có giá trị là $m - 1$ và trừ đi những nhóm đơn lẻ.
-Vì thế, dung lượng cần thiết để chạy thuật toán gom nhóm phân cấp là $O(m^2)$.
+%Thuật toán gom nhóm phân cấp được thể hiện thông qua sử dụng ma trận tương đồng.
+%Điều này đòi hỏi dung lượng cần thiết để lưu trữ ma trận tương đồng là $\frac{1}{2} m^2$ (giả định ma trận tương đồng là ma trận vuông) với $m$ là số điểm dữ liệu.
+%Thuật toán cũng cần khoảng trống cần thiết để giữ cho việc đánh dấu tỷ lệ các nhóm được gom với tổng số nhóm, có giá trị là $m - 1$ và trừ đi những nhóm đơn lẻ.
+%Vì thế, dung lượng cần thiết để chạy thuật toán gom nhóm phân cấp là $O(m^2)$.
+%
+%Phân tích cơ bản dành cho thuật toán gom nhóm phân cấp cũng liên quan trực tiếp đến độ phức tạp tính toán.
+%$O(m^2)$ là thời gian cần thiết để tính ma trận tương đồng.
+%Sau bước đó, dựa vào thuật toán \ref{agl:agglomerative}, ta còn $m - 1$ lần lặp cho bước 3 và 4 vì ta có $m$ nhóm lúc ban đầu và mối lần lặp thì có 2 nhóm được gom vào.
+%Nếu ta thực thi như tìm kiếm tuyến tính của ma trận tương đồng thì sau lần lặp thứ $i$ thì thời gian ở bước 3 sẽ là $O(m - i + 1)^2)$.
+%Điều này tỷ lệ với số lương hiện tại của bình phương nhóm.%
+%Thời gian cần để chạy bước thứ 4 là $O(m - i + 1)$ để cập nhật ma trận tương đồng sau khi gom 2 nhóm (một nhóm được gom lại chỉ mất khoảng $O(m - i + 1)$).
+%Nếu như không có thay đổi, thuật toán có độ phức tạp là $O(m^3)$.
+%Trong trường hợp khoảng cách từ nhóm này đến các nhóm khác được lưu trữ theo thứ tự thì có khả năng làm giảm quá trình tìm kiếm 2 nhóm gần nhất.
+%Tuy nhiên, trường hợp tổng quát cho độ phức tạp của thuật toán là $O(m^2 \log)m$.
 
-Phân tích cơ bản dành cho thuật toán gom nhóm phân cấp cũng liên quan trực tiếp đến độ phức tạp tính toán.
-$O(m^2)$ là thời gian cần thiết để tính ma trận tương đồng.
-Sau bước đó, dựa vào thuật toán \ref{agl:agglomerative}, ta còn $m - 1$ lần lặp cho bước 3 và 4 vì ta có $m$ nhóm lúc ban đầu và mối lần lặp thì có 2 nhóm được gom vào.
-Nếu ta thực thi như tìm kiếm tuyến tính của ma trận tương đồng thì sau lần lặp thứ $i$ thì thời gian ở bước 3 sẽ là $O(m - i + 1)^2)$.
-Điều này tỷ lệ với số lương hiện tại của bình phương nhóm.%
-Thời gian cần để chạy bước thứ 4 là $O(m - i + 1)$ để cập nhật ma trận tương đồng sau khi gom 2 nhóm (một nhóm được gom lại chỉ mất khoảng $O(m - i + 1)$).
-Nếu như không có thay đổi, thuật toán có độ phức tạp là $O(m^3)$.
-Trong trường hợp khoảng cách từ nhóm này đến các nhóm khác được lưu trữ theo thứ tự thì có khả năng làm giảm quá trình tìm kiếm 2 nhóm gần nhất.
-Tuy nhiên, trường hợp tổng quát cho độ phức tạp của thuật toán là $O(m^2 \log)m$.
+\section{Thể hiện văn bản}
+Như đã phân tích trong \ref{sec:dpt}, thuật toán gom nhóm phân cấp tích tụ có độ phức tạp khá cao và tốn nhiều dung lượng lúc thực thi.
+Đồ án tập trung vào nhiệm vụ cải thiện dung lượng của thuật toán lúc thực thi để có thể mở rộng giới hạn dữ liệu để gom nhóm và tăng tốc thời gian thực thi.
+Việc thuật toán tốn nhiều khoảng trống để chạy thực nghiệm một phần đến từ biểu diễn văn bản bằng vector có số chiều quá lớn.
+Chính vì vector có số chiều quá lớn nên không gian để lưu trữ cũng phải tăng theo.
+Giả sử ngữ liệu có $m$ văn bản, số lượng từ vựng là $n$ thì dung lượng cần thiết để biểu diễn toàn bộ ngữ liệu dưới dạng vector sẽ là $m * n$.
+Trong công thức trên, ta không thể thay đổi số lượng văn bản $m$ nên chỉ có thể cải thiện số chiều $n$ của vector để giảm bộ nhớ lúc thực thi.
+Vì vậy, đồ án đã đề xuất thể hiện văn bản bằng doc2vec là biểu diễn vector có số chiều thấp hơn.
 
-Dựa vào phân tích về tốc độ thực thi cũng như là ảnh hưởng đến lưu trữ bộ nhớ của gom nhóm phân cấp, ta có thể tiến hành cải thiện thuật toán dựa vào 2 hướng tiếp cận này.
-Đồ án tập trung vào cải thiện bộ nhớ lưu trữ trong quá trình gom nhóm phân cấp.
-Như đã đề cập ở trên, dung lượng cần thiết để chạy chương trình là $O(m^2)$, với m là số lượng điểm trong dữ liệu.
-Tuy nhiên, các thực nghiệm chạy trong các ví dụ trên chỉ gồm các điểm có 2 chiều.
-Nhưng trên thức tế, các văn bản để gom nhóm thường rất lớn, nên dung lương lúc chạy thuật toán là rất lớn.
+Việc văn bản được biểu diễn bằng vector là để giúp cho việc tính toán trở nên dễ dàng hơn do nội dung của văn bản đa phần bao gồm từ ngữ, câu chữ.
+Nếu văn bản được để nguyên định dạng để gom nhóm thì gây ra nhiều khó khăn cho việc tính toán.
+Vì vậy, văn bản sẽ được chuyển sang định dạng vector.
+Tuy nhiên, việc biểu diễn văn bản bằng vector có nhiều cách khác nhau và cách biểu diễn này có thể ảnh hưởng đến hiệu năng của thuật toán nên phải chọn cách biểu diễn thích hợp với thuật toán gom nhóm phân cấp tích tụ.
 
-Mục tiêu của đồ án là gom nhóm văn bản tin tức tiếng Việt nên ngữ liệu sẽ rất lớn.
-Do văn bản là từ ngữ sẽ gây khó khăn khi tính toán nên ta sẽ phải chuyển đồi thể hiện từ từ ngữ sang số.
-Ta sẽ chuyển đổi mỗi văn bản thành định dạng vector, với chiều của vector tương ứng với số lượng từ ngữ trong ngữ liệu.
-Điều này đồng nghĩa chiều của vector sẽ phụ thuộc vào số lương từ có trong ngữ liệu.
-Nếu số lượng từ càng nhiều thì chiều của văn bản càng lớn, điều này dẫn lớn lúc chạy thuật toán gom nhóm phân cấp thì dung lượng sẽ rất lớn.
+Một trong số những cách biểu diễn văn bản bằng vector căn bản nhất là sử dụng vector nhị phân để xác định một từ có nằm trong vector hay không?
+Cách biểu diễn này xây dựng tập hợp từ của các văn bản, số lượng từ trong tập hợp cũng chính là số chiều của vector.
+Mỗi văn bản sẽ biểu diễn bằng vector theo thứ tự của tập hợp các từ và có giá trị 1 (từ này nằm trong văn bản) hoặc là 0 (từ này không nằm trong văn bản).
+Ví dụ, ta có 2 văn bản như sau:
 
-Việc sử dụng thể hiện của văn bản với vector có số chiều tương ứng với số lượng từ trong ngữ liệu sẽ khiến cho thuật toán bị giới hạn do tốn quá nhiều dung lượng bộ nhớ.
-Vì vậy, ta có thể thay đổi thể hiện của văn bản chuyển từ sử dụng tần số sang doc2vec.
-Doc2vec là thuật toán không giám sát để tạo ra vector cho câu, đoạn văn hoặc là văn bản.
-Thuật toán là phiên bản tương thích với word2vec, dùng để tạo ra vector cho từ.
+\textbf{VB1}: ``Tôi đi học''
 
-Vector được tạo bởi doc2vec thường được sử dụng cho các nhiệm vụ như tìm độ tương đồng giữa câu, đoạn văn và văn bản.
-Không như các mô hình câu như RNN, các chuỗi từ được giữ lại trong quá trình tạo ra vector câu, doc2vec độc lập với thứ tự từ.
-Trong nhiệm vụ tìm kiếm độ tương đồng, doc2vec biểu diễn định dạng của văn bản rất tốt vì giới hạn được số lượng chiều.
-Vì vậy, doc2vec được chọn để biểu diễn văn bản cho thuật toán gom nhóm phân cấp.
+\textbf{VB2}: ``Tôi đang đến trường''
 
-Do vector biểu diễn bằng doc2vec có số chiều nhỏ hơn rất nhiều so với vector biểu diễn tần số, dung lượng bộ nhớ khi sử dụng thuật toán gom nhóm phân cấp sẽ được giảm đáng kể.
-Vector biểu diễn bằng tần số có số chiều tương ứng với số lượng từ trong ngữ liệu.
-Trong khi đó, số chiều trong doc2vec được thiết lập cố định.
-Vì doc2vec là thuật toán dùng để tìm kiếm thể hiện cho văn bản nên ta phải thiết lập cố định số chiều lúc huấn luyện.
-Chính vì điều này nên doc2vec có số chiều nhỏ hơn so với tần số và sẽ giúp cho dung lượng bộ nhớ giảm đi nhiều khi thực thi chương trình gom nhóm phân cấp.
+Để biểu diễn vector nhị phân cho văn bản, trước hết ta sẽ xây dựng tập hợp từ thành bảng sau \ref{tab:3_1}:
+\begin{table}[h!]
+\centering
+\caption{Bảng thể hiện vị trí của từ}
+\label{tab:3_1}
+\begin{tabular}{|c|c|}
+\hline
+Vị Trí & Từ							\\ \hline
+0    & Tôi                \\ \hline
+1    & đi               \\ \hline
+2    & học               \\ \hline
+3    & đang               \\ \hline
+4    & đến               \\ \hline
+5    & trường               \\ \hline
+\end{tabular}
+\end{table}
+
+Vector nhị phân của 2 văn bản \textbf{VB1} và \textbf{VB2} là:
+
+\textbf{VB1}: (1, 1, 1, 0, 0, 0)
+
+\textbf{VB2}: (1, 0, 0, 1, 1, 1)
+
+Điểm yếu của vector nhị phân là cách thể hiện này chỉ cho ta biết được từ nào có xuất hiện trong văn bản chứ không thể xác định được số lượng của một từ có trong văn bản là bao nhiêu.
+Giả sử ta gộp \textbf{VB1} và \textbf{VB2} thành \textbf{VB3}.
+
+\textbf{VB3}: ``Tôi đi học. Tôi đang đến trường''
+
+Khi đó, vector nhị phân cho \textbf{VB3} sẽ là:
+
+\textbf{VB3}: (1, 1, 1, 1, 1, 1)
+
+Như vậy, vector nhị phân không thể cho ta biết được từ ``Tôi'' đã xuất hiện đến 2 lần trong \textbf{VB3}.
+Vì vậy, một cách khác được đề xuất có tên gọi là TF-IDF (term frequency - inverse document frequency).
+Theo như ~\cite{tf-idf}: ``TF-IDF là tích của 2 số TF và IDF. Trong đó TF là tần số của một từ xuất hiện trong văn bản và IDF là tần số ngược của văn bản, nghĩa là số lần xuất hiện ở những văn bản khác nhau của từ đó''.
+Công thức để tính TFIDF cho một từ trong văn bản là:
+
+\begin{equation}
+tfidf (t, d, D) = tf(t, d) * idf (t, D)
+\end{equation}
+
+\begin{equation}
+idf (t, D) = log \frac{N}{|{d \in D: t \in d}|}
+\end{equation}
+
+\begin{enumerate}
+\item[•]D: tập ngữ liệu
+\item[•]d: văn bản thuộc tập D
+\item[•]N: tổng số văn bản trong ngữ liệu N = |D|.
+\item[•]$|{d \in D: t \in d}|$: số lượng văn bản mà từ $t$ xuất hiện. Tuy nhiên trong trường hợp từ nào đó không xuất hiện trong văn bản thì có thể dẫn đến chia cho 0 nên phần này sẽ được sửa lại thành  $1 + |{d \in D: t \in d}|$
+\end{enumerate}
+
+Chiều của vector theo cách biểu diễn TFIDF cũng chính là số lượng từ trong tập hợp từ.
+Tuy nhiên, TFIDF có số chiều phụ thuộc vào số lượng từ trong tập hợp nên số chiều của vector là rất lớn.
+Ngoài ra, dù vector có số chiều là rất lớn nhưng số lượng phần tử bằng 0 (từ này không xuất hiện trong văn bản) trong vector cũng nhiều không kém.
+Điều này dẫn đến tốn kém quá nhiều dung lượng lưu trữ để biểu diễn cho vector TFIDF.
+Vì vậy, một phương pháp biểu diễn khác để cải thiện vấn đề này, đó chính là doc2vec.
+%Áp dụng cách biểu diễn TFIDF cho \textbf{VB1} và \textbf{VB2} thì ta có:
+%
+%\textbf{VB1}: ()
+%
+%\textbf{VB2}: ()
+
+
+\section{Gom nhóm phân cấp tích tụ với văn bản doc2vec}
+~\cite{doc2vec-1} Doc2vec là thuật toán học không giám sát để tạo ra vector thể hiện cho câu, đoạn văn hay là văn bản.
+Thuật toán doc2vec là phần chỉnh sửa, nâng cấp từ word2vec.
+Đồ án sử dụng thuật toán doc2vec từ thư viện \ref{gensim} để huấn luyện tập dữ liệu.
+~\cite{doc2vec-2} Vì doc2vec là phần mở rộng từ word2vec nên có thể tái sử dụng lại những mẫu từ word2vec. 
+Ta có thể dễ dàng chỉnh sửa lại chiều của vector, kích thước của tham số \textit{sliding window}, số lượng \textit{workers} hay là bất kì tham số nào tương ứng với việc thay đổi trong mô hình Word2vec.
+
+Điều duy nhất khác biệt giữa thuật toán doc2vec với word2vec là liên quan đến phương pháp huấn luyện khi sử dụng mô hình doc2vec.
+Trong kiến trúc word2vec, hai thuật toán được sử dụng là cbow (continuous bag of word) và sg (skip-gram).
+Đối với doc2vec, thuật toán tương ứng là dm (distributed memory) và dbow (distributed bags of words).
+Vì mô hình dm có hiệu năng tôt hơn đây sẽ là thuật toán mặc định lúc chạy doc2vec.
+Tuy nhiên, ta vẫn có thể chuyển sang mô hình dbow nếu muốn bằng việc thiết lập cờ \textit{dm=0} trong hàm khởi tạo.
+
+Phần dữ liệu đầu vào của doc2vec là một dãy những đối tượng \textbf{TaggedDocument} với mỗi đối tượng thể hiện văn bản và có 2 phần cơ bản là tập hợp các từ và nhãn như sau:
+\begin{lstlisting}[language=Python]
+taggedDocument = TaggedDocument(words=[u'some', u'words', u'here'], labels=[u'SENT_1'])
+\end{lstlisting}
+
+Thuật toán sẽ chạy qua \textbf{TaggedDocument} 2 lần lặp.
+Lần đầu để xây dựng tập từ, lần thứ hai để huấn luyện mô hình cho tập dữ liệu đầu vào, học cách thể hiện vector cho mỗi từ và nhãn cho ngữ liệu.
+Đồ án sẽ thực thi một lớp để tạo ra những vector cho tập văn bản.
+\begin{lstlisting}[language=Python]
+class DocIterator:
+    def __init__(self, doclist, labellist):
+        self.DocList = doclist
+        self.LabelList = labellist
+
+    def __iter__(self):
+        for idx, doc in enumerate(self.DocList):
+            yield gensim.models.doc2vec.TaggedDocument(doc.split(), [self.LabelList[idx]])
+\end{lstlisting}
+
+Doc2vec sẽ học cách thể hiện đồng thời cho từ và nhãn.
+Một điều lưu ý là quá trình huấn luyện của doc2vec có tỷ lệ học giảm dần qua tiến trình lặp qua dữ liệu, nhãn.
+Để khắc phục điều này, tỷ lệ học cần phải được điều chỉnh một cách thủ công và được thực thi trong đồ án như sau:
+\label{code:training}
+\begin{lstlisting}[language=Python]
+model = Doc2Vec(size=100, window=10, min_count=1, workers=4, alpha=0.025, min_alpha=0.025)
+    model.build_vocab(documents)
+    for epoch in range(10):
+        model.train(documents)
+        model.alpha -= 0.002
+        model.min_alpha = model.alpha
+\end{lstlisting}
+
+Ý nghĩa của các tham số của doc2vec trong phần mã nguồn trên:
+\begin{enumerate}
+\item[•]documents: là dãy bao gồm các phần tử TaggedDocuments.
+\item[•]dm: cách huấn luyện mặc định, có giá trị mặc định là 1.
+\item[•]size: số chiều được thiết lập cho vector.
+\item[•]window: là khoảng cách tối đa giữa từ được dự đoán và từ được sử dụng trong ngữ cảnh dự đoán trong cùng một văn bản.
+\item[•]alpha: giá trị khởi tạo cho tỷ lệ học.
+\item[•]workers:  số lượng luồng được sử dụng để huấn luyện doc2vec.
+\end{enumerate}
+
+Sau khi huấn luyện xong, ta có thể trích xuất vector của văn bản dựa vào nhãn của từng văn bản.
+\begin{lstlisting}[language=Python]
+model.docvecs[label]
+\end{lstlisting}
+
+Đồ án sẽ huấn luyện doc2vec cho tập dữ liệu tiếng Anh \ref{sec:dlta} và tiếng Việt \ref{sec:dltv}.
+Trong đó, tập dữ liệu tiếng Việt sẽ bao gồm 2 phần: tập huấn luyện và tập kiểm nghiệm kết quả.
+Khi huấn luyện doc2vec cho phần dữ liệu tiếng Việt, ta sẽ trộn 2 tập này thành dữ liệu đầu vào của thuật toán.
+Các tham số được sử dụng cũng như là giá trị của một số tham số sẽ được thiết lập như trong phần mã nguồn \ref{code:training}.
+Sau đó, đồ án sẽ trích xuất những vector từ mô hình doc2vec dựa vào nhãn của văn bản, riêng đối với dữ liệu tiếng Việt thì chỉ trích xuất từ tập kiểm nghiệm kết quả.
+Cuối cùng, những thể hiện vector có số chiều là 100 sẽ được đem đi gom nhóm phân cấp tích tụ.
+
+Thuật toán gom nhóm phân cấp tích tụ sử dụng trong đồ án đến từ thư viện scikit-learn ~\cite{hac-scikit}.
+
+\label{ahc-scikit}
+\textit{AgglomerativeClustering(n{\_}clusters=2, affinity=`euclidean', \\
+memory=None, connectivity=None, compute{\_}full{\_}tree=`auto', \\
+linkage=`ward', pooling{\_}func=<function mean>)}
+
+Ý nghĩa của các tham số trong thuật toán gom nhóm phân cấp tích tụ:
+\begin{enumerate}
+\item[•]n{\_}clusters: số lượng nhóm cần phải tìm, có giá trị mặc định là 2.
+\item[•]affinity: công thức để tính khoảng cách giữa 2 văn bản, có nhiều công thức khác nhau: ``euclidean'', ``l1'', ``l2'', ``manhattan'', ``cosine'' và ``precomputed''.
+Trong trường hợp cách liên kết ``ward'' được sử dụng thì chỉ có thể kết hợp với công thức tính khoảng cách ``euclidean''.
+\item[•]memory: thể hiện của lớp sklearn.externals.joblib.Memory hoặc là chuỗi, có giá trị mặc định là \textit{None}.
+Memory được sử dụng để lưu trữ cục bộ giá trị đầu ra của cây phân cấp.
+Mặc định thì giá trị này không được lưu.
+Trong trường hợp giá trị của memory là \textit{string} thì chính là đường dẫn đến thư mục lưu trữ cục bộ.
+\item[•]connectivity: tham số tùy chọn, là tham số dạng mảng hoặc là hàm.
+Connectivity matrix là ma trận kết nối dùng để định nghĩa mỗi mẫu thì có mẫu lân cận theo cấu trúc dữ liệu có sẵn.
+Ma trận kết nối có thể là chính bản thân nó hoặc là dùng để chuyển hóa dữ liệu vào nó như dẫn xuất từ kneighbors{\_}graph.
+Giá trị mặc định của tham số này là \textit{None}.
+\item[•]compute{\_}full{\_}tree: có giá trị bool hoặc là ``auto'' và là tham số tùy chọn.
+Tham số này có tác dụng kết thúc sớm việc tạo cây phân cấp tại nhóm thứ \textit{n{\_}clusters}.
+Điều này hữu dụng với việc giảm thời gian tính toán và nếu kết hợp với tham số ma trận kết nối.
+\item[•]linkage: cách thức liên kết trong gom nhóm phân cấp tích tụ với các tùy chọn như sau: {``ward'', ``complete'', ``average''} và cách liên kết mặc định là ``ward''.
+\item[•]pooling{\_}func: hàm, có giá trị mặc định là \textit{np.mean}.
+Tham số này kết hợp giá trị của đặc trưng tích tụ thành giá trị duy nhất.
+Ta có mảng [M, N] và tham số này là \textit{axis=1} thì mảng sẽ giảm xuống còn [M].
+\end{enumerate}
+
+Đồ án sử dụng gom nhóm phân cấp tích tụ như đã nêu ở phần \textit{AgglomerativeClustering} \ref{ahc-scikit} với các tham số {\textit{n{\_}clusters}, \textit{linkage}, \textit{affinity}}.
+Trong đó, giá trị \textit{n{\_}clusters} sẽ được thiết lập tùy vào dữ liệu đầu vào.
+Tiếp đến, đồ án sẽ tiến hành gom nhóm phân cấp tích tụ cho cả 2 mô hình doc2vec và TF-IDF.
+Sau khi kết thúc gom nhóm, đồ án sử dụng 2 chỉ số \ref{sec:NMI} và \ref{sec:ARI} để so sánh kết quả gom nhóm của doc2vec với TFIDF.
+Chi tiết phần thực nghiệm sẽ được nói rõ ở phần \ref{Chapter4}.
+%Dựa vào phân tích về tốc độ thực thi cũng như là ảnh hưởng đến lưu trữ bộ nhớ của gom nhóm phân cấp, ta có thể tiến hành cải thiện thuật toán dựa vào 2 hướng tiếp cận này.
+%Đồ án tập trung vào cải thiện bộ nhớ lưu trữ trong quá trình gom nhóm phân cấp.
+%Như đã đề cập ở trên, dung lượng cần thiết để chạy chương trình là $O(m^2)$, với m là số lượng điểm trong dữ liệu.
+%Tuy nhiên, các thực nghiệm chạy trong các ví dụ trên chỉ gồm các điểm có 2 chiều.
+%Nhưng trên thức tế, các văn bản để gom nhóm thường rất lớn, nên dung lương lúc chạy thuật toán là rất lớn.
+%
+%Mục tiêu của đồ án là gom nhóm văn bản tin tức tiếng Việt nên ngữ liệu sẽ rất lớn.
+%Do văn bản là từ ngữ sẽ gây khó khăn khi tính toán nên ta sẽ phải chuyển đồi thể hiện từ từ ngữ sang số.
+%Ta sẽ chuyển đổi mỗi văn bản thành định dạng vector, với chiều của vector tương ứng với số lượng từ ngữ trong ngữ liệu.
+%Điều này đồng nghĩa chiều của vector sẽ phụ thuộc vào số lương từ có trong ngữ liệu.
+%Nếu số lượng từ càng nhiều thì chiều của văn bản càng lớn, điều này dẫn lớn lúc chạy thuật toán gom nhóm phân cấp thì dung lượng sẽ rất lớn.
+%
+%Việc sử dụng thể hiện của văn bản với vector có số chiều tương ứng với số lượng từ trong ngữ liệu sẽ khiến cho thuật toán bị giới hạn do tốn quá nhiều dung lượng bộ nhớ.
+%Vì vậy, ta có thể thay đổi thể hiện của văn bản chuyển từ sử dụng tần số sang doc2vec.
+%Doc2vec là thuật toán không giám sát để tạo ra vector cho câu, đoạn văn hoặc là văn bản.
+%Thuật toán là phiên bản tương thích với word2vec, dùng để tạo ra vector cho từ.
+%
+%Vector được tạo bởi doc2vec thường được sử dụng cho các nhiệm vụ như tìm độ tương đồng giữa câu, đoạn văn và văn bản.
+%Không như các mô hình câu như RNN, các chuỗi từ được giữ lại trong quá trình tạo ra vector câu, doc2vec độc lập với thứ tự từ.
+%Trong nhiệm vụ tìm kiếm độ tương đồng, doc2vec biểu diễn định dạng của văn bản rất tốt vì giới hạn được số lượng chiều.
+%Vì vậy, doc2vec được chọn để biểu diễn văn bản cho thuật toán gom nhóm phân cấp.
+%
+%Do vector biểu diễn bằng doc2vec có số chiều nhỏ hơn rất nhiều so với vector biểu diễn tần số, dung lượng bộ nhớ khi sử dụng thuật toán gom nhóm phân cấp sẽ được giảm đáng kể.
+%Vector biểu diễn bằng tần số có số chiều tương ứng với số lượng từ trong ngữ liệu.
+%Trong khi đó, số chiều trong doc2vec được thiết lập cố định.
+%Vì doc2vec là thuật toán dùng để tìm kiếm thể hiện cho văn bản nên ta phải thiết lập cố định số chiều lúc huấn luyện.
+%Chính vì điều này nên doc2vec có số chiều nhỏ hơn so với tần số và sẽ giúp cho dung lượng bộ nhớ giảm đi nhiều khi thực thi chương trình gom nhóm phân cấp.
 
 %Đây là hướng tiếp cận kinh điển trong việc thể hiện văn bản, có tên gọi là TFIDF (term-frequecny - inverse frequency document).
 %TFIDF là một dạng thống kê số học 

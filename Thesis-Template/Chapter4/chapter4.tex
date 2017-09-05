@@ -10,7 +10,7 @@ Quá trình thực nghiệm đồ án được thực hiện với môi trườn
 \item[•]Ngôn ngữ lập trình Python phiên bản 2.7.
 \item[•]Một số gói lệnh Python cài đặt thêm:
 \begin{enumerate}
-\item[-] gensim phiên bản 0.11.1: gói lệnh hỗ trợ trích xuất ngữ nghĩa của các chủ đề trong các văn bản.
+\item[-]\label{gensim} gensim phiên bản 0.11.1: gói lệnh hỗ trợ trích xuất ngữ nghĩa của các chủ đề trong các văn bản.
 Gensim được thiết kế để có thể thực thi với dữ liệu thô.
 Các thuật toán trong gensim như Latent Semantics Analysis (LSA), Latent Dirichlet Allocation (LDA) và Random Projections dùng để khai thác cấu trúc ngữ nghĩa của văn bản bằng các mẫu thống kê.
 Sau khi chạy các thuật toán này, văn bản thô sẽ chuyển sang dạng thể hiện mới có nghĩa và có thể truy vấn độ tương đồng với các văn bản khác.
@@ -66,6 +66,7 @@ Cả hai bộ dữ liệu đều bao gồm các bài báo đã được gom nhó
 
 %giới thiệu dữ liệu tiếng Anh
 \subsection{Dữ liệu tiếng Anh}
+\label{sec:dlta}
 % Giới thiệu Reuters-21578
 Reuters-21578 bao gồm 21,578 bài báo từ trang tin tức Reuters.com\footnote{http://www.reuters.com/} bao gồm nhiều lĩnh vực khác nhau.
 Bộ dữ liệu này được tổng hợp bởi David D. Lewis vào năm 1987.
@@ -121,6 +122,7 @@ Các tập phân nhóm như EXCHANGES, ORGS, PEOPLE, và PLACES gồm các bài 
 
 %giới thiệu dữ liệu tiếng Việt
 \subsection{Dữ liệu tiếng Việt}
+\label{sec:dltv}
 %Giới thiệu sơ bộ
 Bộ dữ liệu tiếng Việt được lấy từ trang tin tức tổng hợp Google news bao gồm 1,945 bài được phân chia thành 300 phân nhóm.
 Các bài báo này đều đến từ các trang báo nổi tiếng của Việt Nam như: Vnexpress, Dân Trí, Tuổi Trẻ,\ldots
@@ -217,6 +219,7 @@ Ta biểu diễn $n$ là tổng số đối tượng trong thuật toán.
 
 %Cách đánh giá NMI
 \subsection{Cách đánh giá NMI}
+\label{sec:NMI}
 
 %Giới thiệu
 %\subsubsection{Giới thiệu}
@@ -339,6 +342,7 @@ Dựa vào công thức \ref{eq:NMI}, ta có thể tính NMI có kết quả là
 		
 %Cách đánh giá ARI
 \subsection{Cách đánh giá ARI}
+\label{sec:ARI}
 %Giới thiệu
 %\subsubsection{Giới thiệu}
 Adjusted Rand Index (ARI) được cải tiến từ chỉ số Rand Index (RI).
@@ -441,14 +445,18 @@ Thực nghiệm được chạy với thuật toán HAC theo hướng tiếp c�
 Ta sẽ chạy thuật toán trên ngữ liệu tiếng Việt lẫn tiếng Anh dựa theo doc2vec lẫn TFIDF để so sánh kết quả.
 Do doc2vec cần lượng ngữ liệu lớn để xác định ngữ cảnh của từ ngữ nên phần dữ liệu tiếng Việt hiện tại là không đủ.
 Vì vậy, ngoài 300 nhóm có sẵn của Google news, ta sẽ trộn thêm một phần ngữ liệu khác có cùng các nhóm chủ với Google news để tạo thành tập huấn luyện mới.
-Sau đó, ta sẽ dùng tập 300 nhóm của Google news để xác định kết quả gom nhóm của tập ngữ liệu tiếng Việt.
+Sau đó, ta sẽ sử dụng tập ngữ liệu tiếng Việt lẫn tiếng Anh để huấn luyện doc2vec với các tham số được thiết lập như đã đề cập trong phần mã nguồn \ref{code:training}.
+Cuối cùng, ta sẽ có được mô hình doc2vec từ tập dữ liệu được huấn luyện và ta sẽ trích xuất vector của thể hiện văn bản để gom nhóm.
+Tuy nhiên, đối với ngữ liệu tiếng Việt, đồ án chỉ trích xuất các văn bản từ 300 nhóm của Google news vì ta chỉ muốn kiểm tra kết quả từ tập kiểm nghiệm này.
 
-Thuật toán HAC có thể được điều chỉnh để thay đổi độ đo khoảng cách cũng như là cách liên kết nên kết quả thực nghiệm có thể 
-khác nhau.
-Trong scikitlearn, ta có các cách thức liên kết như sau: ward, toàn phần và trung bình.
-Ngoải ra, ta còn có thể sử dụng các công thức tính khoảng cách khác nhau như: euclidean, l1, l2, manhattan, cosine.
+Sau khi có được tập vector văn bản cần thiết từ mô hình doc2vec hay TFIDF, ta sẽ tiến hành gom nhóm phân cấp tích tụ với các tham số như sau: {\textit{n{\_}clusters}, \textit{linkage}, \textit{affinity}}.
+Đối với ngữ liệu tiếng Việt, tham số \textit{n{\_}clusters} có giá trị là 300, còn đối với tiếng Anh là 96.
+Như đã đề cập ở phần \ref{ahc-scikit}, thuật toán HAC có thể được điều chỉnh để thay đổi độ đo khoảng cách cũng như là cách liên kết nên kết quả thực nghiệm có thể khác nhau.
+Trong scikitlearn, ta có các cách thức liên kết như sau: {``ward'', ``complete'', ``average''}.
+Ngoải ra, ta còn có thể sử dụng các công thức tính khoảng cách khác nhau như: {``euclidean'', ``l1'', ``l2'', ``manhattan'', ``cosine''}.
 Tuy nhiên, khi sử dụng liên kết ward, thuật toán chỉ có thể áp dụng được với công thức tính khoảng cách euclidean.
-Ta sẽ phải chạy thuật toán ứng với mỗi lựa chọn về khoảng cách kết hợp với các cách liên kết để có thể tìm ra được kết quả tối ưu nhất.
+Chính vì có nhiều tùy chọn, ta sẽ phải chạy thuật toán ứng với mỗi lựa chọn về khoảng cách kết hợp với các cách liên kết để có thể tìm ra được kết quả tối ưu nhất.
+Sau đó, ta sẽ sử dụng chỉ số NMI và ARI để so sánh kết quả gom nhóm từ 2 mô hình doc2vec và TFIDF.
 
 %Thực nghiệm kết quả
 Kết quả phần thực nghiệm của thuật toán HAC thực hiện trên dữ liệu tiếng Anh và tiếng Việt được thể hiện dưới các bảng sau (dấu x biểu thị thực nghiệm không thể thực hiện):
@@ -533,7 +541,7 @@ Như vậy, chỉ số ARI của doc2vec cao hơn so với TFIDF.
 Còn đối với chỉ số NMI, kết quả cao nhất khi sử đụng doc2vec là 0.886 với liên kết Ward và độ đo Euclidean.
 Nhưng chỉ số NMI của TFIDF là 0.910 với liên kết Ward và độ đo Eucldean, nghĩa là cao hơn so với doc2vec.
 
-Còn đối với thực nghiệm tiếng Anh, chỉ sô ARI và NMI đều cao hơn so với doc2vec.
+Còn đối với thực nghiệm tiếng Anh, chỉ số ARI và NMI khi sử dụng mô hình doc2vec đều cao hơn so với TFIDF.
 %%18
 
 

@@ -1,17 +1,28 @@
 \chapter{Kết luận và hướng phát triển}
 \label{Chapter5}
 \section{Kết luận}
-Thuật toán gom nhóm phân cấp tích tụ khi sử dụng văn bản với thể hiện là doc2vec cho ra kết quả tôt hơn so với thuật toán sử dụng TFIDF (trường hợp ARI).
-Như vậy, không những giúp cho việc giảm dung lượng bộ nhớ lúc chạy thuật toán, doc2vec còn cho ra kết quả tốt hơn.
-Áp dụng doc2vec trong việc thể hiện văn bản còn có thể giúp cho việc tăng số lượng văn bản lúc chạy.
-Trong khi đó, TFIDF do có số chiều quá lớn nên khi chạy với ngữ liệu lớn sẽ có thể bị chết may do hết bộ nhớ.
-Vì vậy, doc2vec là thể hiện văn bản thích hợp cho ngữ liệu lớn.
+Thuật toán gom nhóm phân cấp tích tụ khi sử dụng văn bản với thể hiện vector của mô hình doc2vec cho ra kết quả tốt hơn so với sử dụng TFIDF.
+Kết quả của gom nhóm tiếng Việt khi sử dụng mô hình doc2vec có chỉ số ARI cao hơn so với TFIDF nhưng chỉ số NMI thì ngược lại.
+Nhìn chung, kết quả gom nhóm như vậy là khả quan.
+Điều quan trọng là khi sử dụng mô hình doc2vec thì chiều của vector để thể hiện văn bản đã giảm đi rất nhiều.
+Việc số chiều giảm đã đem lại các lợi ích sau cho gom nhóm phân cấp tích tụ:
+\begin{enumerate}
+\item[•]Số chiều của vector giảm đồng nghĩa với dung lượng để lưu trữ lúc thực thi cũng giảm theo.
+Từ đó, dữ liệu dành cho gom nhóm phân cấp có thể được mở rộng lớn hơn.
+\item[•]Khi thuật toán thực hiện các phép tính trên vector của mô hình doc2vec, số chiều của doc2vec thấp hơn rất nhiều so với TFIDF nên kết quả tính toán sẽ nhanh hơn và giúp cho thuật toán thực thi nhanh hơn.
+\end{enumerate}
+
+Như vậy, khi gom nhóm phân cấp tích tụ cho văn bản có thể hiện vector theo mô hình doc2vec không những giúp cho việc giảm dung lượng bộ nhớ lúc chạy thuật toán mà còn có thể tăng nhanh quá trình thực thi.
+Không những vậy, doc2vec còn cho ra kết quả tốt hơn so với TFIDF.
+Vì vậy, doc2vec là mô hình thích hợp để biểu diễn vector cho văn bản dùng để gom nhóm.
 
 \section{Hướng phát triển}
-Hiện tại, vấn đề về dung lượng bộ nhớ lúc chạy thuật toán doc2vec tạm thời được khắc phục.
-Tuy nhiên, ta vẫn còn tồn tại vấn đề thời gian thực thi thuật toán.
-Vì vậy, trong tương lai, ta có thể đào sâu vào hướng tiếp cận này để cải thiện thời gian thực thi.
-Như vậy, ta có thể sẽ có thể chạy được nhanh hơn nếu cải tiến được thời gian thực thi.
+Hiện tại, vấn đề về quá tải dung lượng bộ nhớ lúc chạy thuật gom nhóm phân cấp đã được khắc phục khi sử dụng doc2vec.
+Đồng thời, doc2vec cũng giúp cho thời gian thực thi thuật toán được giảm xuống.
+Tuy nhiên, ta vẫn còn tồn tại điểm yếu về tìm kiếm vết cắt trên cây phân cấp như đã đề cập trong phần khuyết điểm ở \ref{sec:gnvbpc}.
+Chính vì vậy mà lúc thực thi, ta phải truyền giá trị số lượng nhóm cho tham số của thuật toán.
+Nếu như thuật toán có thể tìm kiếm vết cắt thích hợp thì ta có thể biết được số lượng nhóm tiềm năng trong ngữ liệu.
+Vì vậy, trong tương lai, công trình sẽ tiếp tục nghiên cứu việc tìm kiếm vết cắt phù hợp để có thể thấy được số lượng nhóm trong dữ liệu là bao nhiêu.
 
 %kết quả đạt được (1-3 đoạn)
 
