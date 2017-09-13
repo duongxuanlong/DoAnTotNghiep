@@ -1,18 +1,18 @@
 \chapter{Kết luận và hướng phát triển}
 \label{Chapter5}
 \section{Kết luận}
-Thuật toán gom nhóm phân cấp tích tụ khi sử dụng văn bản với thể hiện vector của mô hình doc2vec cho ra kết quả tốt hơn so với sử dụng TFIDF.
+Thuật toán gom nhóm phân cấp kết hợp khi sử dụng văn bản với thể hiện vector của mô hình doc2vec cho ra kết quả tốt hơn so với sử dụng TFIDF.
 Kết quả của gom nhóm tiếng Việt khi sử dụng mô hình doc2vec có chỉ số ARI cao hơn so với TFIDF nhưng chỉ số NMI thì ngược lại.
 Nhìn chung, kết quả gom nhóm như vậy là khả quan.
 Điều quan trọng là khi sử dụng mô hình doc2vec thì chiều của vector để thể hiện văn bản đã giảm đi rất nhiều.
-Việc số chiều giảm đã đem lại các lợi ích sau cho gom nhóm phân cấp tích tụ:
+Việc số chiều giảm đã đem lại các lợi ích sau cho gom nhóm phân cấp kết hợp:
 \begin{enumerate}
 \item[•]Số chiều của vector giảm đồng nghĩa với dung lượng để lưu trữ lúc thực thi cũng giảm theo.
 Từ đó, dữ liệu dành cho gom nhóm phân cấp có thể được mở rộng lớn hơn.
 \item[•]Khi thuật toán thực hiện các phép tính trên vector của mô hình doc2vec, số chiều của doc2vec thấp hơn rất nhiều so với TFIDF nên kết quả tính toán sẽ nhanh hơn và giúp cho thuật toán thực thi nhanh hơn.
 \end{enumerate}
 
-Như vậy, khi gom nhóm phân cấp tích tụ cho văn bản có thể hiện vector theo mô hình doc2vec không những giúp cho việc giảm dung lượng bộ nhớ lúc chạy thuật toán mà còn có thể tăng nhanh quá trình thực thi.
+Như vậy, khi gom nhóm phân cấp kết hợp cho văn bản có thể hiện vector theo mô hình doc2vec không những giúp cho việc giảm dung lượng bộ nhớ lúc chạy thuật toán mà còn có thể tăng nhanh quá trình thực thi.
 Không những vậy, doc2vec còn cho ra kết quả tốt hơn so với TFIDF.
 Vì vậy, doc2vec là mô hình thích hợp để biểu diễn vector cho văn bản dùng để gom nhóm.
 

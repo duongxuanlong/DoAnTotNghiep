@@ -166,7 +166,7 @@ Trong khi đó, bài báo được lưu dưới định dạng .raw chứa các 
 Sau khi có được tập dữ liệu thô được gom nhóm theo Google news, Giàu đã sử dụng công cụ Java Tokenzier của tác giả Lê Hồng Phương để tách câu và tách từ và tạo thành tập tin có định dạng là tok.
 Tập tin có định dạng là tok có cấu trúc tương tự như tập tin có định dạng raw.
 Để cho tiện sử dụng bộ dữ liệu, Giàu đã tích hợp phần dữ liệu sau khi tách câu và tách từ thành tập tin json có định dạng là .tok.json với các trường như sau: ``Title'', ``Tags'',  ``ShortIntro'' (tên gọi khác của ``Summary'') và ``Content''.
-Ngoải ra, trong phần dữ liệu còn có tập tin có định dạng là .ner chứa kết quả sau khi NER (dùng công cụ C++ CLC NER của nhóm tác giả Đinh Điền) và có cấu trúc tương tự như tập tin có định dạng raw.
+Ngoài ra, trong phần dữ liệu còn có tập tin có định dạng là .ner chứa kết quả sau khi NER (dùng công cụ C++ CLC NER của nhóm tác giả Đinh Điền) và có cấu trúc tương tự như tập tin có định dạng raw.
 Tượng tự, Giàu cũng đã làm tập tin json có định dạng là .ner.json cho phần dữ liệu sau khi xử lý NER và có các trường tương tự như tập tin có định dạng là .tok.json.
 
 %Quá trình xử lý từ văn bản thô sang dạng thể hiện để gom nhóm
@@ -441,7 +441,7 @@ Sau khi có được những giá trị cần thiết, ta dựa vào công thứ
 %\subsubsection{Ví dụ}
 
 \section{Thực nghiệm và kết quả}
-Thực nghiệm được chạy với thuật toán HAC theo hướng tiếp cận từ dưới lên (Agglomerative clustering) từ thư viện scikitlearn.
+Thực nghiệm được chạy với thuật toán HAC theo hướng tiếp cận từ dưới lên (Agglomerative clustering) từ thư viện scikit-learn.
 Ta sẽ chạy thuật toán trên ngữ liệu tiếng Việt lẫn tiếng Anh dựa theo doc2vec lẫn TFIDF để so sánh kết quả.
 Do doc2vec cần lượng ngữ liệu lớn để xác định ngữ cảnh của từ ngữ nên phần dữ liệu tiếng Việt hiện tại là không đủ.
 Vì vậy, ngoài 300 nhóm có sẵn của Google news, ta sẽ trộn thêm một phần ngữ liệu khác có cùng các nhóm chủ với Google news để tạo thành tập huấn luyện mới.
@@ -449,11 +449,11 @@ Sau đó, ta sẽ sử dụng tập ngữ liệu tiếng Việt lẫn tiếng An
 Cuối cùng, ta sẽ có được mô hình doc2vec từ tập dữ liệu được huấn luyện và ta sẽ trích xuất vector của thể hiện văn bản để gom nhóm.
 Tuy nhiên, đối với ngữ liệu tiếng Việt, đồ án chỉ trích xuất các văn bản từ 300 nhóm của Google news vì ta chỉ muốn kiểm tra kết quả từ tập kiểm nghiệm này.
 
-Sau khi có được tập vector văn bản cần thiết từ mô hình doc2vec hay TFIDF, ta sẽ tiến hành gom nhóm phân cấp tích tụ với các tham số như sau: {\textit{n{\_}clusters}, \textit{linkage}, \textit{affinity}}.
-Đối với ngữ liệu tiếng Việt, tham số \textit{n{\_}clusters} có giá trị là 300, còn đối với tiếng Anh là 96.
+Sau khi có được tập vector văn bản cần thiết từ mô hình doc2vec hay TFIDF, ta sẽ tiến hành gom nhóm phân cấp kết hợp với các tham số như sau: $n{\_}clusters$, $linkage$, $affinity$.
+Đối với ngữ liệu tiếng Việt, tham số $n{\_}clusters$ có giá trị là 300, còn đối với tiếng Anh là 96.
 Như đã đề cập ở phần \ref{ahc-scikit}, thuật toán HAC có thể được điều chỉnh để thay đổi độ đo khoảng cách cũng như là cách liên kết nên kết quả thực nghiệm có thể khác nhau.
-Trong scikitlearn, ta có các cách thức liên kết như sau: {``ward'', ``complete'', ``average''}.
-Ngoải ra, ta còn có thể sử dụng các công thức tính khoảng cách khác nhau như: {``euclidean'', ``l1'', ``l2'', ``manhattan'', ``cosine''}.
+Trong scikit-learn, ta có các cách thức liên kết như sau: {``ward'', ``complete'', ``average''}.
+Ngoài ra, ta còn có thể sử dụng các công thức tính khoảng cách khác nhau như: {``euclidean'', ``l1'', ``l2'', ``manhattan'', ``cosine''}.
 Tuy nhiên, khi sử dụng liên kết ward, thuật toán chỉ có thể áp dụng được với công thức tính khoảng cách euclidean.
 Chính vì có nhiều tùy chọn, ta sẽ phải chạy thuật toán ứng với mỗi lựa chọn về khoảng cách kết hợp với các cách liên kết để có thể tìm ra được kết quả tối ưu nhất.
 Sau đó, ta sẽ sử dụng chỉ số NMI và ARI để so sánh kết quả gom nhóm từ 2 mô hình doc2vec và TFIDF.

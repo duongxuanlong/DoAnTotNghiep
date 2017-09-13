@@ -17,9 +17,9 @@
 %Tuy nhiên, trường hợp tổng quát cho độ phức tạp của thuật toán là $O(m^2 \log)m$.
 
 \section{Thể hiện văn bản}
-Như đã phân tích trong \ref{sec:dpt}, thuật toán gom nhóm phân cấp tích tụ có độ phức tạp khá cao và tốn nhiều dung lượng lúc thực thi.
+Như đã phân tích trong \ref{sec:dpt}, thuật toán gom nhóm phân cấp kết hợp có độ phức tạp khá cao và tốn nhiều dung lượng lúc thực thi.
 Đồ án tập trung vào nhiệm vụ cải thiện dung lượng của thuật toán lúc thực thi để có thể mở rộng giới hạn dữ liệu để gom nhóm và tăng tốc thời gian thực thi.
-Việc thuật toán tốn nhiều khoảng trống để chạy thực nghiệm một phần đến từ biểu diễn văn bản bằng vector có số chiều quá lớn.
+Việc thuật toán tốn nhiều dung lượng để chạy thực nghiệm một phần đến từ biểu diễn văn bản bằng vector có số chiều quá lớn.
 Chính vì vector có số chiều quá lớn nên không gian để lưu trữ cũng phải tăng theo.
 Giả sử ngữ liệu có $m$ văn bản, số lượng từ vựng là $n$ thì dung lượng cần thiết để biểu diễn toàn bộ ngữ liệu dưới dạng vector sẽ là $m * n$.
 Trong công thức trên, ta không thể thay đổi số lượng văn bản $m$ nên chỉ có thể cải thiện số chiều $n$ của vector để giảm bộ nhớ lúc thực thi.
@@ -28,7 +28,7 @@ Vì vậy, đồ án đã đề xuất thể hiện văn bản bằng doc2vec l�
 Việc văn bản được biểu diễn bằng vector là để giúp cho việc tính toán trở nên dễ dàng hơn do nội dung của văn bản đa phần bao gồm từ ngữ, câu chữ.
 Nếu văn bản được để nguyên định dạng để gom nhóm thì gây ra nhiều khó khăn cho việc tính toán.
 Vì vậy, văn bản sẽ được chuyển sang định dạng vector.
-Tuy nhiên, việc biểu diễn văn bản bằng vector có nhiều cách khác nhau và cách biểu diễn này có thể ảnh hưởng đến hiệu năng của thuật toán nên phải chọn cách biểu diễn thích hợp với thuật toán gom nhóm phân cấp tích tụ.
+Tuy nhiên, việc biểu diễn văn bản bằng vector có nhiều cách khác nhau và cách biểu diễn này có thể ảnh hưởng đến hiệu năng của thuật toán nên phải chọn cách biểu diễn thích hợp với thuật toán gom nhóm phân cấp kết hợp.
 
 Một trong số những cách biểu diễn văn bản bằng vector căn bản nhất là sử dụng vector nhị phân để xác định một từ có nằm trong vector hay không?
 Cách biểu diễn này xây dựng tập hợp từ của các văn bản, số lượng từ trong tập hợp cũng chính là số chiều của vector.
@@ -85,9 +85,9 @@ idf (t, D) = log \frac{N}{|{d \in D: t \in d}|}
 \end{equation}
 
 \begin{enumerate}
-\item[•]D: tập ngữ liệu
-\item[•]d: văn bản thuộc tập D
-\item[•]N: tổng số văn bản trong ngữ liệu N = |D|.
+\item[•]$D$: tập ngữ liệu
+\item[•]$d$: văn bản thuộc tập $D$
+\item[•]$N$: tổng số văn bản trong ngữ liệu $N = |D|$.
 \item[•]$|{d \in D: t \in d}|$: số lượng văn bản mà từ $t$ xuất hiện. Tuy nhiên trong trường hợp từ nào đó không xuất hiện trong văn bản thì có thể dẫn đến chia cho 0 nên phần này sẽ được sửa lại thành  $1 + |{d \in D: t \in d}|$
 \end{enumerate}
 
@@ -103,17 +103,17 @@ Vì vậy, một phương pháp biểu diễn khác để cải thiện vấn đ
 %\textbf{VB2}: ()
 
 
-\section{Gom nhóm phân cấp tích tụ với văn bản doc2vec}
+\section{Gom nhóm phân cấp kết hợp với văn bản doc2vec}
 Doc2vec là thuật toán học không giám sát để tạo ra vector thể hiện cho câu, đoạn văn hay là văn bản~\cite{doc2vec-1}.
 Thuật toán doc2vec là phần chỉnh sửa, nâng cấp từ word2vec.
-Đồ án sử dụng thuật toán doc2vec từ thư viện \ref{gensim} để huấn luyện tập dữ liệu.
+Đồ án sử dụng thuật toán doc2vec từ thư viện gensim\ref{gensim} để huấn luyện tập dữ liệu.
 Vì doc2vec là phần mở rộng từ word2vec nên có thể tái sử dụng lại những mẫu từ word2vec~\cite{doc2vec-2}. 
 Ta có thể dễ dàng chỉnh sửa lại chiều của vector, kích thước của tham số \textit{sliding window}, số lượng \textit{workers} hay là bất kì tham số nào tương ứng với việc thay đổi trong mô hình Word2vec.
 
 Điều duy nhất khác biệt giữa thuật toán doc2vec với word2vec là liên quan đến phương pháp huấn luyện khi sử dụng mô hình doc2vec.
-Trong kiến trúc word2vec, hai thuật toán được sử dụng là cbow (continuous bag of word) và sg (skip-gram).
-Đối với doc2vec, thuật toán tương ứng là dm (distributed memory) và dbow (distributed bags of words).
-Vì mô hình dm có hiệu năng tôt hơn đây sẽ là thuật toán mặc định lúc chạy doc2vec.
+Trong kiến trúc word2vec, hai thuật toán được sử dụng là continuous bag of word (cbow) và skip-gram (sg).
+Đối với doc2vec, thuật toán tương ứng là distributed memory (dm) và distributed bags of words (dbow).
+Vì mô hình dm có hiệu năng tốt hơn đây sẽ là thuật toán mặc định lúc chạy doc2vec.
 Tuy nhiên, ta vẫn có thể chuyển sang mô hình dbow nếu muốn bằng việc thiết lập cờ \textit{dm=0} trong hàm khởi tạo.
 
 Phần dữ liệu đầu vào của doc2vec là một dãy những đối tượng \textbf{TaggedDocument} với mỗi đối tượng thể hiện văn bản và có 2 phần cơ bản là tập hợp các từ và nhãn như sau:
@@ -150,12 +150,12 @@ model = Doc2Vec(size=100, window=10, min_count=1, workers=4, alpha=0.025, min_al
 
 Ý nghĩa của các tham số của doc2vec trong phần mã nguồn trên:
 \begin{enumerate}
-\item[•]documents: là dãy bao gồm các phần tử TaggedDocuments.
-\item[•]dm: cách huấn luyện mặc định, có giá trị mặc định là 1.
-\item[•]size: số chiều được thiết lập cho vector.
-\item[•]window: là khoảng cách tối đa giữa từ được dự đoán và từ được sử dụng trong ngữ cảnh dự đoán trong cùng một văn bản.
-\item[•]alpha: giá trị khởi tạo cho tỷ lệ học.
-\item[•]workers:  số lượng luồng được sử dụng để huấn luyện doc2vec.
+\item[•]$documents$: là dãy bao gồm các phần tử TaggedDocuments.
+\item[•]$dm$: cách huấn luyện mặc định, có giá trị mặc định là 1.
+\item[•]$size$: số chiều được thiết lập cho vector.
+\item[•]$window$: là khoảng cách tối đa giữa từ được dự đoán và từ được sử dụng trong ngữ cảnh dự đoán trong cùng một văn bản.
+\item[•]$alpha$: giá trị khởi tạo cho tỷ lệ học.
+\item[•]$workers$:  số lượng luồng được sử dụng để huấn luyện doc2vec.
 \end{enumerate}
 
 Sau khi huấn luyện xong, ta có thể trích xuất vector của văn bản dựa vào nhãn của từng văn bản.
@@ -168,40 +168,43 @@ Trong đó, tập dữ liệu tiếng Việt sẽ bao gồm 2 phần: tập hu�
 Khi huấn luyện doc2vec cho phần dữ liệu tiếng Việt, ta sẽ trộn 2 tập này thành dữ liệu đầu vào của thuật toán.
 Các tham số được sử dụng cũng như là giá trị của một số tham số sẽ được thiết lập như trong phần mã nguồn \ref{code:training}.
 Sau đó, đồ án sẽ trích xuất những vector từ mô hình doc2vec dựa vào nhãn của văn bản, riêng đối với dữ liệu tiếng Việt thì chỉ trích xuất từ tập kiểm nghiệm kết quả.
-Cuối cùng, những thể hiện vector có số chiều là 100 sẽ được đem đi gom nhóm phân cấp tích tụ.
+Cuối cùng, những thể hiện vector có số chiều là 100 sẽ được đem đi gom nhóm phân cấp kết hợp.
 
-Thuật toán gom nhóm phân cấp tích tụ sử dụng trong đồ án đến từ thư viện scikit-learn~\cite{hac-scikit}.
+Thuật toán gom nhóm phân cấp kết hợp sử dụng trong đồ án đến từ thư viện scikit-learn~\cite{hac-scikit}.
 
+\begin{lstlisting}[language=Python]
+AgglomerativeClustering(n_clusters=2, affinity=euclidean, memory=None, connectivity=None, compute_full_tree=auto, linkage=ward, pooling_func=<function mean>)
+\end{lstlisting}
 \label{ahc-scikit}
-\textit{AgglomerativeClustering(n{\_}clusters=2, affinity=`euclidean', \\
-memory=None, connectivity=None, compute{\_}full{\_}tree=`auto', \\
-linkage=`ward', pooling{\_}func=<function mean>)}
+%\textit{AgglomerativeClustering(n{\_}clusters=2, affinity=`euclidean', \\
+%memory=None, connectivity=None, compute{\_}full{\_}tree=`auto', \\
+%linkage=`ward', pooling{\_}func=<function mean>)}
 
-Ý nghĩa của các tham số trong thuật toán gom nhóm phân cấp tích tụ:
+Ý nghĩa của các tham số trong thuật toán gom nhóm phân cấp kết hợp:
 \begin{enumerate}
-\item[•]n{\_}clusters: số lượng nhóm cần phải tìm, có giá trị mặc định là 2.
-\item[•]affinity: công thức để tính khoảng cách giữa 2 văn bản, có nhiều công thức khác nhau: ``euclidean'', ``l1'', ``l2'', ``manhattan'', ``cosine'' và ``precomputed''.
+\item[•]$n{\_}clusters$: số lượng nhóm cần phải tìm, có giá trị mặc định là 2.
+\item[•]$affinity$: công thức để tính khoảng cách giữa 2 văn bản, có nhiều công thức khác nhau: ``euclidean'', ``l1'', ``l2'', ``manhattan'', ``cosine'' và ``precomputed''.
 Trong trường hợp cách liên kết ``ward'' được sử dụng thì chỉ có thể kết hợp với công thức tính khoảng cách ``euclidean''.
-\item[•]memory: thể hiện của lớp sklearn.externals.joblib.Memory hoặc là chuỗi, có giá trị mặc định là \textit{None}.
+\item[•]$memory$: thể hiện của lớp sklearn.externals.joblib.Memory hoặc là chuỗi, có giá trị mặc định là \textit{None}.
 Memory được sử dụng để lưu trữ cục bộ giá trị đầu ra của cây phân cấp.
 Mặc định thì giá trị này không được lưu.
 Trong trường hợp giá trị của memory là \textit{string} thì chính là đường dẫn đến thư mục lưu trữ cục bộ.
-\item[•]connectivity: tham số tùy chọn, là tham số dạng mảng hoặc là hàm.
+\item[•]$connectivity$: tham số tùy chọn, là tham số dạng mảng hoặc là hàm.
 Connectivity matrix là ma trận kết nối dùng để định nghĩa mỗi mẫu thì có mẫu lân cận theo cấu trúc dữ liệu có sẵn.
 Ma trận kết nối có thể là chính bản thân nó hoặc là dùng để chuyển hóa dữ liệu vào nó như dẫn xuất từ kneighbors{\_}graph.
 Giá trị mặc định của tham số này là \textit{None}.
-\item[•]compute{\_}full{\_}tree: có giá trị bool hoặc là ``auto'' và là tham số tùy chọn.
+\item[•]$compute{\_}full{\_}tree$: có giá trị bool hoặc là ``auto'' và là tham số tùy chọn.
 Tham số này có tác dụng kết thúc sớm việc tạo cây phân cấp tại nhóm thứ \textit{n{\_}clusters}.
 Điều này hữu dụng với việc giảm thời gian tính toán và nếu kết hợp với tham số ma trận kết nối.
-\item[•]linkage: cách thức liên kết trong gom nhóm phân cấp tích tụ với các tùy chọn như sau: {``ward'', ``complete'', ``average''} và cách liên kết mặc định là ``ward''.
-\item[•]pooling{\_}func: hàm, có giá trị mặc định là \textit{np.mean}.
+\item[•]$linkage$: cách thức liên kết trong gom nhóm phân cấp kết hợp với các tùy chọn như sau: {``ward'', ``complete'', ``average''} và cách liên kết mặc định là ``ward''.
+\item[•]$pooling{\_}func$: hàm, có giá trị mặc định là \textit{np.mean}.
 Tham số này kết hợp giá trị của đặc trưng tích tụ thành giá trị duy nhất.
 Ta có mảng [M, N] và tham số này là \textit{axis=1} thì mảng sẽ giảm xuống còn [M].
 \end{enumerate}
 
-Đồ án sử dụng gom nhóm phân cấp tích tụ như đã nêu ở phần \textit{AgglomerativeClustering} \ref{ahc-scikit} với các tham số {\textit{n{\_}clusters}, \textit{linkage}, \textit{affinity}}.
-Trong đó, giá trị \textit{n{\_}clusters} sẽ được thiết lập tùy vào dữ liệu đầu vào.
-Tiếp đến, đồ án sẽ tiến hành gom nhóm phân cấp tích tụ cho cả 2 mô hình doc2vec và TF-IDF.
+Đồ án sử dụng gom nhóm phân cấp kết hợp như đã nêu ở phần \textit{AgglomerativeClustering} \ref{ahc-scikit} với các tham số $n{\_}clusters$, $linkage$, $affinity$.
+Trong đó, giá trị $n{\_}clusters$ sẽ được thiết lập tùy vào dữ liệu đầu vào.
+Tiếp đến, đồ án sẽ tiến hành gom nhóm phân cấp kết hợp cho cả 2 mô hình doc2vec và TF-IDF.
 Sau khi kết thúc gom nhóm, đồ án sử dụng 2 chỉ số \ref{sec:NMI} và \ref{sec:ARI} để so sánh kết quả gom nhóm của doc2vec với TFIDF.
 Chi tiết phần thực nghiệm sẽ được nói rõ ở phần \ref{Chapter4}.
 %Dựa vào phân tích về tốc độ thực thi cũng như là ảnh hưởng đến lưu trữ bộ nhớ của gom nhóm phân cấp, ta có thể tiến hành cải thiện thuật toán dựa vào 2 hướng tiếp cận này.

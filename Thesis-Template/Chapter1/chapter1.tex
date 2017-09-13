@@ -1030,12 +1030,12 @@ Thuật toán sẽ được lặp cho đến khi hội tụ.
 
 Hướng tiếp cận này có ưu điểm là đơn giản, dễ hiểu.
 Không những vậy, gom nhóm văn bản phân chia còn tự động phân chia các văn bản vào một nhóm nhất định.
-Ngoải ra, phương pháp này tương đối hiệu quả và thường kết thúc ở tối ưu cục bộ.
+Ngoài ra, phương pháp này tương đối hiệu quả và thường kết thúc ở tối ưu cục bộ.
 
 Tuy nhiên, hướng tiếp cận này có khuyết điểm là phải chọn trước $K$ nhóm cần phải gom.
 Việc tất cả văn bản buộc phải gom vào một nhóm cố định có thể xuất hiện nhiễu trong kết quả cuối cùng.
 Vì thế mà phương pháp này nhạy cảm với nhiễu và các văn bản tách biệt vì không thể xử lý chúng.
-Ngoải ra, phương pháp gom nhóm phân chia không thích hợp để tìm kiếm hình dạng các nhóm mà không phải là đa giác lồi.
+Ngoài ra, phương pháp gom nhóm phân chia không thích hợp để tìm kiếm hình dạng các nhóm mà không phải là đa giác lồi.
 
 %\textbf{Ưu điểm}
 %\begin{enumerate}
@@ -1056,16 +1056,16 @@ Ngoải ra, phương pháp gom nhóm phân chia không thích hợp để tìm k
 \label{sec:gnvbpc}
 Gom nhóm văn bản phân cấp tạo ra các nhóm lồng vào nhau thành cấu trúc cây phân cấp~\cite{hierarchical-clustering}.
 Hình ảnh của cấu trúc cây phân cấp cho ta thấy được quan hệ giữa các nhóm.
-Phương pháp này có 2 cách tiếp cận khác nhau: gom nhóm phân cấp tích tụ  và gom nhóm phân cấp phân chia.
-Gom nhóm phân cấp tích tụ bắt đầu với mỗi nhóm là một văn bản rồi từ từ gom dần các văn bản lại với nhau cho đến khi chỉ còn một nhóm duy nhất.
-Gom nhóm phân cấp phân chia bắt đầu với tất cả các văn bản là một nhóm lớn rồi chia nhỏ dần nhóm này đến khi mỗi nhóm chỉ có một văn bản.
+Phương pháp này có 2 cách tiếp cận khác nhau: gom nhóm phân cấp kết hợp và gom nhóm phân cấp phân rã.
+Gom nhóm phân cấp kết hợp bắt đầu với mỗi nhóm là một văn bản rồi từ từ gom dần các văn bản lại với nhau cho đến khi chỉ còn một nhóm duy nhất.
+Gom nhóm phân cấp phân rã bắt đầu với tất cả các văn bản là một nhóm lớn rồi chia nhỏ dần nhóm này đến khi mỗi nhóm chỉ có một văn bản.
 
 Gom nhóm văn bản phân cấp có ưu điểm là gom nhóm mà không cần phải biết trước số lượng nhóm cụ thể.
 Không những vậy, ta có thể đạt được kết quả như gom nhóm phân chia khi thực hiện cắt tại một mức nào đó trên cây phân cấp.
 
 Tuy nhiên, gom nhóm văn bản phân cấp khi đã thực hiện quyết định gom nhóm thì không thể đảo ngược lại được.
 Khác với gom nhóm phân chia, phương pháp này không có hàm mục tiêu cụ thể để có thể tối ưu.
-Không những vậy, thuật toán này có độ phức tạp khá cao, ít nhất là $O(n^2)$ với n là số lượng nhóm cần phải gom.
+Không những vậy, thuật toán này có độ phức tạp khá cao, ít nhất là $O(n^2)$ với $n$ là số lượng nhóm cần phải gom.
 Như đã nói, ta có thể đạt được kết quả như gom nhóm phân chia khi thực hiện cắt tại một mức nào đó trên cây phân cấp.
 Tuy nhiên, việc xác định vết cắt không phải lúc nào cũng là điều dễ dàng.
 %\textbf{Ưu điểm}
@@ -1143,6 +1143,6 @@ Một vấn đề khác nữa là khi ta muốn cắt tại một mức nào đ�
 
 Dựa vào những khó khăn trên, đồ án đề xuất tìm cách thay đổi thể hiện của văn bản để có thể làm giảm số chiều của vector.
 Số chiều của vector giảm xuống nhằm giúp tăng hiệu năng thực thi của thuật toán (giúp cho thuật toán chạy nhanh hơn do phải tính toán trên vector có số chiều ít hơn).
-Ngoải ra, số chiều của vector giảm xuống cũng giúp cho dung lượng để lưu trữ thể hiện văn bản cũng giảm theo nên dung lượng lúc thực thi thuật toán được giảm xuống đáng kể.
+Ngoài ra, số chiều của vector giảm xuống cũng giúp cho dung lượng để lưu trữ thể hiện văn bản cũng giảm theo nên dung lượng lúc thực thi thuật toán được giảm xuống đáng kể.
 Để làm được như vậy, đồ án đề xuất sử dụng doc2vec để biểu diễn vector thể hiện cho văn bản nhằm thay thế cách sử dụng tần số của từ.
 Việc chuyển đổi thể hiện của văn bản là điểm đóng góp của đồ án với nhiệm vụ làm giảm số chiều của vector trong thể hiện văn bản để tăng nhanh quá trình thực thi và làm giảm dung lượng lưu trữ của thuật toán.
