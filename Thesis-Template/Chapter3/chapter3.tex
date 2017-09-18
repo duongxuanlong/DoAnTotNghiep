@@ -400,6 +400,14 @@ Mô hình sg được xem như là phần đối nghịch của cbow trong word2
 Trong cbow, mô hình dự đơán một chữ từ ngữ cảnh cho trước nhưng trong sg thì điều này ngược lại, nghĩa là ta sẽ sử dụng 1 chữ để dự đoán các chữ xung quanh chữ này.
 Hình~\ref{pic:sg} thể hiện mô hình sg trong word2vec.
 
+Như đã nói, mô hình sg là sự đối nghịch với mô hình cbow trong word2vec.
+Mô hình sg~\ref{pic:sg} thể hiện rõ điều đó khi so sánh với mô hình~\ref{pic:cbow}.
+Tượng tự như cbow, mạng nơ-ron của sg cũng có 3 lớp.
+Lớp đầu vào là một vector chữ theo one-hot và lớp đầu ra là tập vector one-hot $y_1, ..., y_C$.
+Ma trận trọng số $W$, có kích thước là $V * N$ (với $N$ được khởi tạo ngẫu nhiên), kết nối lớp đầu vào với lớp ẩn và mỗi dòng trong $W$ tương ứng với trọng số của từ thứ $i$ trong tập từ vựng.
+Ngoài ra, ma trận trọng số $W$ chứa vector mã hóa của tất cả các từ trong tập từ vựng.
+Lớp xuất tập các vector từ mà mỗi vector là sự kết hợp của ma trận $W'$ (có kích thước $N * V$) với lớp ẩn.
+
 \begin{figure}[htp]
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
 {
