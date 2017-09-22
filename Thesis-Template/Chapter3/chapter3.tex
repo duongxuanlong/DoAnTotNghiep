@@ -398,7 +398,7 @@ Thứ hai, tại bước dự đoán để có được vector cho đoạn văn 
 Mô hình dbow của doc2vec tương đồng với mô hình sg của word2vec.
 Mô hình sg được xem như là phần đối nghịch của cbow trong word2vec.
 Trong cbow, mô hình dự đơán một chữ từ ngữ cảnh cho trước nhưng trong sg thì điều này ngược lại, nghĩa là ta sẽ sử dụng 1 chữ để dự đoán các chữ xung quanh chữ này.
-Hình~\ref{pic:sg} thể hiện mô hình sg trong word2vec.
+Hình~\ref{pic:sg}~\cite{word2vec-sg} thể hiện mô hình sg trong word2vec.
 
 Như đã nói, mô hình sg là sự đối nghịch với mô hình cbow trong word2vec.
 Mô hình sg~\ref{pic:sg} thể hiện rõ điều đó khi so sánh với mô hình~\ref{pic:cbow}.
@@ -474,6 +474,43 @@ Lớp xuất tập các vector từ mà mỗi vector là sự kết hợp của 
 }
 \caption{Mô hình sg}
 \label{pic:sg}
+\end{figure}
+
+Hình~\ref{pic:sg} cho thấy được mô hình sg đối nghịch đối với cbow trong word2vec.
+Tương tự, mô hình dm và dbow cũng có mối quan hệ giống như vậy.
+Mô hình dm dựa vào ngữ cảnh của những từ đầu vào để dự đoán từ xuất hiện tiếp theo.
+Trong khi đó, dbow loại bỏ ngữ cảnh từ trong đầu vào và dự đoán ngẫu nhiên những từ trong đoạn văn ở lớp đầu ra.
+Trong thực tế, điều này có nghĩa là ở mỗi vòng lặp của độ xác suất biến thiên giảm dần, ta lấy mẫu từ khung văn bản, rồi sau đó lấy từ mẫu ngẫu nhiên từ khung văn bản này và tạo ra nhiệm vụ phân lớp dựa vào vector của đoạn văn bản.
+Kỹ thuật này được thể hiện trong ví dụ~\ref{vd:dbow}~\cite{doc2vec-original}.
+Nhóm tác giả đã đặt tên phiên bản này là Distributed Bag of Words version of Paragraph Vector (PV-DBOW).
+
+\begin{figure}[htp]
+\psscalebox{1.0 1.0} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-2.92)(9.56,2.92)
+\psdots[linecolor=black, fillstyle=solid, dotstyle=square, dotsize=0.4, fillcolor=white](6.8,1.08)
+\psdots[linecolor=black, fillstyle=solid, dotstyle=square, dotsize=0.4, fillcolor=white](7.2,1.08)
+\psdots[linecolor=black, fillstyle=solid, dotstyle=square, dotsize=0.4, fillcolor=white](7.6,1.08)
+\psdots[linecolor=black, fillstyle=solid, dotstyle=square, dotsize=0.4, fillcolor=white](8.0,1.08)
+\rput[bl](3.6,2.68){the}
+\rput[bl](5.6,2.68){cat}
+\rput[bl](7.6,2.68){sat}
+\rput[bl](9.2,2.68){on}
+\rput[bl](1.2,2.68){Classifier}
+\rput[bl](0.0,-1.72){Paragraph Matrix}
+\rput[bl](7.2,-1.72){\textbf{D}}
+\rput[bl](6.4,-2.92){Paragraph id}
+\psline[linecolor=black, linewidth=0.04, linestyle=dotted, dotsep=0.10583334cm, arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.0]{->}(2.8,-1.72)(6.8,-1.72)
+\psline[linecolor=black, linewidth=0.04](7.2,-2.52)(7.2,-1.72)
+\psline[linecolor=black, linewidth=0.04, arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.0]{->}(7.2,-1.32)(7.2,0.68)
+\psline[linecolor=black, linewidth=0.04, arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.0]{->}(6.8,1.48)(4.0,2.68)
+\psline[linecolor=black, linewidth=0.04, arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.0]{->}(7.2,1.48)(6.0,2.68)
+\psline[linecolor=black, linewidth=0.04, arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.0]{->}(7.6,1.48)(7.6,2.68)
+\psline[linecolor=black, linewidth=0.04, arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.0]{->}(8.0,1.48)(9.2,2.68)
+\end{pspicture}
+}
+\caption{Quá trình dự đoán của dbow}
+\label{vd:dbow}
 \end{figure}
 
 \section{Gom nhóm phân cấp kết hợp với văn bản doc2vec}
