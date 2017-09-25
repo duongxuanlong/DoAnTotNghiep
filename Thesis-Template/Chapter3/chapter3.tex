@@ -401,12 +401,12 @@ Trong cbow, mô hình dự đơán một chữ từ ngữ cảnh cho trước nh
 Hình~\ref{pic:sg}~\cite{word2vec-sg} thể hiện mô hình sg trong word2vec.
 
 Như đã nói, mô hình sg là sự đối nghịch với mô hình cbow trong word2vec.
-Mô hình sg~\ref{pic:sg} thể hiện rõ điều đó khi so sánh với mô hình~\ref{pic:cbow}.
+Mô hình sg~\ref{pic:sg} thể hiện rõ điều đó khi so sánh với mô hình cbow~\ref{pic:cbow}.
 Tượng tự như cbow, mạng nơ-ron của sg cũng có 3 lớp.
 Lớp đầu vào là một vector chữ theo one-hot và lớp đầu ra là tập vector one-hot $y_1, ..., y_C$.
-Ma trận trọng số $W$, có kích thước là $V * N$ (với $N$ được khởi tạo ngẫu nhiên), kết nối lớp đầu vào với lớp ẩn và mỗi dòng trong $W$ tương ứng với trọng số của từ thứ $i$ trong tập từ vựng.
+Ma trận trọng số $W$ có kích thước là $V * N$ (với $N$ được khởi tạo ngẫu nhiên), kết nối lớp đầu vào với lớp ẩn và mỗi dòng trong $W$ tương ứng với trọng số của từ thứ $i$ trong tập từ vựng.
 Ngoài ra, ma trận trọng số $W$ chứa vector mã hóa của tất cả các từ trong tập từ vựng.
-Lớp xuất tập các vector từ mà mỗi vector là sự kết hợp của ma trận $W'$ (có kích thước $N * V$) với lớp ẩn.
+Lớp xuất là tập các vector từ mà mỗi vector là sự kết hợp của ma trận $W'$ (có kích thước $N * V$) với lớp ẩn.
 
 \begin{figure}[htp]
 \psscalebox{1.0 1.0} % Change this value to rescale the drawing.
@@ -480,7 +480,7 @@ Hình~\ref{pic:sg} cho thấy được mô hình sg đối nghịch đối với
 Tương tự, mô hình dm và dbow cũng có mối quan hệ giống như vậy.
 Mô hình dm dựa vào ngữ cảnh của những từ đầu vào để dự đoán từ xuất hiện tiếp theo.
 Trong khi đó, dbow loại bỏ ngữ cảnh từ trong đầu vào và dự đoán ngẫu nhiên những từ trong đoạn văn ở lớp đầu ra.
-Trong thực tế, điều này có nghĩa là ở mỗi vòng lặp của độ xác suất biến thiên giảm dần, ta lấy mẫu từ khung văn bản, rồi sau đó lấy từ mẫu ngẫu nhiên từ khung văn bản này và tạo ra nhiệm vụ phân lớp dựa vào vector của đoạn văn bản.
+Trong thực tế, điều này có nghĩa là ở mỗi vòng lặp của độ xác suất biến thiên giảm dần, ta lấy mẫu khung văn bản, rồi từ khung văn bản này chọn ra từ ngẫu nhiên và tạo ra nhiệm vụ phân lớp dựa vào vector của đoạn văn bản.
 Kỹ thuật này được thể hiện trong ví dụ~\ref{vd:dbow}~\cite{doc2vec-original}.
 Nhóm tác giả đã đặt tên phiên bản này là Distributed Bag of Words version of Paragraph Vector (PV-DBOW).
 
@@ -514,10 +514,10 @@ Nhóm tác giả đã đặt tên phiên bản này là Distributed Bag of Words
 \end{figure}
 
 \section{Gom nhóm phân cấp kết hợp với văn bản doc2vec}
-Doc2vec là thuật toán học không giám sát để tạo ra vector thể hiện cho câu, đoạn văn hay là văn bản~\cite{doc2vec-1}.
-Thuật toán doc2vec là phần chỉnh sửa, nâng cấp từ word2vec.
+Như đã giới thiệu, doc2vec là thuật toán học không giám sát để tạo ra vector thể hiện cho câu, đoạn văn hay là văn bản.
+Thuật toán doc2vec cùng là phần chỉnh sửa, nâng cấp từ word2vec.
 Đồ án sử dụng thuật toán doc2vec từ thư viện gensim\ref{gensim} để huấn luyện tập dữ liệu.
-Vì doc2vec là phần mở rộng từ word2vec nên có thể tái sử dụng lại những mẫu từ word2vec~\cite{doc2vec-2}. 
+Vì doc2vec là phần mở rộng từ word2vec nên có thể tái sử dụng lại những mẫu từ word2vec. 
 Ta có thể dễ dàng chỉnh sửa lại chiều của vector, kích thước của tham số \textit{sliding window}, số lượng \textit{workers} hay là bất kì tham số nào tương ứng với việc thay đổi trong mô hình Word2vec.
 
 Điều duy nhất khác biệt giữa thuật toán doc2vec với word2vec là liên quan đến phương pháp huấn luyện khi sử dụng mô hình doc2vec.
